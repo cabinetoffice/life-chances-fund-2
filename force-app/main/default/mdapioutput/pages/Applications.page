@@ -1,0 +1,75 @@
+<apex:page controller="ApplicationsController" standardStylesheets="false" showHeader="false" docType="html-5.0" action="{!checkLoggedInStatus}">
+	<apex:composition template="Layout">
+		<apex:define name="breadcrumbs">
+		</apex:define>
+		<apex:define name="main">
+			
+			<div class="grid-row">
+				<div class="column-full">
+					<h1 class="heading-xlarge">Start a new application</h1>
+					<p class="lede">
+					  The Life Chances Fund (LCF) is an £80 million top-up fund, whose objective is to help those people in society who face the most significant barriers to leading happy and productive lives.
+					</p>
+					<p>
+					  The £80 million has been committed by central government to provide contributions for payment-by-results contracts, managed by socially minded investors. These contracts must be locally commissioned and aim to tackle complex social problems.
+					</p>
+					<p>You can use this online service to:</p>
+					<ul class="list list-bullet">
+					  <li>Start an Expression of Interest (EOI) and Development form to receive funding from the LCF</li>
+					  <li>Complete a Full Application, if your EOI is successful</li>
+					  <li>Report ongoing progress on your project</li>
+					</ul>
+					<p>If you need assistance with this online form, you can email <a href="mailto:lifechancesfund@biglotteryfund.org.uk">lifechancesfund@biglotteryfund.org.uk</a> or call 03454 102030 (Text relay: 18001 plus 0345 4 10 20 30 for those with a hearing or speech impairment). </p>
+                </div>
+            </div>
+            <div class="grid-row">
+				<div class="column-full">
+                	<h2 class="heading-large">Your applications</h2>
+                	<table class="applications">
+						<thead>
+							<tr>
+								<th scope="col">Theme</th>
+								<th scope="col">Stage of application</th>
+								<th class="numeric" scope="col">Status</th>
+							</tr>
+						</thead>
+						<tbody>
+							<apex:repeat value="{!applications}" var="application">
+								<tr>
+									<th scope="row" class="app-identifier">
+										{!application['Theme__c']} ({!application['Name']})
+									</th>
+									<td class="form-identifier">Financial health and fraud prevention</td>
+									<td class="numeric"><span class="status">SUCCESSFUL</span></td>
+								</tr>
+								<tr>
+									<th scope="row" class="app-identifier">&nbsp;</th>
+									<td class="form-identifier">Expression of interest</td>
+									<td class="numeric"><span class="status">SUCCESSFUL</span></td>
+								</tr>
+								<tr>
+									<th scope="row" class="app-identifier">&nbsp;</th>
+									<td class="form-identifier">Development grant</td>
+									<td class="numeric"><span class="status">SUCCESSFUL</span></td>
+								</tr>
+								<tr>
+									<th scope="row">&nbsp;</th>
+									<td class="form-identifier">
+										<apex:outputLink value="{!$Page.Sections}">
+										    Full application
+										    <apex:param name="form" value="lcf_full_app_1"/>
+										    <apex:param name="app" value="{!application['Name']}"/>
+										</apex:outputLink>
+									</td>
+									<td class="numeric"></td>
+								</tr>
+							</apex:repeat>
+						</tbody>
+					</table>
+
+				</div>
+			</div>
+
+		</apex:define>
+	</apex:composition>
+</apex:page>

@@ -1,0 +1,23 @@
+<apex:page showHeader="false" controller="SiteLoginController" standardStylesheets="false" id="page">
+	<apex:composition template="SIB_Template">	
+		<apex:define name="body">
+			<apex:form id="loginForm" forceSSL="true">
+                <apex:messages styleClass="error-summary" id="error"/>
+				<h2 class="heading-large">Sign In</h2>
+				<div class="form-group">
+					<label class="form-label" for="userame">Email Address</label>
+					<apex:inputText styleClass="form-control" id="username" value="{!username}"/>
+				</div>
+				<div class="form-group">
+					<label class="form-label" for="passwordField">Password</label>
+					<apex:inputSecret styleClass="form-control" id="passwordField" value="{!password}"/>
+				</div>
+				<apex:commandButton styleClass="button" action="{!login}" value="Sign in" id="loginButton"/>
+				<h3 class="heading-medium"> Problems signing in </h3>
+		        <apex:outputLink value="{!$Page.SIB_SelfReg}" rendered="{!$Site.RegistrationEnabled}">I want to create a new account</apex:outputLink>
+		        <br/>
+		        <apex:outputLink value="{!$Page.SIB_ForgotPassword}">Forgotten password</apex:outputLink>
+	        </apex:form>
+		</apex:define>
+	</apex:composition>
+</apex:page>

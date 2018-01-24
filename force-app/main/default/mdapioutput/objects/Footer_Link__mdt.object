@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This custom setting will contain the href, target, label to display on the footer section on the SIB_Template page.</description>
+    <label>Footer Link</label>
+    <pluralLabel>Footer Links</pluralLabel>
+    <visibility>Public</visibility>
+    <fields>
+        <fullName>Active__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This field will define whether or not the link should display on the template page.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>This field will define whether or not the link should display on the template page.</inlineHelpText>
+        <label>Active</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Target__c</fullName>
+        <description>This field will house the target you wish to display in the "target" on the &lt;a> tag. Please note: values from the following link are valid markup:
+
+https://www.w3schools.com/tags/att_a_target.asp</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>This field will house the target you wish to display in the "target" on the &lt;a> tag. Please note: values from the following link are valid markup:
+
+https://www.w3schools.com/tags/att_a_target.asp</inlineHelpText>
+        <label>Target</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>URL__c</fullName>
+        <description>This field will house the URL you wish to display in the "href" tag on the &lt;a> tag.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>This field will house the URL you wish to display in the "href" tag on the &lt;a> tag.</inlineHelpText>
+        <label>URL</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+</CustomObject>

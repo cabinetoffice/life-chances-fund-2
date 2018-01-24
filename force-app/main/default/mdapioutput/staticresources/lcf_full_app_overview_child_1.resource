@@ -1,0 +1,26 @@
+{
+	"id": "lcf_full_app_overview_child_1",
+	"target_object": "Form_LCF_Commissioner_1__c",
+	"status_field": "ov_section_status__c",
+	"parent_relationship": "full_application__r",
+	"pages": [
+		{
+			"id": "1",
+			"questions": [
+				{ "target_field": "co_organisation_name__c" }
+			],
+			"routes": [
+				{ "target_page": "2" }
+			]
+		},
+		{
+			"id": "2",
+			"questions": [
+				{ "target_field": "co_lead_contact_name__c" },
+				{ "target_field": "co_job_title__c" },
+				{ "target_field": "co_email__c" },
+				{ "target_field": "co_contact_number__c" }
+			]
+		}
+	]
+}

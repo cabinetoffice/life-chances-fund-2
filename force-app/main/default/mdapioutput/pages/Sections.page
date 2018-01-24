@@ -1,0 +1,79 @@
+<apex:page controller="SectionsController" standardStylesheets="false" showHeader="false" docType="html-5.0" action="{!initialAction}">
+	<apex:composition template="Layout">
+		<apex:define name="breadcrumbs">
+		    <div class="breadcrumbs">
+                <ol>
+                    <li><apex:outputLink value="{!$Page.Applications}">Applications</apex:outputLink></li>
+                    <li aria-current="page">{!form.title}</li>
+                </ol>
+            </div>
+		</apex:define>
+		<apex:define name="main">
+			
+            <h1 class="heading-xlarge">
+                <span class="heading-secondary">{!application['Theme__c']}</span>
+                {!form.title}
+            </h1>
+
+			<div class="grid-row">
+				<div class="column-two-thirds">
+					<p>Complete the sections below.</p>
+
+                	<table class="sections">
+						<thead>
+							<tr>
+								<th scope="col">Section</th>
+								<th class="numeric" scope="col">Status</th>
+							</tr>
+						</thead>
+						<tbody>
+							<apex:variable value="{!1}" var="count"/>
+							<apex:repeat value="{!form.sections}" var="section">
+                    			<tr>
+									<th scope="row" class="section-identifier">
+										<apex:outputLink value="{!$Page.Start}">
+										    {!count}. {!section.title}
+										    <apex:param name="form" value="{!form.id}"/>
+										    <apex:param name="section" value="{!section.id}"/>
+										    <apex:param name="app" value="{!application['Name']}"/>
+										</apex:outputLink>
+									</th>
+									<!-- <td class="numeric"><span class="status">INCOMPLETE</span></td> -->
+									<td class="numeric"><span class="status">{!targetObject[section.status_field]}</span></td>
+								</tr>
+								<apex:variable value="{!count + 1}" var="count"/>
+                    		</apex:repeat>
+						</tbody>
+					</table>
+					<br />
+					<apex:form >
+						<apex:commandLink value="View all answers" action="{!viewAll}"/ >
+					</apex:form>
+				</div>
+			</div>
+
+			<div class="grid-row">
+				<div class="column-full">
+
+					<br /><br />
+					<div class="notice">
+					  <i class="icon icon-important">
+					    <span class="visually-hidden">Warning</span>
+					  </i>
+					  <strong class="bold-small">
+					    You must complete all sections before submitting your application.
+					  </strong>
+					</div>
+
+					<br />
+
+					<apex:form >
+		                <apex:commandButton value="Submit application" action="{!submit}" styleClass="button" disabled="true" html-aria-disabled="true" />
+		            </apex:form>
+
+                </div>
+            </div>
+
+		</apex:define>
+	</apex:composition>
+</apex:page>
