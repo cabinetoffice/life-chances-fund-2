@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pages_for_Add_Another__c</fullName>
+    <externalId>false</externalId>
+    <label>Pages for Add Another</label>
+    <summarizedField>Child_Record_Question__c.Page_Number_To_Display_On__c</summarizedField>
+    <summaryForeignKey>Child_Record_Question__c.Application_Question__c</summaryForeignKey>
+    <summaryOperation>max</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

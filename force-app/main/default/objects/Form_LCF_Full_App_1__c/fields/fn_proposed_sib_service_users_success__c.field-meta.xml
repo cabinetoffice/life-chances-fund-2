@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>fn_proposed_sib_service_users_success__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Number of service users achieving at least one positive outcome</inlineHelpText>
+    <label>FN - Proposed SIB (Service User Success)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

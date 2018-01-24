@@ -1,0 +1,41 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" id="newAppPage" controller="SIB_NewApplicationController" action="{!checkLoggedInStatus}">
+	<apex:composition template="SIB_Template">
+		<apex:define name="body">
+			<apex:form id="form">
+				<apex:outputPanel id="outputPanel">
+					<apex:commandLink action="{!URLFOR($Page.SIB_ApplicationList)}" value="< Back"/>
+						<h1 class="heading-large">What theme are you applying for?</h1>
+						<br/>
+						<form name="typeRadioForm">
+							<div class="form-group">
+								<fieldset>
+									<legend class="visually-hidden">What theme are you applying for?</legend>
+									<apex:repeat value="{!themeNameToIdMap}" var="t">
+										<label class="block-label selection-button-radio">
+											<input onchange="setRadioAnswer('{!themeNameToIdMap[t]}')" type="radio" id="{!themeNameToIdMap[t]}" name="typeRadio"/>
+											{!t}
+										</label>
+									</apex:repeat>
+								</fieldset>
+							</div>
+						</form>
+						<!-- This non breaking space is needed, otherwise the radio checkbox goes into the footer for some reason !-->
+						&nbsp;
+						<apex:outputPanel id="buttons">
+							<apex:commandButton styleClass="button" rendered="{!selectedTheme != ''}" action="{!startApplication}" value="Start Application"/>
+                            <br/><br/>
+						</apex:outputPanel>
+				</apex:outputPanel>
+				<script>
+                    function setRadioAnswer(valueToSet){
+			            rerenderPage(valueToSet);
+			            document.getElementById(valueToSet).checked = true;
+                    }
+                </script>
+                <apex:actionFunction name="rerenderPage" action="{!setValue}" reRender="buttons">
+                	<apex:param name="valueToSet" value=""/>
+            	</apex:actionFunction>
+			</apex:form>
+		</apex:define>
+	</apex:composition>
+</apex:page>

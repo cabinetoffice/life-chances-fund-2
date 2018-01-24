@@ -1,0 +1,49 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" controller="SIB_ApplicationListController" action="{!checkLoggedInStatus}">
+	<apex:composition template="SIB_Template">
+	<apex:define name="body">
+    <apex:outputPanel >
+      <apex:outputLink value="{!$Site.Prefix}/secur/logout.jsp">Back</apex:outputLink>
+    </apex:outputPanel>
+    <br/>
+    <br/>
+		<apex:form id="form">
+  		<apex:pageBlock >
+      	<h2 class="heading-large" style="padding-top:10px;">Start a new application</h2>
+				<apex:outputText value="{!$Label.SIB_Landing_Page_Help_Text}" escape="false"/>
+				<apex:commandButton action="{!URLFOR($Page.SIB_NewApplication)}" styleClass="button" value="Start"/>
+      	<h2 class="heading-large" style="padding-top:10px;">Your applications</h2>
+        	<table class="padding-table">
+        		<tr>
+        			<td><h4 class="heading-small">Theme</h4></td>
+        			<td colspan="2"><h4 class="heading-small">Stage of application</h4></td>
+      			</tr>
+      			<apex:repeat value="{!applications}" var="app">
+      				<tr>
+      					<td scope="col" class="nobottomborder"> {!app.Theme__c} ({!app.Name}) </td>
+      					<td scope="col"> <apex:outputLink styleClass="sectionlink" value="/sib_applicationForm?id={!app.Id}&formType=Financial%20health%20and%20fraud%20prevention"> Financial health and fraud prevention </apex:outputLink> </td>
+      					<td scope="col"> <apex:outputText rendered="{!app.Identity_Check_External_Status__c != '' && app.Identity_Check_External_Status__c != null}" styleClass="status" value="{!app.Identity_Check_External_Status__c}"/> </td>                        
+  						</tr>
+  						<tr>
+      					<td class="nobottomborder"> &nbsp;</td>
+      					<td scope="col"> <apex:outputLink value="/sib_applicationForm?id={!app.Id}&formType=Expression%20Of%20Interest" styleClass="sectionlink">  Expression of interest </apex:outputLink></td>
+      					<td scope="col"> <apex:outputText styleClass="status" value="{!app.EOI_External_Status__c}"/> </td>
+    					</tr>
+  						<tr>
+      					<td class="nobottomborder"> &nbsp;</td>
+                        <td scope="col"> <apex:outputLink styleClass="sectionlink" value="/sib_applicationForm?id={!app.Id}&formType=Development%20Form"> Development grant </apex:outputLink> </td>
+      					<td scope="col"> <apex:outputText rendered="{!app.Dev_Form_External_Status__c != '' && app.Dev_Form_External_Status__c != null}" styleClass="status" value="{!app.Dev_Form_External_Status__c}"/> </td>
+                    	</tr>
+                        <tr>
+      					<td> &nbsp;</td>
+      					<td scope="col"> <apex:outputLink styleClass="sectionlink" value="/sib_applicationForm?id={!app.Id}&formType=Full%20Application" rendered="{!app.Status__c=='Successful'}"> Full application </apex:outputLink> 
+                            <apex:outputText value="Full Application" rendered="{!app.Status__c!='Successful'}"> </apex:outputText>
+                        </td>
+      					<td scope="col"> <apex:outputText rendered="{!app.Full_Application_External_Status__c != '' && app.Full_Application_External_Status__c != null}" styleClass="status" value="{!app.Full_Application_External_Status__c}"/> </td>
+    					</tr>
+						</apex:repeat>
+					</table>
+				</apex:pageBlock>
+			</apex:form>
+		</apex:define>
+	</apex:composition>
+</apex:page>

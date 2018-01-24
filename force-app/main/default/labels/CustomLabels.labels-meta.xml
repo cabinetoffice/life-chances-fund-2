@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>SIB_Forgot_Password_Confirm</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SIB Forgot Password Confirm</shortDescription>
+        <value>You will receive an automatic email to reset your password in your inbox in a few minutes.
+If you don't receive any email from us, it could be because the email address that you had typed in doesn't exist in our system. Only already registered users will be able to reset their passwords. If you need to create an account, please go to our registration page.
+
+If you experience any difficulties in resetting your password, please contact lifechancesfund@biglotteryfund.org.uk.</value>
+    </labels>
+    <labels>
+        <fullName>SIB_Guest_Profile</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SIB_Guest_Profile</shortDescription>
+        <value>00e25000000MAdNAAW</value>
+    </labels>
+    <labels>
+        <fullName>SIB_Landing_Page_Help_Text</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SIB :Landing Page Help Text</shortDescription>
+        <value>&lt;br/>
+The Life Chances Fund (LCF) is an £80 million top-up fund, whose objective is to help those people in society who face the most significant barriers to leading happy and productive lives. The £80 million has been committed by central government to provide contributions for payment-by-results contracts, managed by socially minded investors. These contracts must be locally commissioned and aim to tackle complex social problems.&lt;br/>
+&lt;br/>
+You can use this online service to:
+&lt;ul style="list-style-type:disc">
+  &lt;li>Start an Expression of Interest (EOI) and Development form to receive funding from the LCF&lt;/li>
+  &lt;li>Complete a Full Application, if your EOI is successful&lt;/li>
+  &lt;li>Report ongoing progress on your project&lt;/li>
+&lt;/ul> 
+If you need assistance with this online form, you can email lifechancesfund@biglotteryfund.org.uk or call 03454 102030 (Text relay: 18001 plus 0345 4 10 20 30 for those with a hearing or speech impairment).
+&lt;br/>&lt;br/></value>
+    </labels>
+</CustomLabels>

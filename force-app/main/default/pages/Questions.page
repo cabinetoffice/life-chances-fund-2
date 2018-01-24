@@ -1,0 +1,192 @@
+<apex:page controller="QuestionsController" standardStylesheets="false" showHeader="false" docType="html-5.0" action="{!checkLoggedInStatus}">
+    <style type="text/css">
+        .boxstyle {width:38px; height:38px; border-color:black;}
+    </style>
+
+    <apex:composition template="Layout">
+        <apex:define name="breadcrumbs">
+            <div class="breadcrumbs">
+                <ol>
+                    <li><apex:outputLink value="{!$Page.Applications}">Applications</apex:outputLink></li>
+                    <li>
+                        <apex:outputLink value="{!$Page.Sections}">
+                            {!form.title}
+                            <apex:param name="form" value="{!form.id}"/>
+                            <apex:param name="app" value="{!application['Name']}"/>
+                        </apex:outputLink>
+                    </li>
+                    <li aria-current="page">{!section.title}</li>
+                </ol>
+            </div>
+        </apex:define>
+        <apex:define name="main">
+            <div class="question-container">
+
+                <a href="#" onclick="window.history.go(-1); return false;" class="link-back">Back</a>
+
+                <!--<div class="grid-row">
+                    <div class="column-two-thirds">
+
+                        <div class="error-summary" role="alert" aria-labelledby="error-summary-heading-1" tabindex="-1">
+
+                            <h2 class="heading-medium error-summary-heading" id="error-summary-example-1">
+                                Message to alert the user to a problem goes here
+                            </h2>
+
+                            <p>Optional description of the errors and how to correct them</p>
+
+                            <ul class="error-summary-list">
+                                <li><a href="#example-personal-details">Descriptive link to the question with an error</a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>-->
+
+                <apex:pageBlock rendered="{!currentPage.title != null}">
+                	<apex:outputPanel rendered="{!currentPage.children == null}">
+	                    <h1 class="heading-large">
+	                        {!currentPage.title}
+	                    </h1>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!currentPage.children != null}"> 
+	                    <h1 class="heading-medium">
+	                        {!currentPage.title}
+	                    </h1>
+                    </apex:outputPanel>
+                </apex:pageBlock>
+
+                <apex:pageBlock rendered="{!currentPage.guidance != null}">
+                    <p>{!currentPage.guidance}</p>
+                </apex:pageBlock>
+
+                <apex:form id="theForm">
+                	<apex:outputPanel id="childPanel">
+                    <apex:pageBlock id="children" rendered="{!currentPage.children != null}">
+                        <table>
+                          <tbody>
+                            <apex:repeat value="{!targetObjects}" var="targetObject">
+                                <tr>
+									<td width="90%">
+                                    <apex:commandLink value="{!targetObject[currentPage.children.target_field]}" action="{!changeChild}">
+                                        <apex:param name="identifier" value="{!targetObject['Name']}" assignTo="{!modifyChildIdentifier}"/>
+                                    </apex:commandLink> 
+									</td>
+									<td width="10%">
+                                    <apex:commandLink value="Remove" action="{!removeChild}" rerender="childPanel">
+                                        <apex:param name="identifier" value="{!targetObject['Id']}" assignTo="{!removeChildId}"/>
+                                    </apex:commandLink> 
+                                    </td>
+                                </tr>
+                            </apex:repeat>
+                          </tbody>
+                        </table>
+
+                        <br />
+                        <apex:commandLink value="+ Add another" action="{!addAnother}" styleClass=""></apex:commandLink> 
+                    </apex:pageBlock>
+                    </apex:outputPanel>
+
+                    <apex:pageBlock rendered="{!currentPage.questions != null}">
+                        <apex:repeat value="{!fields}" var="field">
+                            <div class="form-group" id="sp-text-group">
+
+                                <apex:messages ></apex:messages>
+
+                                <apex:pageBlock rendered="{!field.isTextField == true}">
+                                    <legend>
+                                        <h1 class="heading-medium">{!field.label}</h1>
+                                        <p>{!field.guidance}</p>
+                                    </legend>
+       
+                                    <apex:pageBlock rendered="{!field.isCurrency == true}">
+                                    	£&nbsp;<apex:inputField value="{!targetObject[field.identifier]}" styleClass="form-control" />
+                                    </apex:pageBlock>
+                                    <apex:pageBlock rendered="{!field.isCurrency == false}">
+                                    	<apex:inputField value="{!targetObject[field.identifier]}" styleClass="form-control" />
+                                    </apex:pageBlock>
+
+                                    <apex:pageBlock rendered="{!field.recommendedWordLimit != null}">
+                                        <p><span class="form-hint">Recommended word limit: {!field.recommendedWordLimit}</span></p>
+                                    </apex:pageBlock> 
+
+                                </apex:pageBlock>
+
+                                <apex:pageBlock rendered="{!field.isCheckBox == true}">
+                                    <div class="multiple-choice">
+                                        <apex:inputCheckbox value="{!targetObject[field.identifier]}"/>
+                                        <label for="waste-type-1">{!field.label}</label>
+                                    </div>
+                                </apex:pageBlock>
+
+                                <apex:pageBlock rendered="{!field.isSelectField == true}">
+                                    <legend>
+                                        <h1 class="heading-medium">{!field.label}</h1>
+                                        <p>{!field.guidance}</p>
+                                    </legend>
+                                    <div class="needs-style">
+                                        <!--<apex:selectCheckboxes borderVisible="false" value="{!field.valueList}" layout="pageDirection">
+                                            <apex:selectOptions value="{!field.values}"></apex:selectOptions>
+                                        </apex:selectCheckboxes>-->
+                                        <ol style="list-style-type:none">
+                                        <apex:repeat value="{!field.optionList}" var="opt">
+                                        	<li>
+			                                    <div class="multiple-choice">
+			                                        <apex:inputCheckbox value="{!opt.selected}"/>
+			                                        <label for="waste-type-1">{!opt.value}</label>
+			                                    </div>
+			                                    <div>&nbsp;</div>
+			                                </li>
+                                        </apex:repeat>
+                                        </ol>
+                                    </div>
+                                </apex:pageBlock>
+
+                                <apex:pageBlock rendered="{!field.isRadioField == true}">
+                                    <legend>
+                                        <h1 class="heading-medium">{!field.label}</h1>
+                                        <p>{!field.guidance}</p>
+                                    </legend>
+
+                                    <div class="coform-radios">
+                                        <apex:selectRadio value="{!targetObject[field.identifier]}" layout="pageDirection">
+                                            <apex:selectOptions value="{!field.values}"></apex:selectOptions>
+                                        </apex:selectRadio>
+                                    </div>
+                                </apex:pageBlock>
+
+                                <apex:pageBlock rendered="{!field.isDateField == true}">
+                                    <legend>
+                                        <h1 class="heading-medium">{!field.label}</h1>
+                                        <p>{!field.guidance}</p>
+                                    </legend>
+
+                                    <div class="form-date">
+                                        <div class="form-group form-group-day">
+                                            <label class="form-label" for="dob-day">Day</label>
+                                            <apex:inputText value="{!field.dateDay}" styleClass="form-control" html-type="number" html-pattern="[0-9]*" html-min="0" html-max="31" />
+                                        </div>
+                                        <div class="form-group form-group-month">
+                                            <label class="form-label" for="dob-month">Month</label>
+                                            <apex:inputText value="{!field.dateMonth}" styleClass="form-control" html-type="number" html-pattern="[0-9]*" html-min="0" html-max="12" />
+                                        </div>
+                                        <div class="form-group form-group-year">
+                                          <label class="form-label" for="dob-year">Year</label>
+                                          <apex:inputText value="{!field.dateYear}" styleClass="form-control" html-type="number" html-pattern="[0-9]*" html-min="0" html-max="2050" />
+                                        </div>
+                                    </div>
+                                </apex:pageBlock>
+
+                            </div>
+                        </apex:repeat>
+                    </apex:pageBlock>
+
+                    <br />
+                    <apex:commandButton value="Save and continue" action="{!saveContinue}" styleClass="button" />
+                    <br /><br />
+                    <apex:commandLink value="Save and come back later" action="{!saveExit}" />
+                </apex:form>
+            </div>
+        </apex:define>
+    </apex:composition>
+</apex:page>

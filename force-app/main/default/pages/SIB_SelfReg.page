@@ -1,0 +1,113 @@
+<apex:page id="communitiesSelfRegPage" standardStylesheets="false" showHeader="false" controller="SIB_SelfRegController" title="{!$Label.site.user_registration}">
+	<apex:composition template="SIB_Template">
+		<apex:define name="body">
+			<apex:form id="form" forceSSL="true">
+				<apex:messages styleClass="errorMessages" id="error"/>
+				<apex:pageBlock id="pageBlock" mode="mainDetail">
+					<apex:outputPanel >
+						<apex:commandLink rendered="{!pageNumber != 1}" value="Back" immediate="true" action="{!previousPage}" reRender="form"/>
+						<apex:outputLink rendered="{!pageNumber == 1}" value="{!$Page.SIB_Login}">Back</apex:outputLink>
+					</apex:outputPanel>
+					<apex:outputPanel id="holderPanel">
+						<apex:outputPanel rendered="{!pageNumber == 1}">
+							<h2 class="heading-medium"> Your Details </h2>
+							<div class="form-group">
+								<label class="form-label" for="firstName" tabindex="1"> First name </label>
+								<apex:inputText styleClass="form-control" id="firstName" value="{!firstName}"/>
+							</div>
+							<div class="form-group">
+								<label class="form-label" for="lastName" tabindex="2"> Last name </label>
+								<apex:inputText styleClass="form-control" id="lastName" value="{!lastName}"/>
+							</div>
+							<div class="form-group">
+								<label class="form-label" for="email" tabindex="3"> Email address </label>
+								<apex:inputText styleClass="form-control" id="email" value="{!email}"/>
+							</div>
+							<div class="form-group">
+								<label class="form-label" for="orgName" tabindex="4"> Organisation name </label>
+								<apex:inputText styleClass="form-control" id="orgName" value="{!organisationName}"/>
+							</div>
+							<br/>
+						</apex:outputPanel>
+						<apex:outputPanel rendered="{!pageNumber == 2}" id="page2OP">
+							<h2 class="heading-medium"> What type of organisation is it? </h2>
+							<form name="typeRadioForm">
+								<div class="form-group">
+									<fieldset>
+										<legend class="visually-hidden">What type of organisation is it?</legend>
+										<apex:repeat value="{!types}" var="t">
+											<label class="block-label selection-button-radio">
+												<input onchange="setRadioAnswerJava('{!orgTypeMap[t]}')" id="{!t}" type="radio" name="typeRadio"/>
+												{!t}
+											</label>
+										</apex:repeat>
+									</fieldset>
+								</div>
+							</form>
+						</apex:outputPanel>
+						<apex:outputPanel id="otherType" rendered="{!pageNumber == 2}">
+							<apex:outputPanel rendered="{!typeSelected == 'Other'}">
+								<div class="panel panel-border-narrow js-hidden">
+									<label class="form-label" for="orgTypeOther"> Please specify </label>
+									<apex:inputText styleClass="form-control" id="orgTypeOther" value="{!orgTypeOther}"/>
+								</div>
+							</apex:outputPanel>
+							<br/>
+						</apex:outputPanel>
+
+						<apex:outputPanel rendered="{!pageNumber == 3}">
+							<h2 class="heading-medium"> Where is your organisation based?  </h2>
+							<div class="form-group">
+								<apex:repeat value="{!nameToCBW['regions']}" var="region" >
+									<label class="block-label selection-button-checkbox" for="theme-checkbox">
+										<apex:inputCheckbox id="theme-checkbox" value="{!region.isSelected}"/>
+										{!region.checkboxName}
+									</label>
+								</apex:repeat>
+							</div>
+						</apex:outputPanel>
+
+						<apex:outputPanel rendered="{!pageNumber == 4}">
+							<h2 class="heading-medium">Which themes are you interested in? </h2>
+							<p>Please select all that apply</p>
+							<div class="form-group">
+								<apex:repeat value="{!nameToCBW['themes']}" var="theme" >
+									<label class="block-label selection-button-checkbox" for="theme-checkbox">
+										<apex:inputCheckbox id="theme-checkbox" value="{!theme.isSelected}"/>
+										{!theme.checkboxName}
+									</label>
+								</apex:repeat>
+							</div>
+						</apex:outputPanel>
+
+						<apex:outputPanel id="buttons">
+							<apex:commandButton rendered="{!pageNumber == 4}" styleClass="button" action="{!registerUser}" value="Submit" id="submit"/>
+							<apex:commandButton rendered="{!pageNumber != 4}" styleClass="button" action="{!nextPage}" value="Continue" id="continue" reRender="form"/>
+						</apex:outputPanel>
+					</apex:outputPanel>
+				</apex:pageBlock> 
+				<br/>
+				<apex:actionFunction name="setRadioAnswer" action="{!setRadioAnswer}" reRender="otherType">
+					<apex:param value="" name="selectedType"/>
+				</apex:actionFunction>
+				<!-- Reset functions -->
+				<script>
+					var selectedRadioButton;
+					function setRadioAnswerJava(valueToSet){
+						console.log('valueToSet');
+						console.log(valueToSet);
+						selectedRadioButton = valueToSet;
+						setRadioAnswer(valueToSet);
+					}
+					var inputElements = document.getElementsByName('typeRadio');
+					for(var i=0; inputElements[i]; ++i){
+						inputElements[i].checked = selectedRadioButton == inputElements[i].id;
+					}
+					document.body.scrollTop = document.documentElement.scrollTop = 0;
+				</script>
+				<!-- End reset functions -->
+			</apex:form>
+			<br/>
+		</apex:define>
+	</apex:composition>
+</apex:page>

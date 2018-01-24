@@ -1,0 +1,15 @@
+<apex:page showHeader="false" standardStylesheets="false">
+	<apex:composition template="SIB_Template">
+		<apex:define name="body">
+			<br/>
+			<h1 class="heading-xlarge">Email Confirmation Required</h1>
+				<apex:outputText styleClass="title" value="You have been sent an email with a confirmation link. Please check your email and click on the confirmation link to finish creating your account for the Life Chances Fund"/>
+			<br/>
+			<br/>
+			<apex:form >
+				<apex:commandLink styleClass="btn button" action="{!URLFOR($Page.SIB_Login)}" rendered="{!$Site.LoginEnabled}"> Log In </apex:commandLink>
+      		</apex:form>
+			<br/>
+		</apex:define>
+	</apex:composition>
+</apex:page>

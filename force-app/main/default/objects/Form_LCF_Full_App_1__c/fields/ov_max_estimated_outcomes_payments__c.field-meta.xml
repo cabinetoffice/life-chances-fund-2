@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ov_max_estimated_outcomes_payments__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>How much, as a maximum, are the total estimated outcomes payments for your project, including the Life Chances Fund contribution?</inlineHelpText>
+    <label>OV - Max Estimated Outcomes Payments</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

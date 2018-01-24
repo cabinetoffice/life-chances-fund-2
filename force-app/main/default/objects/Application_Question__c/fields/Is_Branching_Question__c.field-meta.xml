@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Branching_Question__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This should be checked if the question is a branching question and the template may need changing.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This should be checked if the question is a branching question and the template may need changing.</inlineHelpText>
+    <label>Is Branching Question</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

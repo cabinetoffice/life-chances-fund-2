@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>fn_alternative_service_users_alt__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Number of service users completing an alternative intervention</inlineHelpText>
+    <label>FN - Alternative Service Users (Alt)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

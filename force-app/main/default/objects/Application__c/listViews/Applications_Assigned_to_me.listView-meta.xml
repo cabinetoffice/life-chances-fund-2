@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Applications_Assigned_to_me</fullName>
+    <columns>NAME</columns>
+    <columns>Contact__c</columns>
+    <columns>Status__c</columns>
+    <columns>Reviewer__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Reviewer__c</field>
+        <operation>contains</operation>
+        <value>Nithya</value>
+    </filters>
+    <label>Applications - Assigned to me</label>
+</ListView>

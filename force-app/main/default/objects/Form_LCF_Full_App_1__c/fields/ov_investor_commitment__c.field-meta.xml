@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ov_investor_commitment__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Tell us about any investor in principle commitment you have gained or due diligence undertaken by social investors in support of your project.</inlineHelpText>
+    <label>OV - Investor Commitment</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>4</visibleLines>
+</CustomField>

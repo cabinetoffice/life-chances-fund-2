@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>su_age_groups_specifics__c</fullName>
+    <externalId>false</externalId>
+    <label>SU - Age Groups Specifics</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>0 - 5 years old</fullName>
+                <default>false</default>
+                <label>0 - 5 years old</label>
+            </value>
+            <value>
+                <fullName>6 - 10 years old</fullName>
+                <default>false</default>
+                <label>6 - 10 years old</label>
+            </value>
+            <value>
+                <fullName>11 - 15 years old</fullName>
+                <default>false</default>
+                <label>11 - 15 years old</label>
+            </value>
+            <value>
+                <fullName>16 - 24 years old</fullName>
+                <default>false</default>
+                <label>16 - 24 years old</label>
+            </value>
+            <value>
+                <fullName>25 - 39 years old</fullName>
+                <default>false</default>
+                <label>25 - 39 years old</label>
+            </value>
+            <value>
+                <fullName>40 - 49 years old</fullName>
+                <default>false</default>
+                <label>40 - 49 years old</label>
+            </value>
+            <value>
+                <fullName>50 - 59 years old</fullName>
+                <default>false</default>
+                <label>50 - 59 years old</label>
+            </value>
+            <value>
+                <fullName>60 - 69 years old</fullName>
+                <default>false</default>
+                <label>60 - 69 years old</label>
+            </value>
+            <value>
+                <fullName>70+ years old</fullName>
+                <default>false</default>
+                <label>70+ years old</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

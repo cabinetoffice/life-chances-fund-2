@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Field_to_Check_for_Rendering__c</fullName>
+    <description>Please select which field you would like to be the controlling field, which will use the "Answer to rerender on" value to define if a field should display.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Checkbox_Answer__c = Single Checkbox
+Checkboxes_Answer__c = Checkboxes
+Currency_Answer__c = Currency
+Email_Answer__c = Email
+Multi_Picklist_Answers__c = Multi-Select Picklist
+Percent_Answer__c = Percent
+Picklist_Answer__c = Single Picklist</inlineHelpText>
+    <label>Field to Check for Rendering</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Checkbox_Answer__c</fullName>
+                <default>false</default>
+                <label>Checkbox_Answer__c</label>
+            </value>
+            <value>
+                <fullName>Checkboxes_Answer__c</fullName>
+                <default>false</default>
+                <label>Checkboxes_Answer__c</label>
+            </value>
+            <value>
+                <fullName>Currency_Answer__c</fullName>
+                <default>false</default>
+                <label>Currency_Answer__c</label>
+            </value>
+            <value>
+                <fullName>Email_Answer__c</fullName>
+                <default>false</default>
+                <label>Email_Answer__c</label>
+            </value>
+            <value>
+                <fullName>Multi_Picklist_Answers__c</fullName>
+                <default>false</default>
+                <label>Multi_Picklist_Answers__c</label>
+            </value>
+            <value>
+                <fullName>Percent_Answer__c</fullName>
+                <default>false</default>
+                <label>Percent_Answer__c</label>
+            </value>
+            <value>
+                <fullName>Picklist_Answer__c</fullName>
+                <default>false</default>
+                <label>Picklist_Answer__c</label>
+            </value>
+            <value>
+                <fullName>Short_Text_Answer__c</fullName>
+                <default>false</default>
+                <label>Short_Text_Answer__c</label>
+            </value>
+            <value>
+                <fullName>Radio_Answer__c</fullName>
+                <default>false</default>
+                <label>Radio_Answer__c</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

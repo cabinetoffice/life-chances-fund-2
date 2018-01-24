@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>fn_value_for_money__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>How will your project provide value for money?</inlineHelpText>
+    <label>FN - Value for Money</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>4</visibleLines>
+</CustomField>

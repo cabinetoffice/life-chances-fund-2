@@ -1,0 +1,28 @@
+<apex:page controller="AnswersController" standardStylesheets="false" showHeader="false" renderAs="pdf">
+	<apex:composition template="Layout">
+		<apex:define name="breadcrumbs">
+		</apex:define>
+		<apex:define name="main">
+			
+            <div class="grid-row">
+				<div class="column-full">
+                	
+					<table class="sections">
+                        <tbody class="summary">
+                            <apex:repeat value="{!fields}" var="field">
+                            	<apex:pageBlock rendered="{!targetObject[field.identifier] != null}">
+                                	<tr>
+                                    	<th class="question" valign="top">{!field.label}</th>
+                                    	<td valign="top">{!targetObject[field.identifier]}</td>
+                                	</tr>
+                                </apex:pageBlock>
+                            </apex:repeat>
+                        </tbody>
+                    </table>  
+
+				</div>
+			</div>
+
+		</apex:define>
+	</apex:composition>
+</apex:page>

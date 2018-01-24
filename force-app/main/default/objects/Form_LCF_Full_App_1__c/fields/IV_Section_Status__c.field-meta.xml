@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IV_Section_Status__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Interventions section status</inlineHelpText>
+    <label>IV - Section Status</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Form_Section_Status</valueSetName>
+    </valueSet>
+</CustomField>

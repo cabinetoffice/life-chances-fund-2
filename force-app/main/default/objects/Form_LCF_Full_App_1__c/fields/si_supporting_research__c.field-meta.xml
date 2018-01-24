@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>si_supporting_research__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Provide a summary of the research undertaken to support your project</inlineHelpText>
+    <label>SI - Supporting Research</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>4</visibleLines>
+</CustomField>

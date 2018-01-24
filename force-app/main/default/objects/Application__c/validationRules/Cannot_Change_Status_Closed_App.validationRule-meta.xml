@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_Change_Status_Closed_App</fullName>
+    <active>true</active>
+    <description>Once I made an application successful or not successful, I shouldn't be able to change that status back</description>
+    <errorConditionFormula>AND(
+OR(
+ISPICKVAL(PRIORVALUE(Status__c), "Successful"),
+ISPICKVAL(PRIORVALUE(Status__c), "Unsuccessful")
+),
+ISCHANGED(Status__c)
+)</errorConditionFormula>
+    <errorMessage>You cannot change the status of an application when it has been designated as "Successful" or "Unsuccessful"</errorMessage>
+</ValidationRule>

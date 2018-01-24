@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ov_number_of_commissioners__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Count of commissioner forms for this application</inlineHelpText>
+    <label>OV - Number of Commissioners</label>
+    <summaryForeignKey>Form_LCF_Commissioner_1__c.full_application__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

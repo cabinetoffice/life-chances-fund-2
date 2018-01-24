@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>fn_planning_start_date__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>When do you expect to start this planning?</inlineHelpText>
+    <label>FN - Planning Start Date</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

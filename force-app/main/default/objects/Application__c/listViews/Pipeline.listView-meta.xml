@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pipeline</fullName>
+    <columns>NAME</columns>
+    <columns>Contact__c</columns>
+    <columns>Organisation_Name__c</columns>
+    <columns>Theme__c</columns>
+    <columns>LAST_UPDATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Is_Submitted__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>LAST_UPDATE</field>
+        <operation>greaterThan</operation>
+        <value>9/1/2017 12:00 AM</value>
+    </filters>
+    <label>Draft Applications in Progress Round 3</label>
+    <sharedTo>
+        <allPartnerUsers/>
+    </sharedTo>
+</ListView>
