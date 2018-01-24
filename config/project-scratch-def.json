@@ -1,0 +1,11 @@
+{
+    "orgName": "Cabinet Office",
+    "country": "GB",
+    "edition": "Enterprise",
+    "features": ["Communities"],
+    "username": "admin1@lcfscratch.org",
+    "adminEmail": "michael.witchalls@westbrook.co.uk",
+    "orgPreferences" : {
+        "enabled": ["S1DesktopEnabled","NetworksEnabled"]
+    }
+}
