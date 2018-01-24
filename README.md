@@ -18,6 +18,7 @@ The application presents a number of forms to applicants, and manages complex qu
 
 ## Deployment to Sandbox
 
+* Authenticate the sandbox, e.g. sfdx force:auth:web:login --setalias lcfdev --instanceurl https://test.salesforce.com
 * Create a subdirectory in the source directory e.g mdapioutput
 * Convert the source: sfdx force:source:convert -d mdapioutput
 * Deploy the source: sfdx force:mdapi:deploy -d mdapioutput -u lcfdev -w 100
