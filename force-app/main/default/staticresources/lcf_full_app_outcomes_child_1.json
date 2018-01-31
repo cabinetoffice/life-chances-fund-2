@@ -7,7 +7,9 @@
 		{
 			"id": "1",
 			"questions": [
-				{ "target_field": "ou_description__c" }
+				{ "target_field": "ou_description__c",
+					"recommended_word_limit": 15
+ }
 			],
 			"routes": [
 				{ "target_page": "2" }
@@ -16,7 +18,10 @@
 		{
 			"id": "2",
 			"questions": [
-				{ "target_field": "ou_baseline__c" }
+				{ "target_field": "ou_baseline__c",
+"guidance": "What would be expected to happen as compared to what would have happened had there been no intervention.",
+					"recommended_word_limit": 30
+ }
 			],
 			"routes": [
 				{ "target_page": "3" }
@@ -25,7 +30,9 @@
 		{
 			"id": "3",
 			"questions": [
-				{ "target_field": "ou_social_impact__c" }
+				{ "target_field": "ou_social_impact__c",
+"recommended_word_limit": 30
+ }
 			],
 			"routes": [
 				{ "target_page": "4" }
@@ -34,7 +41,9 @@
 		{
 			"id": "4",
 			"questions": [
-				{ "target_field": "ou_timescale__c" }
+				{ "target_field": "ou_timescale__c",
+"recommended_word_limit": 10
+ }
 			],
 			"routes": [
 				{ "target_page": "5" }
@@ -48,3 +57,4 @@
 		}
 	]
 }
+
