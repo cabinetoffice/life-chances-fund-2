@@ -55,6 +55,13 @@
 					"status_field": "ev_section_status__c"
 				},
 				{
+					"id": "lcf_full_app_organisation_1",
+					"title": "Organisation and contact details",
+					"summary": "This section asks about any changes to the organisation and contact details of the lead applicant since the Expression of Interest form was submitted.",
+					"target_object": "Form_LCF_Full_App_1__c",
+					"status_field": "or_section_status__c"
+				},
+				{
 					"id": "lcf_full_app_declaration_1",
 					"title": "Declaration",
 					"summary": "Summary of this section...",
