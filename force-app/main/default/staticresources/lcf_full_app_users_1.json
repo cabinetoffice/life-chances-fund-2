@@ -32,7 +32,7 @@
 			"questions": [
 				{ 
 					"target_field": "su_research_undertaken__c",
-					"guidance": "Reference local and national sources.",
+					"guidance": "Reference local and national sources, including discussions you have had with service users. Direct contact with service users may not always be possible given the specific expertise and sensitive approach required to engage them in the right way. ",
 					"recommended_word_limit": 150
 				}
 			],
@@ -45,7 +45,8 @@
 			"questions": [
 				{ 
 					"target_field": "su_prioritisation__c",
-					"recommended_word_limit": 100
+"guidance": "Set out how you will ensure that your cohort and outcomes are clearly defined in order that they meet the identified needs of your service users. ",
+					"recommended_word_limit": 150
 				}
 			],
 			"routes": [
@@ -58,7 +59,7 @@
 				{
 					"target_field": "su_effective__c",
 					"guidance": "How will you involve service users in planning, implementing and, as needed, reviewing and revising your project and how will you make sure their voices are heard?",
-					"recommended_word_limit": 100
+					"recommended_word_limit": 150
 				}
 			],
 			"routes": [
@@ -95,8 +96,8 @@
 			"questions": [
 				{ 
 					"target_field": "su_estimation_methodology__c",
-					"guidance": "Briefly outline the rationale underlying your calculations for each total",
-					"recommended_word_limit": 100
+					"guidance": "Briefly outline the rationale underlying your calculations for each total.",
+					"recommended_word_limit": 150
 				}
 			],
 			"routes": [
@@ -108,10 +109,11 @@
 			"questions": [
 				{ 
 					"target_field": "su_drop_out_approach__c",
-					"guidance": "Tell us how you will monitor levels and reasons for disengagement",
-					"recommended_word_limit": 100
+					"guidance": "Tell us how you will monitor levels and reasons for disengagement.",
+					"recommended_word_limit": 150
 				}
 			]
 		}
 	]
 }
+
