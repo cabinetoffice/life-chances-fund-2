@@ -15,7 +15,7 @@
 				{ 
 					"target_page": "2",
 					"constraints": [
-						{ "field": "si_themes__c", "operator": "equals", "value": "Other (please specify)" }
+						{ "field": "si_themes__c", "operator": "contains", "value": "Other" }
 					]
 				},
 				{ 

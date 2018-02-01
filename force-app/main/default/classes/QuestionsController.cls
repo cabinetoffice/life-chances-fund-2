@@ -218,12 +218,20 @@ public class QuestionsController extends COF_PageController {
                 // Determine if constraints apply
                 if (route.constraints != null) {
                     for (COF_QuestionSet.COF_Constraint constraint : route.constraints) {
-                        // Test constraint - extend to use operator
-                        // Need to ensure we've included this value in the original SF object lookup 
-                        if (this.targetObject.get(constraint.field) == constraint.value) {
-                            // Valid constraint - redirect based on this route
-                            nextPage.getParameters().put('page', String.valueOf(route.target_page));
-                            return nextPage;
+                        if (constraint.operator == 'equals') {
+                            if (this.targetObject.get(constraint.field) == constraint.value) {
+                                // Valid constraint - redirect based on this route
+                                nextPage.getParameters().put('page', String.valueOf(route.target_page));
+                                return nextPage;
+                            }
+                        }
+                        if (constraint.operator == 'contains') {
+                            String targetObjectField = (string)this.targetObject.get(constraint.field);
+                            if (targetObjectField.contains(constraint.value) == true) {
+                                // Valid constraint - redirect based on this route
+                                nextPage.getParameters().put('page', String.valueOf(route.target_page));
+                                return nextPage;
+                            }
                         }
                     }
                 } else {
