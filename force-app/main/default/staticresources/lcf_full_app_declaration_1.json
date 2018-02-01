@@ -7,6 +7,7 @@
 			"id": "1",
 			"title": "Declaration",
 			"questions": [
+				{ "target_field": "de_responsible_person__c" },
 				{ "target_field": "de_declaration__c" }
 			]
 		}
