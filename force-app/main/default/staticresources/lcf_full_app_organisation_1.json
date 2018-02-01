@@ -82,7 +82,7 @@
 		{
 			"id": "7",
 			"title": "Fill in your organisation's latest accounts information",
-			"guidance": "This the following questions are used to conduct the financial health check required in order for Big Lottery Fund to be able to make payments to private, voluntary or social enterprise sector organisations.",
+			"guidance": "This and the following questions are used to conduct the financial health check required in order for Big Lottery Fund to be able to make payments to private, voluntary or social enterprise sector organisations.",
 			"questions": [
 				{ "target_field": "or_total_income__c" },
 				{ "target_field": "or_total_expenditure__c" },
@@ -96,7 +96,7 @@
 		{
 			"id": "8",
 			"title": "Please send your latest accounts",
-			"guidance": "Please email to X",
+			"guidance": "Please email a copy of your latest accounts to lifechancesfund@biglotteryfund.org.uk. If you have been running for less than 15 months, please send your projected accounts.",
 			"routes": [
 				{ "target_page": "9" }
 			]
