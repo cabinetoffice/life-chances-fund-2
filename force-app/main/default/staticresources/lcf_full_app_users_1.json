@@ -81,7 +81,7 @@
 		},
 		{
 			"id": "7",
-			"title": "What is the estimated number of service users you will work with?",
+			"title": "What, as a maximum, is your planned intake of service users for the full duration of the project?",
 			"questions": [
 				{ "target_field": "su_potential_users__c" },
 				{ "target_field": "su_expected_users__c" },
