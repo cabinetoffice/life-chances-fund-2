@@ -6,6 +6,7 @@
 		{
 			"id": "1",
 			"title": "Declaration",
+			"guidance": "Your agreement with this declaration will be taken as a confirmation of your understanding of our obligations under the Data Protection Act 1998 and the Freedom of Information Act 2000 and your acceptance that (i) DCMS may use and share personal data supplied by you and (ii) DCMS will not be liable for any loss or damage to you pursuant to pursuant to our fulfilment of our obligations under the relevant law.",
 			"questions": [
 				{ "target_field": "de_responsible_person__c" },
 				{ "target_field": "de_declaration__c" }
