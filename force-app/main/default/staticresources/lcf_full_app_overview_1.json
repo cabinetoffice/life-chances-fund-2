@@ -261,7 +261,13 @@
 				{ "target_field": "ov_service_provider_identified__c" }
 			],
 			"routes": [
-				{ "target_page": "21" }
+				{ 
+					"target_page": "21",
+					"constraints": [
+						{ "field": "ov_service_provider_identified__c", "operator": "equals", "value": "Yes" }
+					]
+				},
+				{ "target_page": "23" }
 			]
 		},
 		{
@@ -317,6 +323,3 @@
 		}
 	]
 }
-
-
-
