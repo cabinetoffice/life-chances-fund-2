@@ -21,7 +21,9 @@
 		{
 			"id": "2",
 			"questions": [
-				{ "target_field": "ev_evaluation_commissioning_progress__c" }
+				{ "target_field": "ev_evaluation_commissioning_progress__c", 
+"recommended_word_limit": 150
+ }
 			],
 			"routes": [
 				{ "target_page": "4" }
@@ -30,7 +32,9 @@
 		{
 			"id": "3",
 			"questions": [
-				{ "target_field": "ev_sharing_learning_approach__c" }
+				{ "target_field": "ev_sharing_learning_approach__c",
+"recommended_word_limit": 150
+ }
 			],
 			"routes": [
 				{ "target_page": "4" }
@@ -58,3 +62,4 @@
 		}
 	]
 }
+

@@ -1,5 +1,8 @@
 <apex:page controller="SectionsController" standardStylesheets="false" showHeader="false" docType="html-5.0" action="{!initialAction}">
 	<apex:composition template="Layout">
+		<apex:define name="title">
+		    <title>{!form.short_title}</title>
+		</apex:define>
 		<apex:define name="breadcrumbs">
 		    <div class="breadcrumbs">
                 <ol>
@@ -30,6 +33,7 @@
 							<apex:variable value="{!1}" var="count"/>
 							<apex:repeat value="{!form.sections}" var="section">
                     			<tr>
+								<apex:outputPanel rendered="{!fullApplicationStatus=='DRAFT'}">
 									<th scope="row" class="section-identifier">
 										<apex:outputLink value="{!$Page.Start}">
 										    {!count}. {!section.title}
@@ -38,11 +42,26 @@
 										    <apex:param name="app" value="{!application['Name']}"/>
 										</apex:outputLink>
 									</th>
-									<!-- <td class="numeric"><span class="status">INCOMPLETE</span></td> -->
 									<td class="numeric"><span class="status">{!targetObject[section.status_field]}</span></td>
-								</tr>
+                   				</apex:outputPanel>
+                    			<apex:outputPanel rendered="{!fullApplicationStatus!='DRAFT'}">
+									<th scope="row" class="section-identifier">
+										<apex:outputText >
+										    {!count}. {!section.title}
+										</apex:outputText>
+									</th>
+									<td class="numeric"><span class="status">{!targetObject[section.status_field]}</span></td>
+                   				</apex:outputPanel>
+ 								</tr>
 								<apex:variable value="{!count + 1}" var="count"/>
                     		</apex:repeat>
+ 		             		<tr><td style="border:none"></td></tr>
+                    		<tr>
+								<th scope="row" class="section-identifier" style="border:none">
+									Application Status
+								</th>
+								<th class="numeric" style="border:none"><span class="status">{!fullApplicationStatus}</span></th>
+							</tr>
 						</tbody>
 					</table>
 					<br />
@@ -50,14 +69,16 @@
 						<apex:commandLink value="View all answers" action="{!viewAll}"/ >
 					</apex:form>
 				</div>
-			</div>
+			</div> 
+			<br />
 
 			<div class="grid-row">
 				<div class="column-full">
-
-					<br /><br />
+				
+				<apex:form id="submitForm">
+           		<apex:outputPanel rendered="{!NOT(targetObject['Form_Complete__c'])}">
 					<div class="notice">
-					  <i class="icon icon-important">
+					  <i class="icon icon-important" style="background-image: url({!URLFOR($Resource.images, 'icon-important.png')})">
 					    <span class="visually-hidden">Warning</span>
 					  </i>
 					  <strong class="bold-small">
@@ -65,11 +86,13 @@
 					  </strong>
 					</div>
 
-					<br />
-
-					<apex:form >
-		                <apex:commandButton value="Submit application" action="{!submit}" styleClass="button" disabled="true" html-aria-disabled="true" />
-		            </apex:form>
+					<br />					
+		            <apex:commandButton value="Submit application" action="{!submit}" styleClass="button" disabled="true" html-aria-disabled="true" />
+		        </apex:outputPanel>
+           		<apex:outputPanel rendered="{!AND(targetObject['Form_Complete__c'],fullApplicationStatus=='DRAFT')}">
+		            <apex:commandButton value="Submit application" action="{!submit}" styleClass="button"/>
+           		</apex:outputPanel>
+ 		        </apex:form>
 
                 </div>
             </div>

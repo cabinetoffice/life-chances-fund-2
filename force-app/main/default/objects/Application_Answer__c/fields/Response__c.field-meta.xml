@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Response__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(INCLUDES(Application_Question__r.Question_Type__c, "Single"),
+IF(Checkbox_Answer__c = TRUE, "True", "False"),
+"")&amp;
+Checkboxes_Answer__c &amp;
+TEXT(Date_Answer__c) &amp;
+Email_Answer__c &amp;
+Multi_Picklist_Answers__c &amp;
+Picklist_Answer__c &amp;
+Short_Text_Answer__c &amp;
+Radio_Answer__c &amp;
+IF(!ISBLANK(Date_Day_Answer__c)&amp;&amp;!ISBLANK(Date_Month_Answer__c)&amp;&amp;!ISBLANK(Date_Year_Answer__c),Date_Day_Answer__c+'/'+Date_Month_Answer__c+'/'+Date_Year_Answer__c,"") &amp;
+IF(Percent_Answer__c!=0, TEXT(Percent_Answer__c*100)+"%", "") &amp;
+IF(Currency_Answer__c!=0, "£"+TEXT(Currency_Answer__c), "")</formula>
+    <label>Response</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

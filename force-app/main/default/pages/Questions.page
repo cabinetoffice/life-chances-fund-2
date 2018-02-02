@@ -1,9 +1,37 @@
-<apex:page controller="QuestionsController" standardStylesheets="false" showHeader="false" docType="html-5.0" action="{!checkLoggedInStatus}">
-    <style type="text/css">
-        .boxstyle {width:38px; height:38px; border-color:black;}
-    </style>
+<apex:page controller="QuestionsController" standardStylesheets="false" showHeader="false" docType="html-5.0" action="{!checkLoggedInAndApplicationStatus}">
+	<script type="text/javascript">	
+		function historyGo(pageId, previousPageId, previousPageErrors, errorPageCount) {
+		
+    		// M.Witchalls Jan 2018: javascript for robust page navigation between pages
+			console.log('pageId: '+pageId);
+			console.log('previousPageId: '+previousPageId);
+			console.log('previousPageErrors: '+previousPageErrors);
+			console.log('errorPageCount: '+errorPageCount);
+			
+			if (previousPageId > 0 && pageId > 1 && errorPageCount == 0) {
+				if (previousPageErrors > 0) {
+				
+					// Where previous page has errors skip the previous page to avoid "Confirm Form Resubmission" browser issue
+					var pages = 2 + previousPageErrors;
+					window.history.go(-pages);
+					
+				} else {
+					window.history.go(-1);
+				}
+				
+			} else { 
+			
+				// Skip the error pages
+				var pages = 1 + errorPageCount;
+				window.history.go(-pages);
+			}
+		}
+	</script>
 
     <apex:composition template="Layout">
+		<apex:define name="title">
+		    <title>{!section.short_title}:{!currentPage.id}</title>
+		</apex:define>
         <apex:define name="breadcrumbs">
             <div class="breadcrumbs">
                 <ol>
@@ -18,30 +46,12 @@
                     <li aria-current="page">{!section.title}</li>
                 </ol>
             </div>
-        </apex:define>
+        </apex:define> 
+     
         <apex:define name="main">
             <div class="question-container">
 
-                <a href="#" onclick="window.history.go(-1); return false;" class="link-back">Back</a>
-
-                <!--<div class="grid-row">
-                    <div class="column-two-thirds">
-
-                        <div class="error-summary" role="alert" aria-labelledby="error-summary-heading-1" tabindex="-1">
-
-                            <h2 class="heading-medium error-summary-heading" id="error-summary-example-1">
-                                Message to alert the user to a problem goes here
-                            </h2>
-
-                            <p>Optional description of the errors and how to correct them</p>
-
-                            <ul class="error-summary-list">
-                                <li><a href="#example-personal-details">Descriptive link to the question with an error</a></li>
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>-->
+                <a href="#" onclick="historyGo({!pageId},{!previousPageId},{!previousPageErrors},{!errorPageCount}); return false;" class="link-back">Back</a>
 
                 <apex:pageBlock rendered="{!currentPage.title != null}">
                 	<apex:outputPanel rendered="{!currentPage.children == null}">
@@ -87,11 +97,32 @@
                     </apex:pageBlock>
                     </apex:outputPanel>
 
+ 					<!-- <apex:outputPanel layout="block" styleClass="topPanel" rendered="{!errorsFound==true}">
+ 						<br/>
+                        <ol style="list-style-type:none">
+				 			<li>
+				           		<apex:image url="{!URLFOR($Resource.SiteSamples, 'img/warning.png')}" style="float:left; padding-right:10px"/>
+								<apex:messages style="font-style:italic; font-size:18px; line-height:45px"></apex:messages>
+							</li>
+						</ol>
+					</apex:outputPanel> -->
+
+	                <apex:outputPanel styleClass="grid-row" rendered="{!errorsFound==true}">
+	                    <div class="column-two-thirds">
+	
+	                        <div class="error-summary" role="alert" tabindex="-1">
+	
+	                            <h2 class="heading-medium error-summary-heading" style="padding: 18px 5px 0 18px">
+	                                <apex:messages ></apex:messages>
+	                            </h2>
+	
+	                        </div>
+	                    </div>
+	                </apex:outputPanel>
+
                     <apex:pageBlock rendered="{!currentPage.questions != null}">
                         <apex:repeat value="{!fields}" var="field">
                             <div class="form-group" id="sp-text-group">
-
-                                <apex:messages ></apex:messages>
 
                                 <apex:pageBlock rendered="{!field.isTextField == true}">
                                     <legend>
@@ -100,9 +131,15 @@
                                     </legend>
        
                                     <apex:pageBlock rendered="{!field.isCurrency == true}">
-                                    	£&nbsp;<apex:inputField value="{!targetObject[field.identifier]}" styleClass="form-control" />
+                                    	£&nbsp;<apex:inputText value="{!field.value}" styleClass="form-control" />
                                     </apex:pageBlock>
-                                    <apex:pageBlock rendered="{!field.isCurrency == false}">
+                                    <apex:pageBlock rendered="{!field.isNumber == true}">
+                                    	<apex:inputText value="{!field.value}" styleClass="form-control" />
+                                    </apex:pageBlock>
+                                    <apex:pageBlock rendered="{!field.isEmailField == true}">
+                                    	<apex:inputText value="{!targetObject[field.identifier]}" styleClass="form-control" />
+                                    </apex:pageBlock>
+                                    <apex:pageBlock rendered="{!AND(field.isNumber==false,field.isCurrency == false,field.isEmailField == false)}">
                                     	<apex:inputField value="{!targetObject[field.identifier]}" styleClass="form-control" />
                                     </apex:pageBlock>
 

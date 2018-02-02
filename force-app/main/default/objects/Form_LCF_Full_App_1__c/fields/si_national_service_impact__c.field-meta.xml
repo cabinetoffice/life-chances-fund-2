@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>si_national_service_impact__c</fullName>
     <externalId>false</externalId>
-    <inlineHelpText>How are existing national services complemented by your project?</inlineHelpText>
+    <inlineHelpText>How does your project enhance existing national provision for this policy area?</inlineHelpText>
     <label>SI - National Service Impact</label>
     <length>32768</length>
     <trackTrending>false</trackTrending>

@@ -15,7 +15,7 @@
 				{ 
 					"target_page": "2",
 					"constraints": [
-						{ "field": "si_themes__c", "operator": "equals", "value": "Other (please specify)" }
+						{ "field": "si_themes__c", "operator": "contains", "value": "Other" }
 					]
 				},
 				{ 
@@ -37,12 +37,12 @@
 			"questions": [
 				{ 
 					"target_field": "si_specific_social_issue__c",
-					"guidance": "What is your project's focal point? For example, for projects focused on young people, will you address a specific risk factor in 11-14 year olds who are at risk of becoming NEET, or will you work with 16-24 year old NEETs at risk of becoming homeless",
+					"guidance": "What is your project's focal point? For example, for projects focused on young people, will you address a specific risk factor in 11-14 year olds who are at risk of becoming NEET, or will you work with 16-24 year old NEETs at risk of becoming homeless?",
 					"recommended_word_limit": 300
 				}
 			],
 			"routes": [
-				{ "target_page": "3" }
+				{ "target_page": "4" }
 			]
 		},
 		{
@@ -50,7 +50,7 @@
 			"questions": [
 				{ 
 					"target_field": "si_priority_explanation__c",
-					"guidance": "Think about community, financial, research and social impact the project will have for the commissioner",
+					"guidance": "With respect to budget, community, learning and social impact, set out how this issue is a commissioner priority and what evidence (e.g. published strategies, speeches) supports this.",
 					"recommended_word_limit": 200
 				}
 			],
@@ -63,7 +63,7 @@
 			"questions": [
 				{ 
 					"target_field": "si_supporting_research__c",
-					"guidance": "Summarise what research has been done and which stakeholders have been engaged. This is about your project as a whole, not specific interventions to be used in the project and may include a theory of change as well as or instead of other research.",
+					"guidance": "Summarise your research, including which stakeholders you’ve engaged. Refer to research that supports your choice of intervention, theories of change, learning, and other models, organisations or SIBs you have learnt from.",
 					"recommended_word_limit": 300
 				}
 			],
@@ -76,7 +76,8 @@
 			"questions": [
 				{ 
 					"target_field": "si_local_service_impact__c",
-					"recommended_word_limit": 100
+"guidance": "Explain how you plan to work alongside existing local service provision. Reference any involvement you have had with local government bodies, other local SIBs and local funders.",
+					"recommended_word_limit": 150
 				}
 			],
 			"routes": [
@@ -88,21 +89,11 @@
 			"questions": [
 				{ 
 					"target_field": "si_national_service_impact__c",
-					"recommended_word_limit": 100
-				}
-			],
-			"routes": [
-				{ "target_page": "8" }
-			]
-		},
-		{
-			"id": "8",
-			"questions": [
-				{ 
-					"target_field": "si_vcse_involvement__c",
-					"recommended_word_limit": 100
+"guidance": "Explain how you plan to work alongside existing national services. Reference any involvement you have had with central government departments, other national SIBs and other national funders.",
+					"recommended_word_limit": 150
 				}
 			]
 		}
 	]
 }
+

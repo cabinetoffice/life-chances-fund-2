@@ -1,0 +1,12 @@
+<style type="text/css" media="print">
+    @page {
+        margin: 25mm;
+        @bottom-center {
+            content: "Life Chances Fund Page " counter(page) " of " counter(pages);
+        }
+    }
+    .page-break {
+        display:block;
+        page-break-after:always;
+    }
+</style>

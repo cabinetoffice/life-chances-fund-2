@@ -1,6 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
     <labels>
+        <fullName>SIB_Community_Profile_Name</fullName>
+        <categories>SIB</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SIB Community Profile Name</shortDescription>
+        <value>SIB Applicant</value>
+    </labels>
+    <labels>
+        <fullName>SIB_Currency_Error</fullName>
+        <categories>SIB</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SIB Currency Error</shortDescription>
+        <value>There is an error on this page. A currency field is invalid. Please correct the error before continuing.</value>
+    </labels>
+    <labels>
+        <fullName>SIB_Date_Error</fullName>
+        <categories>SIB</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SIB Date Error</shortDescription>
+        <value>There is an error on this page. A date is invalid. Please correct the date before continuing.</value>
+    </labels>
+    <labels>
+        <fullName>SIB_Email_Error</fullName>
+        <categories>SIB</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SIB Email Error</shortDescription>
+        <value>There is an error on this page. An email address is invalid. Please correct the error before continuing.</value>
+    </labels>
+    <labels>
+        <fullName>SIB_Error_Message</fullName>
+        <categories>SIB</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SIB Error Message</shortDescription>
+        <value>We are currently experiencing technical issues and we are sorry an error has occurred with your application. Don't worry, any information you entered will have been saved. Please go to the start page and you will find the form in the 'Your applications' section. 
+
+Alternatively you can contact a member of the team via email general.enquiries@biglotteryfund.org.uk or call 03454 102030.</value>
+    </labels>
+    <labels>
         <fullName>SIB_Forgot_Password_Confirm</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -18,6 +60,14 @@ If you experience any difficulties in resetting your password, please contact li
         <value>00e25000000MAdNAAW</value>
     </labels>
     <labels>
+        <fullName>SIB_ID_Check_Question</fullName>
+        <categories>SIB</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SIB ID check question</shortDescription>
+        <value>Is the information in the ID Check still valid?</value>
+    </labels>
+    <labels>
         <fullName>SIB_Landing_Page_Help_Text</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -33,5 +83,20 @@ You can use this online service to:
 &lt;/ul> 
 If you need assistance with this online form, you can email lifechancesfund@biglotteryfund.org.uk or call 03454 102030 (Text relay: 18001 plus 0345 4 10 20 30 for those with a hearing or speech impairment).
 &lt;br/>&lt;br/></value>
+    </labels>
+    <labels>
+        <fullName>SIB_Mandatory_Questions_Not_Filled</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SIB Mandatory Questions Not Filled</shortDescription>
+        <value>Your expression of interest application cannot be submitted. Please make sure that you have answered all mandatory questions in the form, marked all the sections as completed and agreed to the terms and conditions set out in the declaration before you submit again.</value>
+    </labels>
+    <labels>
+        <fullName>SIB_Number_Error</fullName>
+        <categories>SIB</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SIB Number Error</shortDescription>
+        <value>There is an error on this page. A number field is invalid. Please correct the error before continuing.</value>
     </labels>
 </CustomLabels>

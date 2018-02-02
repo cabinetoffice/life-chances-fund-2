@@ -8,6 +8,7 @@ public class COF_Form {
 
 	public String id {get;set;}
 	public String title {get;set;}
+	public String short_title {get;set;}
 	public String target_object {get;set;}
 	public List<COF_Section> sections {get;set;}
 

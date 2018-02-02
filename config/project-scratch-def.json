@@ -3,7 +3,7 @@
     "country": "GB",
     "edition": "Enterprise",
     "features": ["Communities"],
-    "username": "admin1@lcfscratch.org",
+    "username": "admin1@lcflivescratch.org",
     "adminEmail": "michael.witchalls@westbrook.co.uk",
     "orgPreferences" : {
         "enabled": ["S1DesktopEnabled","NetworksEnabled"]

@@ -1,13 +1,13 @@
 public class QuestionsController extends COF_PageController {
-	public static final String COMPLETE = 'COMPLETE';
-	public static final String INCOMPLETE = 'INCOMPLETE';
-
+	private static final String COMPLETE = 'COMPLETE';
+	private static final String INCOMPLETE = 'INCOMPLETE';
+ 
     public COF_Form form {get;set;}
     public COF_Section section {get;set;} 
     public COF_QuestionSet questionSet {get; set;}
     public COF_Page currentPage {get; set;}
     public List<COF_Field> fields {get; set;}
-    public List<String> fieldValueList {get; set;}
+    public List<String> fieldValueList {get; set;} 
 
     public SObject application {get;set;} 
     public SObject targetObject {get;set;}
@@ -15,80 +15,98 @@ public class QuestionsController extends COF_PageController {
 
     public String modifyChildIdentifier {get;set;}
     public String removeChildId {get;set;}
-    
+	public Boolean errorsFound {get; set;}
+	public Integer errorPageCount {get; set;}
+	public String pageId {get; set;}
+	public String previousPageId {get; set;}
+	public String previousPageErrors {get; set;}
+      
     private String statusField;
     private SObject targetObjectOriginal;
 
     public QuestionsController() {
-
+    	this.errorsFound = false;
+    	this.errorPageCount = 0;
+    	
+    	// M.Witchalls Jan 2018: these parameters required for page navigation javascript
+    	this.previousPageErrors = this.getPageParam('errorPageCount');
+    	if (this.previousPageErrors == null) this.previousPageErrors = '0';  	
+    	this.previousPageId = null;   	
+    	this.pageId = this.getPageIdentifierParam();
+    	this.previousPageId = this.getPreviousPageIdentifierParam();
+    	if (previousPageId == null) previousPageId = '0';
+    	system.debug('###previousPageId: '+this.previousPageId);
+    	
         COF_Config config = COF_Config.load();
-        this.form = config.getForm(this.getFormIdentifierParam());
-        this.section = form.getSection(this.getSectionIdentifierParam());
-        
-        // M.Witchalls Jan 2018: Get section and page status values
-        if (this.section != null) { // parent object
-            this.questionSet = this.section.getQuestionSet();
-            this.statusField = this.section.status_field;
-        } else { // child object 
-            this.questionSet = COF_QuestionSet.load(this.getSectionIdentifierParam());
-            this.statusField = this.questionSet.status_field;
-        }
-
-        this.application = this.getApplication(); 
-        this.currentPage = this.questionSet.getPage(this.getPageIdentifierParam());
-        this.fields = new List<COF_Field>(); 
-        
-        List<COF_Field> fields = new List<COF_Field>();
-        Set<String> fieldIdentifierSet = new Set<String>{'Id','Name'};
-        fieldIdentifierSet.add(this.questionSet.parent_relationship+'.Id');
-        if (this.section != null) { // parent object
-            fieldIdentifierSet.add(this.statusField);
- 		} else { // child object - get parent status
-            fieldIdentifierSet.add(this.questionSet.parent_relationship+'.'+this.statusField);
-        }
-        
-        if (this.currentPage.questions != null) {
-	        for (COF_QuestionSet.COF_Question question : this.currentPage.questions) {
-	            fieldIdentifierSet.add(question.target_field);
-	            COF_Field newField = new COF_Field(question.target_field, this.questionSet.target_object);
-	            newField.guidance = question.guidance;
-	            if (question.recommended_word_limit != null) {
-	                newField.recommendedWordLimit = question.recommended_word_limit;
-	            }
-	            fields.add(newField);
-	            // Use prepareFields on page instead
+        if (this.getFormIdentifierParam()!= null) {
+        	this.form = config.getForm(this.getFormIdentifierParam());
+        	this.section = this.form.getSection(this.getSectionIdentifierParam());
+	        
+	        // M.Witchalls Jan 2018: Get section and page status values
+	        if (this.section != null) { // parent object
+	            this.questionSet = this.section.getQuestionSet();
+	            this.statusField = this.section.status_field;
+	        } else { // child object 
+	            this.questionSet = COF_QuestionSet.load(this.getSectionIdentifierParam());
+	            this.statusField = this.questionSet.status_field;
 	        }
-	        this.fields = fields;
-        }
-        if (this.currentPage.routes != null) {
-        	for (COF_QuestionSet.COF_Route route : this.currentPage.routes) {
-                // Determine if constraints apply
-                if (route.constraints != null) {
-                    for (COF_QuestionSet.COF_Constraint constraint : route.constraints) {
-                    	if (!fieldIdentifierSet.contains(constraint.field)) {
-                    		fieldIdentifierSet.add(constraint.field);
-                    	}
-                    }
-                }
-        	}
-        }
-
-        System.debug('###this.questionSet.target_object: '+this.questionSet.target_object);
-        String targetIdentifier = this.getRecordIdentifierParam();
-        system.debug('###targetIdentifier: '+targetIdentifier);
-        if (targetIdentifier == null) {
-            this.targetObject = Query.object(this.questionSet.target_object, fieldIdentifierSet, 'WHERE ' +  this.questionSet.parent_relationship + '.Name = \'' + this.getApplicationIdentifierParam() + '\'');
-        } else {
-            this.targetObject = Query.object(this.questionSet.target_object, fieldIdentifierSet, 'WHERE ' +  'Name = \'' + targetIdentifier + '\'');            
-        }
-        this.targetObjectOriginal = this.targetObject.clone(true, true, false, false);	// M.Witchalls Jan 2018: deep clone copy
-
-        if (this.currentPage.questions != null) {
-            this.prepareQuestions();
-        }
-
-        if (this.currentPage.children != null) {
-            this.prepareChildren();
+	
+	        this.application = this.getApplication(); 
+	        this.currentPage = this.questionSet.getPage(this.getPageIdentifierParam());
+	        this.fields = new List<COF_Field>(); 
+	        
+	        List<COF_Field> fields = new List<COF_Field>();
+	        Set<String> fieldIdentifierSet = new Set<String>{'Id','Name'};
+	        fieldIdentifierSet.add(this.questionSet.parent_relationship+'.Id');
+	        if (this.section != null) { // parent object
+	            fieldIdentifierSet.add(this.statusField);
+	 		} else { // child object - get parent status
+	            fieldIdentifierSet.add(this.questionSet.parent_relationship+'.'+this.statusField);
+	        }
+	        
+	        if (this.currentPage.questions != null) {
+		        for (COF_QuestionSet.COF_Question question : this.currentPage.questions) {
+		            fieldIdentifierSet.add(question.target_field);
+		            COF_Field newField = new COF_Field(question.target_field, this.questionSet.target_object);
+		            newField.guidance = question.guidance;
+		            if (question.recommended_word_limit != null) {
+		                newField.recommendedWordLimit = question.recommended_word_limit;
+		            }
+		            fields.add(newField);
+		            // Use prepareFields on page instead
+		        }
+		        this.fields = fields;
+	        }
+	        if (this.currentPage.routes != null) {
+	        	for (COF_QuestionSet.COF_Route route : this.currentPage.routes) {
+	                // Determine if constraints apply
+	                if (route.constraints != null) {
+	                    for (COF_QuestionSet.COF_Constraint constraint : route.constraints) {
+	                    	if (!fieldIdentifierSet.contains(constraint.field)) {
+	                    		fieldIdentifierSet.add(constraint.field);
+	                    	}
+	                    }
+	                }
+	        	}
+	        }
+	
+	        System.debug('###this.questionSet.target_object: '+this.questionSet.target_object);
+	        String targetIdentifier = this.getRecordIdentifierParam();
+	        system.debug('###targetIdentifier: '+targetIdentifier);
+	        if (targetIdentifier == null) {
+	            this.targetObject = Query.object(this.questionSet.target_object, fieldIdentifierSet, 'WHERE ' +  this.questionSet.parent_relationship + '.Name = \'' + this.getApplicationIdentifierParam() + '\'');
+	        } else {
+	            this.targetObject = Query.object(this.questionSet.target_object, fieldIdentifierSet, 'WHERE ' +  'Name = \'' + targetIdentifier + '\'');            
+	        }
+	        this.targetObjectOriginal = this.targetObject.clone(true, true, false, false);	// M.Witchalls Jan 2018: deep clone copy
+	
+	        if (this.currentPage.questions != null) {
+	            this.prepareQuestions();
+	        }
+	
+	        if (this.currentPage.children != null) {
+	            this.prepareChildren();
+	        }
         }
     }
 
@@ -96,6 +114,7 @@ public class QuestionsController extends COF_PageController {
 
         // Manually handle our custom date fields and multi-select fields
         for (COF_Field field : this.fields) {
+        	field.value = String.valueOf(this.targetObject.get(field.identifier));
             if (field.isDateField == true) {
                 Date currentDate = (Date) this.targetObject.get(field.identifier);
                 if (currentDate != null) {
@@ -130,7 +149,7 @@ public class QuestionsController extends COF_PageController {
     }
 
     public void saveTargetObject() {
-    	
+     	
         // M.Witchalls Jan 2018: Get section and page status values
 	    String statusValue;	    
         if (this.section != null) { // parent object
@@ -141,20 +160,52 @@ public class QuestionsController extends COF_PageController {
         
         // M.Witchalls Jan 2018: Section status logic: if any change of value, mark as INCOMPLETE
         Boolean isComplete = true;
+        system.debug('####targetObject: '+this.targetObject);
         
         // Manually handle our custom date fields and multiselect checkbox fields
         for (COF_Field field : this.fields) {
-        	if (this.targetObject.get(field.identifier) != this.targetObjectOriginal.get(field.identifier)) {
-        		isComplete = false;
-        	}
+			if(field.isCurrency == true) {
+        		system.debug('####identifier: '+field.identifier);
+             	try {
+					system.debug('####Currency Value: '+field.value);
+					Double value = Double.valueOf(field.value);
+					this.targetObject.put(field.identifier, value);
+             	} catch(Exception ex) {
+            		ApexPages.addmessage(new ApexPages.message(ApexPages.severity.FATAL, System.Label.SIB_Currency_Error));
+            		errorsFound = true;
+            	}
+			}
+			if(field.isNumber == true) {
+            	try {
+					Double value = Double.valueOf(field.value);
+					this.targetObject.put(field.identifier, value);
+             	} catch(Exception ex) {
+            		ApexPages.addmessage(new ApexPages.message(ApexPages.severity.FATAL, System.Label.SIB_Number_Error));
+            		errorsFound = true;
+            	}
+			}
         	
             if (field.isDateField == true) {
                 // Error - Should check all fields
                 if (field.dateDay != null && field.dateDay != '') {
-                    Date datevalue = date.parse(field.dateDay + '/' + field.dateMonth + '/' + field.dateYear);
-                    this.targetObject.put(field.identifier, datevalue);
-                }
+                	try {
+                    	Date datevalue = date.parse(field.dateDay + '/' + field.dateMonth + '/' + field.dateYear);
+                    	this.targetObject.put(field.identifier, datevalue);
+                	} catch(Exception ex) {
+                		ApexPages.addmessage(new ApexPages.message(ApexPages.severity.FATAL, System.Label.SIB_Date_Error));
+                		errorsFound = true;
+                	}
+                } 
             }
+
+			if(field.isEmailField == true) {
+				String email = (String)this.targetObject.get(field.identifier);
+				if(!SIB_Utilities.isValidEmail(email)){
+					ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, System.Label.SIB_Email_Error));
+					errorsFound = true;
+				}
+			}
+
             if (field.isSelectField == true) {
                 String valueString = null;
                 for (COF_Field.CheckBoxOption opt: field.optionList) {
@@ -169,38 +220,54 @@ public class QuestionsController extends COF_PageController {
                 this.targetObject.put(field.identifier, valueString);
             }
             if (this.targetObject.get(field.identifier) == null) isComplete = false;
+        	if (this.targetObject.get(field.identifier) != this.targetObjectOriginal.get(field.identifier)) {
+        		isComplete = false;
+        	}
         }
         
-        // If previously marked as COMPLETE, now INCOMPLETE
-	  	if (!isComplete) statusValue = INCOMPLETE; 
-        
-        if (this.section != null) { // parent object  	     	
-            this.targetObject.put(this.statusField, statusValue);
-        } else if (statusValue == INCOMPLETE){ // child object - update parent status
-	    	SObject parentRecord = Schema.getGlobalDescribe().get(this.form.target_object).newSObject();
-            String parentId = (String)this.targetObject.getSobject(this.questionSet.parent_relationship).get('Id');
-			parentRecord.put('Id', parentId);
-			parentRecord.put(this.statusField, statusValue);
-			Query.updateObject(parentRecord);
-        }
-
-        // Attempt to update the target object
-        if (this.targetObject != null) { 
-            Query.updateObject(this.targetObject);
+        if (errorsFound) {
+        	errorPageCount++;
+        } else {
+	        // If previously marked as COMPLETE, now INCOMPLETE
+		  	if (!isComplete) statusValue = INCOMPLETE; 
+	        
+	        if (this.section != null) { // parent object  	     	
+	            this.targetObject.put(this.statusField, statusValue);
+	        } else if (statusValue == INCOMPLETE){ // child object - update parent status
+		    	SObject parentRecord = Schema.getGlobalDescribe().get(this.form.target_object).newSObject();
+	            String parentId = (String)this.targetObject.getSobject(this.questionSet.parent_relationship).get('Id');
+				parentRecord.put('Id', parentId);
+				parentRecord.put(this.statusField, statusValue);
+				Query.updateObject(parentRecord);
+	        }
+	
+	        // Attempt to update the target object
+	        if (this.targetObject != null) { 
+	            Query.updateObject(this.targetObject);
+	        }
         }
     }
 
     public PageReference saveContinue() {
-
+    	
+   		errorsFound = false;
+        system.debug('####this.targetObject: '+this.targetObject);
+   		
         if (this.targetObject != null) {
             this.saveTargetObject();
         }
+        if (errorsFound) return null;
 
         PageReference nextPage = Page.Questions;
         nextPage.getParameters().put('form', this.getFormIdentifierParam());
         nextPage.getParameters().put('id', this.getRecordIdentifierParam());
         nextPage.getParameters().put('app', this.getApplicationIdentifierParam());
         nextPage.getParameters().put('section', this.getSectionIdentifierParam());
+		if (this.errorPageCount > 0) {
+			if (this.previousPageErrors != '0') this.errorPageCount += Integer.valueOf(this.previousPageErrors) + 1;
+			nextPage.getParameters().put('errorPageCount', String.valueOf(this.errorPageCount));
+		}
+        nextPage.getParameters().put('previousPage', this.getPageIdentifierParam());
         nextPage.setRedirect(true);
 
        // If we have a completion path, pass to the next page
@@ -218,12 +285,20 @@ public class QuestionsController extends COF_PageController {
                 // Determine if constraints apply
                 if (route.constraints != null) {
                     for (COF_QuestionSet.COF_Constraint constraint : route.constraints) {
-                        // Test constraint - extend to use operator
-                        // Need to ensure we've included this value in the original SF object lookup 
-                        if (this.targetObject.get(constraint.field) == constraint.value) {
-                            // Valid constraint - redirect based on this route
-                            nextPage.getParameters().put('page', String.valueOf(route.target_page));
-                            return nextPage;
+                        if (constraint.operator == 'equals') {
+                            if (this.targetObject.get(constraint.field) == constraint.value) {
+                                // Valid constraint - redirect based on this route
+                                nextPage.getParameters().put('page', String.valueOf(route.target_page));
+                                return nextPage;
+                            }
+                        }
+                        if (constraint.operator == 'contains') {
+                            String targetObjectField = (string)this.targetObject.get(constraint.field);
+                            if (targetObjectField.contains(constraint.value) == true) {
+                                // Valid constraint - redirect based on this route
+                                nextPage.getParameters().put('page', String.valueOf(route.target_page));
+                                return nextPage;
+                            }
                         }
                     }
                 } else {
@@ -239,6 +314,11 @@ public class QuestionsController extends COF_PageController {
         nextPage.getParameters().put('form', this.getFormIdentifierParam());
         nextPage.getParameters().put('app', this.getApplicationIdentifierParam());
         nextPage.getParameters().put('section', this.getSectionIdentifierParam());
+        nextPage.getParameters().put('previousPage', this.getPageIdentifierParam());
+		if (this.errorPageCount > 0) {
+			if (this.previousPageErrors != '0') this.errorPageCount += Integer.valueOf(this.previousPageErrors) + 1;
+			nextPage.getParameters().put('errorPageCount', String.valueOf(this.errorPageCount));
+		}
 
         // If we have a completion path, navigate to that page
         if (completionPath != null) {
@@ -261,10 +341,12 @@ public class QuestionsController extends COF_PageController {
     }
 
     public PageReference saveExit() {
-
+    	
+   		errorsFound = false;
         if (this.targetObject != null) {
             this.saveTargetObject();
         }
+        if (errorsFound) return null;
 
         PageReference nextPage = Page.Sections;
         nextPage.getParameters().put('form', this.getFormIdentifierParam());

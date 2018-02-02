@@ -10,6 +10,7 @@
 				"target_object": "Form_LCF_Outcome_1__c",
 				"target_field": "ou_description__c",
 				"child_relationship": "full_application_outcomes__r",
+				"title": "Outcomes",
 				"section": "lcf_full_app_outcomes_child_1"
 			},
 			"routes": [
@@ -21,8 +22,9 @@
 			"questions": [
 				{ 
 					"target_field": "ou_relate__c",
-					"guidance": "If your project has more than one outcome, explain how the outcomes are related to each other. For example, how do additional outcomes demonstrate progress towards the primary outcome (such as, completing training may serve as proxy for gaining employment, or improved scores on a wellbeing star indicate movement towards longer term reductions in GP visits)."
-				}
+					"guidance": "If your project has more than one outcome, explain how the outcomes are related to each other. For example, how do additional outcomes demonstrate progress towards the primary outcome (such as, completing training may serve as proxy for gaining employment, or improved scores on a wellbeing star indicate movement towards longer term reductions in GP visits).",
+"recommended_word_limit": 150	
+			}
 			],
 			"routes": [
 				{ "target_page": "3" }
@@ -33,7 +35,8 @@
 			"questions": [
 				{ 
 					"target_field": "ou_perverse_incentives__c",
-					"guidance": "Perverse incentives are incentives that could cause unintended and undesirable results, and will undermine the effectiveness of the project. Please explain how such incentives could arise and how you will manage them"
+					"guidance": "Perverse incentives are features of a contract that could cause unintended and undesirable results, and will undermine the effectiveness of the project. Please explain how such incentives could arise and how you will manage them. For example, for a SIB that measures the effectiveness of young people entering foster care placements, a perverse incentive could be encouraging a young person to move into a placement that is not in their best interests.",
+"recommended_word_limit": 150
 				}
 			],
 			"routes": [
@@ -45,7 +48,8 @@
 			"questions": [
 				{ 
 					"target_field": "ou_attributable__c",
-					"guidance": "Please explain how you will make sure that outcomes payments are only made for outcomes achieved because of your project and not arising from other interventions (i.e. the outcomes would have been achieved whether your project took place or not)"
+					"guidance": "Please explain how you will make sure that outcomes payments are only made for outcomes achieved because of your project and not arising from other interventions (i.e. the outcomes would have been achieved whether your project took place or not).",
+"recommended_word_limit": 150
 				}
 			],
 			"routes": [
@@ -57,7 +61,8 @@
 			"questions": [
 				{ 
 					"target_field": "ou_justification__c",
-					"guidance": "Explain why these outcomes were decided to be the most suitable for your project"
+					"guidance": "Explain how and why these outcomes were selected to be the most suitable for your project. Your answer should include how the outcomes link back to the interventions you expect the project to deliver, and to the needs of your service users.",
+"recommended_word_limit": 150
 				}
 			],
 			"routes": [
@@ -69,7 +74,8 @@
 			"questions": [
 				{ 
 					"target_field": "ou_payment_determination__c",
-					"guidance": "Set out how you arrived at the outcomes payments and how you have demonstrated value for money to the commissioner."
+					"guidance": "Set out how you arrived at the outcomes payments and how you have demonstrated value for money to the commissioner.",
+"recommended_word_limit": 200
 				}
 			],
 			"routes": [
@@ -81,9 +87,11 @@
 			"questions": [
 				{ 
 					"target_field": "ou_additional__c",
-					"guidance": "If you intend to measure any additional outcomes which are not related to payments but which will further illustrate the impact your project is having, please provide details"
+					"guidance": "If you intend to measure any additional outcomes which are not related to payments but which will further illustrate the impact your project is having, please provide details.",
+"recommended_word_limit": 200
 				}
 			]
 		}
 	]
 }
+

@@ -1,6 +1,22 @@
-<apex:page controller="StartController" standardStylesheets="false" showHeader="false" docType="html-5.0" action="{!checkLoggedInStatus}">
+<apex:page controller="StartController" standardStylesheets="false" showHeader="false" docType="html-5.0" action="{!checkLoggedInAndApplicationStatus}">
+    <style>
+    	.cofRichText td { 
+    		border:none;
+    	}
+	    .cofRichText ul {
+	        list-style-type: disc;
+	        list-style-position: inside;
+	    }
+	    .cofRichText ul li {
+	    	margin-left: 30px;
+	    	margin-bottom: 5px;
+	    }
+    </style>
 
     <apex:composition template="Layout">
+		<apex:define name="title">
+		    <title>{!section.short_title}</title>
+		</apex:define>
         <apex:define name="breadcrumbs">
             <div class="breadcrumbs">
                 <ol>
@@ -21,11 +37,19 @@
             <h1 class="heading-xlarge">
                 <span class="heading-secondary">{!application['Theme__c']}</span>
                 {!section.title}
-            </h1> 
-            <p>{!section.summary}</p>
+            </h1>
+            
+            <apex:outputPanel rendered="{!section.title!='Declaration'}">
+            	<p>{!section.summary}</p>
+            </apex:outputPanel>
+            <apex:outputpanel rendered="{!section.title=='Declaration'}">
+				<div class="cofRichText">
+					<apex:outputField value="{!project.Declaration_Text__c}"/>
+				</div>
+			</apex:outputpanel>
 
             <apex:form >
-                <apex:commandButton value="Start section" action="{!start}" styleClass="button" />
+                <apex:commandButton value="{!buttonLabel}" action="{!start}" styleClass="button" />
                 <br /><br />
                 <apex:commandLink value="Check your answers" action="{!summaryPage}" />
             </apex:form>

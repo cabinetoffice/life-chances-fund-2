@@ -1,4 +1,4 @@
-<apex:page standardStylesheets="false" showHeader="false" docType="html-5.0">
+<apex:page controller="SIB_TemplateController" standardStylesheets="false" showHeader="false" docType="html-5.0" applyBodyTag="false" applyHtmlTag="false">
 
     <!--[if lt IE 9]><html class="lte-ie8" lang="en"><![endif]-->
     <!--[if gt IE 8]><!-->
@@ -7,66 +7,136 @@
 
     <head>
         <meta charset="utf-8" />
-        <title>Life Chances Fund</title>
+        <apex:insert name="title"/>
+
+	    <!--[if gt IE 8]><!--><apex:stylesheet value="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/stylesheets/elements-page.css')}"/><!--<![endif]-->
+	    <!--[if gt IE 8]><!--><apex:stylesheet value="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/stylesheets/govuk-template.css')}"/><!--<![endif]-->
+	    <!--[if gt IE 8]><!--><apex:stylesheet value="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/stylesheets/main.css')}"/><!--<![endif]-->
+
+	    <!--[if IE 7]><apex:stylesheet value="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/stylesheets/elements-page-ie7.css')}"/><![endif]-->
+	    <!--[if IE 8]><apex:stylesheet value="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/stylesheets/elements-page-ie8.css')}"/><![endif]-->
+	    <!--[if IE 7]><apex:stylesheet value="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/stylesheets/govuk-template-ie7.css')}"/><![endif]-->
+	    <!--[if IE 8]><apex:stylesheet value="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/stylesheets/govuk-template-ie8.css')}"/><![endif]-->
+	    <!--[if IE 7]><apex:stylesheet value="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/stylesheets/main-ie7.css')}"/><![endif]-->
+	    <!--[if IE 8]><apex:stylesheet value="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/stylesheets/main-ie8.css')}"/><![endif]-->
+	    <!--[if IE 8]><apex:stylesheet value="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/stylesheets/fonts-ie8.css')}"/><![endif]-->
+	    <!--[if gte IE 9]><!--><apex:stylesheet value="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/stylesheets/fonts.css')}"/><!--<![endif]-->
+
+	    <!--[if lt IE 9]><script src="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/javascripts/ie.js')}"></script><![endif]-->
+
         <apex:stylesheet value="{!URLFOR($Resource.css_govuk_core)}" />
         <apex:stylesheet value="{!URLFOR($Resource.css_core)}" />
-
-        <apex:stylesheet value="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/stylesheets/elements-page.css')}"/>
-        <apex:stylesheet value="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/stylesheets/govuk-template.css')}"/>
-        <apex:stylesheet value="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/stylesheets/fonts.css')}"/>
-        <apex:stylesheet value="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/stylesheets/main.css')}"/>
-
+       
+        <apex:insert name="styles"/>
+		<style type="text/css">
+		    .show-div {
+		        display:block;
+		    }
+		    .hide-div {
+		    	display:none;
+		    }
+		</style>
+		<script type="text/javascript">	
+			var previousOnload = window.onload;        
+			window.onload = function() { 
+				if (previousOnload) { 
+		           previousOnload();
+				}
+				checkCookieDiv();
+			}
+			
+		    function checkCookieDiv() {
+		    	console.log("got here");
+		    	var cookieMessageOff = document.cookie.replace(/(?:(?:^|.*;\s*)cookieMessageOff\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+		    	if (cookieMessageOff != "true") {
+		    		console.log("Turn on cookie message");
+		    		openCookieDiv();
+		    	}
+		    }
+			
+		    function openCookieDiv() {
+		    	document.getElementById("global-cookie-message").className = "show-div";
+		    }		    
+			
+		    function closeCookieDiv() {
+		    	document.getElementById("global-cookie-message").className = "hide-div";
+		    	document.cookie="cookieMessageOff=true";
+		    }		    
+		</script>
     </head>
 
-    <body>
-
+    <body> 
+        <apex:outputPanel rendered="{!$CurrentPage.Name!='answers'}">
         <div id="skiplink-container">
             <div>
                 <a href="#content" class="skiplink">Skip to main content</a>
             </div>
         </div>
 
-        <div id="global-cookie-message">
-            <p>GOV.UK uses cookies to make the site simpler. <a href="https://www.gov.uk/help/cookies">Find out more about cookies</a></p>
-        </div>
+        <div id="global-cookie-message" class="hide-div">
+        	<div style="margin:auto; width:560px">
+	        	<a style="float:right; text-decoration:none;" href="javascript:closeCookieDiv();">X</a>
+	            <p>GOV.UK uses cookies to make the site simpler. <a href="https://www.gov.uk/help/cookies">Find out more about cookies</a></p>
+	        </div>
+	    </div>
+        </apex:outputPanel>
 
         <header role="banner" id="global-header" class="with-proposition">
             <div class="header-wrapper">
+            
+            	<apex:outputPanel rendered="{!$CurrentPage.Name=='answers'}">	<!-- for pdf -->
+            
                 <div class="header-global">
                     <div class="header-logo">
-                        <a href="https://www.gov.uk/" title="Go to the GOV.UK homepage" id="logo" class="content">
-                            <img src="https://alphagov.github.io/govuk_template/assets/images/gov.uk_logotype_crown_invert_trans.png?0.19.1" width="36" height="32" alt=""/> GOV.UK
-                        </a>
-                    </div>
+						<a href="#" id="logo" class="content" style="background-image:url({!URLFOR($Resource.images, 'gov.uk_crown_small.png')})">
+                 			<img src="#" width="36" height="35" alt=""/>&nbsp;&nbsp;GOV.UK&nbsp;&nbsp;&nbsp;Life Chances Fund
+                		</a>
+                	</div>
                 </div>
 
-                <div class="header-proposition">
+            	</apex:outputPanel>
+            
+	            <apex:outputPanel rendered="{!$CurrentPage.Name!='answers'}">
+	            <table><tbody><tr>
+                <td class="header-global" style="width:30%; height:40px; border:none; padding-bottom:10px">
+                    <div class="header-logo">
+                        <a href="https://www.gov.uk/" title="Go to the GOV.UK homepage" id="logo" class="content" 
+                        	style="background-image:url({!URLFOR($Resource.images, 'gov.uk_crown_small.png')}); background-size:46px;">
+                            <img src="#" width="36" height="39" alt=""/>&nbsp;&nbsp;GOV.UK
+                         </a>
+                    </div>
+                </td>
+
+				<td class="header-proposition" style="align:left; border:none; padding-top:10px;">
                     <div class="content">
-                        <a href="#proposition-links" class="js-header-toggle menu">Menu</a>
-                        <nav id="proposition-menu">
-                            <a href="{!$Page.applications}" id="proposition-name">Life Chances Fund</a>
-                            <ul id="proposition-links">
-                  				<li>
-                  					<apex:outputLink value="/SIB_ChangePassword?retURL=/SIB_Login">Change Password</apex:outputLink>
-                  				</li>
-                                 <li>    
-      								<apex:outputLink value="{!$Site.Prefix}/secur/logout.jsp">Logout</apex:outputLink>
-								</li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-
+                    <a href="{!$Page.applications}" id="proposition-name" style="font-size:24px">Life Chances Fund</a>
+                    <ul id="proposition-links" style="width:340px">
+          				<li width="75%"><!-- for IE8 -->
+          					<apex:outputLink value="/SIB_ChangePassword?retURL=/SIB_Login">Change Password</apex:outputLink>
+          				</li>
+                         <li>    
+							<apex:outputLink value="{!$Site.Prefix}/secur/logout.jsp">Logout</apex:outputLink>
+						</li>
+                    </ul>
+                   </div>
+	            </td>
+	 			</tr></tbody></table>
+	            </apex:outputPanel>
+            
             </div>
         </header>
 
-        <div id="global-header-bar"></div>
+        <apex:outputPanel rendered="{!$CurrentPage.Name!='answers'}">
+        	<div id="global-header-bar" style="margin:auto; max-width:960px"></div>
+        </apex:outputPanel>
+ 
+        <div class="site-wrapper" style="margin:auto; max-width:960px">
 
-        <div class="site-wrapper">
-
+         	<apex:outputPanel rendered="{!$CurrentPage.Name!='answers'}">
             <div class="phase-banner-beta">
                 <text class="phase-tag"> BETA </text> This is a new service - your <a href="mailto:lifechancesfund@biglotteryfund.org.uk" target="_blank"> feedback</a> will help us to improve it.
             </div>
+       		</apex:outputPanel>
 
             <apex:insert name="breadcrumbs"/>
 
@@ -76,23 +146,33 @@
 
         </div>
 
+        <apex:outputPanel rendered="{!$CurrentPage.Name!='answers'}">
         <footer class="group js-footer" id="footer" role="contentinfo">
 
-            <div class="footer-wrapper">
-                <div class="footer-meta">
-                    <div class="footer-meta-inner">
-                        <div class="open-government-licence">
-                            <p class="logo"><a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence</a></p>
-                            <p>All content is available under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence v3.0</a>, except where otherwise stated</p>
-                        </div>
-                    </div>
+            <div class="footer-wrapper" style="margin:auto; max-width:960px; padding-top:20px">
+                <ul class="footer-meta">
+                    <li class="footer-meta-inner" style="float:left; width:85%; padding-top:40px">
+                        <h2 class="visuallyhidden">Support links</h2>
+                        <ul>
+                            <apex:repeat value="{!footerLinks}" var="fl">
+                                <li><a href="{!fl.URL__c}" target="{!fl.Target__c}">{!fl.Label}</a></li>
+                            </apex:repeat>
+                        </ul>
+  	                    <div class="footer-meta-inner" style="width:100%; padding-top:10px">
+	                        <div class="open-government-licence">
+	                            <p class="logo"><a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence</a></p>
+	                            <p>All content is available under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence v3.0</a>, except where otherwise stated</p>
+	                        </div>
+	                    </div>
+                    </li>
 
-                    <div class="copyright">
-                        <a href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/copyright-and-re-use/crown-copyright/">&copy; Crown copyright</a>
-                    </div>
-                </div>
+                    <li class="copyright" style="float:right; margin:5 0 0 0; width:15%">
+                         <a href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/copyright-and-re-use/crown-copyright/">&copy; Crown copyright</a>
+                    </li>
+                </ul>
             </div>
         </footer>
+        </apex:outputPanel>
 
     </body>
 

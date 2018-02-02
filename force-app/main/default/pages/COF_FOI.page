@@ -1,0 +1,34 @@
+<apex:page controller="SIB_TemplateController" standardStylesheets="false" showHeader="false" docType="html-5.0">
+    <style>
+    	.cofRichText td {
+    		border:none;
+    	}
+	    .cofRichText ul {
+	        list-style-type: disc;
+	        list-style-position: inside;
+	    }
+	    .cofRichText ul li {
+	    	margin-left: 30px;
+	    	margin-bottom: 5px;
+	    }
+    </style>
+	<apex:composition template="Layout">
+		<apex:define name="title">
+		    <title>FOI</title>
+		</apex:define>
+		<apex:define name="breadcrumbs">
+		</apex:define>
+		<apex:define name="main">
+			
+			<div class="grid-row">
+				<div class="column-full">
+					<h1 class="heading-xlarge" style="margin-bottom:20px">Freedom of Information Act</h1>
+					<div class="cofRichText">
+						<apex:outputField value="{!project.Freedom_of_Information_Act_Text__c}"/>
+					</div>
+                </div>
+            </div> 
+
+		</apex:define>
+	</apex:composition>
+</apex:page>

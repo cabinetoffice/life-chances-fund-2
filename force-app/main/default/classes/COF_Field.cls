@@ -9,15 +9,18 @@ public class COF_Field {
     public String identifier {get; set;}
     public String targetObjectIdentifier {get; set;}
     public String label {get; set;}
+    public String value {get; set;}
     public String guidance {get; set;}
     public Integer recommendedWordLimit {get; set;}
 
     public Boolean isTextField {get; set;}
+    public Boolean isEmailField {get; set;}
     public Boolean isRadioField {get; set;}
     public Boolean isSelectField {get; set;}
     public Boolean isDateField {get; set;}
     public Boolean isCheckBox {get; set;}
     public Boolean isCurrency {get; set;}
+    public Boolean isNumber {get; set;}
 
     public String dateDay {get; set;}
     public String dateMonth {get; set;}
@@ -38,11 +41,19 @@ public class COF_Field {
         this.label = fieldmap.get(identifier).getDescribe().getInlineHelpText();
 
         Schema.DisplayType fieldType = fieldmap.get(identifier).getDescribe().getType();
-        if (fieldType == Schema.DisplayType.String || fieldType == Schema.DisplayType.TextArea || fieldType == Schema.DisplayType.Currency || fieldType == Schema.DisplayType.Double) {
+        if (fieldType == Schema.DisplayType.String || fieldType == Schema.DisplayType.TextArea 
+        || fieldType == Schema.DisplayType.Currency || fieldType == Schema.DisplayType.Double
+        || fieldType == Schema.DisplayType.Email) {
             this.isTextField = true;
+        }
+        if (fieldType == Schema.DisplayType.Email) {
+            this.isEmailField = true;
         }
         if (fieldType == Schema.DisplayType.Currency) {
             this.isCurrency = true;
+        }
+        if (fieldType == Schema.DisplayType.Double) {
+            this.isNumber = true;
         }
         if (fieldType == Schema.DisplayType.Boolean) {
             this.isCheckBox = true;

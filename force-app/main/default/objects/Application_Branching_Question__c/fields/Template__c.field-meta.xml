@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Template__c</fullName>
+    <description>This is the template that the branching question relates to.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This is the template that the branching question relates to.</inlineHelpText>
+    <label>Template</label>
+    <referenceTo>Application_Window_Template__c</referenceTo>
+    <relationshipLabel>Application Branching Questions</relationshipLabel>
+    <relationshipName>Application_Branching_Questions</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

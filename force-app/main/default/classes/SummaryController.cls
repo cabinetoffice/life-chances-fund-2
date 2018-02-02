@@ -1,6 +1,6 @@
 public class SummaryController extends COF_PageController {
-	public static final String COMPLETE = 'COMPLETE';
-	public static final String INCOMPLETE = 'INCOMPLETE';
+	private static final String COMPLETE = 'COMPLETE';
+	private static final String INCOMPLETE = 'INCOMPLETE';
 
 	public COF_Form form {get;set;} 
     public COF_Section section {get;set;}

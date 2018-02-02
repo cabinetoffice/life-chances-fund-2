@@ -1,0 +1,31 @@
+<apex:page controller="SIB_ErrorPageController" showHeader="false" standardStylesheets="false" sidebar="false" title="Error Page">
+<apex:composition template="SIB_Template">
+    <apex:define name="body">
+	<apex:outputPanel >
+        <apex:outputLink value="{!$Page.SIB_ApplicationList}">Back</apex:outputLink>
+	</apex:outputPanel>
+	<h2 class="heading-medium">Something has gone wrong</h2>
+	<apex:outputText escape="false" value="{!$Label.SIB_Error_Message}"/>
+	<apex:outputPanel layout="block" styleClass="topPanel" rendered="{!showErrors==true}">
+		<table>
+		<br/>
+		<tbody>
+			<tr>
+ 				<td style="border:0;width:10%">
+           		<apex:image url="{!URLFOR($Resource.SiteSamples, 'img/warning.png')}"/>
+           		</td><td style="border:0">
+				<apex:outputText style="font-style:italic; font-size:16px" value="{!$Site.ErrorMessage}"/><br/>
+				<apex:outputText style="font-style:italic; font-size:16px" value="{!$Site.ErrorDescription}"/>
+				</td>
+			</tr>
+		</tbody>
+		</table>
+	</apex:outputPanel>
+	<apex:form >
+        <br/>
+        <apex:commandButton styleClass="button" action="{!URLFOR($Page.SIB_ApplicationList)}" value="Back to start page"/>
+	</apex:form>
+	<br/>
+	</apex:define>
+</apex:composition>
+</apex:page>

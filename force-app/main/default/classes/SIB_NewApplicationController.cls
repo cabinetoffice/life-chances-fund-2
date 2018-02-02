@@ -1,4 +1,5 @@
 public with sharing class SIB_NewApplicationController {
+	private static final String APPRECORDTYPE = 'Expression of Interest';
     public String selectedTheme{get;set;}
     public Map<String, Id> themeNameToIdMap{get;set;}
     
@@ -48,6 +49,7 @@ public with sharing class SIB_NewApplicationController {
         }
         List<Contact> contactRecords = Database.query('SELECT Id FROM Contact WHERE Email = \'' + UserInfo.getUserEmail() + '\'');
         Application__c applicationToCreate = new Application__c(
+			RecordTypeId = Schema.SObjectType.Application__c.getRecordTypeInfosByName().get(APPRECORDTYPE).getRecordTypeId(),
             Application_Window_Template__c = applicationWindow.Application_Window_Templates__r[0].Id,
             Status__c = 'Draft',
             Contact__c = contactRecords.isEmpty() ? null : contactRecords[0].Id

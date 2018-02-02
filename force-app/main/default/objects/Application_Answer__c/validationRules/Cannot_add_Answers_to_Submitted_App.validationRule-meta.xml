@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_add_Answers_to_Submitted_App</fullName>
+    <active>true</active>
+    <description>You cannot add answers to applications which have been submitted</description>
+    <errorConditionFormula>AND(
+IF( ISPICKVAL(Application_Question_Template__r.Application_Form_Section__r.Form_To_Use_In__c, "Expression of Interest"), ISPICKVAL(Application__r.Status__c, "Submitted"), IF( ISPICKVAL(Application_Question_Template__r.Application_Form_Section__r.Form_To_Use_In__c, "Development Form"), ISPICKVAL(Application__r.Development_Form_Status__c, "Submitted"), IF( ISPICKVAL(Application_Question_Template__r.Application_Form_Section__r.Form_To_Use_In__c, "Full Application"), ISPICKVAL(Application__r.Full_Application_Status__c, "Submitted"), false))
+),
+ $Profile.Name =  $Label.SIB_Community_Profile_Name 
+)</errorConditionFormula>
+    <errorMessage>You cannot add answers to applications which have been submitted</errorMessage>
+</ValidationRule>

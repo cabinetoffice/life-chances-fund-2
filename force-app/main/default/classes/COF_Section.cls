@@ -8,6 +8,7 @@ public class COF_Section {
 
 	public String id {get;set;}
 	public String title {get;set;}
+	public String short_title {get;set;}
 	public String summary {get;set;}
 	public String status_field {get; set;}
 	public String page_status_field {get; set;}

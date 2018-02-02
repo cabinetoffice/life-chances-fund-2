@@ -1,0 +1,15 @@
+<apex:page showHeader="false" standardStylesheets="false">
+	<apex:composition template="SIB_Template">
+		<apex:define name="body">
+			<br/>
+			<h1 class="heading-xlarge">Application Submitted</h1>
+				<apex:outputText styleClass="title" value="Your Application Has Been Submitted. You should have received an email."/>
+			<br/>
+			<br/>
+			<apex:form >
+				<apex:commandButton styleClass="button" action="{!URLFOR($Page.SIB_ApplicationList)}" value="Back to application list"/>
+      		</apex:form>
+			<br/>
+		</apex:define>
+	</apex:composition>
+</apex:page>

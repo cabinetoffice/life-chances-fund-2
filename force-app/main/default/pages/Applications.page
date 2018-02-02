@@ -1,5 +1,8 @@
 <apex:page controller="ApplicationsController" standardStylesheets="false" showHeader="false" docType="html-5.0" action="{!checkLoggedInStatus}">
 	<apex:composition template="Layout">
+		<apex:define name="title">
+		    <title>Applications</title>
+		</apex:define>
 		<apex:define name="breadcrumbs">
 		</apex:define>
 		<apex:define name="main">
@@ -61,7 +64,9 @@
 										    <apex:param name="app" value="{!application['Name']}"/>
 										</apex:outputLink>
 									</td>
-									<td class="numeric"></td>
+									<td class="numeric"><span class="status">
+									{!IF(ISBLANK(application['Full_Application_Status__c']),'DRAFT',UPPER(application['Full_Application_Status__c']))}
+									</span></td>
 								</tr>
 							</apex:repeat>
 						</tbody>

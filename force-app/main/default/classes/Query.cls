@@ -62,13 +62,16 @@ public class Query {
 		return result;	
 	}
 	
-	public static void updateObject(SObject targetObject) {
+	public static Database.SaveResult updateObject(SObject targetObject) {
+		Database.SaveResult result;
 		String targetObjectName = targetObject.getSObjectType().getDescribe().getName();
 		try {
-			update targetObject;
+			system.debug('####update targetObject: '+targetObject);
+			result = Database.update(targetObject);
 		} catch(Exception ex) {
 		    throw new COF_Exception('Could not update '+targetObjectName+': '+ex.getMessage()+'\n'+ex.getStackTraceString());
-		}		
+		}	
+		return result;	
 	}
 
     public static List<sObject> objects(String targetObject, String[] fields, String constraint)
@@ -81,12 +84,12 @@ public class Query {
         System.debug(soqlquery);
 		try {
         	queryresult = Database.query(soqlquery);
-	        if (queryresult.size() == 0) {
-        		throw new COF_Exception('No rows returned from SOQL query on '+targetObject);
-        		return null; 
-	        } else {
+	        //if (queryresult.size() == 0) {
+        	//	throw new COF_Exception('No rows returned from SOQL query on '+targetObject);
+        	//	return null; 
+	        //} else {
 			    return queryresult;
-	        } 
+	        //} 
 		} catch(Exception ex) {
 		    throw new COF_Exception('Error in SOQL Query on '+targetObject+': '+ex.getMessage()+'\n'+ex.getStackTraceString());
 		}		

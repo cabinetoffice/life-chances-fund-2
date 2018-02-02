@@ -10,6 +10,7 @@
   ISPICKVAL(ou_section_status__c, 'COMPLETE'), 
   ISPICKVAL(fn_section_status__c, 'COMPLETE'), 
   ISPICKVAL(ev_section_status__c, 'COMPLETE'), 
+  ISPICKVAL(or_section_status__c, 'COMPLETE'), 
   ISPICKVAL(de_section_status__c, 'COMPLETE') 
 )</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>

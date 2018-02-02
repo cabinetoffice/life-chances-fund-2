@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>ov_engaged_social_investors__c</fullName>
     <externalId>false</externalId>
-    <inlineHelpText>Do you intend to take on social investment?</inlineHelpText>
+    <inlineHelpText>Have you engaged with any social investors at this stage?</inlineHelpText>
     <label>OV - Engaged Social Investors</label>
     <required>false</required>
     <trackTrending>false</trackTrending>

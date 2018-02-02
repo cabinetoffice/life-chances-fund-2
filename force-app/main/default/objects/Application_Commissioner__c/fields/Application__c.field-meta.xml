@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Application__c</fullName>
+    <description>This is the application the commissioner is related to.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This is the application the commissioner is related to.</inlineHelpText>
+    <label>Application</label>
+    <referenceTo>Application__c</referenceTo>
+    <relationshipLabel>Application Commissioners</relationshipLabel>
+    <relationshipName>Application_Commissioners</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

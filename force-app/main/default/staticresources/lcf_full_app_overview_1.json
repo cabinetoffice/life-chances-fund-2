@@ -9,7 +9,7 @@
 				{ "target_field": "ov_project_name__c" },
 				{ 
 					"target_field": "ov_project_summary__c",
-					"guidance": "Who do you intend to work with, what outcomes you intend to deliver for them, what sorts of interventions you will deliver and what are the expected benefits?",
+					"guidance": "What are you trying to achieve with your project? Who do you intend to work with, what outcomes do you intend to deliver for them, what sorts of interventions will you deliver and what are the expected benefits?",
 					"recommended_word_limit": 400
 				}
 			],
@@ -20,7 +20,9 @@
 		{
 			"id": "2",
 			"questions": [
-				{ "target_field": "ov_services_start_date__c" }
+				{ "target_field": "ov_services_start_date__c",
+"guidance": "For example, 01 10 2018. Your SIB will not be able to launch until you have completed due diligence with investors, obtained sign off from commissioners and confirmed who will be delivering, investing in and managing your SIB. This can take 12 months to complete."
+ }
 			],
 			"routes": [
 				{ "target_page": "3" }
@@ -29,7 +31,9 @@
 		{
 			"id": "3",
 			"questions": [
-				{ "target_field": "ov_services_end_date__c" }
+				{ "target_field": "ov_services_end_date__c",
+"guidance": "For example, 01 10 2019."
+ }
 			],
 			"routes": [
 				{ "target_page": "4" }
@@ -38,7 +42,9 @@
 		{
 			"id": "4",
 			"questions": [
-				{ "target_field": "ov_payments_end_date__c" }
+				{ "target_field": "ov_payments_end_date__c",
+"guidance": "For example, 01 10 2020. It is common for outcome payments to be made beyond the period in which services are delivered. Please note LCF payments must be claimed by September 2024."
+ }
 			],
 			"routes": [
 				{ "target_page": "5" }
@@ -71,7 +77,9 @@
 		{
 			"id": "7",
 			"questions": [
-				{ "target_field": "ov_intermediary_assisting__c" }
+				{ "target_field": "ov_intermediary_assisting__c",
+"guidance": "By intermediary we mean an external organisation providing advice to the applicant or brokering agreements between commissioners, providers or investors."
+ }
 			],
 			"routes": [
 				{ 
@@ -97,7 +105,6 @@
 		{
 			"id": "9",
 			"title": "Please provide the contact details of the intermediary",
-			"guidance": "We will contact intermediaries as part of our assessment of your application.",
 			"questions": [
 				{ "target_field": "ov_intermediary_sector__c" }
 			],
@@ -108,7 +115,6 @@
 		{
 			"id": "10",
 			"title": "Please provide the contact details of the intermediary",
-			"guidance": "We will contact intermediaries as part of our assessment of your application.",
 			"questions": [
 				{ "target_field": "ov_intermediary_contact_name__c" },
 				{ "target_field": "ov_intermediary_email__c" },
@@ -126,6 +132,7 @@
 				"target_object": "Form_LCF_Commissioner_1__c",
 				"target_field": "co_organisation_name__c",
 				"child_relationship": "full_application_commissioners__r",
+				"title": "Outcome Commissioners",
 				"section": "lcf_full_app_overview_child_1"
 			},
 			"routes": [
@@ -133,6 +140,12 @@
 					"target_page": "12",
 					"constraints": [
 						{ "field": "ov_organisation_type__c", "operator": "equals", "value": "Local commissioner" }
+					]
+				},
+				{ 
+					"target_page": "12",
+					"constraints": [
+						{ "field": "ov_organisation_type__c", "operator": "equals", "value": "Other" }
 					]
 				},
 				{ 
@@ -198,22 +211,30 @@
 				{ "target_field": "ov_investor_involvement_confirmed__c" }
 			],
 			"routes": [
-				{ "target_page": "17" }
-			]
+				{ "target_page": "17",
+					"constraints": [
+						{ "field": "ov_investor_involvement_confirmed__c", "operator": "equals", "value": "Yes" }
+					]
+				},
+				{ "target_page": "19" }				
+
+		]
 		},
 		{
-			"id": "16",
+			"id": "17",
 			"questions": [
 				{ "target_field": "ov_investor_sector__c" }
 			],
 			"routes": [
-				{ "target_page": "17" }
+				{ "target_page": "18" }
 			]
 		},
 		{
 			"id": "18",
 			"questions": [
-				{ "target_field": "ov_investor_commitment__c" }
+				{ "target_field": "ov_investor_commitment__c",
+"recommended_word_limit": 150
+ }
 			],
 			"routes": [
 				{ "target_page": "19" }
@@ -240,7 +261,13 @@
 				{ "target_field": "ov_service_provider_identified__c" }
 			],
 			"routes": [
-				{ "target_page": "21" }
+				{ 
+					"target_page": "21",
+					"constraints": [
+						{ "field": "ov_service_provider_identified__c", "operator": "equals", "value": "Yes" }
+					]
+				},
+				{ "target_page": "23" }
 			]
 		},
 		{
@@ -255,7 +282,9 @@
 		{
 			"id": "22",
 			"questions": [
-				{ "target_field": "ov_service_provider_plans__c" }
+				{ "target_field": "ov_service_provider_plans__c",
+					"recommended_word_limit": 150
+ }
 			],
 			"routes": [
 				{ "target_page": "23" }
@@ -264,7 +293,10 @@
 		{
 			"id": "23",
 			"questions": [
-				{ "target_field": "ov_vcse_involvement__c" }
+				{ "target_field": "ov_vcse_involvement__c",
+"guidance": "Describe how you have engaged with VCSEs and what role they will play in the project.",
+"recommended_word_limit": 150
+ }
 			],
 			"routes": [
 				{ "target_page": "24" }
@@ -283,10 +315,14 @@
 		},
 		{
 			"id": "25",
-			"title": "Details of the project's estimated outcomes payments",
 			"questions": [
-				{ "target_field": "ov_services_paid_by_outcomes__c" }
+				{ "target_field": "ov_services_paid_by_outcomes__c",
+"guidance": "Projects need to be more than 50% outcomes based to be eligible for LCF funding." 
+}
 			]
 		}
 	]
 }
+
+
+

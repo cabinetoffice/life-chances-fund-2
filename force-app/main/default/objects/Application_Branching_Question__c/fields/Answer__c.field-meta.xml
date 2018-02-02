@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Answer__c</fullName>
+    <description>This is the value it must match to, to choose this template. Note, this could be a semi colon separated list, so if more than one answer should follow the same track, you do not need to create multiple different AWT.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This is the value it must match to, to choose this template. Note, this could be a semi colon separated list, so if more than one answer should follow the same track, you do not need to create multiple different AWT.</inlineHelpText>
+    <label>Answer</label>
+    <length>255</length>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

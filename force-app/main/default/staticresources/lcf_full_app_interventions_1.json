@@ -8,7 +8,8 @@
 			"questions": [
 				{ 
 					"target_field": "iv_interventions_outline__c",
-					"guidance": "If you don’t know the specific intervention at this stage, please give indicative examples of the types of intervention you expect to see (which could be based on current interventions)"
+					"guidance": "If you don’t know the specific intervention at this stage, please give indicative examples of the types of intervention you expect to see (which could be based on current interventions).",
+"recommended_word_limit": 150
 				}
 			],
 			"routes": [
@@ -20,7 +21,8 @@
 			"questions": [
 				{ 
 					"target_field": "iv_interventions_approach__c",
-					"guidance": "What is the evidence that supports your approach (e.g. existing provision, academic evidence, experts in the field)"
+					"guidance": "What is the evidence that supports your approach? For example, evidence from the monitoring and evaluation of existing provision, academic evidence, and views and published works of experts in the field.",
+"recommended_word_limit": 200
 				}
 			],
 			"routes": [
@@ -32,9 +34,11 @@
 			"questions": [
 				{ 
 					"target_field": "iv_interventions_additional__c",
-					"guidance": "A statutory service is one that a commissioner is required to provide by law."
+					"guidance": "This references statutory services that are paid for and provided for by central government. LCF will only support the provision of services that are paid for and delivered at a local government level, or that are paid for centrally but delivered through local government services. It cannot support any services that are delivered by central government.",
+"recommended_word_limit": 100
 				}
 			]
 		}
 	]
 }
+

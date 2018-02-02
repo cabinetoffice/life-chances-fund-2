@@ -1,6 +1,9 @@
 <apex:page controller="SummaryController" standardStylesheets="false" showHeader="false" docType="html-5.0" action="{!checkLoggedInStatus}"> 
 
     <apex:composition template="Layout">
+		<apex:define name="title">
+		    <title>{!section.short_title} Summary</title>
+		</apex:define>
         <apex:define name="breadcrumbs">
             <div class="breadcrumbs">
                 <ol>
@@ -97,9 +100,10 @@
             <apex:form >
             	<apex:outputPanel rendered="{!NOT(section.questionsComplete)}">
 		            <div class="notice">
-		              <i class="icon icon-important">
+		              <i class="icon icon-important" style="background-image: url({!URLFOR($Resource.images, 'icon-important.png')})">
 		                <span class="visually-hidden">Warning</span>
 		              </i>
+		              
 		              <strong class="bold-small">
 		                You must complete all questions before you can mark this section as complete
 		              </strong>
