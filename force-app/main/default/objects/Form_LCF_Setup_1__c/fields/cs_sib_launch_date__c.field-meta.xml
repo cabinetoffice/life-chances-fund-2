@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cs_sib_launch_date__c</fullName>
+    <description>For example, 31 3 2018</description>
+    <externalId>false</externalId>
+    <inlineHelpText>What is your current project start date when the SIB will launch?</inlineHelpText>
+    <label>CS - SIB Launch Date</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

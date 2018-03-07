@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SIB_Reference__c</fullName>
+    <description>SIB Reference Information parent record</description>
+    <externalId>false</externalId>
+    <inlineHelpText>SIB Reference Information parent record</inlineHelpText>
+    <label>SIB Reference</label>
+    <referenceTo>SIB_Information__c</referenceTo>
+    <relationshipLabel>Section Text</relationshipLabel>
+    <relationshipName>Section_Text</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cs_good_value__c</fullName>
+    <description>Tell us how your SIB will provide good value for money to commissioners and service providers in particular; and to other stakeholders, including local communities, investors and the Life Chances Fund</description>
+    <externalId>false</externalId>
+    <inlineHelpText>How do you know your SIB will provide good value for money?</inlineHelpText>
+    <label>CS - Good Value for Money</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>10</visibleLines>
+</CustomField>

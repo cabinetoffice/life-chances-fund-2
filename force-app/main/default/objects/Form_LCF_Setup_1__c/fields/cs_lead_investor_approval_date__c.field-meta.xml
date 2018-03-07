@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cs_lead_investor_approval_date__c</fullName>
+    <description>For example, 31 3 2018</description>
+    <externalId>false</externalId>
+    <inlineHelpText>When do you expect final approval and sign off from the lead investor(s)?</inlineHelpText>
+    <label>CS - Lead Investor Approval Date</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

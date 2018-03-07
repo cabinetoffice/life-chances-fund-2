@@ -1,0 +1,181 @@
+{
+	"id": "lcf_setup_applicant_1",
+	"target_object": "Form_LCF_Setup_1__c",
+	"parent_relationship": "application__r",
+	"pages": [
+		{
+			"id": "1",
+			"title_id": "Lead Applicant",
+			"reference_section": "lcf_full_app_organisation_1",
+			"reference_id": "2",
+			"reference_guidance": "View full application legal organisation",
+			"questions": [
+				{ "target_field": "ap_lead_applicant_organisation__c" },
+				{ "target_field": "ap_lead_applicant_changed__c" }
+			],
+			"routes": [
+				{ 
+					"target_page": "3",
+					"constraints": [
+						{ "field": "ap_lead_applicant_changed__c", "operator": "equals", "value": "No" }
+					]
+				},
+				{ "target_page": "2" }
+			]
+		},
+		{
+			"id": "2",
+			"questions": [
+				{ "target_field": "ap_previous_lead_applicant__c" }
+			],
+			"routes": [
+				{ "target_page": "3" }
+			]
+		},
+		{
+			"id": "3",
+			"reference_section": "lcf_full_app_organisation_1",
+			"reference_id": "12",
+			"reference_guidance": "View full application primary contact",
+			"questions": [
+				{ "target_field": "ap_primary_contact_changed__c" }
+			],
+			"routes": [
+				{ 
+					"target_page": "7",
+					"constraints": [
+						{ "field": "ap_primary_contact_changed__c", "operator": "equals", "value": "No" }
+					]
+				},
+				{ "target_page": "4" }
+			]
+		},		
+		{
+			"id": "4",
+			"title_id": "Primary Contact",
+			"questions": [
+				{ "target_field": "ap_primary_contact_first_name__c" },
+				{ "target_field": "ap_primary_contact_last_name__c" },
+				{ "target_field": "ap_primary_contact_position__c" },
+				{ "target_field": "ap_primary_contact_date_of_birth__c" }
+			],
+			"routes": [
+				{ "target_page": "5" }
+			]
+		},
+		{
+			"id": "5",
+			"title_id": "Primary Contact Details",
+			"questions": [
+				{ "target_field": "ap_primary_contact_daytime_phone__c" },
+				{ "target_field": "ap_primary_contact_mobile_phone__c" },
+				{ "target_field": "ap_primary_contact_work_email__c" }
+			],
+			"routes": [
+				{ "target_page": "6" }
+			]
+		},
+		{
+			"id": "6",
+			"title_id": "Primary Contact Home Address",
+			"questions": [
+				{ "target_field": "ap_primary_contact_home_address__c" },
+				{ "target_field": "ap_primary_contact_postcode__c" }
+			],
+			"routes": [
+				{ "target_page": "7" }
+			]
+		},
+		{
+			"id": "7",
+			"reference_section": "lcf_full_app_organisation_1",
+			"reference_id": "14",
+			"reference_guidance": "View full application legal contact",
+			"questions": [
+				{ "target_field": "ap_legal_contact_changed__c"	}
+			],
+			"routes": [
+				{ 
+					"target_page": "11",
+					"constraints": [
+						{ "field": "ap_legal_contact_changed__c", "operator": "equals", "value": "No" }
+					]
+				},
+				{ "target_page": "8" }
+			]
+		},		
+		{
+			"id": "8",
+			"title_id": "Legal Contact",
+			"questions": [
+				{ "target_field": "ap_legal_contact_first_name__c" },
+				{ "target_field": "ap_legal_contact_last_name__c" },
+				{ "target_field": "ap_legal_contact_position__c" },
+				{ "target_field": "ap_legal_contact_date_of_birth__c" }
+			],
+			"routes": [
+				{ "target_page": "9" }
+			]
+		},
+		{
+			"id": "9",
+			"title_id": "Legal Contact Details",
+			"questions": [
+				{ "target_field": "ap_legal_contact_daytime_phone__c" },
+				{ "target_field": "ap_legal_contact_mobile_phone__c" },
+				{ "target_field": "ap_legal_contact_work_email__c" }
+			],
+			"routes": [
+				{ "target_page": "10" }
+			]
+		},
+		{
+			"id": "10",
+			"title_id": "Legal Contact Home Address",
+			"questions": [
+				{ "target_field": "ap_legal_contact_home_address__c" },
+				{ "target_field": "ap_legal_contact_postcode__c" }
+			],
+			"routes": [
+				{ "target_page": "11" }
+			]
+		},
+		{
+			"id": "11",
+			"title_id": "Bank Details",
+			"questions": [
+				{ 
+					"target_field": "ap_same_bank_account__c"
+				}
+			],
+			"routes": [
+				{ "target_page": "12" }
+			]
+		},		
+		{
+			"id": "12",
+			"title_id": "Project Name",
+			"reference_section": "lcf_full_app_overview_1",
+			"reference_id": "1",
+			"reference_guidance": "View full application project name",
+			"questions": [
+				{ "target_field": "ap_original_project_name__c" },
+				{ "target_field": "ap_project_name_changed__c" }
+			],
+			"routes": [
+				{ 
+					"target_page": "13",
+					"constraints": [
+						{ "field": "ap_project_name_changed__c", "operator": "equals", "value": "Yes" }
+					]
+				}
+			]
+		},		
+		{
+			"id": "13",
+			"questions": [
+				{ "target_field": "ap_project_name__c" }
+			]
+		}
+	]
+}

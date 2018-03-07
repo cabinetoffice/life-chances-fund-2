@@ -1,0 +1,76 @@
+{
+	"id": "lcf_setup_terms_commissioners_1",
+	"target_object": "Form_LCF_Setup_Commissioner_1__c",
+	"target_field": "sc_commissioner_name__c",
+	"status_field": "tm_section_status__c",
+	"short_title": "Commissioner",
+	"parent_relationship": "full_award_setup__r",
+	"pages": [
+		{
+			"id": "1",
+			"questions": [
+				{ "target_field": "sc_commissioner_name__c" }
+			],
+			"routes": [
+				{ "target_page": "2" }
+			]
+		},
+		{
+			"id": "2",
+			"title_id": "Service Users to Engage",
+			"questions": [
+				{ "target_field": "sc_interventions_users_high__c" },
+				{ "target_field": "sc_interventions_users_median__c" },
+				{ "target_field": "sc_interventions_users_low__c" }
+			],
+			"routes": [
+				{ "target_page": "3" }
+			]
+		},
+		{
+			"id": "3",
+			"title_id": "Service Users to Achieve",
+			"questions": [
+				{ "target_field": "sc_outcomes_users_high__c" },
+				{ "target_field": "sc_outcomes_users_median__c" },
+				{ "target_field": "sc_outcomes_users_low__c" }
+			],
+			"routes": [
+				{ "target_page": "4" }
+			]
+		},
+		{
+			"id": "4",
+			"title_id": "Cashable Savings",
+			"questions": [
+				{ "target_field": "sc_savings_high__c" },
+				{ "target_field": "sc_savings_median__c" },
+				{ "target_field": "sc_savings_low__c" }
+			],
+			"routes": [
+				{ "target_page": "5" }
+			]
+		},
+		{
+			"id": "5",
+			"title_id": "Outcome Payments",
+			"questions": [
+				{ "target_field": "sc_all_outcome_payments_high__c" },
+				{ "target_field": "sc_all_outcome_payments_median__c" },
+				{ "target_field": "sc_all_outcome_payments_low__c" }
+			],
+			"routes": [
+				{ "target_page": "6" }
+			]
+		},
+		{
+			"id": "6",
+			"title_id": "LCF Outcome Payments",
+			"questions": [
+				{ "target_field": "sc_lcf_outcome_payments_high__c" },
+				{ "target_field": "sc_lcf_outcome_payments_median__c" },
+				{ "target_field": "sc_lcf_outcome_payments_low__c" }
+			]
+		}
+	]
+}

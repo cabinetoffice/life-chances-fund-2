@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cs_funds_from_commissioners_secured__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Has this been secured?</inlineHelpText>
+    <label>CS - Funds from Commissioners Secured</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Yes_No</valueSetName>
+    </valueSet>
+</CustomField>

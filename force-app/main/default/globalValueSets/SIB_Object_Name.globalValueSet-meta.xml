@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Application__c</fullName>
+        <default>false</default>
+        <label>Application__c</label>
+    </customValue>
+    <customValue>
+        <fullName>Form_LCF_Commissioner_1__c</fullName>
+        <default>false</default>
+        <label>Form_LCF_Commissioner_1__c</label>
+    </customValue>
+    <customValue>
+        <fullName>Form_LCF_Disengagement_1__c</fullName>
+        <default>false</default>
+        <label>Form_LCF_Disengagement_1__c</label>
+    </customValue>
+    <customValue>
+        <fullName>Form_LCF_Full_App_1__c</fullName>
+        <default>false</default>
+        <label>Form_LCF_Full_App_1__c</label>
+    </customValue>
+    <customValue>
+        <fullName>Form_LCF_Outcome_1__c</fullName>
+        <default>false</default>
+        <label>Form_LCF_Outcome_1__c</label>
+    </customValue>
+    <customValue>
+        <fullName>Form_LCF_Setup_1__c</fullName>
+        <default>false</default>
+        <label>Form_LCF_Setup_1__c</label>
+    </customValue>
+    <customValue>
+        <fullName>Form_LCF_Setup_Commissioner_1__c</fullName>
+        <default>false</default>
+        <label>Form_LCF_Setup_Commissioner_1__c</label>
+    </customValue>
+    <customValue>
+        <fullName>Form_LCF_Setup_Investor_1__c</fullName>
+        <default>false</default>
+        <label>Form_LCF_Setup_Investor_1__c</label>
+    </customValue>
+    <customValue>
+        <fullName>Form_LCF_Setup_Outcome_1__c</fullName>
+        <default>false</default>
+        <label>Form_LCF_Setup_Outcome_1__c</label>
+    </customValue>
+    <customValue>
+        <fullName>Form_LCF_Setup_Stakeholder_1__c</fullName>
+        <default>false</default>
+        <label>Form_LCF_Setup_Stakeholder_1__c</label>
+    </customValue>
+    <description>Object names of SIB Forms</description>
+    <masterLabel>SIB Object Name</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

@@ -3,5 +3,6 @@
     <apiVersion>38.0</apiVersion>
     <availableInTouch>false</availableInTouch>
     <confirmationTokenRequired>false</confirmationTokenRequired>
+    <description>Data entry form for a page of questions</description>
     <label>Questions</label>
 </ApexPage>

@@ -7,6 +7,7 @@
     <referenceTo>User</referenceTo>
     <relationshipName>Application</relationshipName>
     <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
     <trackTrending>false</trackTrending>
     <type>Lookup</type>
 </CustomField>

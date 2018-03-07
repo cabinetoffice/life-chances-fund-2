@@ -9,6 +9,14 @@
         <value>SIB Applicant</value>
     </labels>
     <labels>
+        <fullName>SIB_Content_URL</fullName>
+        <categories>SIB</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SIB Content URL</shortDescription>
+        <value>https://lcf--uat--c.cs80.content.force.com/sfc/servlet.shepherd/version/download/</value>
+    </labels>
+    <labels>
         <fullName>SIB_Currency_Error</fullName>
         <categories>SIB</categories>
         <language>en_US</language>
@@ -98,5 +106,13 @@ If you need assistance with this online form, you can email lifechancesfund@bigl
         <protected>false</protected>
         <shortDescription>SIB Number Error</shortDescription>
         <value>There is an error on this page. A number field is invalid. Please correct the error before continuing.</value>
+    </labels>
+    <labels>
+        <fullName>SIB_Percent_Error</fullName>
+        <categories>SIB</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SIB Percent Error</shortDescription>
+        <value>There is an error on this page. A percentage field is invalid. Please correct the error before continuing.</value>
     </labels>
 </CustomLabels>

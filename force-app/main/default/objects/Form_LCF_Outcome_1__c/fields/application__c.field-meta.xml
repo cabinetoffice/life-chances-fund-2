@@ -6,7 +6,7 @@
     <label>Application</label>
     <referenceTo>Application__c</referenceTo>
     <relationshipLabel>Form LCF Outcome 1.0</relationshipLabel>
-    <relationshipName>application_outcomes</relationshipName>
+    <relationshipName>full_application_outcomes</relationshipName>
     <required>false</required>
     <trackTrending>false</trackTrending>
     <type>Lookup</type>

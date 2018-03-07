@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>so_lcf_contribution_change_reasons__c</fullName>
+    <description>Please note you will have to make an extremely strong case to allow us to increase your funding request to LCF. Given strong demand for LCF funding, please be aware we will be very unlikely to agree any increase.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Explain the reasons behind the LCF contribution change</inlineHelpText>
+    <label>SO - LCF Contribution Change Reasons</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>10</visibleLines>
+</CustomField>

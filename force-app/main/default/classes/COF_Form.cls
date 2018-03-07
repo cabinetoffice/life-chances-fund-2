@@ -7,10 +7,17 @@
 public class COF_Form {
 
 	public String id {get;set;}
+	public String reference_Id {get;set;}
 	public String title {get;set;}
 	public String short_title {get;set;}
 	public String target_object {get;set;}
-	public List<COF_Section> sections {get;set;}
+	public String application_status_field {get;set;}
+	public List<COF_Section> sections {get;set;} 
+	public Boolean readonlyMode {get; set;}
+	
+	public COF_Form() {
+		this.readonlyMode = false;
+	}
 
 	/**
 	 * Returns a section given an identifier

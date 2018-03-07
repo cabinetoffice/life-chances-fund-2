@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>pr_service_users_changed__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Have your service user numbers changed since the in-principle offer?</inlineHelpText>
+    <label>PR - Service Users Changed</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Yes_No</valueSetName>
+    </valueSet>
+</CustomField>

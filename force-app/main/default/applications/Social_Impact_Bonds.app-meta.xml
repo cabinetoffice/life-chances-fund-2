@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <defaultLandingTab>standard-home</defaultLandingTab>
+    <label>Social Impact Bonds</label>
+    <logo>SharedDocuments/Cabinet_Office_Logo.jpg</logo>
+    <tabs>standard-Account</tabs>
+    <tabs>standard-Contact</tabs>
+    <tabs>Application_Question__c</tabs>
+    <tabs>Application__c</tabs>
+    <tabs>Application_Window__c</tabs>
+    <tabs>Outcome__c</tabs>
+    <tabs>Project__c</tabs>
+    <tabs>Theme__c</tabs>
+    <tabs>Change_Password</tabs>
+    <tabs>Application_Form_Section__c</tabs>
+</CustomApplication>

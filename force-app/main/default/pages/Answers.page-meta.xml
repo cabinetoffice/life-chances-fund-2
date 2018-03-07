@@ -3,5 +3,6 @@
     <apiVersion>38.0</apiVersion>
     <availableInTouch>false</availableInTouch>
     <confirmationTokenRequired>false</confirmationTokenRequired>
+    <description>pdf dump of the answers provided in the form</description>
     <label>answers</label>
 </ApexPage>

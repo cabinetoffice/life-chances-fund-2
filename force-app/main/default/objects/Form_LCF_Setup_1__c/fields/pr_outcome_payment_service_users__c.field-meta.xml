@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>pr_outcome_payment_service_users__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Users you expect to achieve at least one outcome that triggers a payment</inlineHelpText>
+    <label>PR - Outcome Payment Service Users</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

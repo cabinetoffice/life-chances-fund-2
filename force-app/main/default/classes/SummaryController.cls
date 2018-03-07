@@ -1,3 +1,13 @@
+/* _______________________________________________________________________________________________________________
+   Name:		SummaryController.cls
+   Description: Controller class for Summary Visualforce page
+					
+   Date         Version Author          		Summary of Changes 
+   ___________  _______ __________________		__________________________________________________________________
+   2017		    1.0    	Cabinet Office			Initial Release 
+   Jan 2018		1.1		M.Witchalls, Westbrook	Test for all questions answered
+   Mar 2018		1.2		M.Witchalls, Westbrook	Correction to child question check
+__________________________________________________________________________________________________________________ */        
 public class SummaryController extends COF_PageController {
 	private static final String COMPLETE = 'COMPLETE';
 	private static final String INCOMPLETE = 'INCOMPLETE';
@@ -9,10 +19,11 @@ public class SummaryController extends COF_PageController {
     public SObject targetObject {get;set;}
 
     public List<COF_Page> validPages {get;set;}
+	public SIB_Information__c sibInfo {get;set;}
 
     public SummaryController() { 
 
-        COF_Config config = COF_Config.load();
+        COF_Config config = COF_Config.load(this.getFormIdentifierParam());
         this.form = config.getForm(this.getFormIdentifierParam());
         system.debug('###this.form: '+this.form);
         this.section = form.getSection(this.getSectionIdentifierParam());
@@ -38,15 +49,14 @@ public class SummaryController extends COF_PageController {
         router.questionSet = questionSet;
 
         // Start on the first page
-        COF_Page nextPage = this.questionSet.getPage('1');
+        COF_Page nextPage = router.questionSet.getPage('1');
         do {
             if (nextPage != null) {
                 validPages.add(nextPage);
                 System.debug('###nextPage: '+nextPage);
-                nextPage.prepareFields(this.questionSet.target_object);
                 // M.Witchalls Jan 2018
                 for (COF_Field field: nextPage.fields) {
-                	if (targetObject.get(field.identifier) == null) {
+                	if (router.targetObject.get(field.identifier) == null) {
                 		this.section.questionsComplete = false;
                 	}
                 }
@@ -97,14 +107,29 @@ public class SummaryController extends COF_PageController {
 		// M.Witchalls Jan 2018: Check child records for missing fields
 	    for (COF_Page page: this.questionSet.pages) {
 			if (page.children != null) {
-	        	for (SObject childObject: this.targetObject.getSobjects(page.children.child_relationship)) {
-		        	for (COF_Page childPage: page.children.childPages) {
-		        		for (COF_Field field: childPage.fields) {
-		        			if (childObject.get(field.identifier) == null) {
-		                		this.section.questionsComplete = false;
-		                	}        			
-		        		}
-		        	}
+	        	for (SObject childObject: this.targetObject.getSObjects(page.children.child_relationship)) {
+	        		
+	        		// M.Witchalls Mar 2018: Corrected this section: include only valid child pages
+			        // Create a new router object
+			        COF_Router router = new COF_Router();
+			        router.targetObject = childObject;
+			        router.questionSet = COF_QuestionSet.load(page.children.section);
+			        
+			        page.children.childPages = new List<COF_Page>();			
+			        // Start on the first page
+			        COF_Page nextPage = router.questionSet.getPage('1');
+			        do {
+			            if (nextPage != null) {
+                			page.children.childPages.add(nextPage);
+			                for (COF_Field field: nextPage.fields) {
+			                	if (router.targetObject.get(field.identifier) == null) {
+			                		this.section.questionsComplete = false;
+			                	}
+			                }
+			            }
+			            // Use the route to determine the next page
+			            nextPage = router.nextFromPage(nextPage);
+			        } while (nextPage != null);
 	        	}
 	        }
 		}
@@ -113,7 +138,7 @@ public class SummaryController extends COF_PageController {
     
     // M.Witchalls Jan 2018: construct child query
     public String childQuery(COF_Page page) {    	
-    	List<String> fieldIdentifiers = new List<String>();
+    	Set<String> fieldIdentifiers = new Set<String>();
     	system.debug('###page.children.section: '+page.children.section);
 		COF_QuestionSet childQuestionSet = COF_QuestionSet.load(page.children.section);
 		page.children.childPages = childQuestionSet.pages;
@@ -127,8 +152,18 @@ public class SummaryController extends COF_PageController {
 	                fieldIdentifiers.add(question.target_field);
 	            }
 	        }
+            // Loop through the route constraints
+            if (childPage.routes != null) {
+                for (COF_QuestionSet.COF_Route route : childPage.routes) {
+                    if (route.constraints != null) {
+                        for (COF_QuestionSet.COF_Constraint constraint : route.constraints) {
+                            fieldIdentifiers.add(constraint.field);
+                        }
+                    }
+                }
+            }
         }
-        String fieldsList = Query.fieldListString(fieldIdentifiers);
+        String fieldsList = Query.fieldListString(new List<String>(fieldIdentifiers));
         
     	return '(SELECT ' + fieldslist + ' FROM ' + page.children.child_relationship + ' ORDER BY CreatedDate ASC)';
     }

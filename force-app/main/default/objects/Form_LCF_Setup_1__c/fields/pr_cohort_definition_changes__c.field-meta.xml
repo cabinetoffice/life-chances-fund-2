@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>pr_cohort_definition_changes__c</fullName>
+    <description>Reference the actions taken to strengthen cohort definition including why have you chosen the particular group of service users you are planning to work with within this policy area and what gap in service provision are you seeking to address by supporting this group.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>How and why has your cohort definition changed since the in-principle offer?</inlineHelpText>
+    <label>PR - Cohort Definition Changes</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>10</visibleLines>
+</CustomField>

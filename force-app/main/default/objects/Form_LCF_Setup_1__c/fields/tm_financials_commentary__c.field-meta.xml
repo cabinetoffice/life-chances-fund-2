@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>tm_financials_commentary__c</fullName>
+    <description>In particular we are looking for you to explain: where one variable changes between scenarios, but others don’t or the rate of change varies; why your costs might be outside the LCF benchmark expectations for costs; and why any part of the above data is incomplete</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Please provide a brief commentary on the above financials</inlineHelpText>
+    <label>TM - Financials Commentary</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>10</visibleLines>
+</CustomField>

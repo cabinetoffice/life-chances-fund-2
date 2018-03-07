@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>pr_referral_pathway_changes__c</fullName>
+    <description>Reference new referral pathways, changes to the referral process, ensuring the right people are referred to your project and engagement levels with service users and their immediate local communities.  Reference how people will access your service and barriers to access.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>How and why have your referral pathways changed since the in-principle offer?</inlineHelpText>
+    <label>PR - Referral Pathway Changes</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>10</visibleLines>
+</CustomField>

@@ -3,5 +3,6 @@
     <apiVersion>38.0</apiVersion>
     <availableInTouch>false</availableInTouch>
     <confirmationTokenRequired>false</confirmationTokenRequired>
+    <description>Freedom of Information Act text display</description>
     <label>COF_FOI</label>
 </ApexPage>

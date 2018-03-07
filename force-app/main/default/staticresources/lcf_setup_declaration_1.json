@@ -1,0 +1,16 @@
+{
+	"id": "lcf_setup_declaration_1",
+	"target_object": "Form_LCF_Setup_1__c",
+	"parent_relationship": "application__r",
+	"pages": [
+		{
+			"id": "1",
+			"title": "Declaration",
+			"guidance_id": "Declaration Agreement",
+			"questions": [
+				{ "target_field": "sd_responsible_person__c" },
+				{ "target_field": "sd_declaration__c" }
+			]
+		}
+	]
+}

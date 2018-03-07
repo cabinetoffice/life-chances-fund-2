@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>so_central_government_interventions__c</fullName>
+    <description>LCF can only support the provision of statutory services delivered by local government, and not those that central government is responsible for delivering.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Are you proposing to fund interventions that are run by central government agencies in local authority areas?</inlineHelpText>
+    <label>SO - Central Government Interventions</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Yes_No</valueSetName>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,18 @@
+{
+	"id": "lcf_setup_progress_disengagement_1",
+	"target_object": "Form_LCF_Disengagement_1__c",
+	"target_field": "ds_commissioner_name__c",
+	"status_field": "pr_section_status__c",
+	"short_title": "Disengagement",
+	"parent_relationship": "full_award_setup__r",
+	"pages": [
+		{
+			"id": "1",
+			"title_id": "Disengagement",
+			"questions": [
+				{ "target_field": "ds_commissioner_name__c" },
+				{ "target_field": "ds_reason__c" }
+			]
+		}
+	]
+}

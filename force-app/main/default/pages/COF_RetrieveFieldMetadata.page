@@ -1,0 +1,53 @@
+<!--_______________________________________________________________________________________________________________________
+	Name:        COF_RetrieveFieldMetadata.page
+	Description: Custom button to enable "Retrieve Field Metadata" action
+                    
+	Date         Version Author              Summary of Changes 
+	___________  _______ __________________  ______________________________________________________________________________
+	Feb 2018     1.0     Michael Witchalls   Initial Release 
+___________________________________________________________________________________________________________________________ -->    
+<apex:page standardcontroller="SIB_Field_Metadata__c" extensions="COF_FieldMetadataController" title="Retrieve Field Metadata" >
+<apex:slds /> 
+
+<!-- <div class="slds-grid slds-grid--align-center"> -->
+<apex:form id="theForm">
+
+     <!-- BOXED AREA -->
+    <fieldset class="slds-box slds-container--medium slds-container--center slds-theme--shade">
+  	
+	<!-- PAGE HEADER -->
+	<div class="slds-page-header slds-theme--alert-texture" role="banner"> 	
+		<div class="slds-grid">	
+			<div class="slds-col">	
+				<div class="slds-media">
+					<div class="slds-media__figure">
+						<span class="slds-icon_container slds-icon-standard-product-item-transaction">
+		                    <svg class="slds-icon slds-icon_medium" aria-hidden="true">
+		                        <use href="{!URLFOR($Asset.SLDS, 'assets/icons/standard-sprite/svg/symbols.svg#product_item_transaction')}"></use>
+		                    </svg>
+		                </span>
+					</div>	        
+					<div class="slds-media__body">
+						<p class="slds-text-heading--label">Life Chances Fund</p>
+						<h1 class="slds-text-heading--medium">Retrieve Field Metadata</h1>
+					</div>	        
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<apex:outputPanel id="buttons1" styleClass="slds-grid slds-grid--align-center">	
+		<apex:outputPanel rendered="{!showButton}">
+			<apex:commandButton action="{!retrieveMetadata}" value="Retrieve Metadata" styleClass="slds-button slds-button--brand"/>
+		</apex:outputPanel>
+		<apex:outputPanel >
+			<apex:commandButton action="{!viewMetadata}" value="View Metadata" styleClass="slds-button slds-button--neutral"/>
+		</apex:outputPanel> 
+	</apex:outputPanel>
+   
+	<p>&nbsp;</p><apex:pageMessages id="messages"/><p>&nbsp;</p> 
+	
+	</fieldset>
+	
+</apex:form>
+</apex:page>

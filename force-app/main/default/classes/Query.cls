@@ -1,3 +1,12 @@
+/* __________________________________________________________________________________________________________________
+   Name:		Query.cls
+   Description: Utility class for SOQL and DML
+					
+   Date         Version Author          		Summary of Changes 
+   ___________  _______ __________________		_____________________________________________________________________
+   2017		    1.0    	Cabinet Office			Initial Release 
+   Jan 2018		1.1		M.Witchalls, Westbrook	Additional versions of object methods (use of sets) + DML methods
+__________________________________________________________________________________________________________________ */        
 public class Query {
 
     // refactor to take a set of fields and remove duplication
@@ -49,11 +58,11 @@ public class Query {
 		return result;	
 	}
 	
-	public static Database.SaveResult createObject(String targetObject, String applicationId, String fullApplicationId) {
+	public static Database.SaveResult createObject(String targetObject, String applicationId, String parentFieldName, String parentId) {
 		Database.SaveResult result;
 		sObject newRecord = Schema.getGlobalDescribe().get(targetObject).newSObject();
 		newRecord.put('application__c', applicationId);
-        newRecord.put('full_application__c', fullApplicationId);
+        newRecord.put(parentFieldName, parentId);
 		try {
 			result = Database.insert(newRecord);
 		} catch(Exception ex) {

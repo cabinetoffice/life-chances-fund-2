@@ -3,5 +3,6 @@
     <apiVersion>38.0</apiVersion>
     <availableInTouch>false</availableInTouch>
     <confirmationTokenRequired>false</confirmationTokenRequired>
+    <description>Clickable list of form sections</description>
     <label>sections</label>
 </ApexPage>

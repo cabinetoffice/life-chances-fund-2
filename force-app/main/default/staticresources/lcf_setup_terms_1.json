@@ -1,0 +1,404 @@
+{
+	"id": "lcf_setup_terms_1",
+	"target_object": "Form_LCF_Setup_1__c",
+	"parent_relationship": "application__r",
+	"pages": [
+		{
+			"id": "1",
+			"questions": [
+				{ "target_field": "tm_engagement_plans__c" }
+			],
+			"routes": [
+				{ "target_page": "2" }
+			]
+		},
+		{
+			"id": "2",
+			"questions": [
+				{ "target_field": "tm_procurement_processes__c" }
+			],
+			"routes": [
+				{ "target_page": "3" }
+			]
+		},
+		{
+			"id": "3",
+			"questions": [
+				{ "target_field": "tm_sustain_engagement_plan__c" }
+			],
+			"routes": [
+				{ "target_page": "4" }
+			]
+		},
+		{
+			"id": "4",
+			"title_id": "Outcome Payments",
+			"guidance_id": "Outcome Payments Guidance",
+			"warning_id": "Payment Rounding Warning",
+			"routes": [
+				{ "target_page": "6" }
+			]
+		},
+		{
+			"id": "6",
+			"title_id": "Outcome Payments 2018",
+			"guidance_id": "Outcome Payments by Commissioners",
+			"questions": [
+				{ "target_field": "tm_commissioner_savings_2018__c" },
+				{ "target_field": "tm_commissioner_payments_2018__c" },
+				{ "target_field": "tm_lcf_outcome_payments_2018__c" }
+			],
+			"routes": [
+				{ "target_page": "7" }
+			]
+		},
+		{
+			"id": "7",
+			"title_id": "Outcome Payments 2019",
+			"guidance_id": "Outcome Payments by Commissioners",
+			"questions": [
+				{ "target_field": "tm_commissioner_savings_2019__c" },
+				{ "target_field": "tm_commissioner_payments_2019__c" },
+				{ "target_field": "tm_lcf_outcome_payments_2019__c" }
+			],
+			"routes": [
+				{ "target_page": "8" }
+			]
+		},
+		{
+			"id": "8",
+			"title_id": "Outcome Payments 2020",
+			"guidance_id": "Outcome Payments by Commissioners",
+			"questions": [
+				{ "target_field": "tm_commissioner_savings_2020__c" },
+				{ "target_field": "tm_commissioner_payments_2020__c" },
+				{ "target_field": "tm_lcf_outcome_payments_2020__c" }
+			],
+			"routes": [
+				{ "target_page": "9" }
+			]
+		},
+		{
+			"id": "9",
+			"title_id": "Outcome Payments 2021",
+			"guidance_id": "Outcome Payments by Commissioners",
+			"questions": [
+				{ "target_field": "tm_commissioner_savings_2021__c" },
+				{ "target_field": "tm_commissioner_payments_2021__c" },
+				{ "target_field": "tm_lcf_outcome_payments_2021__c" }
+			],
+			"routes": [
+				{ "target_page": "10" }
+			]
+		},
+		{
+			"id": "10",
+			"title_id": "Outcome Payments 2022",
+			"guidance_id": "Outcome Payments by Commissioners",
+			"questions": [
+				{ "target_field": "tm_commissioner_savings_2022__c" },
+				{ "target_field": "tm_commissioner_payments_2022__c" },
+				{ "target_field": "tm_lcf_outcome_payments_2022__c" }
+			],
+			"routes": [
+				{ "target_page": "11" }
+			]
+		},
+		{
+			"id": "11",
+			"title_id": "Outcome Payments 2023",
+			"guidance_id": "Outcome Payments by Commissioners",
+			"questions": [
+				{ "target_field": "tm_commissioner_savings_2023__c" },
+				{ "target_field": "tm_commissioner_payments_2023__c" },
+				{ "target_field": "tm_lcf_outcome_payments_2023__c" }
+			],
+			"routes": [
+				{ "target_page": "12" }
+			]
+		},
+		{
+			"id": "12",
+			"title_id": "Outcome Payments 2024",
+			"guidance_id": "Outcome Payments by Commissioners",
+			"warning_id": "Outcome Payments 2024 Warning",
+			"questions": [
+				{ "target_field": "tm_commissioner_savings_2024__c" },
+				{ "target_field": "tm_commissioner_payments_2024__c" },
+				{ "target_field": "tm_lcf_outcome_payments_2024__c" }
+			],
+			"routes": [
+				{ "target_page": "13" }
+			]
+		},
+		{
+			"id": "13",
+			"title_id": "Outcome Payment Scenarios",
+			"guidance_id": "Outcome Payment Scenarios Guidance",
+			"routes": [
+				{ "target_page": "14" }
+			]
+		},
+		{
+			"id": "14",
+			"title_id": "Service Users to Engage",
+			"guidance_id": "Service Users Guidance",
+			"questions": [
+				{ "target_field": "tm_users_to_engage_high__c" },
+				{ "target_field": "tm_users_to_engage_median__c" },
+				{ "target_field": "tm_users_to_engage_low__c" }
+			],
+			"routes": [
+				{ "target_page": "15" }
+			]
+		},
+		{
+			"id": "15",
+			"title_id": "Service Users to Achieve",
+			"guidance_id": "Service Users Guidance",
+			"questions": [
+				{ "target_field": "tm_users_to_achieve_high__c" },
+				{ "target_field": "tm_users_to_achieve_median__c" },
+				{ "target_field": "tm_users_to_achieve_low__c" }
+			],
+			"routes": [
+				{ "target_page": "16" }
+			]
+		},
+		{
+			"id": "16",
+			"title_id": "Commissioner Savings",
+			"guidance_id": "Commissioner Savings Guidance",
+			"questions": [
+				{ "target_field": "tm_commissioner_savings_high__c" },
+				{ "target_field": "tm_commissioner_savings_median__c" },
+				{ "target_field": "tm_commissioner_savings_low__c" }
+			],
+			"routes": [
+				{ "target_page": "17" }
+			]
+		},
+		{
+			"id": "17",
+			"title_id": "Commissioner Payments",
+			"warning_id": "Commissioner Payments Warning",
+			"questions": [
+				{ "target_field": "tm_commissioner_payments_high__c" },
+				{ "target_field": "tm_commissioner_payments_median__c" },
+				{ "target_field": "tm_commissioner_payments_low__c" }
+			],
+			"routes": [
+				{ "target_page": "18" }
+			]
+		},
+		{
+			"id": "18",
+			"title_id": "LCF Payments",
+			"questions": [
+				{ "target_field": "tm_lcf_payments_high__c" },
+				{ "target_field": "tm_lcf_payments_median__c" },
+				{ "target_field": "tm_lcf_payments_low__c" }
+			],
+			"routes": [
+				{ "target_page": "19" }
+			]
+		},
+		{
+			"id": "19",
+			"title_id": "Planned Investment",
+			"guidance_id": "Planned Investment Guidance",
+			"questions": [
+				{ "target_field": "tm_social_investment_high__c" },
+				{ "target_field": "tm_social_investment_median__c" },
+				{ "target_field": "tm_social_investment_low__c" }
+			],
+			"routes": [
+				{ "target_page": "20" }
+			]
+		},
+		{
+			"id": "20",
+			"title_id": "Repayment Years",
+			"guidance_id": "Repayment Years Guidance",
+			"questions": [
+				{ "target_field": "tm_repayment_years_high__c" },
+				{ "target_field": "tm_repayment_years_median__c" },
+				{ "target_field": "tm_repayment_years_low__c" }
+			],
+			"routes": [
+				{ "target_page": "21" }
+			]
+		},
+		{
+			"id": "21",
+			"questions": [
+				{ "target_field": "tm_social_investor_selected__c" }
+			],
+			"routes": [
+				{ 
+					"target_page": "22",
+					"constraints": [
+						{ "field": "tm_social_investor_selected__c", "operator": "equals", "value": "Yes" }
+					]
+				},
+				{ "target_page": "24" }
+			]
+		},		
+		{
+			"id": "22",
+			"title_id": "Investment Return Paid",
+			"questions": [
+				{ "target_field": "tm_investment_return_high__c" },
+				{ "target_field": "tm_investment_return_median__c" },
+				{ "target_field": "tm_investment_return_low__c" }
+			],
+			"routes": [
+				{ "target_page": "23" }
+			]
+		},
+		{
+			"id": "23",
+			"title_id": "Investment Return Rate",
+			"guidance_id": "Investment Return Rate Guidance",
+			"questions": [
+				{ "target_field": "tm_investment_return_rate_high__c" },
+				{ "target_field": "tm_investment_return_rate_median__c" },
+				{ "target_field": "tm_investment_return_rate_low__c" }
+			],
+			"routes": [
+				{ "target_page": "24" }
+			]
+		},
+		{
+			"id": "24",
+			"questions": [
+				{ "target_field": "tm_other_loan_interest__c" }
+			],
+			"routes": [
+				{ 
+					"target_page": "25",
+					"constraints": [
+						{ "field": "tm_other_loan_interest__c", "operator": "equals", "value": "Yes" }
+					]
+				},
+				{ "target_page": "26" }
+			]
+		},		
+		{
+			"id": "25",
+			"title_id": "Interest Payable",
+			"guidance_id": "Interest Payable Guidance",
+			"questions": [
+				{ "target_field": "tm_interest_payable_high__c" },
+				{ "target_field": "tm_interest_payable_median__c" },
+				{ "target_field": "tm_interest_payable_low__c" }
+			],
+			"routes": [
+				{ "target_page": "26" }
+			]
+		},
+		{
+			"id": "26",
+			"questions": [
+				{ "target_field": "tm_performance_payments__c" }
+			],
+			"routes": [
+				{ 
+					"target_page": "27",
+					"constraints": [
+						{ "field": "tm_performance_payments__c", "operator": "equals", "value": "Yes" }
+					]
+				},
+				{ "target_page": "28" }
+			]
+		},		
+		{
+			"id": "27",
+			"title_id": "Performance Payments",
+			"guidance_id": "Performance Payments Guidance",
+			"questions": [
+				{ "target_field": "tm_performance_payments_high__c" },
+				{ "target_field": "tm_performance_payments_median__c" },
+				{ "target_field": "tm_performance_payments_low__c" }
+			],
+			"routes": [
+				{ "target_page": "28" }
+			]
+		},
+		{
+			"id": "28",
+			"title_id": "Operating Costs",
+			"warning_id": "Operating Costs Warning",
+			"questions": [
+				{ "target_field": "tm_operating_costs_high__c" },
+				{ "target_field": "tm_operating_costs_median__c" },
+				{ "target_field": "tm_operating_costs_low__c" }
+			],
+			"routes": [
+				{ "target_page": "29" }
+			]
+		},		
+		{
+			"id": "29",
+			"title_id": "Operating Costs - Investor Admin",
+			"warning_id": "Operating Costs - Investor Admin Warning",
+			"questions": [
+				{ "target_field": "tm_operating_with_investor_costs_high__c" },
+				{ "target_field": "tm_operating_with_investor_costs_med__c" },
+				{ "target_field": "tm_operating_with_investor_costs_low__c" }
+			],
+			"routes": [
+				{ "target_page": "30" }
+			]
+		},		
+		{
+			"id": "30",
+			"title_id": "Evaluation and Learning Costs",
+			"warning_id": "Evaluation and Learning Costs Warning",
+			"questions": [
+				{ "target_field": "tm_evaluation_and_learning_costs_high__c" },
+				{ "target_field": "tm_evaluation_and_learning_costs_med__c" },
+				{ "target_field": "tm_evaluation_and_learning_costs_low__c" }
+			],
+			"routes": [
+				{ "target_page": "31" }
+			]
+		},		
+		{
+			"id": "31",
+			"questions": [
+				{ "target_field": "tm_financials_commentary__c"	}
+			],
+			"routes": [
+				{ "target_page": "32" }
+			]
+		},		
+		{
+			"id": "32",
+			"questions": [
+				{ "target_field": "tm_more_than_one_commissioner__c" }
+			],
+			"routes": [
+				{ 
+					"target_page": "33",
+					"constraints": [
+						{ "field": "tm_more_than_one_commissioner__c", "operator": "equals", "value": "Yes" }
+					]
+				}
+			]
+		},		
+		{
+			"id": "33",
+			"title_id": "Financials by Commissioner",
+			"guidance_id": "Financials by Commissioner Guidance",
+			"children": {
+				"target_object": "Form_LCF_Setup_Commissioner_1__c",
+				"target_field": "sc_commissioner_name__c",
+				"parent_field": "full_award_setup__c",
+				"title": "Commissioner Financials",
+				"section": "lcf_setup_terms_commissioners_1",
+				"add_label": "+ Add a commissioner"
+			}
+		}
+	]
+}

@@ -25,6 +25,7 @@
         <default>false</default>
         <label>Other</label>
     </customValue>
+    <description>Business sector of Organisations</description>
     <masterLabel>Sector of Organisation</masterLabel>
     <sorted>false</sorted>
 </GlobalValueSet>

@@ -1,6 +1,7 @@
 {
 	"id": "lcf_full_app_outcomes_1",
 	"target_object": "Form_LCF_Full_App_1__c",
+	"short_title": "Commissioner",
 	"parent_relationship": "application__r",
 	"pages": [
 		{
@@ -9,7 +10,7 @@
 			"children": {
 				"target_object": "Form_LCF_Outcome_1__c",
 				"target_field": "ou_description__c",
-				"child_relationship": "full_application_outcomes__r",
+				"parent_field": "full_application__c",
 				"title": "Outcomes",
 				"section": "lcf_full_app_outcomes_child_1"
 			},

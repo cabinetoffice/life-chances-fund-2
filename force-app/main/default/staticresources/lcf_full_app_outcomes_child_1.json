@@ -1,7 +1,9 @@
 {
 	"id": "lcf_full_app_outcomes_child_1",
 	"target_object": "Form_LCF_Outcome_1__c",
+	"target_field": "ou_description__c",
 	"status_field": "ou_section_status__c",
+	"short_title": "Outcome",
 	"parent_relationship": "full_application__r",
 	"pages": [
 		{

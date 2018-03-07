@@ -1,5 +1,31 @@
-<apex:page controller="QuestionsController" standardStylesheets="false" showHeader="false" docType="html-5.0" action="{!checkLoggedInAndApplicationStatus}">
+<apex:page id="thePage" controller="QuestionsController" standardStylesheets="false" showHeader="false" docType="html-5.0" action="{!checkLoggedInAndApplicationStatus}">
+	<style type="text/css">
+		.filePreview p {
+			display: flex;
+			justify-content: space-between;
+			margin-top: 20px;
+			margin-bottom: 5px;
+			padding: 5px 10px;
+			border: 1px solid black;
+			line-height: 32px;
+			width: 100%;
+		}
+		.fileUpload label {
+			background-color: #EEEEEE;
+			padding: 2px 5px;
+			border: 1px ridge black;
+			height: 12px;
+		}		
+		.fileUpload label:hover {
+			background-color: #BFC1C3;
+			color: white;
+		}
+	</style>
 	<script type="text/javascript">	
+		function closeWindow() {
+			window.close();
+		}
+		
 		function historyGo(pageId, previousPageId, previousPageErrors, errorPageCount) {
 		
     		// M.Witchalls Jan 2018: javascript for robust page navigation between pages
@@ -26,11 +52,85 @@
 				window.history.go(-pages);
 			}
 		}
+		
+		// This script executed after page load if it exists (see Layout.page)
+		function vfInitialScript() {
+			// Add listener for html input file tag
+			var input = document.querySelector('.fileInput');			
+			if (document.addEventListener) {                // For all major browsers, except IE 8 and earlier
+			    input.addEventListener('change', updateFileInputDisplay);
+			} else if (document.attachEvent) {              // For IE 8 and earlier versions
+			    input.attachEvent('onchange', updateFileInputDisplay);
+			}
+		}
+		
+		// Improved file upload UI
+		function updateFileInputDisplay() {
+			var input = document.querySelector('.fileInput');			
+			var preview = document.querySelector('.filePreview');
+			var button = document.querySelector('#fileLoadButton');
+			while(preview.firstChild) {
+			    preview.removeChild(preview.firstChild);
+			}
+			
+			// This javascript has provision for multiple file uploads
+			var curFiles = input.files;
+			if(curFiles.length === 0) {
+			    var para = document.createElement('p');
+			    para.textContent = 'No file chosen';
+			    preview.appendChild(para);
+			    button.className = "hide-div";
+			} else {
+			    var list = document.createElement('ol');
+			    preview.appendChild(list);
+			    for (var i=0; i<curFiles.length; i++) {
+					var listItem = document.createElement('li');
+					var para = document.createElement('p');
+					para.style.color = "#005EA5";
+			        para.innerHTML = curFiles[i].name+"<span style='float:right'>File size: "+returnFileSize(curFiles[i].size)+"</span>";
+			        listItem.appendChild(para);			
+			      	list.appendChild(listItem);
+			    }
+			    button.className = "show-div";
+			}
+		}
+			
+		function returnFileSize(number) {
+			if(number < 1024) {
+				return number + 'bytes';
+			} else if(number > 1024 && number < 1048576) {
+				return (number/1024).toFixed(1) + 'KB';
+			} else if(number > 1048576) {
+				return (number/1048576).toFixed(1) + 'MB';
+			}
+		}
+		
+		// For uploading new version of document selected by checkbox field
+		function showVersionUpload(cbox, id) {
+			var checkboxes = document.querySelectorAll(".select-flag");
+			console.log(checkboxes.length+' checkboxes, id: '+id);
+			var label = document.getElementById('chooseFileLabel');
+			if (cbox.checked == true) {	// being set to true
+				label.textContent = "Choose new version";
+				for (var i=0; i<checkboxes.length; i++) {
+					var cb = checkboxes[i];
+					if (cb.id != id) cb.className = "select-flag hide-div";
+				}
+			} else {
+				label.textContent = "Choose new file";
+				for (var i=0; i<checkboxes.length; i++) {
+					var cb = checkboxes[i];
+					cb.className = "select-flag show-div";
+				}
+			}
+		}
+			
+		
 	</script>
 
     <apex:composition template="Layout">
 		<apex:define name="title">
-		    <title>{!section.short_title}:{!currentPage.id}</title>
+		    <title>{!shortTitle}:{!currentPage.id}</title>
 		</apex:define>
         <apex:define name="breadcrumbs">
             <div class="breadcrumbs">
@@ -50,17 +150,20 @@
      
         <apex:define name="main">
             <div class="question-container">
-
+            
+				<apex:outputPanel rendered="{!ISBLANK(fromFormId)}">
                 <a href="#" onclick="historyGo({!pageId},{!previousPageId},{!previousPageErrors},{!errorPageCount}); return false;" class="link-back">Back</a>
-
+				</apex:outputPanel>
+              
                 <apex:pageBlock rendered="{!currentPage.title != null}">
                 	<apex:outputPanel rendered="{!currentPage.children == null}">
 	                    <h1 class="heading-large">
 	                        {!currentPage.title}
 	                    </h1>
                     </apex:outputPanel>
-                    <apex:outputPanel rendered="{!currentPage.children != null}"> 
-	                    <h1 class="heading-medium">
+                    <apex:outputPanel rendered="{!currentPage.children != null}">
+	                    <!-- <h1 class="heading-medium"> -->
+	                    <h1 class="heading-large">
 	                        {!currentPage.title}
 	                    </h1>
                     </apex:outputPanel>
@@ -70,22 +173,47 @@
                     <p>{!currentPage.guidance}</p>
                 </apex:pageBlock>
 
+                <apex:pageBlock rendered="{!guidanceText != null}">
+                    <div class="cofRichText">
+		                <apex:outputField value="{!guidanceText.Text__c}"/>
+                    </div>
+                </apex:pageBlock>
+				
+                <apex:pageBlock rendered="{!currentPage.warning != null}">
+                	<br/>
+	                <div class="notice">
+						<i class="icon icon-important" style="background-image: url({!URLFOR($Resource.images, 'icon-important.png')})"/>
+						<strong class="bold-small">{!currentPage.warning}</strong>
+					</div>
+					<br/>							
+               </apex:pageBlock>
+
                 <apex:form id="theForm">
+	                <apex:actionFunction name="showHideWarning" action="{!showHideWarning}" rerender="warning">
+	                	<apex:param name="fieldId" value=""/>
+	                </apex:actionFunction>	               
+
                 	<apex:outputPanel id="childPanel">
                     <apex:pageBlock id="children" rendered="{!currentPage.children != null}">
                         <table>
                           <tbody>
                             <apex:repeat value="{!targetObjects}" var="targetObject">
                                 <tr>
-									<td width="90%">
+									<td width="70%">
                                     <apex:commandLink value="{!targetObject[currentPage.children.target_field]}" action="{!changeChild}">
                                         <apex:param name="identifier" value="{!targetObject['Name']}" assignTo="{!modifyChildIdentifier}"/>
-                                    </apex:commandLink> 
+                                    </apex:commandLink>
+                                    </td>
+                                    <td width="20%">
+                                    <apex:outputField value="{!targetObject[currentPage.children.target_field2]}" 
+                                    	rendered="{!NOT(ISBLANK(currentPage.children.target_field2))}"/>
 									</td>
 									<td width="10%">
+									<apex:outputPanel rendered="{!readOnlyMode==false}">
                                     <apex:commandLink value="Remove" action="{!removeChild}" rerender="childPanel">
                                         <apex:param name="identifier" value="{!targetObject['Id']}" assignTo="{!removeChildId}"/>
                                     </apex:commandLink> 
+                                    </apex:outputPanel>
                                     </td>
                                 </tr>
                             </apex:repeat>
@@ -93,19 +221,11 @@
                         </table>
 
                         <br />
-                        <apex:commandLink value="+ Add another" action="{!addAnother}" styleClass=""></apex:commandLink> 
+                        <apex:outputPanel rendered="{!readOnlyMode==false}">
+                        <apex:commandLink value="{!addLabel}" action="{!addAnother}" styleClass=""></apex:commandLink> 
+                        </apex:outputPanel>
                     </apex:pageBlock>
                     </apex:outputPanel>
-
- 					<!-- <apex:outputPanel layout="block" styleClass="topPanel" rendered="{!errorsFound==true}">
- 						<br/>
-                        <ol style="list-style-type:none">
-				 			<li>
-				           		<apex:image url="{!URLFOR($Resource.SiteSamples, 'img/warning.png')}" style="float:left; padding-right:10px"/>
-								<apex:messages style="font-style:italic; font-size:18px; line-height:45px"></apex:messages>
-							</li>
-						</ol>
-					</apex:outputPanel> -->
 
 	                <apex:outputPanel styleClass="grid-row" rendered="{!errorsFound==true}">
 	                    <div class="column-two-thirds">
@@ -119,28 +239,50 @@
 	                        </div>
 	                    </div>
 	                </apex:outputPanel>
-
+					
+					<table><tbody>
+					<tr><td style="border:none">
                     <apex:pageBlock rendered="{!currentPage.questions != null}">
                         <apex:repeat value="{!fields}" var="field">
                             <div class="form-group" id="sp-text-group">
+								<legend>
+                                    <h1 class="heading-medium">{!field.label}</h1>
+                         			<apex:outputPanel rendered="{!NOT(ISBLANK(field.guidance))}">
+                                    	<p>{!field.guidance}</p>
+                                    </apex:outputPanel>
+									<apex:outputPanel styleClass="cofRichText" rendered="{!NOT(ISBLANK(field.fieldMetadata.Rich_Text__c))}">
+										<p>
+											<apex:outputField value="{!field.fieldMetadata.Rich_Text__c}"/>
+										</p>
+									</apex:outputPanel>
+                                </legend>
 
-                                <apex:pageBlock rendered="{!field.isTextField == true}">
-                                    <legend>
-                                        <h1 class="heading-medium">{!field.label}</h1>
-                                        <p>{!field.guidance}</p>
-                                    </legend>
-       
+                                <apex:pageBlock rendered="{!field.isTextField == true}">       
                                     <apex:pageBlock rendered="{!field.isCurrency == true}">
-                                    	£&nbsp;<apex:inputText value="{!field.value}" styleClass="form-control" />
+                                    	£&nbsp;<apex:inputText value="{!field.value}" styleClass="form-control" disabled="{!readOnlyMode}" style="width:25%"/>
                                     </apex:pageBlock>
                                     <apex:pageBlock rendered="{!field.isNumber == true}">
-                                    	<apex:inputText value="{!field.value}" styleClass="form-control" />
+                                    	<apex:inputText value="{!field.value}" styleClass="form-control" disabled="{!readOnlyMode}" style="width:25%"/>
+                                    </apex:pageBlock>
+                                    <apex:pageBlock rendered="{!field.isPercent == true}">
+                                    	%&nbsp;<apex:inputText value="{!field.value}" styleClass="form-control" disabled="{!readOnlyMode}" style="width:25%"/>
                                     </apex:pageBlock>
                                     <apex:pageBlock rendered="{!field.isEmailField == true}">
-                                    	<apex:inputText value="{!targetObject[field.identifier]}" styleClass="form-control" />
+                                    	<apex:inputText value="{!targetObject[field.identifier]}" styleClass="form-control" disabled="{!readOnlyMode}" />
                                     </apex:pageBlock>
-                                    <apex:pageBlock rendered="{!AND(field.isNumber==false,field.isCurrency == false,field.isEmailField == false)}">
-                                    	<apex:inputField value="{!targetObject[field.identifier]}" styleClass="form-control" />
+                                    <apex:pageBlock rendered="{!AND(field.isNumber == false,field.isCurrency == false,field.isPercent == false,field.isEmailField == false)}">
+                                    	<apex:outputPanel rendered="{!AND(readOnlyMode,field.isTextArea == true)}">
+                                    		<apex:inputTextarea value="{!targetObject[field.identifier]}" styleClass="form-control" rows="10" disabled="true"/>
+                                    	</apex:outputPanel>
+                                    	<apex:outputPanel rendered="{!AND(readOnlyMode,field.isTextArea == false)}">
+                                    		<apex:inputText value="{!targetObject[field.identifier]}" styleClass="form-control" style="width:100%" disabled="true"/>
+                                    	</apex:outputPanel>
+                                    	<apex:outputPanel rendered="{!AND(readOnlyMode == false,field.isTextArea == true)}">
+                                    		<apex:inputField value="{!targetObject[field.identifier]}" styleClass="form-control" style="width:100%"/>
+                                    	</apex:outputPanel>
+                                    	<apex:outputPanel rendered="{!AND(readOnlyMode == false,field.isTextArea == false)}">
+                                    		<apex:inputField value="{!targetObject[field.identifier]}" styleClass="form-control" />
+                                    	</apex:outputPanel>
                                     </apex:pageBlock>
 
                                     <apex:pageBlock rendered="{!field.recommendedWordLimit != null}">
@@ -151,16 +293,12 @@
 
                                 <apex:pageBlock rendered="{!field.isCheckBox == true}">
                                     <div class="multiple-choice">
-                                        <apex:inputCheckbox value="{!targetObject[field.identifier]}"/>
+                                        <apex:inputCheckbox value="{!targetObject[field.identifier]}" disabled="{!readOnlyMode}"/>
                                         <label for="waste-type-1">{!field.label}</label>
                                     </div>
                                 </apex:pageBlock>
 
                                 <apex:pageBlock rendered="{!field.isSelectField == true}">
-                                    <legend>
-                                        <h1 class="heading-medium">{!field.label}</h1>
-                                        <p>{!field.guidance}</p>
-                                    </legend>
                                     <div class="needs-style">
                                         <!--<apex:selectCheckboxes borderVisible="false" value="{!field.valueList}" layout="pageDirection">
                                             <apex:selectOptions value="{!field.values}"></apex:selectOptions>
@@ -169,59 +307,123 @@
                                         <apex:repeat value="{!field.optionList}" var="opt">
                                         	<li>
 			                                    <div class="multiple-choice">
-			                                        <apex:inputCheckbox value="{!opt.selected}"/>
+			                                        <apex:inputCheckbox value="{!opt.selected}" disabled="{!readOnlyMode}"/>
 			                                        <label for="waste-type-1">{!opt.value}</label>
 			                                    </div>
 			                                    <div>&nbsp;</div>
-			                                </li>
+			                                </li> 
                                         </apex:repeat>
                                         </ol>
                                     </div>
                                 </apex:pageBlock>
 
                                 <apex:pageBlock rendered="{!field.isRadioField == true}">
-                                    <legend>
-                                        <h1 class="heading-medium">{!field.label}</h1>
-                                        <p>{!field.guidance}</p>
-                                    </legend>
 
                                     <div class="coform-radios">
-                                        <apex:selectRadio value="{!targetObject[field.identifier]}" layout="pageDirection">
+                                        <apex:selectRadio value="{!targetObject[field.identifier]}" layout="pageDirection" onchange="showHideWarning('{!field.identifier}')">
                                             <apex:selectOptions value="{!field.values}"></apex:selectOptions>
                                         </apex:selectRadio>
                                     </div>
                                 </apex:pageBlock>
 
                                 <apex:pageBlock rendered="{!field.isDateField == true}">
-                                    <legend>
-                                        <h1 class="heading-medium">{!field.label}</h1>
-                                        <p>{!field.guidance}</p>
-                                    </legend>
-
                                     <div class="form-date">
                                         <div class="form-group form-group-day">
                                             <label class="form-label" for="dob-day">Day</label>
-                                            <apex:inputText value="{!field.dateDay}" styleClass="form-control" html-type="number" html-pattern="[0-9]*" html-min="0" html-max="31" />
+                                            <apex:inputText value="{!field.dateDay}" styleClass="form-control" disabled="{!readOnlyMode}" html-type="number" html-pattern="[0-9]*" html-min="0" html-max="31" />
                                         </div>
                                         <div class="form-group form-group-month">
                                             <label class="form-label" for="dob-month">Month</label>
-                                            <apex:inputText value="{!field.dateMonth}" styleClass="form-control" html-type="number" html-pattern="[0-9]*" html-min="0" html-max="12" />
+                                            <apex:inputText value="{!field.dateMonth}" styleClass="form-control" disabled="{!readOnlyMode}" html-type="number" html-pattern="[0-9]*" html-min="0" html-max="12" />
                                         </div>
                                         <div class="form-group form-group-year">
                                           <label class="form-label" for="dob-year">Year</label>
-                                          <apex:inputText value="{!field.dateYear}" styleClass="form-control" html-type="number" html-pattern="[0-9]*" html-min="0" html-max="2050" />
-                                        </div>
+                                          <apex:inputText value="{!field.dateYear}" styleClass="form-control" disabled="{!readOnlyMode}" html-type="number" html-pattern="[0-9]*" html-min="0" html-max="2050" />
+                                        </div> 
                                     </div>
                                 </apex:pageBlock>
 
                             </div>
                         </apex:repeat>
                     </apex:pageBlock>
+                  	</td></tr>
+ 					<tr><td style="border:none">
+ 					
+                    <apex:pageBlock id="warning">
+	                    <apex:outputPanel rendered="{!showWarning}">
+		                    <div class="notice">
+								<i class="icon icon-important" style="background-image: url({!URLFOR($Resource.images, 'icon-important.png')})"/>
+								<strong class="bold-small">{!endWarningText}</strong>
+							</div>
+							<br/>							
+						</apex:outputPanel>
+					</apex:pageBlock>
+					
+					</td></tr>
+					</tbody></table>	                
 
-                    <br />
-                    <apex:commandButton value="Save and continue" action="{!saveContinue}" styleClass="button" />
+                    <apex:pageBlock id="files" rendered="{!currentPage.files != null}">
+                        <h1 class="heading-medium">{!filesField.label}</h1>
+					    <apex:outputPanel id="fileVersions">
+					        <table><tbody>
+					            <apex:repeat value="{!fileVersionList}" var="f">
+					 	        <tr>
+									<td width="52%">
+					               		<a href="{!$Label.SIB_Content_URL}/{!f.fileVersion.Id}">{!f.fileVersion.Title}</a>
+					                </td>
+					                <td width="13%">Version {!f.fileVersion.VersionNumber}</td>
+									<td width="25%">
+										<div id="{!f.fileVersion.Id}" class="select-flag show-div">
+										<apex:outputPanel rendered="{!readOnlyMode==false}">
+											<div class="multiple-choice">
+                                        		<apex:inputCheckbox value="{!f.selectFlag}" onclick="showVersionUpload(this,'{!f.fileVersion.Id}')" disabled="{!readOnlyMode}"/>
+                                        		<label for="waste-type-1">Load new version</label>
+                                    		</div>
+						                </apex:outputPanel>
+						                </div>
+					                </td>
+									<td width="10%">
+										<apex:outputPanel rendered="{!readOnlyMode==false}">
+		                                    <apex:commandLink value="Remove" action="{!removeFile}">
+		                                        <apex:param name="identifier" value="{!f.fileVersion.ContentDocumentId}" assignTo="{!contentDocId}"/>
+		                                    </apex:commandLink>
+		                                </apex:outputPanel>
+		                            </td>
+					            </tr>
+					            </apex:repeat>
+					        </tbody></table> 
+						</apex:outputPanel>
+						<br/>
+						
+						<apex:outputPanel id="file" styleClass="fileUpload" rendered="{!readOnlyMode==false}">
+    						<label for="thePage:layout:theForm:files:input" id="chooseFileLabel">Choose new file</label>
+							<apex:inputFile id="input" styleClass="fileInput" style="opacity:0" value="{!fileBody}" fileName="{!fileName}" />
+							<div class="filePreview">
+							    <p class="form-control" style="color:#005EA5; width:100%">No file chosen</p>
+							</div>
+							<p><span class="form-hint">File size limit: 10MB</span></p>
+							<div id="fileLoadButton" class="hide-div">						
+								<apex:commandLink value="Upload File" action="{!uploadFileVersion}"/>
+							</div> 
+						</apex:outputPanel>
+						<br/>
+						<br/>
+                    </apex:pageBlock>
+
+                    <apex:outputPanel rendered="{!ISBLANK(fromFormId)}">                  
+                    <apex:commandButton value="Save and continue" action="{!saveContinue}" styleClass="button" rendered="{!AND(saveReqd,NOT(readOnlyMode))}"/>
+                    <apex:commandButton value="Continue" action="{!saveContinue}" styleClass="button" rendered="{!OR(NOT(saveReqd),readOnlyMode)}"/>
                     <br /><br />
-                    <apex:commandLink value="Save and come back later" action="{!saveExit}" />
+                    <apex:commandLink value="Save and come back later" action="{!saveExit}" rendered="{!AND(saveReqd,NOT(readOnlyMode))}"/>
+                    <apex:commandLink value="Exit" action="{!saveExit}" rendered="{!readOnlyMode}"/>
+                    &nbsp;&nbsp;
+                    <apex:outputLink value="{!referenceURL}" rendered="{!referenceURL!=null}" target="_blank">{!referenceGuidance}</apex:outputLink>                   
+                    </apex:outputPanel>
+                    
+                    <apex:outputPanel rendered="{!NOT(ISBLANK(fromFormId))}">
+                    <apex:commandButton value="Continue" action="{!saveContinue}" styleClass="button" rendered="{!childPage==true}"/>
+                    <apex:commandButton value="Close" onclick="closeWindow();" styleClass="button" rendered="{!childPage==false}"/>
+                    </apex:outputPanel>
                 </apex:form>
             </div>
         </apex:define>

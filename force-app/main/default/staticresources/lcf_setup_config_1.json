@@ -1,0 +1,57 @@
+{
+	"forms": [
+		{
+			"id": "lcf_setup_1",
+			"reference_id": "lcf_full_app_1",
+			"title": "Full Award Set-Up Form",
+			"short_title": "Set-up",
+			"target_object": "Form_LCF_Setup_1__c",
+			"application_status_field": "Full_Award_Setup_Status__c",
+			"sections": [
+				{
+					"id": "lcf_setup_applicant_1",
+					"title": "Applicant Details",
+					"short_title": "Applicant",
+					"target_object": "Form_LCF_Setup_1__c",
+					"status_field": "ap_section_status__c"
+				},
+				{
+					"id": "lcf_setup_progress_1",
+					"title": "Progress Towards Launch and Project Changes",
+					"short_title": "Progress",
+					"rich_text": "setup_max_outcomes__c",
+					"target_object": "Form_LCF_Setup_1__c",
+					"status_field": "pr_section_status__c"
+				},
+				{
+					"id": "lcf_setup_outcomes_1",
+					"title": "Outcomes and Financials",
+					"short_title": "Outcomes",
+					"target_object": "Form_LCF_Setup_1__c",
+					"status_field": "so_section_status__c"
+				},
+				{
+					"id": "lcf_setup_terms_1",
+					"title": "Meeting the Terms of your LCF In-Principle Offer",
+					"short_title": "Terms",
+					"target_object": "Form_LCF_Setup_1__c",
+					"status_field": "tm_section_status__c"
+				},
+				{
+					"id": "lcf_setup_costs_1",
+					"title": "Social Investment, Costs and Governance",
+					"short_title": "Costs",
+					"target_object": "Form_LCF_Setup_1__c",
+					"status_field": "cs_section_status__c"
+				},
+				{
+					"id": "lcf_setup_declaration_1",
+					"title": "Declaration",
+					"short_title": "Declaration",
+					"target_object": "Form_LCF_Setup_1__c",
+					"status_field": "sd_section_status__c"
+				}
+			]
+		}
+	]
+}

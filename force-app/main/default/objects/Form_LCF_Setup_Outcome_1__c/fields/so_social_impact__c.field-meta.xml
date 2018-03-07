@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>so_social_impact__c</fullName>
+    <description>Summarise the outcome’s impact on the service user concerned (and their immediate local community).</description>
+    <externalId>false</externalId>
+    <inlineHelpText>What is the social impact for the outcome?</inlineHelpText>
+    <label>SO - Social Impact</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+</CustomField>

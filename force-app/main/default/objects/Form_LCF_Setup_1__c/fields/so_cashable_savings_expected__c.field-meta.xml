@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>so_cashable_savings_expected__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>What are the cashable savings expected to local commissioners engaged in the project as outcomes payers?</inlineHelpText>
+    <label>SO - Cashable Savings Expected</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

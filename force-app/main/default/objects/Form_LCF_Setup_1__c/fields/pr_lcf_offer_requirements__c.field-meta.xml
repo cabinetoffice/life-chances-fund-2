@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>pr_lcf_offer_requirements__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Please outline how you have addressed LCF offer requirements and feedback</inlineHelpText>
+    <label>PR - LCF Offer Requirements</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>10</visibleLines>
+</CustomField>

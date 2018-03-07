@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cs_evaluation_indicators__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Evaluation Indicators: Tell us about indicators you’ll use to evaluate your SIB</inlineHelpText>
+    <label>CS - Evaluation Indicators</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>10</visibleLines>
+</CustomField>

@@ -1,4 +1,4 @@
-<apex:page controller="SIB_TemplateController" standardStylesheets="false" showHeader="false" docType="html-5.0" applyBodyTag="false" applyHtmlTag="false">
+<apex:page id="layout" controller="SIB_TemplateController" standardStylesheets="false" showHeader="false" docType="html-5.0" applyBodyTag="false" applyHtmlTag="false">
 
     <!--[if lt IE 9]><html class="lte-ie8" lang="en"><![endif]-->
     <!--[if gt IE 8]><!-->
@@ -9,60 +9,132 @@
         <meta charset="utf-8" />
         <apex:insert name="title"/>
 
-	    <!--[if gt IE 8]><!--><apex:stylesheet value="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/stylesheets/elements-page.css')}"/><!--<![endif]-->
-	    <!--[if gt IE 8]><!--><apex:stylesheet value="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/stylesheets/govuk-template.css')}"/><!--<![endif]-->
-	    <!--[if gt IE 8]><!--><apex:stylesheet value="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/stylesheets/main.css')}"/><!--<![endif]-->
+        <!--[if gt IE 8]><!--><apex:stylesheet value="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/stylesheets/elements-page.css')}"/><!--<![endif]-->
+        <!--[if gt IE 8]><!--><apex:stylesheet value="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/stylesheets/govuk-template.css')}"/><!--<![endif]-->
+        <!--[if gt IE 8]><!--><apex:stylesheet value="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/stylesheets/main.css')}"/><!--<![endif]-->
 
-	    <!--[if IE 7]><apex:stylesheet value="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/stylesheets/elements-page-ie7.css')}"/><![endif]-->
-	    <!--[if IE 8]><apex:stylesheet value="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/stylesheets/elements-page-ie8.css')}"/><![endif]-->
-	    <!--[if IE 7]><apex:stylesheet value="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/stylesheets/govuk-template-ie7.css')}"/><![endif]-->
-	    <!--[if IE 8]><apex:stylesheet value="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/stylesheets/govuk-template-ie8.css')}"/><![endif]-->
-	    <!--[if IE 7]><apex:stylesheet value="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/stylesheets/main-ie7.css')}"/><![endif]-->
-	    <!--[if IE 8]><apex:stylesheet value="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/stylesheets/main-ie8.css')}"/><![endif]-->
-	    <!--[if IE 8]><apex:stylesheet value="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/stylesheets/fonts-ie8.css')}"/><![endif]-->
-	    <!--[if gte IE 9]><!--><apex:stylesheet value="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/stylesheets/fonts.css')}"/><!--<![endif]-->
+        <!--[if IE 7]><apex:stylesheet value="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/stylesheets/elements-page-ie7.css')}"/><![endif]-->
+        <!--[if IE 8]><apex:stylesheet value="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/stylesheets/elements-page-ie8.css')}"/><![endif]-->
+        <!--[if IE 7]><apex:stylesheet value="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/stylesheets/govuk-template-ie7.css')}"/><![endif]-->
+        <!--[if IE 8]><apex:stylesheet value="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/stylesheets/govuk-template-ie8.css')}"/><![endif]-->
+        <!--[if IE 7]><apex:stylesheet value="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/stylesheets/main-ie7.css')}"/><![endif]-->
+        <!--[if IE 8]><apex:stylesheet value="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/stylesheets/main-ie8.css')}"/><![endif]-->
+        <!--[if IE 8]><apex:stylesheet value="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/stylesheets/fonts-ie8.css')}"/><![endif]-->
+        <!--[if gte IE 9]><!--><apex:stylesheet value="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/stylesheets/fonts.css')}"/><!--<![endif]-->
 
-	    <!--[if lt IE 9]><script src="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/javascripts/ie.js')}"></script><![endif]-->
+        <!--[if lt IE 9]><script src="{!URLFOR($Resource.GOV_Static, '/govuk-static-test/javascripts/ie.js')}"></script><![endif]-->
 
         <apex:stylesheet value="{!URLFOR($Resource.css_govuk_core)}" />
         <apex:stylesheet value="{!URLFOR($Resource.css_core)}" />
        
         <apex:insert name="styles"/>
-		<style type="text/css">
-		    .show-div {
-		        display:block;
+        <style type="text/css">
+            .show-div {
+                display:block;
+            }
+            .hide-div {
+                display:none;
+            }
+	    	.cofRichText td { 
+	    		border:none;
+	    	}
+	    	.heading-large td { 
+	    		border:none; font-size:36px; font-weight:700;
+	    	}
+	    	.heading-medium td { 
+	    		border:none; font-size:24px; font-weight:700;
+	    	}
+		    .cofRichText ul {
+		        list-style-type: disc;
+		        list-style-position: inside;
 		    }
-		    .hide-div {
-		    	display:none;
+		    .cofRichText ul li {
+		    	margin-left: 30px;
+		    	margin-bottom: 5px;
+		    }
+		    .cofRichText b {
+		    	font-weight: 600;
+		    }
+ 		    .cofRichText b u {
+		    	font-weight: 600;
 		    }
 		</style>
-		<script type="text/javascript">	
-			var previousOnload = window.onload;        
-			window.onload = function() { 
-				if (previousOnload) { 
-		           previousOnload();
-				}
-				checkCookieDiv();
-			}
-			
-		    function checkCookieDiv() {
-		    	console.log("got here");
-		    	var cookieMessageOff = document.cookie.replace(/(?:(?:^|.*;\s*)cookieMessageOff\s*\=\s*([^;]*).*$)|^.*$/, "$1");
-		    	if (cookieMessageOff != "true") {
-		    		console.log("Turn on cookie message");
-		    		openCookieDiv();
-		    	}
-		    }
-			
-		    function openCookieDiv() {
-		    	document.getElementById("global-cookie-message").className = "show-div";
-		    }		    
-			
-		    function closeCookieDiv() {
-		    	document.getElementById("global-cookie-message").className = "hide-div";
-		    	document.cookie="cookieMessageOff=true";
-		    }		    
-		</script>
+        <script type="text/javascript"> 
+            var previousOnload = window.onload;        
+            window.onload = function() { 
+                if (previousOnload) { 
+                   previousOnload();
+                }
+                
+                // VF page has onload script? If so, execute it first
+				if (isFunction(vfInitialScript)) {
+                	console.log('vfInitialScript is a function');
+                	vfInitialScript();
+                }
+                
+                // Then check for cookies: 
+                // (1) to turn off cookie message 
+                // (2) to enable return to the last page visited
+                checkCookieDiv();
+            }
+            
+			function isFunction(possibleFunction) {
+				return typeof(possibleFunction) === typeof(Function);
+			} 
+			           
+            function checkCookieDiv() {
+                console.log("got here");
+                var cookieMessageOff = document.cookie.replace(/(?:(?:^|.*;\s*)cookieMessageOff\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+                if (cookieMessageOff != "true") {
+                    console.log("Turn on cookie message");
+                    openCookieDiv();
+                }
+                
+                // To go back to the last page visited
+                var urlString = window.location.href;
+                var index = urlString.indexOf('zzzlastPage=');
+                var lastPageURL;
+                if (index > -1) {
+                	lastPageURL = decodeURIComponent(urlString.substring(index+12));
+                	setLastPageCookie(lastPageURL);
+                }       	
+                lastPageURL = document.cookie.replace(/(?:(?:^|.*;\s*)lastPageCookie\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+                console.log('lastPageURL: '+lastPageURL);
+                if (lastPageURL) {
+                    console.log("Turn on last page div");
+                    openLastPageDiv();                	
+                }
+            }
+            
+            function openCookieDiv() {
+            	var el = document.getElementById("global-cookie-message");
+            	if (el) el.className = "show-div";
+            }           
+            
+            function closeCookieDiv() {
+                document.getElementById("global-cookie-message").className = "hide-div";
+                document.cookie = "cookieMessageOff=true";
+            }           
+            
+            function openLastPageDiv() {
+                var el1 = document.getElementById("last-page-div");
+                var el2 = document.getElementById("no-last-page-div");
+            	if (el1) {
+            		el2.className = "hide-div";
+            		el1.className = "show-div";
+            	}
+            }           
+            
+            function gotoLastPage() {
+ 				var lastPageURL = document.cookie.replace(/(?:(?:^|.*;\s*)lastPageCookie\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+                document.cookie = "lastPageCookie=";
+                window.location.href = lastPageURL;
+            }
+            
+            function setLastPageCookie(lastPageURL) {
+            	document.cookie = "lastPageCookie="+lastPageURL;
+            }           
+        </script>
     </head>
 
     <body> 
@@ -74,69 +146,69 @@
         </div>
 
         <div id="global-cookie-message" class="hide-div">
-        	<div style="margin:auto; width:560px">
-	        	<a style="float:right; text-decoration:none;" href="javascript:closeCookieDiv();">X</a>
-	            <p>GOV.UK uses cookies to make the site simpler. <a href="https://www.gov.uk/help/cookies">Find out more about cookies</a></p>
-	        </div>
-	    </div>
+            <div style="margin:auto; width:560px">
+                <a style="float:right; text-decoration:none;" href="javascript:closeCookieDiv();">X</a>
+                <p>GOV.UK uses cookies to make the site simpler. <a href="https://www.gov.uk/help/cookies">Find out more about cookies</a></p>
+            </div>
+        </div>
         </apex:outputPanel>
 
         <header role="banner" id="global-header" class="with-proposition">
             <div class="header-wrapper">
             
-            	<apex:outputPanel rendered="{!$CurrentPage.Name=='answers'}">	<!-- for pdf -->
+                <apex:outputPanel rendered="{!$CurrentPage.Name=='answers'}">   <!-- for pdf -->
             
                 <div class="header-global">
                     <div class="header-logo">
-						<a href="#" id="logo" class="content" style="background-image:url({!URLFOR($Resource.images, 'gov.uk_crown_small.png')})">
-                 			<img src="#" width="36" height="35" alt=""/>&nbsp;&nbsp;GOV.UK&nbsp;&nbsp;&nbsp;Life Chances Fund
-                		</a>
-                	</div>
+                        <a href="#" id="logo" class="content" style="background-image:url({!URLFOR($Resource.images, 'gov.uk_crown_small.png')})">
+                            <img src="#" width="36" height="35" alt=""/>&nbsp;&nbsp;GOV.UK&nbsp;&nbsp;&nbsp;Life Chances Fund
+                        </a>
+                    </div>
                 </div>
 
-            	</apex:outputPanel>
+                </apex:outputPanel>
             
-	            <apex:outputPanel rendered="{!$CurrentPage.Name!='answers'}">
-	            <table><tbody><tr>
+                <apex:outputPanel rendered="{!$CurrentPage.Name!='answers'}">
+                <table><tbody><tr>
                 <td class="header-global" style="width:30%; height:40px; border:none; padding-bottom:10px">
                     <div class="header-logo">
                         <a href="https://www.gov.uk/" title="Go to the GOV.UK homepage" id="logo" class="content" 
-                        	style="background-image:url({!URLFOR($Resource.images, 'gov.uk_crown_small.png')}); background-size:46px;">
+                            style="background-image:url({!URLFOR($Resource.images, 'gov.uk_crown_small.png')}); background-size:46px;">
                             <img src="#" width="36" height="39" alt=""/>&nbsp;&nbsp;GOV.UK
                          </a>
                     </div>
                 </td>
 
-				<td class="header-proposition" style="align:left; border:none; padding-top:10px;">
+                <td class="header-proposition" style="align:left; border:none; padding-top:10px;">
                     <div class="content">
                     <a href="{!$Page.applications}" id="proposition-name" style="font-size:24px">Life Chances Fund</a>
                     <ul id="proposition-links" style="width:340px">
-          				<li width="75%"><!-- for IE8 -->
-          					<apex:outputLink value="/SIB_ChangePassword?retURL=/SIB_Login">Change Password</apex:outputLink>
-          				</li>
+                        <li width="75%"><!-- for IE8 -->
+                            <apex:outputLink value="/SIB_ChangePassword?retURL=/SIB_Login">Change Password</apex:outputLink>
+                        </li>
                          <li>    
-							<apex:outputLink value="{!$Site.Prefix}/secur/logout.jsp">Logout</apex:outputLink>
-						</li>
+                            <apex:outputLink value="{!$Site.Prefix}/secur/logout.jsp">Logout</apex:outputLink>
+                        </li>
                     </ul>
                    </div>
-	            </td>
-	 			</tr></tbody></table>
-	            </apex:outputPanel>
+                </td>
+                </tr></tbody></table>
+                </apex:outputPanel>
             
             </div>
         </header>
 
         <apex:outputPanel rendered="{!$CurrentPage.Name!='answers'}">
-        	<div id="global-header-bar" style="margin:auto; max-width:960px"></div>
+            <div id="global-header-bar" style="margin:auto; max-width:960px"></div>
         </apex:outputPanel>
  
         <div class="site-wrapper" style="margin:auto; max-width:960px">
 
-         	<apex:outputPanel rendered="{!$CurrentPage.Name!='answers'}">
+            <apex:outputPanel rendered="{!$CurrentPage.Name!='answers'}">
             <div class="phase-banner-beta">
                 <text class="phase-tag"> BETA </text> This is a new service - your <a href="mailto:lifechancesfund@biglotteryfund.org.uk" target="_blank"> feedback</a> will help us to improve it.
             </div>
-       		</apex:outputPanel>
+            </apex:outputPanel>
 
             <apex:insert name="breadcrumbs"/>
 
@@ -158,12 +230,12 @@
                                 <li><a href="{!fl.URL__c}" target="{!fl.Target__c}">{!fl.Label}</a></li>
                             </apex:repeat>
                         </ul>
-  	                    <div class="footer-meta-inner" style="width:100%; padding-top:10px">
-	                        <div class="open-government-licence">
-	                            <p class="logo"><a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence</a></p>
-	                            <p>All content is available under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence v3.0</a>, except where otherwise stated</p>
-	                        </div>
-	                    </div>
+                        <div class="footer-meta-inner" style="width:100%; padding-top:10px">
+                            <div class="open-government-licence">
+                                <p class="logo"><a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence</a></p>
+                                <p>All content is available under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence v3.0</a>, except where otherwise stated</p>
+                            </div>
+                        </div>
                     </li>
 
                     <li class="copyright" style="float:right; margin:5 0 0 0; width:15%">

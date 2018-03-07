@@ -2,6 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Enable_Salesforce_Error_Display__c</fullName>
     <defaultValue>false</defaultValue>
+    <description>Enable display of Salesforce error messages on the community error page</description>
     <externalId>false</externalId>
     <inlineHelpText>Enable display of Salesforce error messages on the community error page</inlineHelpText>
     <label>Enable Salesforce Error Display</label>

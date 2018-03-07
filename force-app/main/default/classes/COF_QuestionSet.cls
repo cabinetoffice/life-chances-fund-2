@@ -8,17 +8,25 @@ public class COF_QuestionSet {
 
 	public String id;
 	public String target_object;
+	public String target_field;
 	public String status_field;
+	public String child_count_field;
 	public String page_status_field;
 	public String parent_relationship;
+	public String short_title; 
 	public List<COF_Page> pages;
 
 	public class COF_Children {
 		public String target_field {get;set;}
+		public String target_field2 {get;set;}
 		public String target_object {get;set;}
+		public String parent_field {get; set;}
 		public String child_relationship {get;set;}
+		public String parent_relationship {get;set;}
 		public String title {get;set;}
 		public String section {get;set;}
+		public String add_label {get;set;}
+		public String primary_label {get;set;}
 		public List<COF_Page> childPages {get;set;}
 	}
 
@@ -34,12 +42,18 @@ public class COF_QuestionSet {
 		public Integer recommended_word_limit {get;set;}
 	}
 
+	public class COF_Files {
+		public String target_field {get;set;}
+		public String maximum_file_size {get;set;}
+	}
+
 	public class COF_Route {
 		public String target_page;
 		public List<COF_Constraint> constraints;
 	}
 
 	public COF_Page getPage(String pageId) {
+		if (pageId == '0') return null;
 		for (COF_Page page : this.pages) {
 			if (page.id == pageId) {
 				return page;
@@ -55,13 +69,14 @@ public class COF_QuestionSet {
 	 */
 	public static COF_QuestionSet load(String identifier) {
 		String questionSetJson;
+		COF_QuestionSet qs;
         try {
 		    // Load JSON representation of form
 			String questionSetUrl = PageReference.forResource(identifier).getUrl();
         	PageReference questionSetReference = new PageReference(questionSetUrl);
     		questionSetJson = questionSetReference.getContent().toString();
 	    	// Instantiate form from JSON
-	        return (COF_QuestionSet) System.JSON.deserialize(questionSetJson, COF_QuestionSet.class);
+	        qs = (COF_QuestionSet)System.JSON.deserialize(questionSetJson, COF_QuestionSet.class);
 		} catch(Exception ex) {
 		    if (Test.isRunningTest()) { 
 		    	if (identifier == 'lcf_full_app_overview_1') { 
@@ -119,10 +134,15 @@ public class COF_QuestionSet {
 '	]'+
 '}';
 		    	}
-	    		return (COF_QuestionSet) System.JSON.deserialize(questionSetJson, COF_QuestionSet.class);
+	    		qs = (COF_QuestionSet) System.JSON.deserialize(questionSetJson, COF_QuestionSet.class);
 			} else {
-		    	throw new COF_Exception('Could not deserialize referenced question set from JSON');
+		    	throw new COF_Exception('Could not deserialize referenced question set from JSON file: '+identifier);
 		    }
 		}
+		// M.Witchalls Feb 2018
+		for (COF_Page pg: qs.pages) {
+			pg.prepareFields(qs.target_object);
+		}
+		return qs;
 	}
 }

@@ -5,8 +5,8 @@
 	"pages": [
 		{
 			"id": "1",
-			"title": "What are the maximum cashable savings during project life?",
-			"guidance": "A cashable saving is where the benefit is reflected in a budget line, and could include both fixed and variable costs. For example, if an intervention reduced youth offending to the extent where a youth offending institution could be closed this would generate cashable savings from both fixed (selling the building) and variable (utilities) costs.",
+			"title": "What are the maximum gross cashable savings during the project life?",
+			"guidance": "A cashable saving is where the benefit is reflected in a budget line, and could include both fixed and variable costs. For example, if an intervention reduced youth offending to the extent where a youth offending institution could be closed this would generate cashable savings from both fixed (selling the building) and variable (utilities) costs. Gross means the cashable savings without taking into account the cost of the outcomes payments.",
 			"questions": [
 				{ "target_field": "fn_max_savings_commissioners__c" },
 				{ "target_field": "fn_max_savings_not_involved__c" },
@@ -20,8 +20,8 @@
 		},
 		{
 			"id": "2",
-			"title": "What are the maximum cashable benefits through costs avoided?",
-			"guidance": "Savings could be as a result of costs avoided, generating a longer term cashable benefit after the project finishes as well as cashable savings achieved during the project life.",
+			"title": "What are the maximum gross cashable benefits through costs avoided?",
+			"guidance": "Savings could be as a result of costs avoided, generating a longer term cashable benefit after the project finishes as well as cashable savings achieved during the project life. Gross means the cashable benefits without taking account of the cost of outcomes payments.",
 			"questions": [
 				{ "target_field": "fn_max_benefits_commissioners__c" },
 				{ "target_field": "fn_max_benefits_not_involved__c" },

@@ -3,5 +3,6 @@
     <apiVersion>38.0</apiVersion>
     <availableInTouch>false</availableInTouch>
     <confirmationTokenRequired>false</confirmationTokenRequired>
+    <description>Application submitted confirmation</description>
     <label>COF_ApplicationSubmitted</label>
 </ApexPage>

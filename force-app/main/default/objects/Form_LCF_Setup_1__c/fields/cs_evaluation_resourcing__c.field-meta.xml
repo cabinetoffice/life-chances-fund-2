@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cs_evaluation_resourcing__c</fullName>
+    <description>Tell us about the resources that will be committed to fulfilling this evaluation work. How will you ensure your evaluation is seen as being independent from your project? Tell us about the dissemination of evaluation findings and any other project learning. This may include internal analytical capacity, externally procured evaluation work or both.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Resourcing your evaluation and disseminating learning</inlineHelpText>
+    <label>CS - Evaluation Resourcing</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>10</visibleLines>
+</CustomField>

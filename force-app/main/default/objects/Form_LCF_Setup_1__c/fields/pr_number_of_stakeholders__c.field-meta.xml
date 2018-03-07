@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>pr_number_of_stakeholders__c</fullName>
+    <description>Count of stakeholders for this full award setup form</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Count of stakeholders for this full award setup form</inlineHelpText>
+    <label>PR - Number of Stakeholders</label>
+    <summaryForeignKey>Form_LCF_Setup_Stakeholder_1__c.full_award_setup__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

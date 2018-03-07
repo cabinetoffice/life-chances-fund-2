@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>tm_commissioner_savings_2018__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Commissioner cashable savings and benefits from costs avoided</inlineHelpText>
+    <label>TM - Commissioner Savings 2018</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

@@ -1,0 +1,61 @@
+{
+	"id": "lcf_setup_outcomes_child_1",
+	"target_object": "Form_LCF_Setup_Outcome_1__c",
+	"target_field": "so_description__c",
+	"status_field": "so_section_status__c",
+	"short_title": "Outcomes",
+	"parent_relationship": "full_award_setup__r",
+	"pages": [
+		{
+			"id": "1",
+			"questions": [
+				{ "target_field": "so_description__c" }
+			],
+			"routes": [
+				{ "target_page": "2" }
+			]
+		},
+		{
+			"id": "2",
+			"questions": [
+				{ "target_field": "so_baseline__c" }
+			],
+			"routes": [
+				{ "target_page": "3" }
+			]
+		},
+		{
+			"id": "3",
+			"questions": [
+				{ "target_field": "so_social_impact__c" }
+			],
+			"routes": [
+				{ "target_page": "4" }
+			]
+		},
+		{
+			"id": "4",
+			"questions": [
+				{ "target_field": "so_service_users__c" }
+			],
+			"routes": [
+				{ "target_page": "5" }
+			]
+		},
+		{
+			"id": "5",
+			"questions": [
+				{ "target_field": "so_time_needed__c" }
+			],
+			"routes": [
+				{ "target_page": "6" }
+			]
+		},
+		{
+			"id": "6",
+			"questions": [
+				{ "target_field": "so_user_payment__c" }
+			]
+		}
+	]
+}

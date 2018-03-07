@@ -1,9 +1,9 @@
 <apex:page controller="COF_ApplicationSubmittedController" standardStylesheets="false" showHeader="false" docType="html-5.0" action="{!checkLoggedInStatus}">
-	<apex:composition template="Layout">
-		<apex:define name="title">
-		    <title>Confirmation</title>
-		</apex:define>
-		<apex:define name="breadcrumbs">
+    <apex:composition template="Layout">
+        <apex:define name="title">
+            <title>Confirmation</title>
+        </apex:define>
+        <apex:define name="breadcrumbs">
             <div class="breadcrumbs">
                 <ol>
                     <li><apex:outputLink value="{!$Page.Applications}">Applications</apex:outputLink></li>
@@ -16,38 +16,38 @@
                     </li>
                 </ol>
             </div>
-		</apex:define>
-		<apex:define name="main">
-			<div class="grid-row">
-			    <div class="column-two-thirds">
-			
-					<div class="govuk-box-highlight">
-			        <h1 class="heading-xlarge">
-						Application submitted
-			        </h1>
-			        <p class="font-large">
-						Your reference number is <br/>
-						<strong class="bold">{!application['Name']}</strong>
-			        </p>
-					</div>
-					
-					<br/>
-					<p>
-						Your application has been submitted. We have sent you a confirmation email.
-					</p>		
-					<br/>
-					<br/>
-					<apex:form >
+        </apex:define>
+        <apex:define name="main">
+            <div class="grid-row">
+                <div class="column-two-thirds">
+            
+                    <div class="govuk-box-highlight">
+                    <h1 class="heading-xlarge">
+                        Application submitted
+                    </h1>
+                    <p class="font-large">
+                        Your reference number is <br/>
+                        <strong class="bold">{!application['Name']}</strong>
+                    </p>
+                    </div>
+                    
+                    <br/>
+                    <p>
+                        Your application has been submitted. We have sent you a confirmation email.
+                    </p>        
+                    <br/>
+                    <br/>
+                    <apex:form >
                         <apex:outputLink styleClass="button" value="{!$Page.Sections}">
                             Back to full application page
                             <apex:param name="form" value="{!form.id}"/>
                             <apex:param name="app" value="{!application['Name']}"/>
                         </apex:outputLink>
-		      		</apex:form>
-					<br/>
-			
-			    </div>
-			</div>
-		</apex:define>
-	</apex:composition>
+                    </apex:form>
+                    <br/>
+            
+                </div>
+            </div>
+        </apex:define>
+    </apex:composition>
 </apex:page>

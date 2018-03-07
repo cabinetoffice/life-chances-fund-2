@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>tm_engagement_plans__c</fullName>
+    <description>Set out current VCSE, service user and local community engagement plans during
+the SIB’s life. Is the local commissioner(s) signed up to these? How will you sustain
+pro-active involvement in and access to the SIB?</description>
+    <externalId>false</externalId>
+    <inlineHelpText>VCSE, service user and local community engagement plans</inlineHelpText>
+    <label>TM - Engagement Plans</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>10</visibleLines>
+</CustomField>

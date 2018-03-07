@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cs_project_specific_terms_compliance__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Please set out how you have met any additional project specific terms</inlineHelpText>
+    <label>CS - Project Specific Terms Compliance</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>10</visibleLines>
+</CustomField>

@@ -1,7 +1,20 @@
-/**
- * Answers Controller
- */
+/* __________________________________________________________________________________________________________________
+   Name:		AnswersController.cls
+   Description: Controller class for Answers Visualforce page (rendered as PDF)
+					
+   Date         Version Author          		Summary of Changes 
+   ___________  _______ __________________		_____________________________________________________________________
+   2017		    1.0    	Cabinet Office			Initial Release 
+   Jan 2018		1.1		M.Witchalls, Westbrook	Child query added
+   Feb 2018		1.2		M.Witchalls, Westbrook	Inclusion of Setup Form via layoutMap
+__________________________________________________________________________________________________________________ */        
 public class AnswersController extends COF_PageController {
+
+	private static final Map<String, String> layoutMap = new Map<String, String>{
+		'lcf_full_app_1'=>'Form_LCF_Full_App_1__c-Form LCF Full Application 1%2E0 Layout',
+		'lcf_setup_1'=>'Form_LCF_Setup_1__c-Form LCF Full Award Setup 1%2E0 Layout',
+		'lcf_test'=>'Form_LCF_Full_App_1__c-Form LCF Full Application 1%2E0 Layout'
+	};
 
 	public COF_Form form {get;set;} 
 	public List<COF_Field> fields {get;set;}
@@ -9,8 +22,13 @@ public class AnswersController extends COF_PageController {
     public SObject targetObject {get;set;}
  
     public AnswersController() {
-        COF_Config config = COF_Config.load();
-        this.form = config.getForm(this.getFormIdentifierParam());
+    	String identifier = this.getFormIdentifierParam();
+        COF_Config config = COF_Config.load(identifier);
+        this.form = config.getForm(identifier);
+		String layoutName = layoutMap.get(identifier);
+		if (layoutName == null) {
+			throw new COF_Exception('Could not obtain layout name for form '+identifier);
+		}
 
     	// we should pass through the section > field hierarchy to the view, so we can group
 
@@ -20,14 +38,15 @@ public class AnswersController extends COF_PageController {
     	this.sections = new List<PageSection>();    	
 
     	// Lookup the relevant page layout, so we can display the fields grouped and in an appropriate order
-    	List<String> componentNameList = new List<String>{'Form_LCF_Full_App_1__c-Form LCF Full Application 1%2E0 Layout'};
+    	List<String> componentNameList = new List<String>{layoutName};
 		List<Metadata.Metadata> components = Metadata.Operations.retrieve(Metadata.MetadataType.Layout, componentNameList);
 		Metadata.Layout layout = (Metadata.Layout) components.get(0);
+		system.debug('#####layout.layoutSections: '+layout.layoutSections);
 		if (layout != null && layout.layoutSections != null) {
 			// Loop through the sections
 			for (Metadata.LayoutSection section : layout.layoutSections) {
 				// Only consider sections that have custom labels, avoiding the mandatory system sections
-				if (section.customLabel == true && section.label != 'Custom Links') {
+				if (section.customLabel == true && section.label != 'Custom Links' && section.label != 'Test Section') {
 					PageSection newSection = new PageSection(section.label, this.form.sections);
 					newSection.fields = new List<COF_Field>();
 					
@@ -38,7 +57,7 @@ public class AnswersController extends COF_PageController {
 							for (Metadata.LayoutItem layoutItem : layoutColumn.layoutItems) {
 								if (layoutItem.field != null) {
 									// Create a field to represent this layout item
-									COF_Field newField = new COF_Field(layoutItem.field, 'Form_LCF_Full_App_1__c');
+									COF_Field newField = new COF_Field(layoutItem.field, form.target_object);
 									this.fields.add(newField);
 									newSection.fields.add(newField);
 								}
@@ -105,10 +124,10 @@ public class AnswersController extends COF_PageController {
 		}
         // Fetch the target object
         List<String> requiredFieldIdentifiersArray = new List<String>(requiredFieldIdentifiers);
-        this.targetObject = Query.object('Form_LCF_Full_App_1__c', requiredFieldIdentifiersArray, 'where ' +  'Application__r.Name = \'' + this.getApplicationIdentifierParam() + '\'');
+        this.targetObject = Query.object(form.target_object, requiredFieldIdentifiersArray, 'where ' +  'Application__r.Name = \'' + this.getApplicationIdentifierParam() + '\'');
     }
     
-    // M.Witchalls Jan 2018: construct child query
+    // M.Witchalls Jan 2018: construct child query 
     public String childQuery(COF_Page page) {    	
     	List<String> fieldIdentifiers = new List<String>();
     	system.debug('###page.children.section: '+page.children.section);

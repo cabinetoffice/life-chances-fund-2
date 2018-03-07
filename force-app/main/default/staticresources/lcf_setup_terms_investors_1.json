@@ -1,0 +1,18 @@
+{
+	"id": "lcf_setup_terms_investors_1",
+	"target_object": "Form_LCF_Setup_Investor_1__c",
+	"target_field": "in_investor_name__c",
+	"status_field": "cs_section_status__c",
+	"short_title": "Investor",
+	"parent_relationship": "full_award_setup__r",
+	"pages": [
+		{
+			"id": "1",
+			"title_id": "Investor Details",
+			"questions": [
+				{ "target_field": "in_investor_name__c" },
+				{ "target_field": "in_amount__c" }
+			]
+		}
+	]
+}

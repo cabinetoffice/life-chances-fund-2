@@ -4,7 +4,7 @@
 public class NewController {
 
 	  //   public ApplicationsController() {
-	  //   	COF_Config config = COF_Config.load();
+	  //   	COF_Config config = COF_Config.load(this.getFormIdentifier());
 			// this.form = config.getForm(this.getFormIdentifier());
 			// if (this.form != null) {
 				

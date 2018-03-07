@@ -24,7 +24,7 @@
 				<div class="column-full">
 					<h1 class="heading-xlarge" style="margin-bottom:20px">Data Protection</h1>
 					<div class="cofRichText">
-						<apex:outputField value="{!project.Data_Protection_Text__c}"/>
+						<apex:outputField value="{!sibInfo.Data_Protection_Text__c}"/>
 					</div>
                 </div>
             </div> 

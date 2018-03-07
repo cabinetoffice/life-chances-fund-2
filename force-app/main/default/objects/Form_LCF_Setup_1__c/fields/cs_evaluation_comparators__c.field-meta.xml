@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cs_evaluation_comparators__c</fullName>
+    <description>Outline which other programmes or service user cohorts you plan to use as a comparison to your SIB project.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Evaluation Comparators: What comparators will you evaluate the delivery of your SIB against?</inlineHelpText>
+    <label>CS - Evaluation Comparators</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>10</visibleLines>
+</CustomField>

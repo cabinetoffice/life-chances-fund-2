@@ -132,6 +132,7 @@
 				"target_object": "Form_LCF_Commissioner_1__c",
 				"target_field": "co_organisation_name__c",
 				"child_relationship": "full_application_commissioners__r",
+				"parent_relationship": "full_application__r",
 				"title": "Outcome Commissioners",
 				"section": "lcf_full_app_overview_child_1"
 			},

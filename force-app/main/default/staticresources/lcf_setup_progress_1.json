@@ -1,0 +1,154 @@
+{
+	"id": "lcf_setup_progress_1",
+	"target_object": "Form_LCF_Setup_1__c",
+	"parent_relationship": "application__r",
+	"pages": [
+		{
+			"id": "1",
+			"title_id": "LCF Offer Requirements",
+			"questions": [
+				{ "target_field": "pr_lcf_offer_requirements__c" }			
+			],
+			"routes": [
+				{ "target_page": "2" }
+			]
+		},
+		{
+			"id": "2",
+			"title_id": "Significant Changes",
+			"guidance_id": "Significant Changes Guidance",
+			"routes": [
+				{ "target_page": "3" }
+			]
+		},
+		{
+			"id": "3",
+			"questions": [
+				{ "target_field": "pr_new_stakeholders__c" }
+			],
+			"routes": [
+				{ 
+					"target_page": "4",
+					"constraints": [
+						{ "field": "pr_new_stakeholders__c", "operator": "equals", "value": "Yes" }
+					]
+				},
+				{ "target_page": "5" }
+			]
+		},
+		{
+			"id": "4",
+			"title_id": "New Stakeholders",
+			"guidance_id": "New Stakeholders Guidance",
+			"warning_id": "Lead Commissioner First",
+			"children": {
+				"target_object": "Form_LCF_Setup_Stakeholder_1__c",
+				"target_field": "st_organisation_name__c",
+				"parent_field": "full_award_setup__c",
+				"title": "New Stakeholders",
+				"section": "lcf_setup_progress_stakeholders_1",
+				"add_label": "+ Add a stakeholder"
+			},
+			"files": {
+				"target_field": "pr_stakeholder_confirmation_files__c"
+			},
+			"routes": [
+				{ "target_page": "5" }
+			]
+		},
+		{
+			"id": "5",
+			"questions": [
+				{ "target_field": "pr_commissioner_disengagement__c" }
+			],
+			"routes": [
+				{ 
+					"target_page": "6",
+					"constraints": [
+						{ "field": "pr_commissioner_disengagement__c", "operator": "equals", "value": "Yes" }
+					]
+				},
+				{ "target_page": "7" }
+			]
+		},
+		{
+			"id": "6",
+			"title_id": "Commissioners Disengaged",
+			"children": {
+				"target_object": "Form_LCF_Disengagement_1__c",
+				"target_field": "ds_commissioner_name__c",
+				"parent_field": "full_award_setup__c",
+				"title": "Commissioner Disengagement",
+				"section": "lcf_setup_progress_disengagement_1",
+				"add_label": "+ Add a disengagement"
+			},
+			"routes": [
+				{ "target_page": "7" }
+			]
+		},
+		{
+			"id": "7",
+			"title_id": "Service Users and Referral Pathways",
+			"guidance_id": "Service Users and Referral Pathways Guidance",
+			"routes": [
+				{ "target_page": "8" }
+			]
+		},
+		{
+			"id": "8",
+			"questions": [
+				{ "target_field": "pr_service_users_changed__c"	}
+			],
+			"routes": [
+				{ 
+					"target_page": "9",
+					"constraints": [
+						{ "field": "pr_service_users_changed__c", "operator": "equals", "value": "Yes" }
+					]
+				},
+				{ "target_page": "10" }
+			]
+		},
+		{
+			"id": "9",
+			"title_id": "Maximum Users",
+			"questions": [
+				{ "target_field": "pr_potential_service_users__c" },
+				{ "target_field": "pr_expected_service_users__c" },
+				{ "target_field": "pr_outcome_payment_service_users__c"	}
+			],
+			"routes": [
+				{ "target_page": "10" }
+			]
+		},
+		{
+			"id": "10",
+			"questions": [
+				{ "target_field": "pr_cohort_definition_changes__c"	}
+			],
+			"routes": [
+				{ "target_page": "11" }
+			]
+		},
+		{
+			"id": "11",
+			"questions": [
+				{ "target_field": "pr_referral_pathways_changed__c"	}
+			],
+			"routes": [
+				{ 
+					"target_page": "12",
+					"constraints": [
+						{ "field": "pr_referral_pathways_changed__c", "operator": "equals", "value": "Yes" }
+					]
+				}
+			]
+		},
+		{
+			"id": "12",
+			"questions": [
+				{ "target_field": "pr_referral_pathway_changes__c" }
+			]
+		}
+	]
+}

@@ -4,7 +4,7 @@ public class COF_ApplicationSubmittedController extends COF_PageController {
     public SObject application {get;set;}
 
     public COF_ApplicationSubmittedController() {
-        COF_Config config = COF_Config.load();
+        COF_Config config = COF_Config.load(this.getFormIdentifierParam());
         this.form = config.getForm(this.getFormIdentifierParam());
         this.application = this.getApplication();
     }

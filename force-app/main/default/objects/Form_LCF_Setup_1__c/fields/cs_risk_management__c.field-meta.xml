@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cs_risk_management__c</fullName>
+    <description>As well as telling us about risk identification and management, tell us how you are or will be recording these risks.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>What risks have you identified? How will you manage these?</inlineHelpText>
+    <label>CS - Risk Management</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>10</visibleLines>
+</CustomField>

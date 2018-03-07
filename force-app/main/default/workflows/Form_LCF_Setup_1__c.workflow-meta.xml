@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Copy_Original_Project_Name_to_Project_Na</fullName>
+        <field>ap_project_name__c</field>
+        <formula>ap_original_project_name__c</formula>
+        <name>Copy Original Project Name to Project Na</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <rules>
+        <fullName>Copy Original Project Name to Project Name</fullName>
+        <actions>
+            <name>Copy_Original_Project_Name_to_Project_Na</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Form_LCF_Setup_1__c.ap_project_name_changed__c</field>
+            <operation>equals</operation>
+            <value>No</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Form_LCF_Setup_1__c.ap_original_project_name__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <description>When no change of Project Name, copy Original Project Name to Project Name</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

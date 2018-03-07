@@ -10,6 +10,7 @@
         <default>false</default>
         <label>COMPLETE</label>
     </customValue>
+    <description>Status values for SIB Form Sections</description>
     <masterLabel>Form Section Status</masterLabel>
     <sorted>false</sorted>
 </GlobalValueSet>

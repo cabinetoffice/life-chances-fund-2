@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cs_fixed_rate_source_known__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Do you know who will source the loan(s)?</inlineHelpText>
+    <label>CS - Fixed Rate Source Known</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Yes_No</valueSetName>
+    </valueSet>
+</CustomField>

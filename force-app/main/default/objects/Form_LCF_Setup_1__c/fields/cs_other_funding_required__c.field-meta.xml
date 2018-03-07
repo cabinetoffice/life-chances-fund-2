@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cs_other_funding_required__c</fullName>
+    <description>Please note that we expect the total non-social investment to be lower than the total social investment for each project funded by LCF</description>
+    <externalId>false</externalId>
+    <inlineHelpText>What other funding will you need to supplement the start-up of your SIB?</inlineHelpText>
+    <label>CS - Other Funding Required</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Fixed rate loans</fullName>
+                <default>false</default>
+                <label>Fixed rate loans</label>
+            </value>
+            <value>
+                <fullName>Third party grant funding</fullName>
+                <default>false</default>
+                <label>Third party grant funding</label>
+            </value>
+            <value>
+                <fullName>Service fee/other commissioner funding</fullName>
+                <default>false</default>
+                <label>Fee for service or other blended commissioner funding</label>
+            </value>
+            <value>
+                <fullName>No other funding will be needed</fullName>
+                <default>false</default>
+                <label>No other funding will be needed</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

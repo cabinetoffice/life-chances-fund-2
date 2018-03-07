@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>tm_other_loan_interest__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Does your project have any other Interest payable for fixed or variable loans?</inlineHelpText>
+    <label>TM - Other Loan Interest</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Yes_No</valueSetName>
+    </valueSet>
+</CustomField>

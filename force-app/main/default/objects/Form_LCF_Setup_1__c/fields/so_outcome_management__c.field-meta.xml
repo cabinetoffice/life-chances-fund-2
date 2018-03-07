@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>so_outcome_management__c</fullName>
+    <description>Explain how: (i) you will make sure outcomes payments are only made for outcomes achieved because of your project (and not for outcomes arising from other interventions); and (ii) you will manage any perverse incentives arising from changes made to your outcomes.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Attribution of Outcomes and Perverse Incentives</inlineHelpText>
+    <label>SO - Outcome Management</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>10</visibleLines>
+</CustomField>

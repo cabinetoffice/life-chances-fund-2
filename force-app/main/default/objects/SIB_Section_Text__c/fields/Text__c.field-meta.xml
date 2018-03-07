@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Text__c</fullName>
+    <description>Plain or rich text used in section summaries, page titles etc in SIB Forms</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Plain or rich text used in section summaries, page titles etc in SIB Forms</inlineHelpText>
+    <label>Text</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>Html</type>
+    <visibleLines>10</visibleLines>
+</CustomField>

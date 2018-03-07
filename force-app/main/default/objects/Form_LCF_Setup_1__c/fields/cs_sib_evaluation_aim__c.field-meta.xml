@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cs_sib_evaluation_aim__c</fullName>
+    <description>Set out the questions you aim to be able to answer as a result of your evaluation activity</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Outline what you look to learn from the evaluation of your SIB project</inlineHelpText>
+    <label>CS - SIB Evaluation Aim</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>10</visibleLines>
+</CustomField>

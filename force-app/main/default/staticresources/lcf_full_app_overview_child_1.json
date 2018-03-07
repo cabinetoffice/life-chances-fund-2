@@ -1,7 +1,9 @@
 {
 	"id": "lcf_full_app_overview_child_1",
 	"target_object": "Form_LCF_Commissioner_1__c",
+	"target_field": "co_organisation_name__c",
 	"status_field": "ov_section_status__c",
+	"short_title": "Commissioner",
 	"parent_relationship": "full_application__r",
 	"pages": [
 		{

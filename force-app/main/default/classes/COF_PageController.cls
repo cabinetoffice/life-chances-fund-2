@@ -19,21 +19,35 @@ public virtual class COF_PageController {
     public PageReference checkLoggedInAndApplicationStatus() {
     	if (SIB_Utilities.checkLoggedInStatus() != null) {
     		return SIB_Utilities.checkLoggedInStatus();
-    	// Disallow access to pages if Full Application Form is not in 'Draft' status: go to Sections page
-    	} else if (this.getApplicationIdentifierParam()!= null && this.getFormIdentifierParam()!= null) {
-    		SObject application = this.getApplication();
-	    	if (this.getFullApplicationStatus(application)!= DRAFT) {
-		        PageReference nextPage = Page.Sections;
-		        nextPage.getParameters().put('form', this.getFormIdentifierParam());
-		        nextPage.getParameters().put('app', this.getApplicationIdentifierParam());
-		        return nextPage;
-	    	}
+    	// Disallow access to pages if Form is not in 'Draft' status: go to Sections page
+     	//} else if (this.getApplicationIdentifierParam()!= null && this.getFormIdentifierParam()!= null) {
+    		//SObject application = this.getApplication();
+    		//COF_Config config = COF_Config.load(this.getFormIdentifierParam());
+			//COF_Form form = config.getForm(this.getFormIdentifierParam());
+	    	//if (this.getFormStatus(application, form)!= DRAFT) {
+		        //PageReference nextPage = Page.Sections;
+		        //nextPage.getParameters().put('form', this.getFormIdentifierParam());
+		        //nextPage.getParameters().put('app', this.getApplicationIdentifierParam());
+		        //return nextPage;
+	    	//}
     	}
 		return null;
     }
+    
+   	// M.Witchalls Feb 2018 Switch to readonly mode if Form is NOT in 'Draft' status
+    public Boolean getReadOnlyMode() {
+		if (this.getApplicationIdentifierParam()!= null && this.getFormIdentifierParam()!= null) {
+    		SObject application = this.getApplication();
+    		COF_Config config = COF_Config.load(this.getFormIdentifierParam());
+			COF_Form form = config.getForm(this.getFormIdentifierParam());
+			return (this.getFormStatus(application, form)!= DRAFT);
+		} else {
+			return false;
+		}   	
+    } 
 
-    public virtual String getFullApplicationStatus(SObject application) {
-    	String status = (String)application.get('Full_Application_Status__c');
+    public virtual String getFormStatus(SObject application, COF_Form form) {
+    	String status = (String)application.get(form.application_status_field);
     	return (status == null) ? DRAFT : status.toUpperCase();
     }
 
@@ -45,6 +59,7 @@ public virtual class COF_PageController {
         fields.add('Name');
         fields.add('Theme__c');
         fields.add('Full_Application_Status__c');
+        fields.add('Full_Award_Setup_Status__c');
         // need to ensure this respects permissions - only the owner of an application should be able to access it
         return Query.object('Application__c', fields, 'WHERE Name = \'' + this.getApplicationIdentifierParam() + '\'');
         // Query class will throw exception if no matches
@@ -90,6 +105,13 @@ public virtual class COF_PageController {
 	 */
 	public virtual String getPreviousPageIdentifierParam() {
 		return this.getPageParam('previousPage');
+	}
+
+	/**
+	 * Returns the fromForm identifier parameter
+	 */
+	public virtual String getFromFormIdentifierParam() {
+		return this.getPageParam('fromForm');
 	}
 
 	/**
