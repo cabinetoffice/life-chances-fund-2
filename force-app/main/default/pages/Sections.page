@@ -13,20 +13,19 @@
         </apex:define>
         <apex:define name="main">
             
-            <h1 class="heading-xlarge">
+            <h1 class="heading-xlarge" style="margin-bottom:20px">
                 <span class="heading-secondary">{!application['Theme__c']}</span>
                 {!form.title}
             </h1>
             
             <apex:pageBlock rendered="{!sectionText!=null}">
-            	<br/>
                 <div class="cofRichText"> 
                     <apex:outputField value="{!sectionText.Text__c}"/>
                 </div>
             </apex:pageBlock>   
 
             <div class="grid-row">
-                <div class="column-two-thirds">
+                <div class="column-full">
                     <p>Complete the sections below.</p>
 
                     <table class="sections">

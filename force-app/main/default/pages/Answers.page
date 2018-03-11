@@ -8,56 +8,49 @@
         </apex:define>
         <apex:define name="breadcrumbs">
         </apex:define>
-        <apex:define name="main">
-            
-            <div class="grid-row">
-                <div class="column-full">
-                    
-                    <table class="sections">
-                        <tbody class="summary">
-                            <apex:repeat value="{!sections}" var="section">
-                                <apex:pageBlock >
-                                    <tr><td style="border:none">&nbsp;</td></tr>
-                                </apex:pageBlock>
-                                <apex:pageBlock >
-                                    <tr><th class="question">{!section.name}</th></tr>
-                                </apex:pageBlock>
-                                <apex:repeat value="{!section.fields}" var="field">
-                                    <apex:pageBlock rendered="{!targetObject[field.identifier] != null}">
-                                        <tr>
-                                            <th class="question" valign="top" style="width:30%">{!field.label}</th>
-                                            <td valign="top"><apex:outputField value="{!targetObject[field.identifier]}"/></td>
-                                        </tr>
-                                    </apex:pageBlock>
-                                </apex:repeat>
-                                
-                                <apex:outputPanel rendered="{!section.hasChildren}">
-                                    <div class="page-break"/>
-                                    <apex:pageBlock >
-                                        <tr><th class="question">{!section.name}: {!section.children.title}</th></tr>
-                                    </apex:pageBlock>
-                                    <apex:repeat value="{!targetObject[section.children.child_relationship]}" var="obj">
-                                        <apex:repeat value="{!section.children.childPages}" var="pg">
-                                            <apex:repeat value="{!pg.fields}" var="field">
-                                                <tr>
-                                                    <th class="question" valign="top">{!field.label}</th>
-                                                    <td valign="top"><apex:outputField value="{!obj[field.identifier]}"/></td>
-                                                </tr>
-                                            </apex:repeat>
-                                        </apex:repeat>
-                                        <tr><td style="border:none"></td></tr>
-                                    </apex:repeat>
-                                </apex:outputPanel>
-                                
-                                <apex:outputPanel rendered="{!section.name<>'DECLARATION'}">
-                                    <div class="page-break"/>
-                                </apex:outputPanel>
-                            </apex:repeat> 
-                        </tbody>
-                    </table>  
-
-                </div>
-            </div>
+        <apex:define name="mainFullWidth">
+	        <table class="sections">
+	            <tbody class="summary">
+	                <apex:repeat value="{!sections}" var="section">
+	                    <apex:pageBlock >
+	                        <tr><td style="border:none">&nbsp;</td></tr>
+	                    </apex:pageBlock>
+	                    <apex:pageBlock >
+	                        <tr><th class="question">{!section.name}</th></tr>
+	                    </apex:pageBlock>
+	                    <apex:repeat value="{!section.fields}" var="field">
+	                        <apex:pageBlock rendered="{!targetObject[field.identifier] != null}">
+	                            <tr>
+	                                <th class="question" valign="top" style="width:30%">{!field.label}</th>
+	                                <td valign="top"><apex:outputField value="{!targetObject[field.identifier]}"/></td>
+	                            </tr>
+	                        </apex:pageBlock>
+	                    </apex:repeat>
+	                    
+	                    <apex:outputPanel rendered="{!section.hasChildren}">
+	                        <div class="page-break"/>
+	                        <apex:pageBlock >
+	                            <tr><th class="question">{!section.name}: {!section.children.title}</th></tr>
+	                        </apex:pageBlock>
+	                        <apex:repeat value="{!targetObject[section.children.child_relationship]}" var="obj">
+	                            <apex:repeat value="{!section.children.childPages}" var="pg">
+	                                <apex:repeat value="{!pg.fields}" var="field">
+	                                    <tr>
+	                                        <th class="question" valign="top">{!field.label}</th>
+	                                        <td valign="top"><apex:outputField value="{!obj[field.identifier]}"/></td>
+	                                    </tr>
+	                                </apex:repeat>
+	                            </apex:repeat>
+	                            <tr><td style="border:none"></td></tr>
+	                        </apex:repeat>
+	                    </apex:outputPanel>
+	                    
+	                    <apex:outputPanel rendered="{!section.name<>'DECLARATION'}">
+	                        <div class="page-break"/>
+	                    </apex:outputPanel>
+	                </apex:repeat> 
+	            </tbody>
+	        </table>  
 
         </apex:define>
     </apex:composition>

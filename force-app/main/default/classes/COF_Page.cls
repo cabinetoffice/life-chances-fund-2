@@ -44,8 +44,8 @@ public class COF_Page {
     	if (this.children != null) {
 	        if (this.children.target_object != null && this.children.parent_field != null) {
 	        	COF_Field field = new COF_Field(this.children.parent_field, this.children.target_object);
-	        	this.children.child_relationship = field.childRelationship;
-	        	this.children.parent_relationship = field.parentRelationship;
+	        	if (this.children.child_relationship == null) this.children.child_relationship = field.childRelationship;
+	        	if (this.children.parent_relationship == null) this.children.parent_relationship = field.parentRelationship;
 	        } 		
     	} 
     	

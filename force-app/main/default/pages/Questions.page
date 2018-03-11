@@ -8,7 +8,7 @@
 			padding: 5px 10px;
 			border: 1px solid black;
 			line-height: 32px;
-			width: 100%;
+			width: 66.6666%;
 		}
 		.fileUpload label {
 			background-color: #EEEEEE;
@@ -20,6 +20,9 @@
 			background-color: #BFC1C3;
 			color: white;
 		}
+    	.fileVersions td { 
+    		border:none;
+    	}
 	</style>
 	<script type="text/javascript">	
 		function closeWindow() {
@@ -56,6 +59,7 @@
 		// This script executed after page load if it exists (see Layout.page)
 		function vfInitialScript() {
 			// Add listener for html input file tag
+			console.log('add listener');
 			var input = document.querySelector('.fileInput');			
 			if (document.addEventListener) {                // For all major browsers, except IE 8 and earlier
 			    input.addEventListener('change', updateFileInputDisplay);
@@ -157,13 +161,13 @@
               
                 <apex:pageBlock rendered="{!currentPage.title != null}">
                 	<apex:outputPanel rendered="{!currentPage.children == null}">
-	                    <h1 class="heading-large">
+	                    <h1 class="heading-large" style="margin-top:20px">
 	                        {!currentPage.title}
-	                    </h1>
+	                    </h1> 
                     </apex:outputPanel>
                     <apex:outputPanel rendered="{!currentPage.children != null}">
 	                    <!-- <h1 class="heading-medium"> -->
-	                    <h1 class="heading-large">
+	                    <h1 class="heading-large" style="margin-top:20px">
 	                        {!currentPage.title}
 	                    </h1>
                     </apex:outputPanel>
@@ -193,7 +197,7 @@
 	                	<apex:param name="fieldId" value=""/>
 	                </apex:actionFunction>	               
 
-                	<apex:outputPanel id="childPanel">
+                	<apex:outputPanel id="childPanel" styleClass="childPanel">
                     <apex:pageBlock id="children" rendered="{!currentPage.children != null}">
                         <table>
                           <tbody>
@@ -222,7 +226,7 @@
 
                         <br />
                         <apex:outputPanel rendered="{!readOnlyMode==false}">
-                        <apex:commandLink value="{!addLabel}" action="{!addAnother}" styleClass=""></apex:commandLink> 
+                        <apex:commandLink value="{!addLabel}" action="{!addAnother}"></apex:commandLink> 
                         </apex:outputPanel>
                     </apex:pageBlock>
                     </apex:outputPanel>
@@ -272,10 +276,10 @@
                                     </apex:pageBlock>
                                     <apex:pageBlock rendered="{!AND(field.isNumber == false,field.isCurrency == false,field.isPercent == false,field.isEmailField == false)}">
                                     	<apex:outputPanel rendered="{!AND(readOnlyMode,field.isTextArea == true)}">
-                                    		<apex:inputTextarea value="{!targetObject[field.identifier]}" styleClass="form-control" rows="10" disabled="true"/>
+                                    		<apex:inputTextarea value="{!targetObject[field.identifier]}" styleClass="form-control" style="width:100%" rows="10" disabled="true"/>
                                     	</apex:outputPanel>
                                     	<apex:outputPanel rendered="{!AND(readOnlyMode,field.isTextArea == false)}">
-                                    		<apex:inputText value="{!targetObject[field.identifier]}" styleClass="form-control" style="width:100%" disabled="true"/>
+                                    		<apex:inputText value="{!targetObject[field.identifier]}" styleClass="form-control" disabled="true"/>
                                     	</apex:outputPanel>
                                     	<apex:outputPanel rendered="{!AND(readOnlyMode == false,field.isTextArea == true)}">
                                     		<apex:inputField value="{!targetObject[field.identifier]}" styleClass="form-control" style="width:100%"/>
@@ -360,72 +364,76 @@
 					</apex:pageBlock>
 					
 					</td></tr>
-					</tbody></table>	                
-
-                    <apex:pageBlock id="files" rendered="{!currentPage.files != null}">
-                        <h1 class="heading-medium">{!filesField.label}</h1>
-					    <apex:outputPanel id="fileVersions">
-					        <table><tbody>
-					            <apex:repeat value="{!fileVersionList}" var="f">
-					 	        <tr>
-									<td width="52%">
-					               		<a href="{!$Label.SIB_Content_URL}/{!f.fileVersion.Id}">{!f.fileVersion.Title}</a>
-					                </td>
-					                <td width="13%">Version {!f.fileVersion.VersionNumber}</td>
-									<td width="25%">
-										<div id="{!f.fileVersion.Id}" class="select-flag show-div">
-										<apex:outputPanel rendered="{!readOnlyMode==false}">
-											<div class="multiple-choice">
-                                        		<apex:inputCheckbox value="{!f.selectFlag}" onclick="showVersionUpload(this,'{!f.fileVersion.Id}')" disabled="{!readOnlyMode}"/>
-                                        		<label for="waste-type-1">Load new version</label>
-                                    		</div>
-						                </apex:outputPanel>
-						                </div>
-					                </td>
-									<td width="10%">
-										<apex:outputPanel rendered="{!readOnlyMode==false}">
-		                                    <apex:commandLink value="Remove" action="{!removeFile}">
-		                                        <apex:param name="identifier" value="{!f.fileVersion.ContentDocumentId}" assignTo="{!contentDocId}"/>
-		                                    </apex:commandLink>
-		                                </apex:outputPanel>
-		                            </td>
-					            </tr>
-					            </apex:repeat>
-					        </tbody></table> 
-						</apex:outputPanel>
-						<br/>
-						
-						<apex:outputPanel id="file" styleClass="fileUpload" rendered="{!readOnlyMode==false}">
-    						<label for="thePage:layout:theForm:files:input" id="chooseFileLabel">Choose new file</label>
-							<apex:inputFile id="input" styleClass="fileInput" style="opacity:0" value="{!fileBody}" fileName="{!fileName}" />
-							<div class="filePreview">
-							    <p class="form-control" style="color:#005EA5; width:100%">No file chosen</p>
-							</div>
-							<p><span class="form-hint">File size limit: 10MB</span></p>
-							<div id="fileLoadButton" class="hide-div">						
-								<apex:commandLink value="Upload File" action="{!uploadFileVersion}"/>
-							</div> 
-						</apex:outputPanel>
-						<br/>
-						<br/>
-                    </apex:pageBlock>
-
-                    <apex:outputPanel rendered="{!ISBLANK(fromFormId)}">                  
-                    <apex:commandButton value="Save and continue" action="{!saveContinue}" styleClass="button" rendered="{!AND(saveReqd,NOT(readOnlyMode))}"/>
-                    <apex:commandButton value="Continue" action="{!saveContinue}" styleClass="button" rendered="{!OR(NOT(saveReqd),readOnlyMode)}"/>
-                    <br /><br />
-                    <apex:commandLink value="Save and come back later" action="{!saveExit}" rendered="{!AND(saveReqd,NOT(readOnlyMode))}"/>
-                    <apex:commandLink value="Exit" action="{!saveExit}" rendered="{!readOnlyMode}"/>
-                    &nbsp;&nbsp;
-                    <apex:outputLink value="{!referenceURL}" rendered="{!referenceURL!=null}" target="_blank">{!referenceGuidance}</apex:outputLink>                   
-                    </apex:outputPanel>
-                    
-                    <apex:outputPanel rendered="{!NOT(ISBLANK(fromFormId))}">
-                    <apex:commandButton value="Continue" action="{!saveContinue}" styleClass="button" rendered="{!childPage==true}"/>
-                    <apex:commandButton value="Close" onclick="closeWindow();" styleClass="button" rendered="{!childPage==false}"/>
-                    </apex:outputPanel>
-                </apex:form>
+					</tbody></table>
+               </apex:form>
             </div>
+        </apex:define>
+     
+        <apex:define name="mainFullWidth">
+          	<apex:form id="filesForm">
+				<apex:pageBlock id="files" rendered="{!currentPage.files != null}">
+					<h1 class="heading-medium" style="margin-bottom:10px">{!filesField.label}</h1>
+					<apex:outputPanel id="fileVersions" styleClass="fileVersions">
+				        <table><tbody>
+				            <apex:repeat value="{!fileVersionList}" var="f">
+				 	        <tr>
+								<td width="45.3%">
+				               		<a href="{!$Label.SIB_Content_URL}/{!f.fileVersion.Id}">{!f.fileVersion.Title}</a>
+				                </td>
+				                <td width="13%">Version {!f.fileVersion.VersionNumber}</td>
+								<td width="10%">
+									<apex:outputPanel rendered="{!readOnlyMode==false}">
+	                                    <apex:commandLink value="Remove" action="{!removeFile}">
+	                                        <apex:param name="identifier" value="{!f.fileVersion.ContentDocumentId}" assignTo="{!contentDocId}"/>
+	                                    </apex:commandLink>
+	                                </apex:outputPanel>
+	                            </td>
+	                            <td width="8.7%"/>
+								<td width="23%">
+									<div id="{!f.fileVersion.Id}" class="select-flag show-div">
+									<apex:outputPanel rendered="{!readOnlyMode==false}">
+										<div class="multiple-choice">
+                                       		<apex:inputCheckbox value="{!f.selectFlag}" onclick="showVersionUpload(this,'{!f.fileVersion.Id}')" disabled="{!readOnlyMode}"/>
+                                       		<label for="waste-type-1">Load new version</label>
+                                   		</div>
+					                </apex:outputPanel>
+					                </div>
+				                </td>
+				            </tr>
+				            </apex:repeat>
+				        </tbody></table> 
+					</apex:outputPanel>
+					<br/>
+						
+					<apex:outputPanel id="file" styleClass="fileUpload" rendered="{!readOnlyMode==false}">
+   						<label for="thePage:layout:filesForm:files:input" id="chooseFileLabel">Choose new file</label>
+						<apex:inputFile id="input" styleClass="fileInput" style="opacity:0" value="{!fileBody}" fileName="{!fileName}" />
+						<div class="filePreview">
+						    <p class="form-control" style="color:#005EA5; width:66.6666%">No file chosen</p>
+						</div>
+						<p><span class="form-hint">File size limit: 10MB</span></p>
+						<div id="fileLoadButton" class="hide-div">						
+							<apex:commandLink value="Upload File" action="{!uploadFileVersion}"/>
+						</div> 
+					</apex:outputPanel>
+					<br/><br/>            
+				</apex:pageBlock>
+
+				<apex:outputPanel rendered="{!ISBLANK(fromFormId)}"> 
+				<apex:commandButton value="Save and continue" action="{!saveContinue}" styleClass="button" rendered="{!AND(saveReqd,NOT(readOnlyMode))}"/>
+				<apex:commandButton value="Continue" action="{!saveContinue}" styleClass="button" rendered="{!OR(NOT(saveReqd),readOnlyMode)}"/>
+				<br /><br />
+				<apex:commandLink value="Save and come back later" action="{!saveExit}" rendered="{!AND(saveReqd,NOT(readOnlyMode))}"/>
+				<apex:commandLink value="Exit" action="{!saveExit}" rendered="{!readOnlyMode}"/>
+				&nbsp;&nbsp;
+				<apex:outputLink value="{!referenceURL}" rendered="{!referenceURL!=null}" target="_blank">{!referenceGuidance}</apex:outputLink>                   
+				</apex:outputPanel>
+                    
+				<apex:outputPanel rendered="{!NOT(ISBLANK(fromFormId))}">
+				<apex:commandButton value="Continue" action="{!saveContinue}" styleClass="button" rendered="{!childPage==true}"/>
+				<apex:commandButton value="Close" onclick="closeWindow();" styleClass="button" rendered="{!childPage==false}"/>
+				</apex:outputPanel>
+			</apex:form>
         </apex:define>
     </apex:composition>
 </apex:page>

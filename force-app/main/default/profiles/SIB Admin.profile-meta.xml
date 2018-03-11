@@ -53,6 +53,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>COF_ContentVersionTriggerHandlerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>COF_Exception</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -63,6 +67,10 @@
     <classAccesses>
         <apexClass>COF_FieldMetadataController</apexClass>
         <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>COF_FieldMetadataControllerTest</apexClass>
+        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>COF_FileVersion</apexClass>
@@ -818,7 +826,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Disengagement_1__c.Application__c</field>
+        <field>Form_LCF_Disengagement_1__c.application__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3437,6 +3445,12 @@
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Application__c.Full_Application</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
+        <recordType>Contact.Customer_User</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <tabVisibilities>

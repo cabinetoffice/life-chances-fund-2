@@ -21,7 +21,7 @@ public class SIB_Utilities {
 	*/
 	public static SIB_Field_Metadata__c getFieldMetadata(String objectName, String fieldName) {
 		String fieldKey = objectName+'.'+fieldName;
-		if(fieldMetadataCache.size() == 0) {
+		if(fieldMetadataCache.size() == 0 && !Test.isRunningTest()) {
 			fieldMetadataCache = new Map<String, SIB_Field_Metadata__c>();
 			for (List<SIB_Field_Metadata__c> fdList: [
 				SELECT 

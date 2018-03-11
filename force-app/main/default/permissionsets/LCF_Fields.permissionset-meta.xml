@@ -582,7 +582,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Disengagement_1__c.Application__c</field>
+        <field>Form_LCF_Disengagement_1__c.application__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

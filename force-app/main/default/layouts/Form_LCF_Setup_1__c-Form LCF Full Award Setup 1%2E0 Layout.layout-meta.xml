@@ -90,7 +90,7 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Applicant Details</label>
+        <label>Applicant details</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -216,7 +216,7 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Progress Towards Launch and Project Changes</label>
+        <label>Progress towards launch and project changes</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -265,7 +265,7 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Outcomes and Financials</label>
+        <label>Outcomes and financials</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -322,7 +322,7 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Meeting the Terms of your LCF In-Principle Offer</label>
+        <label>Meeting the terms of your LCF in-principle offer</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -633,7 +633,7 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Social Investment, Costs and Governance</label>
+        <label>Social investment, costs and governance</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>

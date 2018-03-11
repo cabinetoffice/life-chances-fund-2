@@ -9,9 +9,9 @@ ________________________________________________________________________________
 public with sharing class COF_FieldMetadataController {
 	private static final String RETRIEVEVERIFICATION = 'The following LCF Field Metadata records have been retrieved:\n';
     private static final String VALIDATION_EXCEPTION = 'FIELD_CUSTOM_VALIDATION_EXCEPTION';
-	private List<String> ObjectNameList;
     private Map<String, Map<String, MetadataService.CustomField>> fieldMetadataMap;
-	public Boolean 	showButton		{get; set;}
+	public List<String> ObjectNameList	{get; set;}
+	public Boolean showButton			{get; set;}
 	     
     public COF_FieldMetadataController(ApexPages.StandardController controller) { 
 		showButton = true;
@@ -43,10 +43,27 @@ public with sharing class COF_FieldMetadataController {
 	    service.SessionHeader = new MetadataService.SessionHeader_element();
 	    service.SessionHeader.sessionId = UserInfo.getSessionId();
 	    
+	    MetadataService.CustomObject testObject;
+		/*
+			testObject created for test classes since there is no simple way to create a mock service for the readMetadata method
+		*/
+	    if (Test.isRunningTest()) {
+		    testObject = new MetadataService.CustomObject();
+	    	testObject.fullName = 'Application__c';
+			testObject.label = 'Application';
+			MetadataService.CustomField fld = new MetadataService.CustomField();
+			fld.fullName = 'Test__c';
+			fld.label = 'Test';
+			fld.description = 'Test Decription';
+			fld.inlineHelpText = 'Test Help';
+			fld.relationshipName = 'Test';
+			testObject.fields = new List<MetadataService.CustomField>{fld};		    
+	    }
+	    
     	for (String targetObject: ObjectNameList) {
     		Map<String, MetadataService.CustomField> metaDataMap = new Map<String, MetadataService.CustomField>();
-	    	MetadataService.CustomObject customObject =
-	    		(MetadataService.CustomObject) service.readMetadata('CustomObject', new String[]{targetObject}).getRecords()[0]; 
+	    	MetadataService.CustomObject customObject =	Test.isRunningTest() ? testObject : 
+				(MetadataService.CustomObject) service.readMetadata('CustomObject', new String[]{targetObject}).getRecords()[0]; 
 	    	for (MetadataService.CustomField customField: customObject.fields) {
 	    		metaDataMap.put(customField.fullName, customField);
 	    	}

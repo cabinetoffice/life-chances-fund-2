@@ -16,7 +16,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Application__c</field>
+                <field>application__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>

@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>ap_project_name_changed__c</fullName>
     <externalId>false</externalId>
-    <inlineHelpText>Has the name of your project changed since the in-principle stage?</inlineHelpText>
+    <inlineHelpText>Has the name of you project changed?</inlineHelpText>
     <label>AP - Project Name Changed</label>
     <required>false</required>
     <trackTrending>false</trackTrending>

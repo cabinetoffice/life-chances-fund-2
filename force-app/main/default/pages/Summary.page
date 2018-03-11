@@ -19,7 +19,7 @@
                 </ol>
             </div>
         </apex:define>
-        <apex:define name="main">
+        <apex:define name="mainFullWidth">
 
             <a href="#" onclick="window.history.go(-1); return false;" class="link-back">Back</a>
             <h1 class="heading-xlarge">

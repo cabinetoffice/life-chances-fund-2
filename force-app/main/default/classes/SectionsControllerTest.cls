@@ -17,6 +17,16 @@ private class SectionsControllerTest {
 	private static final String INCOMPLETE = 'INCOMPLETE';
 	
 	@testSetup static void setup() {
+		// Add section text
+		SIB_Information__c info = new SIB_Information__c(Name = 'Life Chances Fund');
+		insert info;
+		SIB_Section_Text__c text = new SIB_Section_Text__c(
+			SIB_Reference__c = info.Id,
+			Name = 'Form',
+			Object_Name__c = 'Form_LCF_Full_App_1__c',
+			Text__c = 'Section Text'
+		);
+    	insert text;
     	
 		// Create an Application
 		Application__c a = new Application__c(

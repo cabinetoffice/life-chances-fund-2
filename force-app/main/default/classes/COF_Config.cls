@@ -54,7 +54,9 @@ public class COF_Config {
 '		{'+
 '			"id": "lcf_full_app_1",'+ 
 '			"title": "Full application",'+
+'			"short_title": "Full application",'+
 '			"target_object": "Form_LCF_Full_App_1__c",'+ 
+'			"application_status_field": "Full_Application_Status__c",'+
 '			"sections": ['+
 '				{'+
 '					"id": "lcf_full_app_overview_1",'+

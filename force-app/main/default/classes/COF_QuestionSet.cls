@@ -104,6 +104,8 @@ public class COF_QuestionSet {
 '				"target_object": "Form_LCF_Commissioner_1__c",'+
 '				"target_field": "co_organisation_name__c",'+
 '				"child_relationship": "full_application_commissioners__r",'+
+'				"parent_field": "full_application__c",'+
+'				"title": "Outcome Commissioners",'+
 '				"section": "lcf_full_app_overview_child_1"'+
 '			},'+
 '			"routes": ['+
@@ -122,7 +124,9 @@ public class COF_QuestionSet {
 '{'+
 '	"id": "lcf_full_app_overview_child_1",'+
 '	"target_object": "Form_LCF_Commissioner_1__c",'+
+'	"target_field": "co_organisation_name__c",'+
 '	"status_field": "ov_section_status__c",'+
+'	"short_title": "Commissioner",'+
 '	"parent_relationship": "full_application__r",'+
 '	"pages": ['+
 '		{'+

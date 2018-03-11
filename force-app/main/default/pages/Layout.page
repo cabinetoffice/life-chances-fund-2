@@ -67,7 +67,7 @@
                 }
                 
                 // VF page has onload script? If so, execute it first
-				if (isFunction(vfInitialScript)) {
+				if ('undefined' !== typeof vfInitialScript && isFunction(vfInitialScript)) {
                 	console.log('vfInitialScript is a function');
                 	vfInitialScript();
                 }
@@ -212,8 +212,13 @@
 
             <apex:insert name="breadcrumbs"/>
 
-            <main id="content" role="main">
-                <apex:insert name="main"/>
+            <main id="content" role="main" class="grid-row">
+           	<div class="column-two-thirds">
+               	<apex:insert name="main"/>
+            </div>
+           	<div class="column-full">
+               	<apex:insert name="mainFullWidth"/>
+            </div>
             </main>
 
         </div>

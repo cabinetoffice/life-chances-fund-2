@@ -30,6 +30,7 @@ public class SummaryController extends COF_PageController {
         system.debug('###this.getSectionIdentifierParam(): '+this.getSectionIdentifierParam());
         system.debug('###this.section: '+this.section);
         this.questionSet = this.section.getQuestionSet();
+        system.debug('###this.questionSet: '+this.questionSet);
         this.application = this.getApplication();
         
 		// M.Witchalls Jan 2018
