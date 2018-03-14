@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>si_local_service_impact__c</fullName>
+    <description>Explain how you plan to work alongside existing local service provision. Reference any involvement you have had with local government bodies, other local SIBs and local funders.</description>
     <externalId>false</externalId>
     <inlineHelpText>How does your project enhance existing local provision for this policy area?</inlineHelpText>
     <label>SI - Local Service Impact</label>

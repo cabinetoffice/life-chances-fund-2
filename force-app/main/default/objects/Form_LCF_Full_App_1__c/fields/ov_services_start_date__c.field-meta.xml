@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>ov_services_start_date__c</fullName>
+    <description>For example, 01 10 2018. Your SIB will not be able to launch until you have completed due diligence with investors, obtained sign off from commissioners and confirmed who will be delivering, investing in and managing your SIB. This can take 12 months to complete.</description>
     <externalId>false</externalId>
     <inlineHelpText>When would you like your project to start delivering services?</inlineHelpText>
     <label>OV - Services Start Date</label>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>su_effective__c</fullName>
+    <description>How will you involve service users in planning, implementing and, as needed, reviewing and revising your project and how will you make sure their voices are heard?</description>
     <externalId>false</externalId>
     <inlineHelpText>How will you work with service users to ensure that the project works effectively to tackle their needs?</inlineHelpText>
     <label>SU - Effective</label>

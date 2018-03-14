@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>fn_alternative_overhead_spend__c</fullName>
+    <description>This should include cost of raising funds if applicable. If there is no alternative provision, put £0.</description>
     <externalId>false</externalId>
     <inlineHelpText>Estimated spend on overhead to support service provision</inlineHelpText>
     <label>FN - Alternative Overhead Spend</label>

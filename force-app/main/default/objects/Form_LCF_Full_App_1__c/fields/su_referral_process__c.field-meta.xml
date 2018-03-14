@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>su_referral_process__c</fullName>
+    <description>Please outline how users will be able to access your service, including how you will ensure that you are reaching the right people and how confident you are that enough referrals, or equivalent, will take place.</description>
     <externalId>false</externalId>
     <inlineHelpText>How will the referral process work, or how else will users access your service?</inlineHelpText>
     <label>SU - Referral Process</label>

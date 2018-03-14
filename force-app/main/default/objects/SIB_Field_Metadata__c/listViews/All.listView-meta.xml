@@ -10,6 +10,7 @@
     <columns>Rich_Text__c</columns>
     <columns>Warning_Value__c</columns>
     <columns>Warning_Text__c</columns>
+    <columns>Page_Title__c</columns>
     <filterScope>Everything</filterScope>
     <label>All</label>
 </ListView>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>si_supporting_research__c</fullName>
+    <description>Summarise your research, including which stakeholders you’ve engaged. Refer to research that supports your choice of intervention, theories of change, learning, and other models, organisations or SIBs you have learnt from.</description>
     <externalId>false</externalId>
     <inlineHelpText>Provide a summary of the research undertaken to support your project</inlineHelpText>
     <label>SI - Supporting Research</label>

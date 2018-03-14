@@ -22,83 +22,94 @@
         <apex:define name="mainFullWidth">
 
             <a href="#" onclick="window.history.go(-1); return false;" class="link-back">Back</a>
-            <h1 class="heading-xlarge">
+            <h1 class="heading-xlarge" style="margin-bottom:30px !important">
                 <span class="heading-secondary">{!section.title}</span>
                 Check your answers
             </h1>
-            <br />
 
-            <div class="grid-row">
-                <div class="column-two-thirds">
-
-                    <table class="sections">
-                        <tbody class="summary">
-                            <apex:repeat value="{!validPages}" var="validPage">
-                                <apex:pageBlock rendered="{!AND(validPage.title != null, validPage.children == null)}">
-                                    <tr>
-                                        <th class="question" colspan="3" valign="top">{!validPage.title}</th>
-                                    </tr>
-                                </apex:pageBlock>
-                                <apex:pageBlock rendered="{!AND(validPage.title != null, validPage.children != null)}">
-                                    <tr>
-                                        <th class="question" colspan="3" valign="top">
-                                            <br/>
-                                            {!validPage.title}
-                                            <br/>
-                                            <apex:outputLink value="{!$Page.Questions}">
-                                                Change
-                                                <apex:param name="page" value="{!validPage.id}"/>
-                                                <apex:param name="form" value="{!form.id}"/>
-                                                <apex:param name="section" value="{!section.id}"/>
-                                                <apex:param name="app" value="{!application['Name']}"/>
-                                            </apex:outputLink>
-                                        </th>
-                                    </tr>
-                                </apex:pageBlock>
-                                <apex:repeat value="{!validPage.fields}" var="field">
+            <table class="sections">
+                <tbody class="summary">
+                    <apex:repeat value="{!validPages}" var="validPage">
+                        <apex:pageBlock rendered="{!AND(validPage.title != null, validPage.children == null)}">
+                            <tr>
+                                <th class="question" colspan="3" valign="top">{!validPage.title}</th>
+                            </tr>
+                        </apex:pageBlock>
+                        <apex:pageBlock rendered="{!AND(validPage.title != null, validPage.children != null)}">
+                            <tr>
+                                <th class="question" colspan="3" valign="top">
+                                    <br/>
+                                    {!validPage.title}
+                                    <br/>
+                                    <apex:outputLink value="{!$Page.Questions}">
+                                        Change
+                                        <apex:param name="page" value="{!validPage.id}"/>
+                                        <apex:param name="form" value="{!form.id}"/>
+                                        <apex:param name="section" value="{!section.id}"/>
+                                        <apex:param name="app" value="{!application['Name']}"/>
+                                    </apex:outputLink>
+                                </th>
+                            </tr>
+                        </apex:pageBlock>
+                        <apex:repeat value="{!validPage.fields}" var="field">
+                            <tr>
+                                <th class="question" valign="top">{!field.label}</th>
+                                <td valign="top"><apex:outputField value="{!targetObject[field.identifier]}"/></td>
+                                <td class="numeric" valign="top">
+                                    <apex:outputLink value="{!$Page.Questions}">
+                                        Change
+                                        <apex:param name="page" value="{!validPage.id}"/>
+                                        <apex:param name="form" value="{!form.id}"/>
+                                        <apex:param name="section" value="{!section.id}"/>
+                                        <apex:param name="app" value="{!application['Name']}"/>
+                                    </apex:outputLink>
+                                </td> 
+                            </tr>
+                        </apex:repeat>
+                        <apex:pageBlock rendered="{!validPage.filesField != null}">
+							<tr>
+							    <th class="question" valign="top">{!validPage.filesField.label}</th>
+							    <td valign="top"><apex:outputField value="{!targetObject[validPage.filesField.identifier]}"/></td>
+							    <td class="numeric" valign="top">
+							        <apex:outputLink value="{!$Page.Questions}">
+							            Change
+							            <apex:param name="page" value="{!validPage.id}"/>
+							            <apex:param name="form" value="{!form.id}"/>
+							            <apex:param name="section" value="{!section.id}"/>
+							            <apex:param name="app" value="{!application['Name']}"/>
+							        </apex:outputLink>
+							    </td> 
+							</tr>
+                        </apex:pageBlock>
+                        <apex:repeat value="{!targetObject[validPage.children.child_relationship]}" var="obj">
+                            <apex:repeat value="{!validPage.children.childPages}" var="pg">
+								<apex:pageBlock rendered="{!pg.title != null}">
+								    <tr>
+								        <th class="question" colspan="3" valign="top">{!pg.title}</th>
+								    </tr>
+								</apex:pageBlock>
+                                <apex:repeat value="{!pg.fields}" var="field">
                                     <tr>
                                         <th class="question" valign="top">{!field.label}</th>
-                                        <td valign="top"><apex:outputField value="{!targetObject[field.identifier]}"/></td>
-                                        <td class="numeric" valign="top">
-                                            <apex:outputLink value="{!$Page.Questions}">
-                                                Change
-                                                <apex:param name="page" value="{!validPage.id}"/>
-                                                <apex:param name="form" value="{!form.id}"/>
-                                                <apex:param name="section" value="{!section.id}"/>
-                                                <apex:param name="app" value="{!application['Name']}"/>
-                                            </apex:outputLink>
-                                        </td> 
+                                        <td valign="top"><apex:outputField value="{!obj[field.identifier]}"/></td>
+                                        <td class="numeric" valign="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                                     </tr>
-                                </apex:repeat>
-                                <apex:repeat value="{!targetObject[validPage.children.child_relationship]}" var="obj">
-                                    <apex:repeat value="{!validPage.children.childPages}" var="pg">
-		                                <apex:pageBlock rendered="{!pg.title != null}">
-		                                    <tr>
-		                                        <th class="question" colspan="3" valign="top">{!pg.title}</th>
-		                                    </tr>
-		                                </apex:pageBlock>
-                                        <apex:repeat value="{!pg.fields}" var="field">
-                                            <tr>
-                                                <th class="question" valign="top">{!field.label}</th>
-                                                <td valign="top"><apex:outputField value="{!obj[field.identifier]}"/></td>
-                                                <td class="numeric" valign="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                                            </tr>
-                                        </apex:repeat>
-                                    </apex:repeat>
-                                    <tr><td style="border:none"></td></tr>
                                 </apex:repeat>
                             </apex:repeat>
                             <tr><td style="border:none"></td></tr>
-                            <tr>
-                                <th class="question" valign="top">Section Status</th>
-                                <td valign="top">&nbsp;</td>
-                                <td class="numeric"><span class="status">{!targetObject[section.status_field]}</span></td>
-                             </tr>
-                        </tbody>
-                    </table>  
-
-                </div> 
-            </div>
+                        </apex:repeat>
+                    </apex:repeat>
+                </tbody>
+            </table>
+            <table class="sections">
+                <tbody class="summary">
+                    <tr><td style="border:none"></td></tr>
+                    <tr>
+                        <th class="question" valign="top">Section Status</th>
+                        <td><span class="status">{!targetObject[section.status_field]}</span></td>
+                     </tr>
+                </tbody>
+            </table>  
             <br /><br />
 
 

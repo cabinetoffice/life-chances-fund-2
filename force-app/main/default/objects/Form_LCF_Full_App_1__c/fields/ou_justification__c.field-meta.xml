@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>ou_justification__c</fullName>
+    <description>Explain how and why these outcomes were selected to be the most suitable for your project. Your answer should include how the outcomes link back to the interventions you expect the project to deliver, and to the needs of your service users.</description>
     <externalId>false</externalId>
     <inlineHelpText>Outline why you chose these outcomes and payment triggers</inlineHelpText>
     <label>OU - Justification</label>

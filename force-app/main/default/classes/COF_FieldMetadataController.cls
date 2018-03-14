@@ -9,6 +9,7 @@ ________________________________________________________________________________
 public with sharing class COF_FieldMetadataController {
 	private static final String RETRIEVEVERIFICATION = 'The following LCF Field Metadata records have been retrieved:\n';
     private static final String VALIDATION_EXCEPTION = 'FIELD_CUSTOM_VALIDATION_EXCEPTION';
+    private static final String PAGETITLETEXT = 'Page Title:';
     private Map<String, Map<String, MetadataService.CustomField>> fieldMetadataMap;
 	public List<String> ObjectNameList	{get; set;}
 	public Boolean showButton			{get; set;}
@@ -45,7 +46,8 @@ public with sharing class COF_FieldMetadataController {
 	    
 	    MetadataService.CustomObject testObject;
 		/*
-			testObject created for test classes since there is no simple way to create a mock service for the readMetadata method
+			A testObject is created for test classes because there is no simple way 
+			to create a mock web service for the readMetadata method
 		*/
 	    if (Test.isRunningTest()) {
 		    testObject = new MetadataService.CustomObject();
@@ -81,10 +83,14 @@ public with sharing class COF_FieldMetadataController {
 	    			Name = field.label,
 	    			Object_Name__c = targetType,
 	    			Field_Key__c = targetType+'.'+fieldName,
-	    			Description__c = field.description,
 	    			Help_Text__c = field.inlineHelpText,
 	    			Relationship_Name__c = (field.relationshipName == null) ? null : field.relationshipName+'__r'   			
 	    		);
+    			if (field.description != null && field.description.startsWith(PAGETITLETEXT)) {
+    				record.Page_Title__c = field.description.mid(11,255);
+    			} else {
+    				record.Description__c = field.description;
+    			}
     			recordList.add(record);
     			fieldCount++; 
     		}

@@ -7,8 +7,10 @@
    2017		    1.0    	Cabinet Office			Initial Release 
    Jan 2018		1.1		M.Witchalls, Westbrook	Page navigation changes (see page javascript); section status updates
    Feb 2018		1.2		M.Witchalls, Westbrook	Readonly view and reference lookup from Setup form to Full Application
-   												Introduction of rich text guidance and 
+   												Introduction of rich text guidance 
    Mar 2018		1.3		M.Witchalls, Westbrook	Correction to child question check
+   												Introduction of file uploads
+   												Use of default values to indicate optional fields
 __________________________________________________________________________________________________________________ */        
 public class QuestionsController extends COF_PageController {
 	private static final String COMPLETE = 'COMPLETE';
@@ -18,7 +20,6 @@ public class QuestionsController extends COF_PageController {
     // M.Witchalls Feb 2018 
     public Boolean readOnlyMode {get;set;}
     public String fromFormId {get;set;}
-	public SIB_Information__c sibInfo {get;set;}
 	
     public COF_Form form {get;set;}
     public COF_Section section {get;set;} 
@@ -218,10 +219,9 @@ public class QuestionsController extends COF_PageController {
                 }
             }
             if (field.isSelectField == true) {
-                String fieldValue = (String) this.targetObject.get(field.identifier);
-                if (fieldValue != null) {
+                if (field.value != null) {
                     Set<String> valueSet = new Set<String>();
-                    valueSet.addAll(fieldValue.split(';\\s*'));
+                    valueSet.addAll(field.value.split(';\\s*'));
                     for (COF_Field.CheckBoxOption opt: field.optionList) {
                         if (valueSet.contains(opt.value)) opt.selected = true;
                     }
@@ -232,6 +232,15 @@ public class QuestionsController extends COF_PageController {
 				this.showWarning = true;
 			} else if (field.warningValue != null && field.value == field.warningValue) {
 				this.showWarning = true;
+			}
+			
+			// M.Witchalls Mar 2018 Use of default values to indicate optional fieldss
+			if (field.defaultValue != null) {
+				String fieldValue = (String) this.targetObject.get(field.identifier);
+				system.debug('@@@@field.defaultValue: '+field.defaultValue+' @@@@fieldValue: '+fieldValue);
+				if (fieldValue == field.defaultValue) {
+					this.targetObject.put(field.identifier, null);
+				}
 			}
         }
 
@@ -257,7 +266,7 @@ public class QuestionsController extends COF_PageController {
     } 
 
     public void prepareFiles() {
-		filesField = new COF_Field(this.currentPage.files.target_field, this.questionSet.target_object);
+		filesField = this.currentPage.filesField;
 		filesKey = this.questionSet.target_object+'.'+this.currentPage.files.target_field;   
 		     
         List<String> idList = new List<String>();
@@ -310,7 +319,7 @@ public class QuestionsController extends COF_PageController {
         for (COF_Field field : this.fields) {
         	if (field.value == null) field.value = (String)this.targetObject.get(field.identifier);
 	        	
-    		// M.Witchalls Feb 2018: remove child object if targetField is null
+    		// M.Witchalls Feb 2018: remove child object if target_field is not null
         	if (this.questionSet.target_field != null 
         		&& field.identifier == this.questionSet.target_field 
         		&& String.isBlank(field.value)) 
@@ -400,7 +409,13 @@ public class QuestionsController extends COF_PageController {
                 }
                 this.targetObject.put(field.identifier, valueString);
             }
-            if (this.targetObject.get(field.identifier) == null) isComplete = false;
+            if (this.targetObject.get(field.identifier) == null) {
+            	if (field.defaultValue != null) {
+            		this.targetObject.put(field.identifier, field.defaultValue);
+            	} else {
+            		isComplete = false;
+            	}
+            }
         	if (this.targetObject.get(field.identifier) != this.targetObjectOriginal.get(field.identifier)) {
         		isComplete = false;
         	}

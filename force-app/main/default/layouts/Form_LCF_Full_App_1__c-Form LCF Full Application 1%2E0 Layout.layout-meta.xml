@@ -581,6 +581,10 @@
                 <field>or_savings_reserves__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>or_accounts_files__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>or_accounts_audited__c</field>
             </layoutItems>
@@ -699,9 +703,6 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
-    <relatedLists>
-        <relatedList>RelatedNoteList</relatedList>
-    </relatedLists>
     <relatedLists>
         <relatedList>RelatedFileList</relatedList>
     </relatedLists>

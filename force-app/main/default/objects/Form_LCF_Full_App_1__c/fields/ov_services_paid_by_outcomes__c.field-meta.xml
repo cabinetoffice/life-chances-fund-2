@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>ov_services_paid_by_outcomes__c</fullName>
+    <description>Projects need to be more than 50% outcomes based to be eligible for LCF funding.</description>
     <externalId>false</externalId>
     <inlineHelpText>Can you confirm that over 50% of your services will still be paid on an outcomes basis?</inlineHelpText>
     <label>OV - Services Paid by Outcomes</label>

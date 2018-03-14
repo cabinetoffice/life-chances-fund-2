@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>or_primary_contact_mobile__c</fullName>
+    <defaultValue>'N/A'</defaultValue>
     <externalId>false</externalId>
     <inlineHelpText>Mobile number (optional)</inlineHelpText>
     <label>OR - Primary Contact Mobile Number</label>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>ov_services_end_date__c</fullName>
+    <description>For example, 01 10 2019.</description>
     <externalId>false</externalId>
     <inlineHelpText>When would you like your project to finish delivering services?</inlineHelpText>
     <label>OV - Services End Date</label>

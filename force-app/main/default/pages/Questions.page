@@ -91,7 +91,7 @@
 					var listItem = document.createElement('li');
 					var para = document.createElement('p');
 					para.style.color = "#005EA5";
-			        para.innerHTML = curFiles[i].name+"<span style='float:right'>File size: "+returnFileSize(curFiles[i].size)+"</span>";
+			        para.innerHTML = curFiles[i].name+"<span style='float:right'>"+returnFileSize(curFiles[i].size)+"</span>";
 			        listItem.appendChild(para);			
 			      	list.appendChild(listItem);
 			    }
@@ -152,9 +152,11 @@
             </div>
         </apex:define> 
      
-        <apex:define name="main">
-            <div class="question-container">
-            
+        <apex:define name="mainFullWidth">
+			<div class="question-container">
+			<apex:form id="theForm">
+        		<div class="site-wrapper"><div class="column-two-thirds">
+             
 				<apex:outputPanel rendered="{!ISBLANK(fromFormId)}">
                 <a href="#" onclick="historyGo({!pageId},{!previousPageId},{!previousPageErrors},{!errorPageCount}); return false;" class="link-back">Back</a>
 				</apex:outputPanel>
@@ -190,15 +192,14 @@
 						<strong class="bold-small">{!currentPage.warning}</strong>
 					</div>
 					<br/>							
-               </apex:pageBlock>
+				</apex:pageBlock>
 
-                <apex:form id="theForm">
-	                <apex:actionFunction name="showHideWarning" action="{!showHideWarning}" rerender="warning">
-	                	<apex:param name="fieldId" value=""/>
-	                </apex:actionFunction>	               
+                <apex:actionFunction name="showHideWarning" action="{!showHideWarning}" rerender="warning">
+                	<apex:param name="fieldId" value=""/>
+                </apex:actionFunction>	               
 
-                	<apex:outputPanel id="childPanel" styleClass="childPanel">
-                    <apex:pageBlock id="children" rendered="{!currentPage.children != null}">
+               	<apex:outputPanel id="childPanel" styleClass="childPanel">
+                   <apex:pageBlock id="children" rendered="{!currentPage.children != null}">
                         <table>
                           <tbody>
                             <apex:repeat value="{!targetObjects}" var="targetObject">
@@ -229,22 +230,20 @@
                         <apex:commandLink value="{!addLabel}" action="{!addAnother}"></apex:commandLink> 
                         </apex:outputPanel>
                     </apex:pageBlock>
-                    </apex:outputPanel>
+				</apex:outputPanel>
 
-	                <apex:outputPanel styleClass="grid-row" rendered="{!errorsFound==true}">
-	                    <div class="column-two-thirds">
-	
-	                        <div class="error-summary" role="alert" tabindex="-1">
-	
-	                            <h2 class="heading-medium error-summary-heading" style="padding: 18px 5px 0 18px">
-	                                <apex:messages ></apex:messages>
-	                            </h2>
-	
-	                        </div>
-	                    </div>
-	                </apex:outputPanel>
+                <apex:outputPanel rendered="{!errorsFound==true}">
+
+					<div class="error-summary" role="alert" tabindex="-1">
 					
-					<table><tbody>
+					    <h2 class="heading-medium error-summary-heading" style="padding: 18px 5px 0 18px">
+					        <apex:messages ></apex:messages>
+					    </h2>
+					
+					</div>
+				</apex:outputPanel>
+					
+				<table><tbody>
 					<tr><td style="border:none">
                     <apex:pageBlock rendered="{!currentPage.questions != null}">
                         <apex:repeat value="{!fields}" var="field">
@@ -364,14 +363,11 @@
 					</apex:pageBlock>
 					
 					</td></tr>
-					</tbody></table>
-               </apex:form>
-            </div>
-        </apex:define>
-     
-        <apex:define name="mainFullWidth">
-          	<apex:form id="filesForm">
-				<apex:pageBlock id="files" rendered="{!currentPage.files != null}">
+				</tbody></table>
+            	</div></div>
+            
+        		<div class="site-wrapper"><div class="column-full">
+ 				<apex:pageBlock id="files" rendered="{!currentPage.files != null}">
 					<h1 class="heading-medium" style="margin-bottom:10px">{!filesField.label}</h1>
 					<apex:outputPanel id="fileVersions" styleClass="fileVersions">
 				        <table><tbody>
@@ -393,9 +389,9 @@
 									<div id="{!f.fileVersion.Id}" class="select-flag show-div">
 									<apex:outputPanel rendered="{!readOnlyMode==false}">
 										<div class="multiple-choice">
-                                       		<apex:inputCheckbox value="{!f.selectFlag}" onclick="showVersionUpload(this,'{!f.fileVersion.Id}')" disabled="{!readOnlyMode}"/>
-                                       		<label for="waste-type-1">Load new version</label>
-                                   		</div>
+	                                      		<apex:inputCheckbox value="{!f.selectFlag}" onclick="showVersionUpload(this,'{!f.fileVersion.Id}')" disabled="{!readOnlyMode}"/>
+	                                      		<label for="waste-type-1">Load new version</label>
+	                                  		</div>
 					                </apex:outputPanel>
 					                </div>
 				                </td>
@@ -406,7 +402,7 @@
 					<br/>
 						
 					<apex:outputPanel id="file" styleClass="fileUpload" rendered="{!readOnlyMode==false}">
-   						<label for="thePage:layout:filesForm:files:input" id="chooseFileLabel">Choose new file</label>
+	  						<label for="thePage:layout:theForm:files:input" id="chooseFileLabel">Choose new file</label>
 						<apex:inputFile id="input" styleClass="fileInput" style="opacity:0" value="{!fileBody}" fileName="{!fileName}" />
 						<div class="filePreview">
 						    <p class="form-control" style="color:#005EA5; width:66.6666%">No file chosen</p>
@@ -418,22 +414,26 @@
 					</apex:outputPanel>
 					<br/><br/>            
 				</apex:pageBlock>
-
+				</div></div>
+	
+        		<div class="site-wrapper"><div class="column-two-thirds">
 				<apex:outputPanel rendered="{!ISBLANK(fromFormId)}"> 
-				<apex:commandButton value="Save and continue" action="{!saveContinue}" styleClass="button" rendered="{!AND(saveReqd,NOT(readOnlyMode))}"/>
-				<apex:commandButton value="Continue" action="{!saveContinue}" styleClass="button" rendered="{!OR(NOT(saveReqd),readOnlyMode)}"/>
-				<br /><br />
-				<apex:commandLink value="Save and come back later" action="{!saveExit}" rendered="{!AND(saveReqd,NOT(readOnlyMode))}"/>
-				<apex:commandLink value="Exit" action="{!saveExit}" rendered="{!readOnlyMode}"/>
-				&nbsp;&nbsp;
-				<apex:outputLink value="{!referenceURL}" rendered="{!referenceURL!=null}" target="_blank">{!referenceGuidance}</apex:outputLink>                   
+					<apex:commandButton value="Save and continue" action="{!saveContinue}" styleClass="button" rendered="{!AND(saveReqd,NOT(readOnlyMode))}"/>
+					<apex:commandButton value="Continue" action="{!saveContinue}" styleClass="button" rendered="{!OR(NOT(saveReqd),readOnlyMode)}"/>
+					<br /><br />
+					<apex:commandLink value="Save and come back later" action="{!saveExit}" rendered="{!AND(saveReqd,NOT(readOnlyMode))}"/>
+					<apex:commandLink value="Exit" action="{!saveExit}" rendered="{!readOnlyMode}"/>
+					&nbsp;&nbsp;
+					<apex:outputLink value="{!referenceURL}" rendered="{!referenceURL!=null}" target="_blank">{!referenceGuidance}</apex:outputLink>                   
 				</apex:outputPanel>
-                    
+	                   
 				<apex:outputPanel rendered="{!NOT(ISBLANK(fromFormId))}">
-				<apex:commandButton value="Continue" action="{!saveContinue}" styleClass="button" rendered="{!childPage==true}"/>
-				<apex:commandButton value="Close" onclick="closeWindow();" styleClass="button" rendered="{!childPage==false}"/>
+					<apex:commandButton value="Continue" action="{!saveContinue}" styleClass="button" rendered="{!childPage==true}"/>
+					<apex:commandButton value="Close" onclick="closeWindow();" styleClass="button" rendered="{!childPage==false}"/>
 				</apex:outputPanel>
+				</div></div>
 			</apex:form>
-        </apex:define>
+			</div>
+       </apex:define>
     </apex:composition>
 </apex:page>

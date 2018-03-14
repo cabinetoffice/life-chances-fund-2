@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>iv_interventions_outline__c</fullName>
+    <description>If you don’t know the specific intervention at this stage, please give indicative examples of the types of intervention you expect to see (which could be based on current interventions).</description>
     <externalId>false</externalId>
     <inlineHelpText>Outline the intervention(s) you want to use</inlineHelpText>
     <label>IV - Interventions Outline</label>

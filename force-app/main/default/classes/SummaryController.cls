@@ -7,6 +7,7 @@
    2017		    1.0    	Cabinet Office			Initial Release 
    Jan 2018		1.1		M.Witchalls, Westbrook	Test for all questions answered
    Mar 2018		1.2		M.Witchalls, Westbrook	Correction to child question check
+   												Inclusion of files
 __________________________________________________________________________________________________________________ */        
 public class SummaryController extends COF_PageController {
 	private static final String COMPLETE = 'COMPLETE';
@@ -97,9 +98,14 @@ public class SummaryController extends COF_PageController {
             	requiredFieldIdentifiers.add(this.childQuery(page));
             }
             
-            // fetch section status
-            requiredFieldIdentifiers.add(this.section.status_field);
+	        if (page.files != null) {
+	        	system.debug('@@@@page.filesField.identifier: '+page.filesField.identifier);
+            	requiredFieldIdentifiers.add(page.files.target_field);
+	        }
+            
         }
+        // fetch section status
+        requiredFieldIdentifiers.add(this.section.status_field);
 
         // Fetch the target object
         List<String> requiredFieldIdentifiersArray = new List<String>(requiredFieldIdentifiers);

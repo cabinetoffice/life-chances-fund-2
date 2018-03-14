@@ -2,6 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>su_age_groups_specifics__c</fullName>
     <externalId>false</externalId>
+    <inlineHelpText>Select all age groups that apply</inlineHelpText>
     <label>SU - Age Groups Specifics</label>
     <required>false</required>
     <trackTrending>false</trackTrending>

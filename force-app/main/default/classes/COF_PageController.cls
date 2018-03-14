@@ -60,6 +60,7 @@ public virtual class COF_PageController {
         fields.add('Theme__c');
         fields.add('Full_Application_Status__c');
         fields.add('Full_Award_Setup_Status__c');
+        fields.add('Contact__r.Name');
         // need to ensure this respects permissions - only the owner of an application should be able to access it
         return Query.object('Application__c', fields, 'WHERE Name = \'' + this.getApplicationIdentifierParam() + '\'');
         // Query class will throw exception if no matches

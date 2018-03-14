@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>ou_attributable__c</fullName>
+    <description>Please explain how you will make sure that outcomes payments are only made for outcomes achieved because of your project and not arising from other interventions (i.e. the outcomes would have been achieved whether your project took place or not).</description>
     <externalId>false</externalId>
     <inlineHelpText>How will you ensure outcomes are attributable to your project?</inlineHelpText>
     <label>OU - Attributable</label>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>ov_intermediary_assisting__c</fullName>
+    <description>By intermediary we mean an external organisation providing advice to the applicant or brokering agreements between commissioners, providers or investors.</description>
     <externalId>false</externalId>
     <inlineHelpText>Is there an intermediary assisting with this application?</inlineHelpText>
     <label>OV - Intermediary Assisting</label>

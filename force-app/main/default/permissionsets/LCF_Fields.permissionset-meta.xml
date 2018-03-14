@@ -851,6 +851,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Full_App_1__c.or_accounts_files__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Form_LCF_Full_App_1__c.or_address__c</field>
         <readable>true</readable>
@@ -2644,6 +2649,11 @@
         <editable>true</editable>
         <field>SIB_Field_Metadata__c.Object_Name__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>SIB_Field_Metadata__c.Page_Title__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>

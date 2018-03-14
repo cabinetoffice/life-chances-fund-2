@@ -46,10 +46,6 @@
                 <behavior>Readonly</behavior>
                 <field>cs_number_of_investors__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>so_outcome_metric_files__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -78,10 +74,6 @@
             </layoutItems>
             <layoutItems>
                 <emptySpace>true</emptySpace>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>pr_stakeholder_confirmation_files__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -227,6 +219,10 @@
                 <field>pr_new_stakeholders__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>pr_stakeholder_confirmation_files__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>pr_commissioner_disengagement__c</field>
             </layoutItems>
@@ -270,6 +266,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>so_outcomes_changed__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>so_outcome_metric_files__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

@@ -7,6 +7,7 @@
    2017		    1.0    	Cabinet Office			Initial Release 
    Jan 2018		1.1		M.Witchalls, Westbrook	Child query added
    Feb 2018		1.2		M.Witchalls, Westbrook	Inclusion of Setup Form via layoutMap
+   Mar 2018		1.3		M.Witchalls, Westbrook	Provision for multiple child forms per section
 __________________________________________________________________________________________________________________ */        
 public class AnswersController extends COF_PageController {
 
@@ -19,9 +20,11 @@ public class AnswersController extends COF_PageController {
 	public COF_Form form {get;set;} 
 	public List<COF_Field> fields {get;set;}
 	public List<PageSection> sections {get;set;}
+    public SObject application {get;set;} 
     public SObject targetObject {get;set;}
  
     public AnswersController() {
+        this.application = this.getApplication();
     	String identifier = this.getFormIdentifierParam();
         COF_Config config = COF_Config.load(identifier);
         this.form = config.getForm(identifier);
@@ -78,7 +81,7 @@ public class AnswersController extends COF_PageController {
         public String name {get; set;}
         public List<COF_Field> fields {get; set;}
         public Boolean hasChildren {get; set;}
-        public COF_QuestionSet.COF_Children children {get;set;}
+        public List<COF_QuestionSet.COF_Children> children {get;set;}
         public COF_Section formSection {get; set;}
         
 		/**
@@ -87,6 +90,7 @@ public class AnswersController extends COF_PageController {
         public PageSection(String label, List<COF_Section> sList) {
         	this.name = label.toUpperCase();
         	this.hasChildren = false;
+        	this.children = new List<COF_QuestionSet.COF_Children>();
 	 		for (COF_Section fs: sList) {
 				if (fs.title.equalsIgnoreCase(label)) {
 					this.formSection = fs;
@@ -115,8 +119,9 @@ public class AnswersController extends COF_PageController {
             		for (PageSection section: this.sections) {
             			if (section.formSection != null && fs.id == section.formSection.id) {
 							section.hasChildren = true;
-            				section.children = page.children;
-            				section.children.title = page.children.title.toUpperCase();
+							COF_QuestionSet.COF_Children children = page.children;
+             				children.title = page.children.title.toUpperCase();
+            				section.children.add(children);
             			}
             		}				
 				}

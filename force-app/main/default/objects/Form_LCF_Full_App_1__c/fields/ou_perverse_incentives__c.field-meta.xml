@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>ou_perverse_incentives__c</fullName>
+    <description>Perverse incentives are features of a contract that could cause unintended and undesirable results, and will undermine the effectiveness of the project. Please explain how such incentives could arise and how you will manage them. For example, for a SIB that measures the effectiveness of young people entering foster care placements, a perverse incentive could be encouraging a young person to move into a placement that is not in their best interests.</description>
     <externalId>false</externalId>
     <inlineHelpText>How will any perverse incentives that arise be effectively managed?</inlineHelpText>
     <label>OU - Perverse Incentives</label>

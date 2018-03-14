@@ -16,6 +16,10 @@ public class COF_Field {
     public String parentRelationship {get; set;}
     public String warningValue {get; set;}
     public String warningText {get; set;}
+    public String pageTitle {get; set;}
+    
+    // M.Witchalls Mar 2018
+    public String defaultValue {get; set;}
 
     public Boolean isTextField {get; set;}
     public Boolean isTextArea {get; set;}
@@ -53,6 +57,10 @@ public class COF_Field {
         this.label = fieldSchema.getDescribe().getInlineHelpText();
         system.debug('###label: '+this.label);
         
+        // M.Witchalls Mar 2018
+        this.defaultValue = (String) fieldSchema.getDescribe().getDefaultValueFormula();
+        if (this.defaultValue != null) this.defaultValue = this.defaultValue.replace('"','').replace('\'','');
+        
         // M.Witchalls Feb 2018 Get guidance from field description
         fieldMetadata = SIB_Utilities.getFieldMetadata(targetObjectIdentifier, identifier); 
         if (fieldMetadata != null) { 
@@ -66,6 +74,13 @@ public class COF_Field {
 	        this.warningValue = fieldMetadata.Warning_Value__c; 
 	        this.warningText = fieldMetadata.Warning_Text__c;
 	        system.debug('###guidance: '+this.guidance); 
+	        
+        	// M.Witchals Mar 2018: Optionally set Page Title from field description via fieldMetadata.Page_Title__c
+	    	if (fieldMetadata.Page_Title__c != null) {
+	    		SIB_Section_Text__c text = SIB_Utilities.getSectionText(targetObjectIdentifier+':'+fieldMetadata.Page_Title__c, true); //allow nulls
+	    		this.pageTitle = (text == null) ? fieldMetadata.Page_Title__c : text.Text__c;
+		    	if (this.pageTitle != null) this.pageTitle = this.pageTitle.stripHtmlTags(); 
+	    	}	
         }
 
         Schema.DisplayType fieldType = fieldmap.get(identifier).getDescribe().getType();

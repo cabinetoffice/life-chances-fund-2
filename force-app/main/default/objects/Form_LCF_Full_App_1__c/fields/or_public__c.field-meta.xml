@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>or_public__c</fullName>
+    <description>Public sector organisations are those responsible for providing public services such as education, healthcare, social care and housing. This includes central, regional and local government, as well as further and higher education, the NHS and the criminal justice system. Please note central Government departments cannot apply for LCF funding.</description>
     <externalId>false</externalId>
     <inlineHelpText>Are you a public sector organisation?</inlineHelpText>
     <label>OR - Public Sector</label>

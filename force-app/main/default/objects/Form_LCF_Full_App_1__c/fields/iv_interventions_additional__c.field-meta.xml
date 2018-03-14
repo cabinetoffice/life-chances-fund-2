@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>iv_interventions_additional__c</fullName>
+    <description>This references statutory services that are paid for and provided for by central government. LCF will only support the provision of services that are paid for and delivered at a local government level, or that are paid for centrally but delivered through local government services. It cannot support any services that are delivered by central government.</description>
     <externalId>false</externalId>
     <inlineHelpText>How will you ensure your intervention is additional to any provision that is the
 responsibility of central government to provide?</inlineHelpText>

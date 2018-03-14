@@ -14,7 +14,8 @@
         <apex:define name="main">
             
             <h1 class="heading-xlarge" style="margin-bottom:20px">
-                <span class="heading-secondary">{!application['Theme__c']}</span>
+                <span class="heading-secondary">{!application['Name']}: {!application['Theme__c']}
+                	<span style="float:right">{!application['Contact__r.Name']}</span></span>
                 {!form.title}
             </h1>
             

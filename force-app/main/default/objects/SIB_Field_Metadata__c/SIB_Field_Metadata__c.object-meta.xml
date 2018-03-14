@@ -71,6 +71,7 @@
         <customTabListAdditionalFields>Recommended_Word_Limit__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Warning_Value__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Warning_Text__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Page_Title__c</customTabListAdditionalFields>
         <searchResultsAdditionalFields>Object_Name__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Help_Text__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Description__c</searchResultsAdditionalFields>
@@ -79,6 +80,7 @@
         <searchResultsAdditionalFields>Recommended_Word_Limit__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Warning_Value__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Warning_Text__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Page_Title__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>

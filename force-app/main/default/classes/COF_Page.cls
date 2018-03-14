@@ -20,6 +20,7 @@ public class COF_Page {
 	public List<COF_QuestionSet.COF_Route> routes;
 	public COF_QuestionSet.COF_Children children {get;set;}
 	public COF_QuestionSet.COF_Files files {get;set;}
+	public COF_Field filesField {get;set;}
 	public SIB_Section_Text__c sectionText {get;set;}
 	
 	public List<COF_Field> fields {get;set;}
@@ -38,6 +39,12 @@ public class COF_Page {
             	if (question.recommended_word_limit != null) {
             		newField.recommendedWordLimit = question.recommended_word_limit;
         		}
+        		
+        		// M.Witchals Mar 2018: Optionally set Page Title from field description via fieldMetadata.Page_Title__c
+        		if (this.title_id == null && newField.pageTitle != null) {
+        			this.title = newField.pageTitle;
+        		}
+        		
             	this.fields.add(newField);
             }
     	}
@@ -48,10 +55,13 @@ public class COF_Page {
 	        	if (this.children.parent_relationship == null) this.children.parent_relationship = field.parentRelationship;
 	        } 		
     	} 
+    	if (this.files != null) {
+    		this.filesField = new COF_Field(this.files.target_field, targetObjectType);  		
+    	}
     	
     	// Get title from title_id and warning from warning_id
     	system.debug('#####key: '+targetObjectType+':'+this.title_id);
-    	if (this.title_id != null) {
+    	if (this.title_id != null && this.title == null) {
     		this.title = SIB_Utilities.getSectionText(targetObjectType+':'+this.title_id).Text__c;
 	    	if (this.title != null) this.title = this.title.stripHtmlTags();
     	}	

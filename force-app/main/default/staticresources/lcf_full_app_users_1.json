@@ -30,11 +30,7 @@
 		{
 			"id": "3",
 			"questions": [
-				{ 
-					"target_field": "su_research_undertaken__c",
-					"guidance": "Reference local and national sources, including discussions you have had with service users. Direct contact with service users may not always be possible given the specific expertise and sensitive approach required to engage them in the right way. ",
-					"recommended_word_limit": 150
-				}
+				{ "target_field": "su_research_undertaken__c" }
 			],
 			"routes": [
 				{ "target_page": "4" }
@@ -43,11 +39,7 @@
 		{
 			"id": "4",
 			"questions": [
-				{ 
-					"target_field": "su_prioritisation__c",
-"guidance": "Set out how you will ensure that your cohort and outcomes are clearly defined in order that they meet the identified needs of your service users. ",
-					"recommended_word_limit": 150
-				}
+				{ "target_field": "su_prioritisation__c" }
 			],
 			"routes": [
 				{ "target_page": "5" }
@@ -56,11 +48,7 @@
 		{
 			"id": "5",
 			"questions": [
-				{
-					"target_field": "su_effective__c",
-					"guidance": "How will you involve service users in planning, implementing and, as needed, reviewing and revising your project and how will you make sure their voices are heard?",
-					"recommended_word_limit": 150
-				}
+				{ "target_field": "su_effective__c" }
 			],
 			"routes": [
 				{ "target_page": "6" }
@@ -69,11 +57,7 @@
 		{
 			"id": "6",
 			"questions": [
-				{ 
-					"target_field": "su_referral_process__c",
-					"guidance": "Please outline how users will be able to access your service, including how you will ensure that you are reaching the right people and how confident you are that enough referrals, or equivalent, will take place.",
-					"recommended_word_limit": 500
-				}
+				{ "target_field": "su_referral_process__c" }
 			],
 			"routes": [
 				{ "target_page": "7" }
@@ -81,7 +65,7 @@
 		},
 		{
 			"id": "7",
-			"title": "What, as a maximum, is your planned intake of service users for the full duration of the project?",
+			"title_id": "Service User Intake",
 			"questions": [
 				{ "target_field": "su_potential_users__c" },
 				{ "target_field": "su_expected_users__c" },
@@ -94,11 +78,7 @@
 		{
 			"id": "8",
 			"questions": [
-				{ 
-					"target_field": "su_estimation_methodology__c",
-					"guidance": "Briefly outline the rationale underlying your calculations for each total.",
-					"recommended_word_limit": 150
-				}
+				{ "target_field": "su_estimation_methodology__c" }
 			],
 			"routes": [
 				{ "target_page": "9" }
@@ -107,11 +87,7 @@
 		{
 			"id": "9",
 			"questions": [
-				{ 
-					"target_field": "su_drop_out_approach__c",
-					"guidance": "Tell us how you will monitor levels and reasons for disengagement.",
-					"recommended_word_limit": 150
-				}
+				{ "target_field": "su_drop_out_approach__c" }
 			]
 		}
 	]

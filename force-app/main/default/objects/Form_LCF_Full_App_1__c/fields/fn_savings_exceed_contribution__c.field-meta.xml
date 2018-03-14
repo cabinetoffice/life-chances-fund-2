@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>fn_savings_exceed_contribution__c</fullName>
+    <description>By significantly, we mean by over £1m or by more than 25% of the total savings (whichever is the greatest). The LCF may still support your project, but we will need a stronger case from your project to warrant this support.</description>
     <externalId>false</externalId>
     <inlineHelpText>Do the savings for your project significantly exceed the total contribution to outcome payments by local commissioners?</inlineHelpText>
     <label>FN - Savings Exceed Contribution</label>

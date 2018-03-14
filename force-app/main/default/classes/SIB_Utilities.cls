@@ -26,7 +26,7 @@ public class SIB_Utilities {
 			for (List<SIB_Field_Metadata__c> fdList: [
 				SELECT 
 					Name, Field_Key__c, Description__c, Help_Text__c, Relationship_Name__c,
-					Rich_Text__c, Recommended_Word_Limit__c, Warning_Text__c, Warning_Value__c 
+					Rich_Text__c, Recommended_Word_Limit__c, Warning_Text__c, Warning_Value__c, Page_Title__c 
 				FROM 
 					SIB_Field_Metadata__c
 			]) {

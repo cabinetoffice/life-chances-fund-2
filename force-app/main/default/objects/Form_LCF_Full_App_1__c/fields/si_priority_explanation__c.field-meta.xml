@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>si_priority_explanation__c</fullName>
+    <description>With respect to budget, community, learning and social impact, set out how this issue is a commissioner priority and what evidence (e.g. published strategies, speeches) supports this.</description>
     <externalId>false</externalId>
     <inlineHelpText>Why is this issue a priority for the commissioning organisation(s)?</inlineHelpText>
     <label>SI - Priority Explanation</label>
