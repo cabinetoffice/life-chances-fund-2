@@ -1,8 +1,8 @@
-<apex:page id="thePage" controller="QuestionsController" standardStylesheets="false" showHeader="false" docType="html-5.0" action="{!checkLoggedInAndApplicationStatus}">
+<apex:page id="thePage" controller="QuestionsController" standardStylesheets="false" showHeader="false" docType="html-5.0" action="{!initialAction}">
 	<style type="text/css">
 		.filePreview p {
 			display: flex;
-			justify-content: space-between;
+			justify-content: space-between; 
 			margin-top: 20px;
 			margin-bottom: 5px;
 			padding: 5px 10px;
@@ -11,7 +11,7 @@
 			width: 66.6666%;
 		}
 		.fileUpload label {
-			background-color: #EEEEEE;
+			background-color: #EEEEEE; 
 			padding: 2px 5px;
 			border: 1px ridge black;
 			height: 12px;
@@ -66,6 +66,8 @@
 			} else if (document.attachEvent) {              // For IE 8 and earlier versions
 			    input.attachEvent('onchange', updateFileInputDisplay);
 			}
+			var upload = document.querySelector('.fileUpload');			
+			upload.className = 'fileUpload show-div';
 		}
 		
 		// Improved file upload UI
@@ -73,6 +75,7 @@
 			var input = document.querySelector('.fileInput');			
 			var preview = document.querySelector('.filePreview');
 			var button = document.querySelector('#fileLoadButton');
+			var panel = document.querySelector('#saveButtons');
 			while(preview.firstChild) {
 			    preview.removeChild(preview.firstChild);
 			}
@@ -84,6 +87,7 @@
 			    para.textContent = 'No file chosen';
 			    preview.appendChild(para);
 			    button.className = "hide-div";
+			    panel.className = "show-div";
 			} else {
 			    var list = document.createElement('ol');
 			    preview.appendChild(list);
@@ -96,6 +100,7 @@
 			      	list.appendChild(listItem);
 			    }
 			    button.className = "show-div";
+			    panel.className = "hide-div";
 			}
 		}
 			
@@ -110,7 +115,7 @@
 		}
 		
 		// For uploading new version of document selected by checkbox field
-		function showVersionUpload(cbox, id) {
+		function showVersionUpload(cbox, id) {			
 			var checkboxes = document.querySelectorAll(".select-flag");
 			console.log(checkboxes.length+' checkboxes, id: '+id);
 			var label = document.getElementById('chooseFileLabel');
@@ -129,6 +134,13 @@
 			}
 		}
 			
+		function getFieldTotals(isCalculated) {
+			console.log('isCalculated: '+isCalculated);
+			if (isCalculated=='true') {
+				console.log('got here');
+				calculateFieldTotals();
+			}
+		}
 		
 	</script>
 
@@ -139,15 +151,47 @@
         <apex:define name="breadcrumbs">
             <div class="breadcrumbs">
                 <ol>
-                    <li><apex:outputLink value="{!$Page.Applications}">Applications</apex:outputLink></li>
-                    <li>
-                        <apex:outputLink value="{!$Page.Sections}">
-                            {!form.title}
-                            <apex:param name="form" value="{!form.id}"/>
-                            <apex:param name="app" value="{!application['Name']}"/>
-                        </apex:outputLink>
-                    </li>
-                    <li aria-current="page">{!section.title}</li>
+					<apex:outputText rendered="{!NOT(ISBLANK(grant))}">
+	                    <li>
+		                    <apex:outputLink value="{!$Page.LCFGrants}">
+		                    Grant Management
+		                    <apex:param name="id" value="{!grant['Application__c']}"/>
+		                    </apex:outputLink>
+	                    </li>
+	                    <li>
+	                        <apex:outputLink value="{!$Page.LCFGrantBlock}">
+	                            {!form.title}
+	                            <apex:param name="form" value="{!form.id}"/>
+								<apex:param name="grant" value="{!grant['Name']}"/>
+	                        </apex:outputLink>
+	                    </li>
+					</apex:outputText> 
+					<apex:outputText rendered="{!ISBLANK(grant)}"> 
+	                    <li><apex:outputLink value="{!IF(partnerUser,URLFOR($Action.Application__c.List,$ObjectType.Application__c),$Page.Applications)}">Applications</apex:outputLink></li>
+	                    <li>
+	                        <apex:outputLink value="{!$Page.Sections}">
+	                            {!form.title}
+	                            <apex:param name="form" value="{!form.id}"/>
+	                            <apex:param name="app" value="{!application['Name']}"/>
+	                        </apex:outputLink>
+	                    </li>
+	                </apex:outputText>
+					<apex:outputText rendered="{!NOT(ISBLANK(title))}">
+	                	<li aria-current="page">{!title}</li>
+					</apex:outputText> 
+ 					<apex:outputText rendered="{!NOT(ISBLANK(subtitle))}">
+	                    <li>{!subtitle}</li>
+					</apex:outputText> 
+ 					<apex:outputText rendered="{!NOT(ISBLANK(subtitle2))}">
+	                    <li>{!subtitle2}</li>
+					</apex:outputText> 
+ 					<apex:outputText rendered="{!NOT(ISBLANK(periodTitle))}">
+	                    <li>{!periodTitle}</li>
+					</apex:outputText> 
+                    
+ 					<apex:outputText rendered="{!AND(NOT(childPage),form.issue_status_field != null)}">
+	                    <li aria-current="page">{!targetObject[form.issue_status_field]}</li>
+					</apex:outputText> 
                 </ol>
             </div>
         </apex:define> 
@@ -194,62 +238,182 @@
 					<br/>							
 				</apex:pageBlock>
 
-                <apex:actionFunction name="showHideWarning" action="{!showHideWarning}" rerender="warning">
+                <apex:actionFunction name="showHideStuff" action="{!showHideStuff}" rerender="warning,theForm">
                 	<apex:param name="fieldId" value=""/>
-                </apex:actionFunction>	               
+                </apex:actionFunction>
+                <apex:actionFunction name="doCalculation" action="{!doCalculation}" rerender="warning,theForm">
+                	<apex:param name="oldValue" value=""/>
+    				<apex:param name="newValue" value=""/>
+                	<apex:param name="addToField" value=""/>
+                </apex:actionFunction>
+                <apex:actionFunction name="calculateFieldTotals" action="{!calculateFieldTotals}" rerender="warning,theForm">
+                </apex:actionFunction>
+				<apex:actionFunction name="hideSaveButtons" action="{!hideSaveButtons}" rerender="warning,theForm">
+                </apex:actionFunction>
+				<apex:actionFunction name="showSaveButtons" action="{!showSaveButtons}" rerender="warning,theForm">
+                </apex:actionFunction>
+                </div></div>	               
 
-               	<apex:outputPanel id="childPanel" styleClass="childPanel">
-                   <apex:pageBlock id="children" rendered="{!currentPage.children != null}">
+         		<div class="site-wrapper"><div class="{!widthClass}">
+               	<apex:outputPanel id="childPanel" styleClass="childPanel"> 
+					<apex:pageBlock id="children" rendered="{!currentPage.children != null}">
                         <table>
                           <tbody>
+                            <apex:outputPanel rendered="{!NOT(ISBLANK(currentPage.children.field_head2))}">
+								<tr>
+									<td width="{!fieldWidth1}"></td>
+                                    <td width="{!fieldWidth2}">
+                                    <apex:outputText value="{!currentPage.children.field_head2}" 
+                                    	rendered="{!NOT(ISBLANK(currentPage.children.field_head2))}"/>
+									</td>
+                                    <td width="{!fieldWidth3}">
+                                    <apex:outputText value="{!currentPage.children.field_head3}" 
+                                    	rendered="{!NOT(ISBLANK(currentPage.children.field_head3))}"/>
+									</td>
+                                    <td width="{!fieldWidth4}">
+                                    <apex:outputText value="{!currentPage.children.field_head4}" 
+                                    	rendered="{!NOT(ISBLANK(currentPage.children.field_head4))}"/>
+									</td>
+                                    <td width="{!fieldWidth5}">
+                                    <apex:outputText value="{!currentPage.children.field_head5}" 
+                                    	rendered="{!NOT(ISBLANK(currentPage.children.field_head5))}"/>
+									</td>
+                                    <td width="{!fieldWidth6}">
+                                    <apex:outputText value="{!currentPage.children.field_head6}" 
+                                    	rendered="{!NOT(ISBLANK(currentPage.children.field_head6))}"/>
+									</td>
+                                    <td width="{!primaryWidth}"></td>
+									<apex:outputPanel rendered="{!NOT(ISBLANK(currentPage.children.grandchildren_page))}">
+										<td width="10%"></td>
+									</apex:outputPanel>
+									<apex:outputPanel rendered="{!NOT(ISBLANK(currentPage.children.grandchildren_page))}">
+										<td width="10%"></td>
+									</apex:outputPanel>
+ 								</tr>
+                            </apex:outputPanel>
                             <apex:repeat value="{!targetObjects}" var="targetObject">
                                 <tr>
-									<td width="70%">
+									<td width="{!fieldWidth1}">
                                     <apex:commandLink value="{!targetObject[currentPage.children.target_field]}" action="{!changeChild}">
                                         <apex:param name="identifier" value="{!targetObject['Name']}" assignTo="{!modifyChildIdentifier}"/>
                                     </apex:commandLink>
                                     </td>
-                                    <td width="20%">
+                                    <td width="{!fieldWidth2}">
                                     <apex:outputField value="{!targetObject[currentPage.children.target_field2]}" 
                                     	rendered="{!NOT(ISBLANK(currentPage.children.target_field2))}"/>
 									</td>
-									<td width="10%">
-									<apex:outputPanel rendered="{!readOnlyMode==false}">
-                                    <apex:commandLink value="Remove" action="{!removeChild}" rerender="childPanel">
-                                        <apex:param name="identifier" value="{!targetObject['Id']}" assignTo="{!removeChildId}"/>
-                                    </apex:commandLink> 
+                                    <td width="{!fieldWidth3}">
+                                    <apex:outputField value="{!targetObject[currentPage.children.target_field3]}" 
+                                    	rendered="{!NOT(ISBLANK(currentPage.children.target_field3))}"/>
+									</td>
+                                    <td width="{!fieldWidth4}">
+                                    <apex:outputField value="{!targetObject[currentPage.children.target_field4]}" 
+                                    	rendered="{!NOT(ISBLANK(currentPage.children.target_field4))}"/>
+									</td>
+                                     <td width="{!fieldWidth5}">
+                                    <apex:outputField value="{!targetObject[currentPage.children.target_field5]}" 
+                                    	rendered="{!NOT(ISBLANK(currentPage.children.target_field5))}"/>
+									</td>
+                                     <td width="{!fieldWidth6}">
+                                    <apex:outputField value="{!targetObject[currentPage.children.target_field6]}" 
+                                    	rendered="{!NOT(ISBLANK(currentPage.children.target_field6))}"/>
+									</td>
+									<apex:outputPanel rendered="{!AND(NOT(ISBLANK(currentPage.children.primary_field)),targetObject[currentPage.children.primary_field]==true)}">
+	                                    <td width="{!primaryWidth}">
+		                                    <div class="multiple-choice">
+		                                        <apex:inputCheckbox value="{!targetObject[currentPage.children.primary_field]}" disabled="true"/>
+		                                        <label for="waste-type-1">Primary</label>
+		                                    </div>
+										</td>
+					                </apex:outputPanel>
+									<apex:outputPanel rendered="{!NOT(ISBLANK(currentPage.children.grandchildren_page))}">
+										<td width="10%">
+		                                    <apex:commandLink value="{!currentPage.children.grandchildren_title}" action="{!grandChildrenPage}">
+		                                        <apex:param name="identifier" value="{!targetObject['Name']}" assignTo="{!modifyChildIdentifier}"/>
+		                                    </apex:commandLink>
+	                                    </td>
                                     </apex:outputPanel>
-                                    </td>
+									<apex:outputPanel rendered="{!AND(readOnlyMode==false,removeReqd==true)}">
+	        							<td width="10%"> 
+				                            <apex:commandLink value="Remove" action="{!removeChild}" onclick="if(!confirm('Are you sure?')) return false;" rerender="childPanel">
+		                                        <apex:param name="identifier" value="{!targetObject['Id']}" assignTo="{!removeChildId}"/>
+		                                    </apex:commandLink> 
+	                                    </td> 
+                                    </apex:outputPanel>
                                 </tr>
                             </apex:repeat>
+                            <apex:outputPanel rendered="{!NOT(ISBLANK(currentPage.children.total_field2))}">
+								<tr>
+									<td width="{!fieldWidth1}">TOTALS</td>
+                                    <td width="{!fieldWidth2}" style="font-weight:bold">
+                                    <apex:outputField value="{!targetObject[currentPage.children.total_field2]}" 
+                                    	rendered="{!NOT(ISBLANK(currentPage.children.total_field2))}"/>
+									</td>
+                                    <td width="{!fieldWidth3}" style="font-weight:bold">
+                                    <apex:outputField value="{!targetObject[currentPage.children.total_field3]}" 
+                                    	rendered="{!NOT(ISBLANK(currentPage.children.total_field3))}"/>
+									</td>
+                                    <td width="{!fieldWidth4}" style="font-weight:bold">
+                                    <apex:outputField value="{!targetObject[currentPage.children.total_field4]}" 
+                                    	rendered="{!NOT(ISBLANK(currentPage.children.total_field4))}"/>
+									</td>
+                                    <td width="{!fieldWidth5}" style="font-weight:bold">
+                                    <apex:outputField value="{!targetObject[currentPage.children.total_field5]}" 
+                                    	rendered="{!NOT(ISBLANK(currentPage.children.total_field5))}"/>
+									</td>
+                                    <td width="{!fieldWidth6}" style="font-weight:bold">
+                                    <apex:outputField value="{!targetObject[currentPage.children.total_field6]}" 
+                                    	rendered="{!NOT(ISBLANK(currentPage.children.total_field6))}"/>
+									</td>
+                                    <td width="{!primaryWidth}"></td>
+									<apex:outputPanel rendered="{!NOT(ISBLANK(currentPage.children.grandchildren_page))}">
+										<td width="10%"></td>
+									</apex:outputPanel>
+									<apex:outputPanel rendered="{!NOT(ISBLANK(currentPage.children.grandchildren_page))}">
+										<td width="10%"></td>
+									</apex:outputPanel>
+ 								</tr>
+                            </apex:outputPanel>
                           </tbody>
                         </table>
 
                         <br />
                         <apex:outputPanel rendered="{!readOnlyMode==false}">
-                        <apex:commandLink value="{!addLabel}" action="{!addAnother}"></apex:commandLink> 
+	                        <apex:outputText rendered="{!AND(copyLabel!=null,childCount==0)}">
+	                        	<apex:commandLink value="{!copyLabel}" action="{!copyFromPreviousForm}" reRender="childPanel,warning,errorPanel"></apex:commandLink> 
+	                        	<br/><br/>
+	                        </apex:outputText>
+	                        <apex:outputText rendered="{!addLabel!=null}">
+	                        	<apex:commandLink value="{!addLabel}" action="{!addAnother}"></apex:commandLink> 
+	                        </apex:outputText>
                         </apex:outputPanel>
                     </apex:pageBlock>
 				</apex:outputPanel>
 
-                <apex:outputPanel rendered="{!errorsFound==true}">
-
-					<div class="error-summary" role="alert" tabindex="-1">
-					
-					    <h2 class="heading-medium error-summary-heading" style="padding: 18px 5px 0 18px">
-					        <apex:messages ></apex:messages>
-					    </h2>
-					
-					</div>
-				</apex:outputPanel>
+         		<div class="site-wrapper"><div class="column-two-thirds">
+                <apex:pageBlock id="errorPanel">
+	                <apex:outputPanel rendered="{!errorsFound==true}">
+						<div class="error-summary" role="alert" tabindex="-1">
+						
+						    <h2 class="heading-medium error-summary-heading" style="padding: 18px 5px 0 18px">
+						        <apex:messages ></apex:messages>
+						    </h2>
+						
+						</div>
+					</apex:outputPanel>
+				</apex:pageBlock>
+				</div></div>
 					
 				<table><tbody>
 					<tr><td style="border:none">
                     <apex:pageBlock rendered="{!currentPage.questions != null}">
                         <apex:repeat value="{!fields}" var="field">
+                        <apex:pageBlock rendered="{!field.isValid}">
                             <div class="form-group" id="sp-text-group">
 								<legend>
-                                    <h1 class="heading-medium">{!field.label}</h1>
+                                    <apex:outputText rendered="{!field.isCheckBox != true}">
+                                    	<h1 class="heading-medium">{!field.label}</h1>
+                                    </apex:outputText>
                          			<apex:outputPanel rendered="{!NOT(ISBLANK(field.guidance))}">
                                     	<p>{!field.guidance}</p>
                                     </apex:outputPanel>
@@ -260,25 +424,48 @@
 									</apex:outputPanel>
                                 </legend>
 
-                                <apex:pageBlock rendered="{!field.isTextField == true}">       
+                                <apex:pageBlock rendered="{!field.isTextField}">       
                                     <apex:pageBlock rendered="{!field.isCurrency == true}">
-                                    	£&nbsp;<apex:inputText value="{!field.value}" styleClass="form-control" disabled="{!readOnlyMode}" style="width:25%"/>
+                                    	£&nbsp;<apex:inputText value="{!field.value}" styleClass="form-control" disabled="{!readOnlyMode}" style="width:25%"
+                                    				onfocus="getFieldTotals('{!field.isCalculated}')"/>
+										&nbsp;<apex:commandLink value="{!copyGuidance}" action="{!copyFieldFromObject}" rendered="{!AND(NOT(readOnlyMode),NOT(ISBLANK(field.copyFromField)))}" rerender="warning,theForm">
+											<apex:param name="identifier" value="{!field.identifier}" assignTo="{!targetFieldIdentifier}"/>
+										</apex:commandLink>
                                     </apex:pageBlock>
                                     <apex:pageBlock rendered="{!field.isNumber == true}">
-                                    	<apex:inputText value="{!field.value}" styleClass="form-control" disabled="{!readOnlyMode}" style="width:25%"/>
+                                    	<apex:inputText value="{!field.value}" styleClass="form-control" disabled="{!readOnlyMode}" style="width:25%"
+                                    				onfocus="getFieldTotals('{!field.isCalculated}')"/>                                    	
+										&nbsp;<apex:commandLink value="{!copyGuidance}" action="{!copyFieldFromObject}" rendered="{!AND(NOT(readOnlyMode),NOT(ISBLANK(field.copyFromField)))}" rerender="warning,theForm">
+											<apex:param name="identifier" value="{!field.identifier}" assignTo="{!targetFieldIdentifier}"/>
+										</apex:commandLink>
                                     </apex:pageBlock>
                                     <apex:pageBlock rendered="{!field.isPercent == true}">
                                     	%&nbsp;<apex:inputText value="{!field.value}" styleClass="form-control" disabled="{!readOnlyMode}" style="width:25%"/>
+										&nbsp;<apex:commandLink value="{!copyGuidance}" action="{!copyFieldFromObject}" rendered="{!AND(NOT(readOnlyMode),NOT(ISBLANK(field.copyFromField)))}" rerender="warning,theForm">
+											<apex:param name="identifier" value="{!field.identifier}" assignTo="{!targetFieldIdentifier}"/>
+										</apex:commandLink>
+                                    </apex:pageBlock>
+                                    <apex:pageBlock rendered="{!field.isRatio == true}">
+                                        1:&nbsp;<apex:inputText value="{!field.ratioPart}" styleClass="form-control" disabled="{!readOnlyMode}" html-type="number" html-pattern="[0-9.]*" html-min="1" html-max="100" style="width:25%"/>
+										&nbsp;<apex:commandLink value="{!copyGuidance}" action="{!copyFieldFromObject}" rendered="{!AND(NOT(readOnlyMode),NOT(ISBLANK(field.copyFromField)))}" rerender="warning,theForm">
+											<apex:param name="identifier" value="{!field.identifier}" assignTo="{!targetFieldIdentifier}"/>
+										</apex:commandLink>
                                     </apex:pageBlock>
                                     <apex:pageBlock rendered="{!field.isEmailField == true}">
                                     	<apex:inputText value="{!targetObject[field.identifier]}" styleClass="form-control" disabled="{!readOnlyMode}" />
+										&nbsp;<apex:commandLink value="{!copyGuidance}" action="{!copyFieldFromObject}" rendered="{!AND(NOT(readOnlyMode),NOT(ISBLANK(field.copyFromField)))}" rerender="warning,theForm">
+											<apex:param name="identifier" value="{!field.identifier}" assignTo="{!targetFieldIdentifier}"/>
+										</apex:commandLink>
                                     </apex:pageBlock>
-                                    <apex:pageBlock rendered="{!AND(field.isNumber == false,field.isCurrency == false,field.isPercent == false,field.isEmailField == false)}">
+                                    <apex:pageBlock rendered="{!field.isDisplay == true}">
+                                    	<p>{!targetObject[field.identifier]}</p>
+                                    </apex:pageBlock>
+                                    <apex:pageBlock rendered="{!AND(field.isNumber == false,field.isCurrency == false,field.isPercent == false,field.isRatio == false,field.isEmailField == false, field.isDisplay == false)}">
                                     	<apex:outputPanel rendered="{!AND(readOnlyMode,field.isTextArea == true)}">
-                                    		<apex:inputTextarea value="{!targetObject[field.identifier]}" styleClass="form-control" style="width:100%" rows="10" disabled="true"/>
+                                    		<apex:inputField value="{!targetObject[field.identifier]}" styleClass="form-control" style="width:100%" html-disabled="true"/>
                                     	</apex:outputPanel>
                                     	<apex:outputPanel rendered="{!AND(readOnlyMode,field.isTextArea == false)}">
-                                    		<apex:inputText value="{!targetObject[field.identifier]}" styleClass="form-control" disabled="true"/>
+                                    		<apex:inputField value="{!targetObject[field.identifier]}" styleClass="form-control" html-disabled="true"/>
                                     	</apex:outputPanel>
                                     	<apex:outputPanel rendered="{!AND(readOnlyMode == false,field.isTextArea == true)}">
                                     		<apex:inputField value="{!targetObject[field.identifier]}" styleClass="form-control" style="width:100%"/>
@@ -286,6 +473,9 @@
                                     	<apex:outputPanel rendered="{!AND(readOnlyMode == false,field.isTextArea == false)}">
                                     		<apex:inputField value="{!targetObject[field.identifier]}" styleClass="form-control" />
                                     	</apex:outputPanel>
+										&nbsp;<apex:commandLink value="{!copyGuidance}" action="{!copyFieldFromObject}" rendered="{!AND(NOT(readOnlyMode),NOT(ISBLANK(field.copyFromField)))}" rerender="warning,theForm">
+											<apex:param name="identifier" value="{!field.identifier}" assignTo="{!targetFieldIdentifier}"/>
+										</apex:commandLink>
                                     </apex:pageBlock>
 
                                     <apex:pageBlock rendered="{!field.recommendedWordLimit != null}">
@@ -294,24 +484,24 @@
 
                                 </apex:pageBlock>
 
-                                <apex:pageBlock rendered="{!field.isCheckBox == true}">
+                                <apex:pageBlock rendered="{!AND(field.isCheckBox,OR(field.identifier!=primaryValue,AND(field.identifier==primaryValue,OR(targetObject[field.identifier]==true,primaryCount==0))))}">
                                     <div class="multiple-choice">
                                         <apex:inputCheckbox value="{!targetObject[field.identifier]}" disabled="{!readOnlyMode}"/>
                                         <label for="waste-type-1">{!field.label}</label>
                                     </div>
                                 </apex:pageBlock>
 
-                                <apex:pageBlock rendered="{!field.isSelectField == true}">
+                                <apex:pageBlock rendered="{!field.isSelectField}">
                                     <div class="needs-style">
                                         <!--<apex:selectCheckboxes borderVisible="false" value="{!field.valueList}" layout="pageDirection">
                                             <apex:selectOptions value="{!field.values}"></apex:selectOptions>
                                         </apex:selectCheckboxes>-->
                                         <ol style="list-style-type:none">
-                                        <apex:repeat value="{!field.optionList}" var="opt">
+                                        <apex:repeat value="{!field.optionList}" var="opt"> 
                                         	<li>
 			                                    <div class="multiple-choice">
-			                                        <apex:inputCheckbox value="{!opt.selected}" disabled="{!readOnlyMode}"/>
-			                                        <label for="waste-type-1">{!opt.value}</label>
+			                                        <apex:inputCheckbox value="{!opt.selected}" disabled="{!readOnlyMode}" onchange="showHideStuff('{!field.identifier}')"/>
+			                                        <label for="waste-type-1">{!opt.label}</label>
 			                                    </div>
 			                                    <div>&nbsp;</div>
 			                                </li> 
@@ -320,16 +510,16 @@
                                     </div>
                                 </apex:pageBlock>
 
-                                <apex:pageBlock rendered="{!field.isRadioField == true}">
+                                <apex:pageBlock rendered="{!field.isRadioField}">
 
                                     <div class="coform-radios">
-                                        <apex:selectRadio value="{!targetObject[field.identifier]}" layout="pageDirection" onchange="showHideWarning('{!field.identifier}')">
+                                        <apex:selectRadio value="{!targetObject[field.identifier]}" layout="pageDirection" onchange="showHideStuff('{!field.identifier}')">
                                             <apex:selectOptions value="{!field.values}"></apex:selectOptions>
                                         </apex:selectRadio>
                                     </div>
                                 </apex:pageBlock>
 
-                                <apex:pageBlock rendered="{!field.isDateField == true}">
+                                <apex:pageBlock rendered="{!field.isDateField}">
                                     <div class="form-date">
                                         <div class="form-group form-group-day">
                                             <label class="form-label" for="dob-day">Day</label>
@@ -344,9 +534,13 @@
                                           <apex:inputText value="{!field.dateYear}" styleClass="form-control" disabled="{!readOnlyMode}" html-type="number" html-pattern="[0-9]*" html-min="0" html-max="2050" />
                                         </div> 
                                     </div>
+									<apex:commandLink value="{!copyGuidance}" action="{!copyFieldFromObject}" rendered="{!AND(NOT(readOnlyMode),NOT(ISBLANK(field.copyFromField)))}" rerender="warning,theForm">
+										<apex:param name="identifier" value="{!field.identifier}" assignTo="{!targetFieldIdentifier}"/>
+									</apex:commandLink>
                                 </apex:pageBlock>
 
                             </div>
+                        </apex:pageBlock>
                         </apex:repeat>
                     </apex:pageBlock>
                   	</td></tr>
@@ -374,12 +568,12 @@
 				            <apex:repeat value="{!fileVersionList}" var="f">
 				 	        <tr>
 								<td width="45.3%">
-				               		<a href="{!$Label.SIB_Content_URL}/{!f.fileVersion.Id}">{!f.fileVersion.Title}</a>
+				               		<a href="{!contentURL}/{!f.fileVersion.Id}">{!f.fileVersion.Title}</a>
 				                </td>
 				                <td width="13%">Version {!f.fileVersion.VersionNumber}</td>
 								<td width="10%">
 									<apex:outputPanel rendered="{!readOnlyMode==false}">
-	                                    <apex:commandLink value="Remove" action="{!removeFile}">
+	                                    <apex:commandLink value="Remove" action="{!removeFile}" onclick="if(!confirm('Are you sure?')) return false;" >
 	                                        <apex:param name="identifier" value="{!f.fileVersion.ContentDocumentId}" assignTo="{!contentDocId}"/>
 	                                    </apex:commandLink>
 	                                </apex:outputPanel>
@@ -389,10 +583,10 @@
 									<div id="{!f.fileVersion.Id}" class="select-flag show-div">
 									<apex:outputPanel rendered="{!readOnlyMode==false}">
 										<div class="multiple-choice">
-	                                      		<apex:inputCheckbox value="{!f.selectFlag}" onclick="showVersionUpload(this,'{!f.fileVersion.Id}')" disabled="{!readOnlyMode}"/>
-	                                      		<label for="waste-type-1">Load new version</label>
-	                                  		</div>
-					                </apex:outputPanel>
+                                      		<apex:inputCheckbox value="{!f.selectFlag}" onclick="showVersionUpload(this,'{!f.fileVersion.Id}')" disabled="{!readOnlyMode}"/>
+                                      		<label for="waste-type-1">Load new version</label>
+                                  		</div>
+					                </apex:outputPanel> 
 					                </div>
 				                </td>
 				            </tr>
@@ -401,8 +595,8 @@
 					</apex:outputPanel>
 					<br/>
 						
-					<apex:outputPanel id="file" styleClass="fileUpload" rendered="{!readOnlyMode==false}">
-	  						<label for="thePage:layout:theForm:files:input" id="chooseFileLabel">Choose new file</label>
+					<apex:outputPanel id="file" styleClass="fileUpload hide-div" rendered="{!readOnlyMode==false}">
+	  					<label for="thePage:layout:theForm:files:input" id="chooseFileLabel">Choose new file</label>
 						<apex:inputFile id="input" styleClass="fileInput" style="opacity:0" value="{!fileBody}" fileName="{!fileName}" />
 						<div class="filePreview">
 						    <p class="form-control" style="color:#005EA5; width:66.6666%">No file chosen</p>
@@ -416,13 +610,15 @@
 				</apex:pageBlock>
 				</div></div>
 	
-        		<div class="site-wrapper"><div class="column-two-thirds">
+        		<div class="site-wrapper"><div class="column-two-thirds" id="saveButtons">
 				<apex:outputPanel rendered="{!ISBLANK(fromFormId)}"> 
 					<apex:commandButton value="Save and continue" action="{!saveContinue}" styleClass="button" rendered="{!AND(saveReqd,NOT(readOnlyMode))}"/>
 					<apex:commandButton value="Continue" action="{!saveContinue}" styleClass="button" rendered="{!OR(NOT(saveReqd),readOnlyMode)}"/>
 					<br /><br />
-					<apex:commandLink value="Save and come back later" action="{!saveExit}" rendered="{!AND(saveReqd,NOT(readOnlyMode))}"/>
-					<apex:commandLink value="Exit" action="{!saveExit}" rendered="{!readOnlyMode}"/>
+					<apex:commandLink value="Save and come back later" action="{!saveExit}" rendered="{!AND(saveReqd,NOT(readOnlyMode),ISBLANK(returnPage))}"/>
+					<apex:commandLink value="Exit" action="{!saveExit}" rendered="{!AND(readOnlyMode,ISBLANK(returnPage))}"/>
+					<apex:commandLink value="Save and return to {!returnPage}" action="{!savePageReturn}" rendered="{!AND(saveReqd,NOT(readOnlyMode),NOT(ISBLANK(returnPage)))}"/>
+					<apex:commandLink value="Return to {!returnPage}" action="{!savePageReturn}" rendered="{!AND(readOnlyMode,NOT(ISBLANK(returnPage)))}"/>
 					&nbsp;&nbsp;
 					<apex:outputLink value="{!referenceURL}" rendered="{!referenceURL!=null}" target="_blank">{!referenceGuidance}</apex:outputLink>                   
 				</apex:outputPanel>

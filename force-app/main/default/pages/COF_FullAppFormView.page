@@ -1,0 +1,10 @@
+<!--_______________________________________________________________________________________________________________________
+	Name:			COF_FullAppFormView.page
+	Description:	Provides access to LCF Full Application form
+					
+	Date         Version Author      		Summary of Changes 
+	___________  _______ _________________	________________________________________________________________________________
+	Mar 2018     1.0     Michael Witchalls	Initial Release 
+________________________________________________________________________________________________________________________ -->  
+<apex:page standardController="Form_LCF_Full_App_1__c" extensions="COF_FullAppViewOverrideController" action="{!viewForm}">
+</apex:page>

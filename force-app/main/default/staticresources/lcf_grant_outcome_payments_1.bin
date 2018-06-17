@@ -1,0 +1,18 @@
+{
+	"id": "lcf_grant_outcome_payments_1",
+	"target_object": "Form_LCF_Outcome_Achievement_1__c",
+	"target_field": "oa_outcome__c",
+	"status_field": "op_section_status__c",
+	"short_title": "Outcome Payment",
+	"parent_relationship": "grant_achievement__r",
+	"pages": [
+		{
+			"id": "1",
+			"questions": [
+				{ "target_field": "oa_outcome__c" }, 
+				{ "target_field": "oa_period_outcome_payments__c" },
+				{ "target_field": "oa_period_lcf_claim__c"}			
+			]
+		}
+	]
+}

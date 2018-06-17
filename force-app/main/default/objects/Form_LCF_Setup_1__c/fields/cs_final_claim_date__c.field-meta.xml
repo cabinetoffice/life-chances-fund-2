@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>cs_final_claim_date__c</fullName>
-    <description>For example, 31 3 2018</description>
     <externalId>false</externalId>
     <inlineHelpText>What will be the SIB’s final claim date for LCF?</inlineHelpText>
     <label>CS - Final Claim Date</label>

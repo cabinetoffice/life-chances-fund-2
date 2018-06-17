@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cs_successful_outcome_description__c</fullName>
+    <description>If you deliver this SIB as planned and achieve the financial, social and learning set out above, what will the impact be for parties involved and the wider community? What do you plan to do to build on this impact?</description>
+    <externalId>false</externalId>
+    <inlineHelpText>What will the successful outcome of your project look like?</inlineHelpText>
+    <label>CS - Successful Outcome Description</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>10</visibleLines>
+</CustomField>

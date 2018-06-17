@@ -11,11 +11,6 @@
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>Sales</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>Social_Impact_Bonds</application>
         <default>false</default>
         <visible>true</visible>
@@ -45,6 +40,18 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>COF_ApplicationTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>COF_CommissionerTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>COF_CommissionerTriggerHandlerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>COF_Config</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -57,6 +64,26 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>COF_EOIDataConversion</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>COF_EOIDataConversionController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>COF_EOIDataConversionTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>COF_EOIViewControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>COF_EOIViewOverrideController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>COF_Exception</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -66,10 +93,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>COF_FieldMetadataController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>COF_FieldMetadataControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>COF_FieldMetadataExtract</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -78,6 +109,38 @@
     </classAccesses>
     <classAccesses>
         <apexClass>COF_Form</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>COF_FullAppViewControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>COF_FullAppViewOverrideController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>COF_GrantBlockSubmittedController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>COF_GrantBlockSubmittedControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>COF_GrantManagementViewController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>COF_GrantViewControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>COF_OutcomeMetricTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>COF_OutcomeMetricTriggerHandlerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -101,11 +164,15 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>ChangePasswordController</apexClass>
+        <apexClass>COF_SetupViewControllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>ChangePasswordControllerTest</apexClass>
+        <apexClass>COF_SetupViewOverrideController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ChangePasswordController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -117,15 +184,39 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>FormSummaryController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LCFCommissionerTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LCFCommissionerTriggerHandlerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LCFGrantBlockController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LCFGrantControllersTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LCFGrantHistoryController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LCFGrantsController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MetadataService</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MetadataServiceTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>NewController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -157,23 +248,11 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>SIB_ChangePasswordController</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>SIB_ChangePasswordControllerTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>SIB_ErrorPageController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>SIB_NewApplicationController</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>SIB_NewApplicationControllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -181,12 +260,8 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>SIB_SelfRegControllerTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>SIB_TemplateController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>SIB_TemplateControllerTest</apexClass>
@@ -202,7 +277,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>SectionsController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>SectionsControllerTest</apexClass>
@@ -231,17 +306,17 @@
     <custom>true</custom>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.External_Id__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Account.Organisation_Region__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Organisation_Type_Details__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Application_Answer__c.Answer_Key__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -276,6 +351,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Application_Answer__c.Data_Conversion_Form_Section__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Application_Answer__c.Data_Conversion_Form__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Application_Answer__c.Date_Answer__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -283,6 +368,11 @@
         <editable>true</editable>
         <field>Application_Answer__c.Date_Day_Answer__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Application_Answer__c.Date_Formula__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -295,18 +385,28 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Application_Answer__c.EOI_Status__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Application_Answer__c.Email_Answer__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Application_Answer__c.Form_Section__c</field>
-        <readable>false</readable>
+        <field>Application_Answer__c.Form__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Application_Answer__c.Internal_Notes__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Application_Answer__c.Is_Question__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -416,6 +516,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Application_Question_Template__c.Form__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Application_Question_Template__c.Page__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -485,6 +590,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Application_Question__c.Page_Number_To_Display_On__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Application_Question__c.Pages_for_Add_Another__c</field>
         <readable>true</readable>
@@ -497,6 +607,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Application_Question__c.Question_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Application_Question__c.Question_Qualifier__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -556,12 +671,32 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Application__c.Applicant_Organisation_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Application__c.Applicant_Organisation_Sector__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Application__c.Applicant_Organisation_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Application__c.Application_Stage__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Application__c.Application_Window_Template__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Application__c.Assigned_to_me__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -596,7 +731,117 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Application__c.EOI_Number_of_Commissioners__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Application__c.EOI_Number_of_Outcomes__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Application__c.EOI_Number_of_Previous_Applications__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Application__c.EOI_Primary_Commissioner_Count__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Application__c.EOI_Primary_Commissioner_Region__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Application__c.EOI_Primary_Commissioner__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Application__c.EOI_Primary_Outcome_Count__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Application__c.Eligible_for_Full_Application__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Application__c.Eligible_for_NEW_EOI_Form__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Application__c.Full_App_Commissioner_Benefits__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Application__c.Full_App_Commissioner_Savings__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Application__c.Full_App_LCF_Contribution__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Application__c.Full_App_Number_of_Commissioners__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Application__c.Full_App_Number_of_Outcomes__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Application__c.Full_App_Other_Party_Benefits__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Application__c.Full_App_Other_Party_Savings__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Application__c.Full_App_Outcome_Payments__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Application__c.Full_App_Primary_Commissioner_Count__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Application__c.Full_App_Primary_Commissioner_Region__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Application__c.Full_App_Primary_Commissioner__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Application__c.Full_App_Primary_Outcome_Count__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Application__c.Full_App_Total_Benefits__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Application__c.Full_App_Total_Savings__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -607,6 +852,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Application__c.Full_Application_Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Application__c.Full_Award_Setup_External_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -641,8 +891,93 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Application__c.Owned_by_me__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Application__c.Primary_Commissioner__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Application__c.Project_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Application__c.Project_Region__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Application__c.Project_Value__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Application__c.Reviewer__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Application__c.Setup_Number_of_Commissioners__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Application__c.Setup_Number_of_Outcomes__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Application__c.Setup_Number_of_Stakeholders__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Application__c.Setup_Primary_Outcome_Count__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Application__c.Setup_Primary_Stakeholder_Count__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Application__c.Setup_Primary_Stakeholder_Region__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Application__c.Setup_Primary_Stakeholder__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Application__c.Setup_Total_Commissioner_Payments_High__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Application__c.Setup_Total_Commissioner_Savings_High__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Application__c.Setup_Total_Interventions_Users_High__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Application__c.Setup_Total_LCF_Outcome_Payments_High__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Application__c.Setup_Total_Outcome_Users_High__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -740,11 +1075,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Contact.External_Id__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>ContentVersion.SIB_Field_Key__c</field>
         <readable>false</readable>
@@ -755,73 +1085,183 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Engaged_Organisation__c.Email_Address__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Engaged_Organisation__c.Engagement_Level__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Engaged_Organisation__c.Name_of_Contact__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Engaged_Organisation__c.Number__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Engaged_Organisation__c.Organisation_Name__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Engaged_Organisation__c.Organisation_Role__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Engaged_Organisation__c.Organisation_Type__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>Footer_Link__mdt.Active__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Commissioner_1__c.application__c</field>
+        <field>Form_LCF_Commissioner_1__c.eoi__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Commissioner_1__c.co_contact_number__c</field>
+        <field>Form_LCF_Commissioner_1__c.full_application__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Commissioner_1__c.co_email__c</field>
+        <field>Form_LCF_Commissioner_1__c.full_award_setup__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Commissioner_1__c.co_job_title__c</field>
+        <field>Form_LCF_Commissioner_1__c.key__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Commissioner_1__c.co_lead_contact_name__c</field>
+        <field>Form_LCF_Commissioner_1__c.primary__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Commissioner_1__c.co_organisation_name__c</field>
+        <field>Form_LCF_Commissioner_1__c.st_engagement_detail__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Commissioner_1__c.st_engagement_level__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Commissioner_1__c.st_interventions_users_high__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Commissioner_1__c.st_interventions_users_low__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Commissioner_1__c.st_interventions_users_median__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Commissioner_1__c.st_lcf_outcome_payments_high__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Commissioner_1__c.st_lcf_outcome_payments_low__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Commissioner_1__c.st_lcf_outcome_payments_median__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Commissioner_1__c.st_lead_contact_email__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Commissioner_1__c.st_lead_contact_first_name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Commissioner_1__c.st_lead_contact_full_name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Commissioner_1__c.st_lead_contact_job_title__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Commissioner_1__c.st_lead_contact_last_name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Commissioner_1__c.st_lead_contact_mobile__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Commissioner_1__c.st_lead_contact_phone__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Commissioner_1__c.st_organisation_name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Commissioner_1__c.st_organisation_other_sector__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Commissioner_1__c.st_organisation_other_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Commissioner_1__c.st_organisation_region__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Commissioner_1__c.st_organisation_sector__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Commissioner_1__c.st_organisation_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Commissioner_1__c.st_outcome_payments_high__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Commissioner_1__c.st_outcome_payments_low__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Commissioner_1__c.st_outcome_payments_median__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Commissioner_1__c.st_outcomes_users_high__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Commissioner_1__c.st_outcomes_users_low__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Commissioner_1__c.st_outcomes_users_median__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Commissioner_1__c.st_savings_high__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Commissioner_1__c.st_savings_low__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Commissioner_1__c.st_savings_median__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -840,8 +1280,318 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_EOI_1__c.Application_Contact_Organisation__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_EOI_1__c.Application_Contact__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_EOI_1__c.Assigned_to_me__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Full_App_1__c.DE_Responsible_Person__c</field>
+        <field>Form_LCF_EOI_1__c.EOI_Key__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_EOI_1__c.Form_Complete__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_EOI_1__c.Reviewer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_EOI_1__c.Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_EOI_1__c.Theme__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.co_expected_percent_from_lcf__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.co_expected_request_from_lcf__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.co_intervention_cost_lead_commissioner__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.co_intervention_cost_other_commissioners__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.co_intervention_saves_government__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.co_intervention_saves_lead_commissioner__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.co_intervention_saves_other_commissioner__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_EOI_1__c.co_number_of_commissioners__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_EOI_1__c.co_primary_commissioner__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_EOI_1__c.co_primary_commissioner_count__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.co_section_status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.de_declaration__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.de_responsible_person__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.de_section_status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.lc_email__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.lc_first_name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.lc_last_name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.lc_phone_number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.lc_position__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.lc_section_status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.or_expenditure_for_projected_year__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.or_expenditure_for_year__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.or_income_for_projected_year__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.or_income_for_year__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.or_organisation_age__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.or_organisation_name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.or_organisation_sector__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.or_organisation_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.or_projected_year_end__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.or_savings_for_projected_year__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.or_savings_for_year__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.or_section_status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.or_surplus_for_projected_year__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.or_surplus_for_year__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.or_year_end__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.ou_intervention_description__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_EOI_1__c.ou_number_of_outcomes__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_EOI_1__c.ou_primary_outcome_count__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.ou_section_status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_EOI_1__c.pa_number_of_previous_applications__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.pa_previous_applications__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.pa_section_status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.pr_other_social_issues__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.pr_project_end_date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.pr_project_name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.pr_project_region__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.pr_project_start_date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.pr_project_summary__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.pr_section_status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.rs_section_status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_EOI_1__c.rs_service_developments__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Full_App_1__c.Application_Contact_Organisation__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Full_App_1__c.Application_Contact__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Full_App_1__c.Assigned_to_me__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Full_App_1__c.Commissioner_Organisation__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -850,18 +1600,33 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Full_App_1__c.IV_Section_Status__c</field>
+        <editable>false</editable>
+        <field>Form_LCF_Full_App_1__c.Project_Value__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Full_App_1__c.application__c</field>
+        <editable>false</editable>
+        <field>Form_LCF_Full_App_1__c.Reviewer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Full_App_1__c.Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Full_App_1__c.Theme__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Form_LCF_Full_App_1__c.de_declaration__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Full_App_1__c.de_responsible_person__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1091,6 +1856,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Form_LCF_Full_App_1__c.iv_section_status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Form_LCF_Full_App_1__c.or_accounts_audited__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1210,9 +1980,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Form_LCF_Full_App_1__c.or_public__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -1280,6 +2050,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Full_App_1__c.ou_primary_outcome_count__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Form_LCF_Full_App_1__c.ou_relate__c</field>
         <readable>true</readable>
@@ -1316,7 +2091,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Full_App_1__c.ov_intermediary_contact_name__c</field>
+        <field>Form_LCF_Full_App_1__c.ov_intermediary_contact_first_name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Full_App_1__c.ov_intermediary_contact_last_name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1371,6 +2151,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Form_LCF_Full_App_1__c.ov_organisation_sector__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Form_LCF_Full_App_1__c.ov_organisation_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1380,8 +2165,23 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Full_App_1__c.ov_primary_commissioner__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Full_App_1__c.ov_primary_commissioner_count__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Form_LCF_Full_App_1__c.ov_project_name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Full_App_1__c.ov_project_region__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1546,7 +2346,867 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Outcome_1__c.application__c</field>
+        <field>Form_LCF_Grant_Achievement_1__c.Archive_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Grant_Achievement_1__c.Form_Complete__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Grant_Achievement_1__c.Project_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Achievement_1__c.Reviewer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Grant_Achievement_1__c.Theme__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Achievement_1__c.ab_approval_status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Achievement_1__c.ab_block_status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Grant_Achievement_1__c.ab_claim_period__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Achievement_1__c.ab_claim_period_end__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Achievement_1__c.ab_claim_period_start__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Achievement_1__c.de_date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Achievement_1__c.de_declaration__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Achievement_1__c.de_name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Achievement_1__c.de_role__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Achievement_1__c.de_section_status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Achievement_1__c.lcf_grant__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Grant_Achievement_1__c.oa_number_of_outcome_achievements__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Achievement_1__c.oa_section_status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Grant_Achievement_1__c.oa_total_period_achievement__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Grant_Achievement_1__c.oa_total_period_lcf_claim__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Grant_Achievement_1__c.oa_total_period_outcome_payments__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Grant_Achievement_1__c.oa_total_period_target__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Achievement_1__c.op_non_lcf_outcome_payments_claimed__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Achievement_1__c.op_non_lcf_outcome_payments_received__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Achievement_1__c.op_outcome_achievement_files__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Achievement_1__c.op_payment_claim_files__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Achievement_1__c.op_period_outcome_top_up__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Achievement_1__c.op_section_status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Achievement_1__c.op_spend_committed_after_acceptance__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Achievement_1__c.op_verification_file__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Grant_Achievement_1__c.tp_number_of_trigger_payments__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Grant_Achievement_1__c.tp_total_trigger_payments__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Achievement_1__c.ur_period_participant_starters__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Achievement_1__c.ur_period_referral_actual__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Achievement_1__c.ur_period_referral_target__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Achievement_1__c.ur_section_status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.Archive_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.Form_Complete__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.Project_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.Reviewer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.SF_Any_Other__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.Theme__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.am_approval_status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.am_block_status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.am_end_of_grant__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.am_year_end__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.am_year_end_string__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.ar_current_population__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.ar_no_outcome_achieved__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.ar_section_status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.ar_service_users_changed__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.cs_any_central_government_savings__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.cs_any_local_community_savings__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.cs_cashable_savings_commissioners__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.cs_cashable_savings_local__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.cs_cashable_savings_national__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.cs_costs_avoided_commissioners__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.cs_costs_avoided_local__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.cs_costs_avoided_national__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.cs_how_calculated_commissioners__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.cs_how_calculated_local__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.cs_how_calculated_national__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.cs_section_status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.de_date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.de_declaration__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.de_name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.de_role__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.de_section_status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.eg_payment_history_count__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.eg_section_status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.eg_total_actual_lcf_funding__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.eg_total_commissioner_funding__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.lcf_grant__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.sc_actual_performance_mgmt_cost__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.sc_actual_service_delivery_costs__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.sc_actual_social_investment_cost__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.sc_anticipated_performance_mgmt_cost__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.sc_anticipated_return_on_social_invest__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.sc_anticipated_service_delivery_costs__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.sc_evaluation_and_learning_costs__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.sc_funds_flow_files__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.sc_funds_flow_revised__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.sc_lcf_grant_money_multiple__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.sc_payment_profile_files__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.sc_revised_payment_profile_required__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.sc_section_status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.sf_additional_social_investment__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.sf_fixed_rate_loans_received__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.sf_grants_received__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.sf_lcf_outcome_payments_received__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.sf_non_outcome_funding__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.sf_other_funding_details__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.sf_other_funding_received__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.sf_other_outcome_payments_received__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.sf_section_status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.sf_social_investment_received__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.ve_any_other_engagements__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.ve_future_engagement__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.ve_management_roles__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.ve_organisations_involved__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.ve_other_engagement_details__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.ve_other_engagements__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.ve_section_status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Annual_Block_1__c.ve_technical_support__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.Contact_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.Form_Complete__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.Project_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.Theme__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.bb_block_status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.bb_commissioner_costs_avoided__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.bb_commissioner_outcome_payments__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.bb_commissioner_savings__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.bb_delivery_cost__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.bb_delivery_cost_percent__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.bb_evaluation_and_learning_cost__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.bb_evaluation_and_learning_cost_percent__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.bb_final_lcf_offer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.bb_investment_cost__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.bb_investment_cost_percent__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.bb_investment_money_multiple__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.bb_issue_status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.bb_lcf_outcome_percent__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.bb_management_cost__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.bb_management_cost_percent__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.bb_max_engagement_users__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.bb_max_outcome_users__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.bb_max_service_users__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.bb_number_of_investors__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.bb_number_of_outcomes__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.bb_number_of_payment_triggers__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.bb_number_of_terms__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.bb_other_funding__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.bb_other_funding_details__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.bb_other_funding_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.bb_other_local_costs_avoided__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.bb_other_local_savings__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.bb_other_national_costs_avoided__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.bb_other_national_savings__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.bb_primary_outcome_count__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.bb_return_on_investment__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.bb_section_status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.bb_sib_end_date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.bb_sib_launch_date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Baseline_1__c.bb_start_up_investment__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Investor_1__c.grant_baseline__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Investor_1__c.in_investor_name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Outcome_1__c.grant_baseline__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Outcome_1__c.ou_description__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Outcome_1__c.ou_individual_cohort__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Outcome_1__c.ou_measure__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Grant_Outcome_1__c.ou_number_of_metrics__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Outcome_1__c.ou_outcome_metrics__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Outcome_1__c.primary__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Payment_History_1__c.lcf_grant__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Payment_History_1__c.ph_actual_commissioner_funding__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Payment_History_1__c.ph_actual_lcf_funding__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Payment_History_1__c.ph_financial_year__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Payment_Profile_1__c.Archive_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Grant_Payment_Profile_1__c.Contact_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Grant_Payment_Profile_1__c.Form_Complete__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Grant_Payment_Profile_1__c.Project_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Grant_Payment_Profile_1__c.Theme__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Payment_Profile_1__c.pp_block_status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Payment_Profile_1__c.pp_issue_status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Payment_Profile_1__c.pp_payment_claim_schedule__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Payment_Profile_1__c.pp_payment_profile_files__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Payment_Profile_1__c.pp_section_status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Term_1__c.grant_baseline__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Grant_Term_1__c.gt_description__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Outcome_1__c.eoi__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Outcome_1__c.full_application__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Outcome_1__c.full_award_setup__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Outcome_1__c.key__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1561,7 +3221,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Form_LCF_Outcome_1__c.ou_measure__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Form_LCF_Outcome_1__c.ou_payment__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Outcome_1__c.ou_service_users__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1575,23 +3245,218 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Outcome_1__c.primary__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Outcome_Achievement_1__c.lcf_grant__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Outcome_Achievement_1__c.oa_claim_period__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Outcome_Achievement_1__c.oa_outcome__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Outcome_Achievement_1__c.oa_period_achievement__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Outcome_Achievement_1__c.oa_period_end__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Outcome_Achievement_1__c.oa_period_lcf_claim__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Outcome_Achievement_1__c.oa_period_outcome_payments__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Outcome_Achievement_1__c.oa_period_start__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Outcome_Achievement_1__c.oa_period_target__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Outcome_Achievement_1__c.primary__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Outcome_Metric_1__c.grant_baseline__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Outcome_Metric_1__c.om_description__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Outcome_Metric_1__c.om_individual_cohort__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Outcome_Payment_1__c.application__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Outcome_Payment_1__c.key__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Outcome_Payment_1__c.op_commissioner_payments__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Outcome_Payment_1__c.op_commissioner_savings__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Outcome_Payment_1__c.op_financial_year__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Outcome_Payment_1__c.op_lcf_outcome_payments__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Payment_Trigger_1__c.grant_baseline__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Payment_Trigger_1__c.pt_description__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Previous_App_1__c.eoi__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Previous_App_1__c.key__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Previous_App_1__c.pa_project_name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Previous_App_1__c.pa_reasons_not_successful__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Previous_App_1__c.pa_successful__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Setup_1__c.Application_Contact_Organisation__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Setup_1__c.Application_Contact__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Setup_1__c.Assigned_to_me__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.CS_SIB_Governance_Providers__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Setup_1__c.Commissioner_Organisation__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Form_LCF_Setup_1__c.Form_Complete__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Form_LCF_Setup_1__c.PR_Number_of_Disengagements__c</field>
+        <field>Form_LCF_Setup_1__c.Project_Value__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Setup_1__c.Reviewer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Setup_1__c.Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.ap_lead_applicant_changed__c</field>
+        <field>Form_LCF_Setup_1__c.ap_accounts_audited__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.ap_accounts_files__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.ap_auditor_address__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.ap_auditor_name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.ap_auditor_postcode__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Form_LCF_Setup_1__c.ap_lead_applicant_organisation__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.ap_lead_applicant_the_same__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1631,6 +3496,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.ap_legal_contact_moved__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Form_LCF_Setup_1__c.ap_legal_contact_position__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1641,7 +3511,47 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.ap_legal_contact_previous_address__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.ap_legal_contact_previous_postcode__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Form_LCF_Setup_1__c.ap_legal_contact_work_email__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.ap_operating_period__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.ap_organisation_address__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.ap_organisation_postcode__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.ap_organisation_reference__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.ap_organisation_sector__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.ap_organisation_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1691,12 +3601,27 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.ap_primary_contact_moved__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Form_LCF_Setup_1__c.ap_primary_contact_position__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Form_LCF_Setup_1__c.ap_primary_contact_postcode__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.ap_primary_contact_previous_address__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.ap_primary_contact_previous_postcode__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1716,7 +3641,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.ap_reference_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Form_LCF_Setup_1__c.ap_same_bank_account__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.ap_savings_reserves__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1726,7 +3661,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.application__c</field>
+        <field>Form_LCF_Setup_1__c.ap_surplus_deficit__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.ap_total_expenditure__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.ap_total_income__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1737,11 +3682,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Form_LCF_Setup_1__c.cs_all_commissioner_approval_date__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.cs_all_investment_raised__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1762,6 +3702,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Form_LCF_Setup_1__c.cs_balance_of_investment_contingency__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.cs_commissioner_commitment__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.cs_commissioner_commitment_date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1840,18 +3790,13 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.cs_interest_to_investors__c</field>
+        <editable>false</editable>
+        <field>Form_LCF_Setup_1__c.cs_investment_needed__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Form_LCF_Setup_1__c.cs_investment_raised_so_far__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.cs_investor_return_rate__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1890,11 +3835,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.cs_more_than_one_investor__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>Form_LCF_Setup_1__c.cs_number_of_investors__c</field>
         <readable>true</readable>
@@ -1902,6 +3842,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Form_LCF_Setup_1__c.cs_other_funding_required__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.cs_outcome_signoff__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1937,11 +3882,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Form_LCF_Setup_1__c.cs_procurement_completion_date__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.cs_project_admin_fees__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1991,12 +3931,52 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.cs_sib_governance__c</field>
+        <field>Form_LCF_Setup_1__c.cs_sib_governance_board__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.cs_sib_governance_files__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.cs_sib_governance_leadership__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.cs_sib_governance_resilience__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.cs_sib_governance_stakeholders__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.cs_sib_governance_support__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Form_LCF_Setup_1__c.cs_sib_launch_date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.cs_step_up_period__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.cs_step_up_period_start__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.cs_successful_outcome_description__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2017,6 +3997,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Form_LCF_Setup_1__c.cs_third_party_source_known__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Setup_1__c.cs_total_investment__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Setup_1__c.cs_total_other_funding__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2046,6 +4036,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Form_LCF_Setup_1__c.pr_number_of_disengagements__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Form_LCF_Setup_1__c.pr_number_of_stakeholders__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2057,6 +4052,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Form_LCF_Setup_1__c.pr_potential_service_users__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Setup_1__c.pr_primary_stakeholder__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Setup_1__c.pr_primary_stakeholder_count__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2072,11 +4077,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Form_LCF_Setup_1__c.pr_section_status__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.pr_service_users_changed__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2101,47 +4101,67 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.so_cashable_benefits_expected__c</field>
+        <field>Form_LCF_Setup_1__c.sf_cashable_benefits_expected__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.so_cashable_savings_expected__c</field>
+        <field>Form_LCF_Setup_1__c.sf_cashable_benefits_other_parties__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.so_central_government_interventions__c</field>
+        <field>Form_LCF_Setup_1__c.sf_cashable_savings_expected__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.so_central_government_services__c</field>
+        <field>Form_LCF_Setup_1__c.sf_cashable_savings_other_parties__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.so_financials_changed__c</field>
+        <field>Form_LCF_Setup_1__c.sf_central_government_interventions__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.so_lcf_contribution_change_reasons__c</field>
+        <field>Form_LCF_Setup_1__c.sf_central_government_services__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.so_lcf_contribution_request_changed__c</field>
+        <field>Form_LCF_Setup_1__c.sf_financials_changed__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.sf_lcf_contribution_change_reasons__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.sf_lcf_contribution_request_changed__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.sf_outcome_contribution_request__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.sf_outcome_payments_expected__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.sf_section_status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Form_LCF_Setup_1__c.so_number_of_outcomes__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.so_outcome_contribution_request__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2156,7 +4176,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.so_outcome_payments_expected__c</field>
+        <field>Form_LCF_Setup_1__c.so_outcome_relationship_files__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2165,8 +4185,8 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.so_outcomes_changed__c</field>
+        <editable>false</editable>
+        <field>Form_LCF_Setup_1__c.so_primary_outcome_count__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2176,37 +4196,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.tm_commissioner_payments_2018__c</field>
+        <field>Form_LCF_Setup_1__c.tm_capital_ratio_high__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.tm_commissioner_payments_2019__c</field>
+        <field>Form_LCF_Setup_1__c.tm_capital_ratio_low__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.tm_commissioner_payments_2020__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.tm_commissioner_payments_2021__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.tm_commissioner_payments_2022__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.tm_commissioner_payments_2023__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.tm_commissioner_payments_2024__c</field>
+        <field>Form_LCF_Setup_1__c.tm_capital_ratio_median__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2226,41 +4226,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.tm_commissioner_savings_2018__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.tm_commissioner_savings_2019__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.tm_commissioner_savings_2020__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.tm_commissioner_savings_2021__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.tm_commissioner_savings_2022__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.tm_commissioner_savings_2023__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.tm_commissioner_savings_2024__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Form_LCF_Setup_1__c.tm_commissioner_savings_high__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2276,7 +4241,27 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.tm_cost_of_investment_high__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.tm_cost_of_investment_low__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Form_LCF_Setup_1__c.tm_cost_of_investment_median__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Form_LCF_Setup_1__c.tm_engagement_plans__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Setup_1__c.tm_evaluation_and_learning_cost_percent__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2346,41 +4331,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.tm_lcf_outcome_payments_2018__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.tm_lcf_outcome_payments_2019__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.tm_lcf_outcome_payments_2020__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.tm_lcf_outcome_payments_2021__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Form_LCF_Setup_1__c.tm_lcf_outcome_payments_2022__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.tm_lcf_outcome_payments_2023__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.tm_lcf_outcome_payments_2024__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Form_LCF_Setup_1__c.tm_lcf_payments_high__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2395,13 +4345,13 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.tm_more_than_one_commissioner__c</field>
+        <editable>false</editable>
+        <field>Form_LCF_Setup_1__c.tm_number_of_commissioners__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Form_LCF_Setup_1__c.tm_number_of_commisioners__c</field>
+        <field>Form_LCF_Setup_1__c.tm_number_of_outcome_payments__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2421,17 +4371,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.tm_operating_with_investor_costs_high__c</field>
+        <field>Form_LCF_Setup_1__c.tm_operating_management_costs_high__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.tm_operating_with_investor_costs_low__c</field>
+        <field>Form_LCF_Setup_1__c.tm_operating_management_costs_low__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Setup_1__c.tm_operating_with_investor_costs_med__c</field>
+        <field>Form_LCF_Setup_1__c.tm_operating_management_costs_median__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2485,6 +4435,16 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Setup_1__c.tm_sib_delivery_cost_percent__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Setup_1__c.tm_sib_management_cost_percent__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Form_LCF_Setup_1__c.tm_social_investment_high__c</field>
         <readable>true</readable>
@@ -2507,6 +4467,61 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Form_LCF_Setup_1__c.tm_sustain_engagement_plan__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Setup_1__c.tm_total_commissioner_payments__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Setup_1__c.tm_total_commissioner_payments_high__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Setup_1__c.tm_total_commissioner_savings__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Setup_1__c.tm_total_commissioner_savings_high__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Setup_1__c.tm_total_interventions_users_high__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Setup_1__c.tm_total_investment_cost__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Setup_1__c.tm_total_investment_cost_percent__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Setup_1__c.tm_total_lcf_payments__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Setup_1__c.tm_total_lcf_payments_high__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Setup_1__c.tm_total_outcome_users_high__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Setup_1__c.tm_total_sib_cost__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2541,91 +4556,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Setup_Commissioner_1__c.application__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_Commissioner_1__c.sc_all_outcome_payments_high__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_Commissioner_1__c.sc_all_outcome_payments_low__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_Commissioner_1__c.sc_all_outcome_payments_median__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_Commissioner_1__c.sc_commissioner_name__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_Commissioner_1__c.sc_interventions_users_high__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_Commissioner_1__c.sc_interventions_users_low__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_Commissioner_1__c.sc_interventions_users_median__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_Commissioner_1__c.sc_lcf_outcome_payments_high__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_Commissioner_1__c.sc_lcf_outcome_payments_low__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_Commissioner_1__c.sc_lcf_outcome_payments_median__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_Commissioner_1__c.sc_outcomes_users_high__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_Commissioner_1__c.sc_outcomes_users_low__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_Commissioner_1__c.sc_outcomes_users_median__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_Commissioner_1__c.sc_savings_high__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_Commissioner_1__c.sc_savings_low__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_Commissioner_1__c.sc_savings_median__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Form_LCF_Setup_Investor_1__c.application__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2646,122 +4576,157 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Setup_Outcome_1__c.application__c</field>
+        <field>Form_LCF_Trigger_Payment_1__c.lcf_grant__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Trigger_Payment_1__c.tp_claim_period__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Setup_Outcome_1__c.so_baseline__c</field>
+        <field>Form_LCF_Trigger_Payment_1__c.tp_payment__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Trigger_Payment_1__c.tp_period_end__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Trigger_Payment_1__c.tp_period_start__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Form_LCF_Trigger_Payment_1__c.tp_trigger__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>LCF_Grant__c.Applicant_Organisation_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>LCF_Grant__c.Applicant_Organisation_Sector__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>LCF_Grant__c.Applicant_Organisation_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>LCF_Grant__c.Application_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Setup_Outcome_1__c.so_description__c</field>
+        <field>LCF_Grant__c.Application__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Setup_Outcome_1__c.so_service_users__c</field>
+        <field>LCF_Grant__c.Contact_Email__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>LCF_Grant__c.Contact_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>LCF_Grant__c.Contact_Organisation_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Setup_Outcome_1__c.so_social_impact__c</field>
+        <field>LCF_Grant__c.Contact__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>LCF_Grant__c.Number_of_Investors__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>LCF_Grant__c.Number_of_Outcomes__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>LCF_Grant__c.Number_of_Payment_Triggers__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>LCF_Grant__c.Number_of_Terms__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>LCF_Grant__c.Primary_Commissioner__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>LCF_Grant__c.Primary_Outcome_Count__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>LCF_Grant__c.Project_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>LCF_Grant__c.Project_Value__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Setup_Outcome_1__c.so_time_needed__c</field>
+        <field>LCF_Grant__c.Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>LCF_Grant__c.Theme__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Setup_Outcome_1__c.so_user_payment__c</field>
+        <field>LCF_Grant__c.ab_block_status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Setup_Stakeholder_1__c.application__c</field>
+        <field>LCF_Grant__c.am_block_status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Setup_Stakeholder_1__c.st_engagement_detail__c</field>
+        <field>LCF_Grant__c.bb_block_status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Setup_Stakeholder_1__c.st_engagement_level__c</field>
+        <field>LCF_Grant__c.bb_issue_status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Setup_Stakeholder_1__c.st_lead_contact_daytime_phone__c</field>
+        <field>LCF_Grant__c.pp_block_status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Form_LCF_Setup_Stakeholder_1__c.st_lead_contact_email__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_Stakeholder_1__c.st_lead_contact_mobile__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_Stakeholder_1__c.st_lead_contact_name__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_Stakeholder_1__c.st_organisation_name__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_Stakeholder_1__c.st_organisation_other_sector__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_Stakeholder_1__c.st_organisation_other_type__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_Stakeholder_1__c.st_organisation_sector__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Form_LCF_Setup_Stakeholder_1__c.st_organisation_type__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Outcome_Payment_Trigger__c.Application__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Outcome_Payment_Trigger__c.Baseline__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Outcome_Payment_Trigger__c.Description__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Outcome_Payment_Trigger__c.Payment__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Outcome_Payment_Trigger__c.Primary_Outcome__c</field>
+        <field>LCF_Grant__c.pp_issue_status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2791,62 +4756,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Outcomes_Application_Commissioner__c.Commissioner__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Outcomes_Application_Commissioner__c.Email__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Outcomes_Application_Commissioner__c.First_Name__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Outcomes_Application_Commissioner__c.Last_Name__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Outcomes_Application_Commissioner__c.Marked_as_Complete__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Outcomes_Application_Commissioner__c.Organisation_Name__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Outcomes_Application_Commissioner__c.Phone_Number__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Previous_Application__c.Not_Successful_Reasons__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Previous_Application__c.Was_It_Successful__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Primary_Outcome__c.Application__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Primary_Outcome__c.IsPrimary__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Primary_Outcome__c.Outcome_Summary__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2886,7 +4801,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>SIB_Field_Metadata__c.Field_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>SIB_Field_Metadata__c.Help_Text__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SIB_Field_Metadata__c.Length__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2906,12 +4831,37 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>SIB_Field_Metadata__c.Related_Object_Field_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SIB_Field_Metadata__c.Related_Object_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SIB_Field_Metadata__c.Related_Object_Record_No__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SIB_Field_Metadata__c.Related_Object_Record_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>SIB_Field_Metadata__c.Relationship_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>SIB_Field_Metadata__c.Rich_Text__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SIB_Field_Metadata__c.Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2961,6 +4911,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>User.Eligible_for_LCF_Grant__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User.Eligible_for_NEW_EOI_Form__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>User.Enable_Salesforce_Error_Display__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2989,10 +4949,10 @@
         <layout>Application_Window__c-Application Window Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Application__c-Applicant Layout</layout>
+        <layout>Application__c-Application Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Application__c-Applicant Layout</layout>
+        <layout>Application__c-Application Layout</layout>
         <recordType>Application__c.Expression_of_Interest</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -3006,52 +4966,103 @@
         <layout>Child_of_a_Child_Record_Question__c-Child of a Child Record Question Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Engaged_Organisation__c-Engaged Organisation Layout</layout>
+        <layout>Footer_Link__mdt-Footer Link Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Footer_Link__mdt-Footer Link Layout</layout>
+        <layout>Form_LCF_Commissioner_1__c-Form LCF Commissioner 1%2E0 EOI Layout</layout>
+        <recordType>Form_LCF_Commissioner_1__c.EOI</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Form_LCF_Commissioner_1__c-Form LCF Commissioner 1%2E0 Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Form_LCF_Commissioner_1__c-Form LCF Commissioner 1%2E0 Layout</layout>
+        <recordType>Form_LCF_Commissioner_1__c.Full_Application</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Form_LCF_Commissioner_1__c-Stakeholder Layout</layout>
+        <recordType>Form_LCF_Commissioner_1__c.Setup</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Form_LCF_Disengagement_1__c-Form LCF Disengagement 1%2E0 Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Form_LCF_EOI_1__c-Form LCF EOI 1%2E0 Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Form_LCF_Full_App_1__c-Form LCF Full Application 1%2E0 Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Form_LCF_Grant_Achievement_1__c-Form LCF Grant Achievement 1%2E0 Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Form_LCF_Grant_Annual_Block_1__c-Form LCF Grant Annual Block 1%2E0 Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Form_LCF_Grant_Baseline_1__c-Form LCF Grant Baseline 1%2E0 Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Form_LCF_Grant_Investor_1__c-Form LCF Grant Investor 1%2E0 Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Form_LCF_Grant_Outcome_1__c-Form LCF Grant Outcome 1%2E0 Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Form_LCF_Grant_Payment_History_1__c-Form LCF Grant Payment History 1%2E0 Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Form_LCF_Grant_Payment_Profile_1__c-Form LCF Grant Payment Profile 1%2E0 Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Form_LCF_Grant_Term_1__c-Form LCF Grant Term 1%2E0 Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Form_LCF_Outcome_1__c-Form LCF EOI - Outcome 1%2E0 Layout</layout>
+        <recordType>Form_LCF_Outcome_1__c.EOI</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Form_LCF_Outcome_1__c-Form LCF Full Application - Outcome 1%2E0 Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Form_LCF_Outcome_1__c-Form LCF Full Application - Outcome 1%2E0 Layout</layout>
+        <recordType>Form_LCF_Outcome_1__c.Full_Application</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Form_LCF_Outcome_1__c-Full Award Setup</layout>
+        <recordType>Form_LCF_Outcome_1__c.Setup</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Form_LCF_Outcome_Achievement_1__c-Form LCF Outcome Achievement 1%2E0 Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Form_LCF_Outcome_Metric_1__c-Form LCF Outcome Metric 1%2E0 Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Form_LCF_Outcome_Payment_1__c-Form LCF Outcome Payment 1%2E0 Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Form_LCF_Payment_Trigger_1__c-Form LCF Payment Trigger 1%2E0 Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Form_LCF_Previous_App_1__c-Form LCF Previous App 1%2E0 Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Form_LCF_Setup_1__c-Form LCF Full Award Setup 1%2E0 Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Form_LCF_Setup_Commissioner_1__c-Form LCF Setup Commissioner 1%2E0 Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Form_LCF_Setup_Investor_1__c-Form LCF Setup Investor 1%2E0 Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Form_LCF_Setup_Outcome_1__c-LCF Setup Outcome 1%2E0 Layout</layout>
+        <layout>Form_LCF_Trigger_Payment_1__c-Form LCF Trigger Payment 1%2E0 Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Form_LCF_Setup_Stakeholder_1__c-Form LCF Setup Stakeholder 1%2E0 Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Outcome_Payment_Trigger__c-Outcome Payment Trigger Layout</layout>
+        <layout>LCF_Grant__c-Form LCF Grant Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Outcome__c-Outcome Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Outcomes_Application_Commissioner__c-OutComes Application Commissioner Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Previous_Application__c-Previous Application Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Primary_Outcome__c-Primary Outcome Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Project__c-Project Layout</layout>
@@ -3070,6 +5081,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Theme__c-Theme Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>User-User Layout</layout>
     </layoutAssignments>
     <objectPermissions>
         <allowCreate>true</allowCreate>
@@ -3176,15 +5190,6 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
-        <object>Engaged_Organisation__c</object>
-        <viewAllRecords>false</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>false</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
         <object>Form_LCF_Commissioner_1__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
@@ -3203,7 +5208,88 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
+        <object>Form_LCF_EOI_1__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
         <object>Form_LCF_Full_App_1__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Form_LCF_Grant_Achievement_1__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Form_LCF_Grant_Annual_Block_1__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Form_LCF_Grant_Baseline_1__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Form_LCF_Grant_Investor_1__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Form_LCF_Grant_Outcome_1__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Form_LCF_Grant_Payment_History_1__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Form_LCF_Grant_Payment_Profile_1__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Form_LCF_Grant_Term_1__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -3221,7 +5307,7 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
-        <object>Form_LCF_Setup_1__c</object>
+        <object>Form_LCF_Outcome_Achievement_1__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -3230,7 +5316,43 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
-        <object>Form_LCF_Setup_Commissioner_1__c</object>
+        <object>Form_LCF_Outcome_Metric_1__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Form_LCF_Outcome_Payment_1__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Form_LCF_Payment_Trigger_1__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Form_LCF_Previous_App_1__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Form_LCF_Setup_1__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -3248,7 +5370,7 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
-        <object>Form_LCF_Setup_Outcome_1__c</object>
+        <object>Form_LCF_Trigger_Payment_1__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -3257,16 +5379,7 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
-        <object>Form_LCF_Setup_Stakeholder_1__c</object>
-        <viewAllRecords>false</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>false</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
-        <object>Outcome_Payment_Trigger__c</object>
+        <object>LCF_Grant__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -3284,25 +5397,7 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
-        <object>Outcomes_Application_Commissioner__c</object>
-        <viewAllRecords>false</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>false</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
         <object>Previous_Application__c</object>
-        <viewAllRecords>false</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>false</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
-        <object>Primary_Outcome__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -3376,7 +5471,39 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>COF_EOIDataConversion</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>COF_EOIFormView</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>COF_EOIViewOverride</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>COF_FOI</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>COF_FullAppFormView</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>COF_FullAppViewOverride</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>COF_GrantBlockSubmitted</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>COF_GrantManagementView</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>COF_GrantViewOverride</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -3384,8 +5511,36 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>COF_SetupFormView</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>COF_SetupViewOverride</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>ChangePassword</apexPage>
         <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>FormSummary</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>FormSummaryPdf</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>LCFGrantBlock</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>LCFGrantHistory</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>LCFGrants</apexPage>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>Layout</apexPage>
@@ -3405,7 +5560,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>SIB_ErrorPage</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>SIB_ForgotPassword</apexPage>
@@ -3413,7 +5568,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>SIB_ForgotPasswordConfirm</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>SIB_Login</apexPage>
@@ -3447,6 +5602,10 @@
         <apexPage>Summary</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
+    <pageAccesses>
+        <apexPage>SummaryPdf</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Application__c.Expression_of_Interest</recordType>
@@ -3458,9 +5617,33 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Form_LCF_Commissioner_1__c.EOI</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
         <default>true</default>
-        <personAccountDefault>true</personAccountDefault>
-        <recordType>Contact.Customer_User</recordType>
+        <recordType>Form_LCF_Commissioner_1__c.Full_Application</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Form_LCF_Commissioner_1__c.Setup</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Form_LCF_Outcome_1__c.EOI</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Form_LCF_Outcome_1__c.Full_Application</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Form_LCF_Outcome_1__c.Setup</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <tabVisibilities>
@@ -3484,6 +5667,10 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>EOI_Data_Conversion</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>Form_LCF_Commissioner_1__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
@@ -3492,11 +5679,35 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>Form_LCF_EOI_1__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>Form_LCF_Full_App_1__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>Form_LCF_Grant_Achievement_1__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Form_LCF_Grant_Annual_Block_1__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Form_LCF_Grant_Investor_1__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>Form_LCF_Outcome_1__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Form_LCF_Outcome_Metric_1__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Form_LCF_Previous_App_1__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
@@ -3504,20 +5715,12 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>Form_LCF_Setup_Commissioner_1__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
         <tab>Form_LCF_Setup_Investor_1__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>Form_LCF_Setup_Outcome_1__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>Form_LCF_Setup_Stakeholder_1__c</tab>
-        <visibility>DefaultOn</visibility>
+        <tab>LCF_Grant__c</tab>
+        <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Outcome__c</tab>
@@ -3599,6 +5802,10 @@
     <userPermissions>
         <enabled>false</enabled>
         <name>ChatterOwnGroups</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>
+        <name>CloseConversations</name>
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
@@ -3691,6 +5898,10 @@
     <userPermissions>
         <enabled>false</enabled>
         <name>IdentityEnabled</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>
+        <name>LtngPromoReserved01UserPerm</name>
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>

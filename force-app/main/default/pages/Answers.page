@@ -16,57 +16,52 @@
                 {!form.title}
             </h1>
                                   
-	        <table class="sections">
-	            <tbody class="summary">
-	                <apex:repeat value="{!sections}" var="section">
-	                    <tr><th class="question" style="font-weight:bold">{!section.name}</th></tr>
-	                    <tr><td style="border:none"></td></tr>
-	                    <apex:repeat value="{!section.fields}" var="field">
-	                        <apex:pageBlock rendered="{!targetObject[field.identifier] != null}">
-								<apex:pageBlock rendered="{!field.pageTitle != null}">
-								    <tr>
-								        <th class="question" valign="top">{!field.pageTitle}</th>
-								    </tr>
-								</apex:pageBlock>
+	        <apex:repeat value="{!sections}" var="section">
+            	<h1 class="heading-large">{!section.name}</h1>        
+				<apex:repeat value="{!section.fieldSets}" var="fs">
+					<h1 class="heading-large">{!fs.title}</h1>                            	
+			        <table class="sections">
+			            <tbody class="summary">
+	 	                    <apex:repeat value="{!fs.fields}" var="field">
 	                            <tr>
-	                                <th class="question" valign="top" style="width:30%">{!field.label}</th>
+	                                <th class="question" valign="top">{!field.label}</th>
 	                                <td valign="top"><apex:outputField value="{!targetObject[field.identifier]}"/></td>
 	                            </tr>
-	                        </apex:pageBlock>
-	                    </apex:repeat>
+		                    </apex:repeat>
+			            </tbody>
+			        </table>  
+				</apex:repeat>
 	                    
-	                    <apex:outputPanel rendered="{!section.hasChildren}">
-	                    <apex:repeat value="{!section.children}" var="children">
-	                        <div class="page-break"/>
-	                        <apex:pageBlock >
-	                            <tr><th class="question" style="font-weight:bold">{!section.name}: {!children.title}</th></tr>
-	                        </apex:pageBlock>
-	                        <apex:repeat value="{!targetObject[children.child_relationship]}" var="obj">
-	                            <apex:repeat value="{!children.childPages}" var="pg">
-									<apex:pageBlock rendered="{!pg.title != null}">
-									    <tr>
-									        <th class="question" valign="top">{!pg.title}</th>
-									    </tr>
-									</apex:pageBlock>
+				<apex:outputPanel rendered="{!section.hasChildren}">
+					<apex:repeat value="{!section.children}" var="children">
+						<div class="page-break"/>
+						<h1 class="heading-medium">{!section.name}: {!children.title} LIST</h1>                            	
+						<apex:repeat value="{!children.childRecs}" var="obj">
+							<apex:repeat value="{!children.childPages}" var="pg">
+								<apex:outputText rendered="{!pg.title != null}">
+									<h1 class="heading-medium">{!pg.title}</h1>    
+								</apex:outputText>
+						        <table class="sections">
+						            <tbody class="summary">
 	                                <apex:repeat value="{!pg.fields}" var="field">
 	                                    <tr>
 	                                        <th class="question" valign="top">{!field.label}</th>
 	                                        <td valign="top"><apex:outputField value="{!obj[field.identifier]}"/></td>
 	                                    </tr>
 	                                </apex:repeat>
-	                            </apex:repeat>
-	                            <tr><td style="border:none"></td></tr>
+	                            	<tr><td style="border:none"></td></tr>
+	                            	</tbody>
+	                            </table>
 	                        </apex:repeat>
+	                    	<table><tr><td style="border-bottom:2px solid black"></td></tr></table>
 	                    </apex:repeat>
-	                    </apex:outputPanel>
+					</apex:repeat>
+				</apex:outputPanel> 
 	                    
-	                    <apex:outputPanel rendered="{!section.name<>'DECLARATION'}">
-	                        <div class="page-break"/>
-	                    </apex:outputPanel>
-	                </apex:repeat> 
-	            </tbody>
-	        </table>  
-
+				<apex:outputPanel rendered="{!section.name<>'DECLARATION'}">
+				    <div class="page-break"/>
+				</apex:outputPanel>
+			</apex:repeat>
         </apex:define>
     </apex:composition>
 </apex:page>

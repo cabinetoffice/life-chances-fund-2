@@ -3,10 +3,10 @@
     <fullName>fn_saving_calculation_methodology__c</fullName>
     <description>Please explain how you determined how the savings will accrue. Your answer should include a detailed breakdown of who will benefit from these savings and when.</description>
     <externalId>false</externalId>
-    <inlineHelpText>Outline the rationale/methodology you have used to calculate your project's estimated savings.</inlineHelpText>
+    <inlineHelpText>Outline the rationale/methodology you have used to calculate your project&#39;s estimated savings.</inlineHelpText>
     <label>FN - Saving Calculation Methodology</label>
     <length>32768</length>
     <trackTrending>false</trackTrending>
     <type>LongTextArea</type>
-    <visibleLines>5</visibleLines>
+    <visibleLines>10</visibleLines>
 </CustomField>

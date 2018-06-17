@@ -1,0 +1,126 @@
+{
+	"id": "lcf_grant_payment_1",
+	"target_object": "Form_LCF_Grant_Achievement_1__c",
+	"parent_relationship": "lcf_grant__r",
+	"pages": [
+		{
+			"id": "1",
+			"questions": [
+				{ "target_field": "op_spend_committed_after_acceptance__c" }
+			],
+			"routes": [
+				{ "target_page": "2" }
+			]
+		},
+		{
+			"id": "2",
+			"questions": [
+				{ "target_field": "op_period_outcome_top_up__c" }
+			],
+			"routes": [
+				{ "target_page": "4" }
+			]
+		},
+		{
+			"id": "4",
+			"title_id": "Outcome Payments",
+			"children": {
+				"target_object": "Form_LCF_Outcome_Achievement_1__c",
+				"target_field": "oa_outcome__c",
+				"field_width": "50%",
+				"target_field2": "oa_period_outcome_payments__c",
+				"target_field3": "oa_period_lcf_claim__c",
+				"field_width2": "25%",
+				"field_width3": "25%",
+				"total_field2": "oa_total_period_outcome_payments__c",
+				"total_field3": "oa_total_period_lcf_claim__c",
+				"field_head2": "Outcome payments",
+				"field_head3": "LCF claim",
+				"child_relationship": "outcome_achievements__r",
+				"parent_field": "grant_achievement__c",
+				"child_parent_object": "Form_LCF_Grant_Outcome_1__c",
+				"child_parent_field": "grant_outcome__c",
+				"child_parent_primary": "primary__c",
+				"title": "Outcome payments",
+				"section": "lcf_grant_outcome_payments_1",
+				"child_count_field": "oa_number_of_outcome_achievements__c",
+				"remove_reqd": "false"  
+			},
+			"routes": [
+				{ "target_page": "5" }
+			]
+		},
+		{
+			"id": "5",
+			"title_id": "Trigger Payments",
+			"children": {
+				"target_object": "Form_LCF_Trigger_Payment_1__c",
+				"target_field": "tp_trigger__c",
+				"field_width": "60%",
+				"target_field2": "tp_payment__c",
+				"field_width2": "40%",
+				"total_field2": "tp_total_trigger_payments__c",
+				"field_head2": "Payment",
+				"child_relationship": "trigger_payments__r",
+				"parent_field": "grant_achievement__c",
+				"child_parent_object": "Form_LCF_Payment_Trigger_1__c",
+				"child_parent_field": "payment_trigger__c",
+				"title": "Trigger payments",
+				"section": "lcf_grant_trigger_payments_1",
+				"child_count_field": "tp_number_of_trigger_payments__c",
+				"remove_reqd": "false" 
+			},
+			"routes": [
+				{ "target_page": "6" }
+			]
+		},
+		{
+			"id": "6",
+			"questions": [
+				{ "target_field": "op_non_lcf_outcome_payments_claimed__c" }
+			],
+			"routes": [
+				{ "target_page": "7" }
+			]
+		},
+		{
+			"id": "7",
+			"questions": [
+				{ "target_field": "op_non_lcf_outcome_payments_received__c" }
+			],
+			"routes": [
+				{ "target_page": "8" }
+			]
+		},
+		{
+			"id": "8",
+			"title_id": "Outcome Achievement Files",
+			"guidance_id": "Outcome Achievement Files Guidance",
+			"files": {
+				"target_field": "op_outcome_achievement_files__c"
+			},
+			"routes": [
+				{ "target_page": "9" }
+			]		
+		},
+		{
+			"id": "9",
+			"title_id": "Payment Claim Files",
+			"guidance_id": "Payment Claim Files Guidance",
+			"files": {
+				"target_field": "op_payment_claim_files__c"
+			},
+			"routes": [
+				{ "target_page": "10" }
+			]		
+		},
+		{
+			"id": "10",
+			"title_id": "Verification File",
+			"guidance_id": "Verification File Guidance",
+			"files": {
+				"target_field": "op_verification_file__c" 
+			}
+		}
+	]
+}

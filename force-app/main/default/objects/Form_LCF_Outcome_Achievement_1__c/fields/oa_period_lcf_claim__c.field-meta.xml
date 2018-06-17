@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>oa_period_lcf_claim__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>How much of this period&#39;s payment for the outcome is covered by this Life Chances Fund claim?</inlineHelpText>
+    <label>OA - Period LCF Claim</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

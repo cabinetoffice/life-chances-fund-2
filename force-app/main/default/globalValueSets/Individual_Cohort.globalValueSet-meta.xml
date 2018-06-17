@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Individual</fullName>
+        <default>false</default>
+        <label>Individual</label>
+    </customValue>
+    <customValue>
+        <fullName>Cohort</fullName>
+        <default>false</default>
+        <label>Cohort</label>
+    </customValue>
+    <description>Type of Outcome Measure or Metric</description>
+    <masterLabel>Individual/Cohort</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

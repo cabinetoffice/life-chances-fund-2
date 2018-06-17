@@ -3,15 +3,15 @@
     <fullName>Form_Complete__c</fullName>
     <externalId>false</externalId>
     <formula>AND(
-  ISPICKVAL(ov_section_status__c, 'COMPLETE'), 
-  ISPICKVAL(si_section_status__c, 'COMPLETE'), 
-  ISPICKVAL(su_section_status__c, 'COMPLETE'), 
-  ISPICKVAL(IV_Section_Status__c, 'COMPLETE'), 
-  ISPICKVAL(ou_section_status__c, 'COMPLETE'), 
-  ISPICKVAL(fn_section_status__c, 'COMPLETE'), 
-  ISPICKVAL(ev_section_status__c, 'COMPLETE'), 
-  ISPICKVAL(or_section_status__c, 'COMPLETE'), 
-  ISPICKVAL(de_section_status__c, 'COMPLETE') 
+  ISPICKVAL(ov_section_status__c, &#39;COMPLETE&#39;), 
+  ISPICKVAL(si_section_status__c, &#39;COMPLETE&#39;), 
+  ISPICKVAL(su_section_status__c, &#39;COMPLETE&#39;), 
+  ISPICKVAL(iv_section_status__c, &#39;COMPLETE&#39;), 
+  ISPICKVAL(ou_section_status__c, &#39;COMPLETE&#39;), 
+  ISPICKVAL(fn_section_status__c, &#39;COMPLETE&#39;), 
+  ISPICKVAL(ev_section_status__c, &#39;COMPLETE&#39;), 
+  ISPICKVAL(or_section_status__c, &#39;COMPLETE&#39;), 
+  ISPICKVAL(de_section_status__c, &#39;COMPLETE&#39;) 
 )</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <inlineHelpText>Is form complete?</inlineHelpText>

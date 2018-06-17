@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>lcf_grant__c</fullName>
+    <description>Grant parent record</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Grant parent record</inlineHelpText>
+    <label>LCF Grant</label>
+    <referenceTo>LCF_Grant__c</referenceTo>
+    <relationshipLabel>LCF Grant Baseline Blocks</relationshipLabel>
+    <relationshipName>Form_LCF_Grant_Baseline_Blocks</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

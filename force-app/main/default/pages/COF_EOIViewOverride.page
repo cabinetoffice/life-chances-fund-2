@@ -1,0 +1,11 @@
+<!--_______________________________________________________________________________________________________________________
+	Name:			COF_EOIViewOverride.page
+	Description:	LCF Expression of Interest detail view override for Partner Users
+					
+	Date         Version Author      		Summary of Changes 
+	___________  _______ _________________	________________________________________________________________________________
+	Apr 2018     1.0     Michael Witchalls	Initial Release 
+________________________________________________________________________________________________________________________ -->  
+<apex:page standardController="Form_LCF_EOI_1__c" extensions="COF_EOIViewOverrideController" 
+	action="{!BLANKVALUE(viewAction.url, URLFOR($Action.Form_LCF_EOI_1__c.View, Form_LCF_EOI_1__c.Id, null, true))}">
+</apex:page>

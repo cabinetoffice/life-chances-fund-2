@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Applicant_Organisation_Sector__c</fullName>
+    <description>Sector of applicant organisation</description>
+    <externalId>false</externalId>
+    <formula>TEXT(Application__r.Applicant_Organisation_Sector__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Sector of applicant organisation</inlineHelpText>
+    <label>Applicant Organisation Sector</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

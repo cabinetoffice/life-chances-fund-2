@@ -65,7 +65,7 @@
                 if (previousOnload) { 
                    previousOnload();
                 }
-                
+                console.log('Page: {!$CurrentPage.Name}');
                 // VF page has onload script? If so, execute it first
 				if ('undefined' !== typeof vfInitialScript && isFunction(vfInitialScript)) {
                 	console.log('vfInitialScript is a function');
@@ -138,7 +138,7 @@
     </head>
 
     <body> 
-        <apex:outputPanel rendered="{!$CurrentPage.Name!='answers'}">
+        <apex:outputPanel rendered="{!NOT(isPdf)}">
         <div id="skiplink-container">
             <div>
                 <a href="#content" class="skiplink">Skip to main content</a>
@@ -156,8 +156,7 @@
         <header role="banner" id="global-header" class="with-proposition">
             <div class="header-wrapper">
             
-                <apex:outputPanel rendered="{!$CurrentPage.Name=='answers'}">   <!-- for pdf -->
-            
+                <apex:outputPanel rendered="{!isPdf}">   <!-- for pdf -->           
                 <div class="header-global">
                     <div class="header-logo">
                         <a href="#" id="logo" class="content" style="background-image:url({!URLFOR($Resource.images, 'gov.uk_crown_small.png')})">
@@ -165,10 +164,9 @@
                         </a>
                     </div>
                 </div>
-
                 </apex:outputPanel>
             
-                <apex:outputPanel rendered="{!$CurrentPage.Name!='answers'}">
+        		<apex:outputPanel rendered="{!NOT(isPdf)}">
                 <table><tbody><tr>
                 <td class="header-global" style="width:30%; height:40px; border:none; padding-bottom:10px">
                     <div class="header-logo">
@@ -182,8 +180,11 @@
                 <td class="header-proposition" style="align:left; border:none; padding-top:10px;">
                     <div class="content">
                     <a href="{!$Page.applications}" id="proposition-name" style="font-size:24px">Life Chances Fund</a>
-                    <ul id="proposition-links" style="width:340px">
-                        <li width="75%"><!-- for IE8 -->
+                    <ul id="proposition-links" style="width:800px">
+						<li width="60%" style="text-align:left">    
+                            <apex:outputLink value="#" style="text-decoration:none">Logged in as {!$User.FirstName} {!$User.LastName}</apex:outputLink>
+                        </li>
+                        <li width="30%"><!-- for IE8 -->
                             <apex:outputLink value="/SIB_ChangePassword?retURL=/SIB_Login">Change Password</apex:outputLink>
                         </li>
                          <li>    
@@ -198,13 +199,13 @@
             </div>
         </header>
 
-        <apex:outputPanel rendered="{!$CurrentPage.Name!='answers'}">
+         <apex:outputPanel rendered="{!NOT(isPdf)}">
             <div id="global-header-bar" style="margin:auto; max-width:960px"></div>
         </apex:outputPanel>
  
         <div class="site-wrapper" style="margin:auto; max-width:960px">
 
-            <apex:outputPanel rendered="{!$CurrentPage.Name!='answers'}">
+        	<apex:outputPanel rendered="{!NOT(isPdf)}">
             <div class="phase-banner-beta">
                 <text class="phase-tag"> BETA </text> This is a new service - your <a href="mailto:lifechancesfund@biglotteryfund.org.uk" target="_blank"> feedback</a> will help us to improve it.
             </div>
@@ -223,7 +224,7 @@
 
         </div>
 
-        <apex:outputPanel rendered="{!$CurrentPage.Name!='answers'}">
+        <apex:outputPanel rendered="{!NOT(isPdf)}">
         <footer class="group js-footer" id="footer" role="contentinfo">
 
             <div class="footer-wrapper" style="margin:auto; max-width:960px; padding-top:20px">

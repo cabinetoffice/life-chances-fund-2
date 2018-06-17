@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sf_lcf_contribution_request_changed__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Has your request for LCF contribution has changed?</inlineHelpText>
+    <label>SF - LCF Contribution Request Changed</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Yes_No</valueSetName>
+    </valueSet>
+</CustomField>

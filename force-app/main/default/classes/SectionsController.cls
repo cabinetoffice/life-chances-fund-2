@@ -17,9 +17,9 @@ public class SectionsController extends COF_PageController {
     public SObject targetObject {get;set;}
     public String formStatus {get;set;}
 	public SIB_Section_Text__c sectionText {get;set;}
+	public Boolean partnerUser {get;set;}
 
     public SectionsController() { 
-        
     	COF_Config config = COF_Config.load(this.getFormIdentifierParam());
 		this.form = config.getForm(this.getFormIdentifierParam());
 		system.debug('### this.form: '+this.form);
@@ -45,6 +45,8 @@ public class SectionsController extends COF_PageController {
         	'WHERE application__r.Name = \'' + this.getApplicationIdentifierParam() + '\'',
         	CREATEIFNOTFOUND, this.application.Id
         );
+        system.debug('@@@@form.sections: '+form.sections);
+        system.debug('@@@@lc_section_status__c: '+this.targetObject.get(form.sections[0].status_field));
         return SIB_Utilities.checkLoggedInStatus();
     }
 
@@ -54,9 +56,9 @@ public class SectionsController extends COF_PageController {
 	public PageReference submit() {
 
     	Application__c appUpdate = new Application__c(
-    		Id = (String)application.get('Id'),
-    		Full_Application_Status__c = SUBMITTED
+    		Id = (String)application.get('Id')
     	);
+    	appUpdate.put(this.form.Application_Status_Field, SUBMITTED);
     	Query.updateObject(appUpdate);
         
         PageReference nextPage = Page.COF_ApplicationSubmitted;
@@ -71,7 +73,19 @@ public class SectionsController extends COF_PageController {
      */
     public PageReference viewAll() {
 
-        PageReference nextPage = Page.answers;
+        PageReference nextPage = Page.FormSummary;
+        nextPage.getParameters().put('app', this.getApplicationIdentifierParam());
+        nextPage.getParameters().put('form', this.getFormIdentifierParam());
+        nextPage.setRedirect(true);
+        return nextPage;
+    }
+
+    /**
+     * Print the answers to Pdf
+     */
+    public PageReference viewAllPdf() {
+
+        PageReference nextPage = Page.FormSummaryPdf;
         nextPage.getParameters().put('app', this.getApplicationIdentifierParam());
         nextPage.getParameters().put('form', this.getFormIdentifierParam());
         nextPage.setRedirect(true);

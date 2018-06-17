@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Form_Complete__c</fullName>
+    <externalId>false</externalId>
+    <formula>AND(
+ISPICKVAL(ar_section_status__c, &#39;COMPLETE&#39;), 
+ISPICKVAL(ve_section_status__c, &#39;COMPLETE&#39;), 
+ISPICKVAL(cs_section_status__c, &#39;COMPLETE&#39;), 
+ISPICKVAL(sf_section_status__c, &#39;COMPLETE&#39;), 
+ISPICKVAL(sc_section_status__c, &#39;COMPLETE&#39;),
+ISPICKVAL(de_section_status__c, &#39;COMPLETE&#39;),
+IF(am_end_of_grant__c, ISPICKVAL(eg_section_status__c, &#39;COMPLETE&#39;), true)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Form complete?</inlineHelpText>
+    <label>Form Complete</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

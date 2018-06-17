@@ -39,12 +39,21 @@ public class StartController extends COF_PageController {
         nextPage.getParameters().put('form', this.getFormIdentifierParam());
         nextPage.getParameters().put('app', this.getApplicationIdentifierParam());
         nextPage.getParameters().put('section', this.getSectionIdentifierParam());
+        nextPage.getParameters().put('title', this.section.title);
         nextPage.getParameters().put('page', '1');
         return nextPage;
     }
     
     public PageReference summaryPage() {
         PageReference nextPage = Page.Summary;
+        nextPage.getParameters().put('form', this.getFormIdentifierParam());
+        nextPage.getParameters().put('app', this.getApplicationIdentifierParam());
+        nextPage.getParameters().put('section', this.getSectionIdentifierParam());
+		return nextPage; 
+    }
+    
+    public PageReference summaryPdf() {
+        PageReference nextPage = Page.SummaryPdf;
         nextPage.getParameters().put('form', this.getFormIdentifierParam());
         nextPage.getParameters().put('app', this.getApplicationIdentifierParam());
         nextPage.getParameters().put('section', this.getSectionIdentifierParam());

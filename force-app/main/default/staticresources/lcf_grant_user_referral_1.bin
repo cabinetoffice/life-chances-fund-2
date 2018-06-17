@@ -1,0 +1,15 @@
+{
+	"id": "lcf_grant_user_referral_1",
+	"target_object": "Form_LCF_Grant_Achievement_1__c",
+	"parent_relationship": "lcf_grant__r",
+	"pages": [
+		{
+			"id": "1",
+			"questions": [
+				{ "target_field": "ur_period_referral_target__c" },
+				{ "target_field": "ur_period_referral_actual__c" },
+				{ "target_field": "ur_period_participant_starters__c" }
+			]
+		}
+	]
+}

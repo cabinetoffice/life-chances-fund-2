@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>op_financial_year__c</fullName>
+    <description>Note that LCF will only pay outcomes achieved and claimed to the end of September 2024</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Financial Year (April - March)</inlineHelpText>
+    <label>OP - Financial Year</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Financial_Years</valueSetName>
+    </valueSet>
+</CustomField>

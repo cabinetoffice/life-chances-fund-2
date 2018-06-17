@@ -3,8 +3,17 @@
     <fullName>All</fullName>
     <columns>NAME</columns>
     <columns>application__c</columns>
-    <columns>OWNER.FIRST_NAME</columns>
-    <columns>OWNER.LAST_NAME</columns>
+    <columns>Theme__c</columns>
+    <columns>Status__c</columns>
+    <columns>Application_Contact__c</columns>
+    <columns>Commissioner_Organisation__c</columns>
+    <columns>ov_project_name__c</columns>
+    <columns>Project_Value__c</columns>
+    <columns>ov_services_start_date__c</columns>
+    <columns>ov_services_end_date__c</columns>
     <filterScope>Everything</filterScope>
     <label>All</label>
+    <sharedTo>
+        <allInternalUsers/>
+    </sharedTo>
 </ListView>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>op_commissioner_payments__c</fullName>
+    <description>Only include payments made by commissioners who are making outcome payments to fund your proposal.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Outcomes payments from commissioners excluding LCF payments</inlineHelpText>
+    <label>OP - Commissioner Payments</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>or_year_end__c</fullName>
+    <description>For example, 31/03//2018</description>
+    <externalId>false</externalId>
+    <inlineHelpText>When is the organisation&#39;s accounting year end?</inlineHelpText>
+    <label>OR - Year End</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

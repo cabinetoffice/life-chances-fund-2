@@ -1,0 +1,15 @@
+{
+	"id": "lcf_grant_annual_referral_1",
+	"target_object": "Form_LCF_Grant_Annual_Block_1__c",
+	"parent_relationship": "lcf_grant__r",
+	"pages": [
+		{
+			"id": "1",
+			"questions": [
+				{ "target_field": "ar_service_users_changed__c" },
+				{ "target_field": "ar_current_population__c" },
+				{ "target_field": "ar_no_outcome_achieved__c" }
+			]
+		}
+	]
+}

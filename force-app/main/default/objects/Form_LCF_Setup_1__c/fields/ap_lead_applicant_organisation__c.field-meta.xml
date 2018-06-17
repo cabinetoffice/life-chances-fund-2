@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>ap_lead_applicant_organisation__c</fullName>
-    <description>Legal name of organisation</description>
     <externalId>false</externalId>
-    <inlineHelpText>Which organisation is the lead applicant for your project now?</inlineHelpText>
+    <inlineHelpText>Legal name of organisation</inlineHelpText>
     <label>AP - Lead Applicant Organisation</label>
     <length>255</length>
     <required>false</required>

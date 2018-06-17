@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Full_Application</fullName>
+    <columns>NAME</columns>
+    <columns>primary__c</columns>
+    <columns>RECORDTYPE</columns>
+    <columns>eoi__c</columns>
+    <columns>full_application__c</columns>
+    <columns>st_organisation_name__c</columns>
+    <columns>st_organisation_region__c</columns>
+    <columns>st_lead_contact_first_name__c</columns>
+    <columns>st_lead_contact_last_name__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Form_LCF_Commissioner_1__c.Full_Application</value>
+    </filters>
+    <label>Full Application</label>
+</ListView>

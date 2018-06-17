@@ -3,11 +3,11 @@
     <fullName>Form_Complete__c</fullName>
     <externalId>false</externalId>
     <formula>AND(
-  ISPICKVAL(ap_section_status__c, 'COMPLETE'), 
-  ISPICKVAL(pr_section_status__c, 'COMPLETE'), 
-  ISPICKVAL(so_section_status__c, 'COMPLETE'), 
-  ISPICKVAL(tm_section_status__c, 'COMPLETE'), 
-  ISPICKVAL(sd_section_status__c, 'COMPLETE') 
+  ISPICKVAL(ap_section_status__c, &#39;COMPLETE&#39;), 
+  ISPICKVAL(pr_section_status__c, &#39;COMPLETE&#39;), 
+  ISPICKVAL(so_section_status__c, &#39;COMPLETE&#39;), 
+  ISPICKVAL(tm_section_status__c, &#39;COMPLETE&#39;), 
+  ISPICKVAL(sd_section_status__c, &#39;COMPLETE&#39;) 
 )</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <inlineHelpText>Form Complete?</inlineHelpText>

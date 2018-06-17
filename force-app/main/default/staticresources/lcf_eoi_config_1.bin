@@ -1,0 +1,69 @@
+{
+	"forms": [
+		{
+			"id": "lcf_eoi_1",
+			"title": "Expression of Interest",
+			"short_title": "EOI",
+			"target_object": "Form_LCF_EOI_1__c",
+			"application_status_field": "Status__c",
+			"sections": [
+				{
+					"id": "lcf_eoi_lead_contact_1",
+					"title": "Lead contact", 
+					"short_title": "Lead contact",
+					"target_object": "Form_LCF_EOI_1__c",
+					"status_field": "lc_section_status__c"
+				},
+				{
+					"id": "lcf_eoi_organisation_1",
+					"title": "Organisation",
+					"short_title": "Organisation",
+					"target_object": "Form_LCF_EOI_1__c",
+					"status_field": "or_section_status__c"
+				},
+				{
+					"id": "lcf_eoi_project_1",
+					"title": "Project information",
+					"short_title": "Project",
+					"target_object": "Form_LCF_EOI_1__c",
+					"status_field": "pr_section_status__c"
+				},
+				{
+					"id": "lcf_eoi_outcomes_1",
+					"title": "Outcomes",
+					"short_title": "Outcomes",
+					"target_object": "Form_LCF_EOI_1__c",
+					"status_field": "ou_section_status__c"
+				},
+				{
+					"id": "lcf_eoi_research_1",
+					"title": "Research",
+					"short_title": "Research",
+					"target_object": "Form_LCF_EOI_1__c",
+					"status_field": "rs_section_status__c"
+				},
+				{
+					"id": "lcf_eoi_commissioners_1",
+					"title": "Commissioners",
+					"short_title": "Commissioners",
+					"target_object": "Form_LCF_EOI_1__c",
+					"status_field": "co_section_status__c"
+				},
+				{
+					"id": "lcf_eoi_prev_apps_1",
+					"title": "Previous applications",
+					"short_title": "Previous",
+					"target_object": "Form_LCF_EOI_1__c",
+					"status_field": "pa_section_status__c"
+				},
+				{
+					"id": "lcf_eoi_declaration_1",
+					"title": "Declaration",
+					"short_title": "Declaration",
+					"target_object": "Form_LCF_EOI_1__c",
+					"status_field": "de_section_status__c"
+				}
+			]
+		}
+	]
+}

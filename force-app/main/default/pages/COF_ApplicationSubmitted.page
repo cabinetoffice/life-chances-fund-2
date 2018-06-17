@@ -23,7 +23,7 @@
             
                     <div class="govuk-box-highlight">
                     <h1 class="heading-xlarge">
-                        Application submitted
+                        {!form.title} submitted
                     </h1>
                     <p class="font-large">
                         Your reference number is <br/>
@@ -33,13 +33,13 @@
                     
                     <br/>
                     <p>
-                        Your application has been submitted. We have sent you a confirmation email.
+                        Your {!LOWER(form.title)} has been submitted. We have sent you a confirmation email.
                     </p>        
                     <br/>
                     <br/>
                     <apex:form >
                         <apex:outputLink styleClass="button" value="{!$Page.Sections}">
-                            Back to full application page
+                            Back to {!LOWER(form.title)}
                             <apex:param name="form" value="{!form.id}"/>
                             <apex:param name="app" value="{!application['Name']}"/>
                         </apex:outputLink>

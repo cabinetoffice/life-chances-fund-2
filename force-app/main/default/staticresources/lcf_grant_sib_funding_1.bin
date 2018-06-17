@@ -1,0 +1,42 @@
+{
+	"id": "lcf_grant_sib_funding_1",
+	"target_object": "Form_LCF_Grant_Annual_Block_1__c",
+	"parent_relationship": "lcf_grant__r",
+	"pages": [
+		{
+			"id": "1",
+			"questions": [
+				{ "target_field": "sf_lcf_outcome_payments_received__c" },
+				{ "target_field": "sf_other_outcome_payments_received__c" }
+			],
+			"routes": [
+				{ "target_page": "2" }
+			]		
+		},
+		{
+			"id": "2",
+			"title_id": "Other Funding",
+			"guidance_id": "Other Funding Guidance",
+			"questions": [
+				{ "target_field": "sf_social_investment_received__c" },
+				{ "target_field": "sf_grants_received__c" },
+				{ "target_field": "sf_fixed_rate_loans_received__c" },
+				{ "target_field": "sf_non_outcome_funding__c" },
+				{ "target_field": "sf_additional_social_investment__c" },
+				{ "target_field": "sf_any_other__c" },
+				{ 
+					"target_field": "sf_other_funding_received__c", 
+					"constraints": [
+						{ "field": "sf_any_other__c", "operator": "equals", "value": "Yes" }
+					] 
+				},	
+				{ 
+					"target_field": "sf_other_funding_details__c", 
+					"constraints": [
+						{ "field": "sf_any_other__c", "operator": "equals", "value": "Yes" }
+					] 
+				}	
+			]
+		}
+	]
+}

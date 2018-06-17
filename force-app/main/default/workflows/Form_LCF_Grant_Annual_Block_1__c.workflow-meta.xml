@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Grant_annual_monitor_form_approved</fullName>
+        <description>Grant annual monitor form approved</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>lifechancesfund@biglotteryfund.org.uk</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Community_Templates/Grant_Annual_Block_Approved</template>
+    </alerts>
+    <alerts>
+        <fullName>Grant_annual_monitor_form_rejected</fullName>
+        <description>Grant annual monitor form rejected</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>lifechancesfund@biglotteryfund.org.uk</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Community_Templates/Grant_Annual_Block_Rejected</template>
+    </alerts>
+    <alerts>
+        <fullName>Grant_annual_monitor_form_submitted</fullName>
+        <description>Grant annual monitor form submitted</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>lifechancesfund@biglotteryfund.org.uk</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Community_Templates/Grant_Annual_Block_Submitted</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Block_not_complete</fullName>
+        <field>am_block_status__c</field>
+        <literalValue>IN PROGRESS</literalValue>
+        <name>Block not complete</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_status_to_approved</fullName>
+        <field>am_approval_status__c</field>
+        <literalValue>Approved</literalValue>
+        <name>Set status to approved</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_status_to_not_submitted</fullName>
+        <field>am_approval_status__c</field>
+        <literalValue>Not Submitted</literalValue>
+        <name>Set status to not submitted</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_status_to_rejected</fullName>
+        <field>am_approval_status__c</field>
+        <literalValue>Rejected</literalValue>
+        <name>Set status to rejected</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+</Workflow>

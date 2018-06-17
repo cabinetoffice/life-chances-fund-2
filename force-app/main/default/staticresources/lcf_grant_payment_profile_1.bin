@@ -1,0 +1,25 @@
+{
+	"id": "lcf_grant_payment_profile_1",
+	"target_object": "Form_LCF_Grant_Payment_Profile_1__c",
+	"parent_relationship": "lcf_grant__r",
+	"pages": [
+		{
+			"id": "1",
+			"title_id": "Payment Profile",
+			"title_append_text": " to ",
+			"title_append_field": "Archive_Date__c",
+			"files": {
+				"target_field": "pp_payment_profile_files__c"
+			},
+			"routes": [
+				{ "target_page": "2" }
+			]		
+		},
+		{
+			"id": "2",
+			"questions": [
+				{ "target_field": "pp_payment_claim_schedule__c" }
+			]
+		}
+	]
+}

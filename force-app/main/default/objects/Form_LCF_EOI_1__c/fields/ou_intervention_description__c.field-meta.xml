@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ou_intervention_description__c</fullName>
+    <description>Is the service already defined or is it being developed? If defined, detail the activities planned, their frequency and duration, who will deliver them, and any evidence showing that this service will deliver the desired outcome. If the service is under development, provide detail on the key components of the service or services you are considering.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Please outline the intervention(s), or provide examples of the sort of intervention(s) you intend to use to deliver the outcomes.</inlineHelpText>
+    <label>OU - Intervention Description</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>10</visibleLines>
+</CustomField>

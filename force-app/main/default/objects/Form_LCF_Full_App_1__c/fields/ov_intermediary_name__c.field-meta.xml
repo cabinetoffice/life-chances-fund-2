@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>ov_intermediary_name__c</fullName>
+    <description>Page Title:Intermediary Contact Details</description>
     <externalId>false</externalId>
     <inlineHelpText>Name of organisation</inlineHelpText>
     <label>OV - Intermediary Name</label>

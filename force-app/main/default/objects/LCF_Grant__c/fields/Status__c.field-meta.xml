@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <description>Status of project associated with SIB Grant</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Status of project associated with SIB Grant</inlineHelpText>
+    <label>Grant Status</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Not Started</fullName>
+                <default>true</default>
+                <label>Not Started</label>
+            </value>
+            <value>
+                <fullName>Award Issued</fullName>
+                <default>false</default>
+                <label>Award Issued</label>
+            </value>
+            <value>
+                <fullName>Award Accepted</fullName>
+                <default>false</default>
+                <label>Award Accepted</label>
+            </value>
+            <value>
+                <fullName>Project Launched</fullName>
+                <default>false</default>
+                <label>Project Launched</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

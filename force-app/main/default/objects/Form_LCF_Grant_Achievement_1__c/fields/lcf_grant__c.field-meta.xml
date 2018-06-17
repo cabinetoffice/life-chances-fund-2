@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>lcf_grant__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Grant parent record</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Grant parent record</inlineHelpText>
+    <label>LCF Grant</label>
+    <referenceTo>LCF_Grant__c</referenceTo>
+    <relationshipLabel>Form LCF Grant Achievement Blocks</relationshipLabel>
+    <relationshipName>Form_LCF_Grant_Achievement_Blocks</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

@@ -1,7 +1,7 @@
 {
 	"id": "lcf_full_app_outcomes_1",
 	"target_object": "Form_LCF_Full_App_1__c",
-	"short_title": "Commissioner",
+	"short_title": "Outcomes",
 	"parent_relationship": "application__r",
 	"pages": [
 		{
@@ -13,7 +13,14 @@
 				"target_field": "ou_description__c",
 				"parent_field": "full_application__c",
 				"title": "Outcomes",
-				"section": "lcf_full_app_outcomes_child_1"
+				"section": "lcf_full_app_outcomes_child_1",
+				"copy_label": "+ Copy outcomes from EOI form",
+				"add_label": "+ Add another outcome",
+				"primary_label": "+ Add primary outcome",
+				"primary_field": "primary__c",
+				"child_count_field": "ou_number_of_outcomes__c",
+				"primary_count_field": "ou_primary_outcome_count__c",
+				"record_type": "Full Application"
 			},
 			"routes": [
 				{ "target_page": "2" }

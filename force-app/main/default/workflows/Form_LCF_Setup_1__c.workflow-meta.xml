@@ -9,6 +9,16 @@
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Initialize_Full_Award_Setup_Status</fullName>
+        <field>Full_Award_Setup_Status__c</field>
+        <literalValue>Draft</literalValue>
+        <name>Initialize Full Award Setup Status</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <targetObject>application__c</targetObject>
+    </fieldUpdates>
     <rules>
         <fullName>Copy Original Project Name to Project Name</fullName>
         <actions>
@@ -27,5 +37,16 @@
         </criteriaItems>
         <description>When no change of Project Name, copy Original Project Name to Project Name</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Initialize Status</fullName>
+        <actions>
+            <name>Initialize_Full_Award_Setup_Status</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Set Full Award Setup Status to its initial value on Application</description>
+        <formula>1=1</formula>
+        <triggerType>onCreateOnly</triggerType>
     </rules>
 </Workflow>

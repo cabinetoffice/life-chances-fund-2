@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>op_non_lcf_outcome_payments_claimed__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>What is the total amount of outcomes payments you have claimed from outcomes payers other than the Life Chances Fund this period?</inlineHelpText>
+    <label>OP - Non LCF Outcome Payments Claimed</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>pr_other_social_issues__c</fullName>
+    <description>If a project spans multiple themes, select the additional themes that apply (otherwise select &#39;None&#39;). The team reviewing the application will decide if the project is in scope because of an innovative proposal.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Apart from the theme selected, what other social issue would your project address?</inlineHelpText>
+    <label>PR - Other Social Issues</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Themes_Optional</valueSetName>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

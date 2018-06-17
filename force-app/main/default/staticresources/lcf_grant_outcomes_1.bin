@@ -1,0 +1,45 @@
+{
+	"id": "lcf_grant_outcomes_1",
+	"target_object": "Form_LCF_Grant_Outcome_1__c",
+	"target_field": "ou_description__c",
+	"child_count_field": "bb_number_of_outcomes__c",
+	"primary_count_field": "bb_primary_outcome_count__c",
+	"primary_field": "primary__c",
+	"status_field": "bb_section_status__c",
+	"short_title": "Outcome",
+	"parent_relationship": "grant_baseline__r",
+	"pages": [
+		{
+			"id": "1",
+			"questions": [
+				{ "target_field": "ou_description__c" }, 
+				{ "target_field": "ou_measure__c" },
+				{ "target_field": "ou_individual_cohort__c" },
+				{ "target_field": "primary__c" }				
+			],
+			"routes": [ 
+				{ "target_page": "2" }
+			]
+		},
+		{
+			"id": "2",
+			"title_id": "Metrics",
+			"child_of_child": true,
+			"children": {
+				"target_object": "Form_LCF_Outcome_Metric_1__c",
+				"target_field": "om_description__c",
+				"field_width": "60%",
+				"target_field2": "om_individual_cohort__c",
+				"field_width2": "20%",
+				"child_relationship": "outcome_metrics__r",
+				"parent_field": "grant_outcome__c",
+				"grandparent_field": "grant_baseline__c",
+				"title": "Metrics",
+				"section": "lcf_grant_outcome_metrics_1",
+				"child_count_field": "ou_number_of_metrics__c",
+				"add_label": "+ Add another outcome metric",
+				"display_field": "ou_outcome_metrics__c"
+			}
+		}
+	]
+}

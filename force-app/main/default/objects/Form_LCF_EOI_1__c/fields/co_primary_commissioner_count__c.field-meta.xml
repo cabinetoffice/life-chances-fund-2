@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>co_primary_commissioner_count__c</fullName>
+    <description>Count of EOI primary commissioners (should be 1)</description>
+    <externalId>false</externalId>
+    <formula>application__r.EOI_Primary_Commissioner_Count__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Count of EOI primary commissioners (should be 1)</inlineHelpText>
+    <label>CO - Primary Commissioner Count</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

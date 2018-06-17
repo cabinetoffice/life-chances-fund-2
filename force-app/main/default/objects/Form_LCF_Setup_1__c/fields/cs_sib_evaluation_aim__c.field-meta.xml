@@ -3,7 +3,7 @@
     <fullName>cs_sib_evaluation_aim__c</fullName>
     <description>Set out the questions you aim to be able to answer as a result of your evaluation activity</description>
     <externalId>false</externalId>
-    <inlineHelpText>Outline what you look to learn from the evaluation of your SIB project</inlineHelpText>
+    <inlineHelpText>Outline what you expect to learn from the evaluation of your SIB project</inlineHelpText>
     <label>CS - SIB Evaluation Aim</label>
     <length>32768</length>
     <trackTrending>false</trackTrending>

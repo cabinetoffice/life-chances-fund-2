@@ -1,0 +1,17 @@
+{
+	"id": "lcf_grant_terms_1",
+	"target_object": "Form_LCF_Grant_Term_1__c",
+	"target_field": "gt_description__c",
+	"child_count_field": "bb_number_of_terms__c",
+	"status_field": "bb_section_status__c",
+	"short_title": "Trigger",
+	"parent_relationship": "grant_baseline__r",
+	"pages": [
+		{
+			"id": "1",
+			"questions": [
+				{ "target_field": "gt_description__c" }
+			]
+		}
+	]
+}

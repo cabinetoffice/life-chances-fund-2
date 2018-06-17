@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>cs_management_completion_date__c</fullName>
-    <description>For example, 31 3 2018</description>
+    <description>This should be in the next five months.</description>
     <externalId>false</externalId>
     <inlineHelpText>When do you expect to complete the procurement of SIB management, data analysis and evaluation?</inlineHelpText>
     <label>CS - Management Completion Date</label>

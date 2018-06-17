@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>cs_sib_data_management__c</fullName>
+    <description>Tell us about the commitment of you, your commissioners, providers, investors, advisors and other contractors to openly sharing data with LCF and the social investment, local government and VCSE sector?</description>
     <externalId>false</externalId>
     <inlineHelpText>Set out your plans for data collection, management, analysis and the arrangements you plan to make for
 verification</inlineHelpText>
@@ -8,5 +9,5 @@ verification</inlineHelpText>
     <length>32768</length>
     <trackTrending>false</trackTrending>
     <type>LongTextArea</type>
-    <visibleLines>10</visibleLines>
+    <visibleLines>15</visibleLines>
 </CustomField>

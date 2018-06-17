@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>bb_issue_status__c</fullName>
+    <description>Issue status of block created by funding officer</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Issue status of block created by funding officer</inlineHelpText>
+    <label>Issue Status</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Grant_Block_Issue_Status</valueSetName>
+    </valueSet>
+</CustomField>

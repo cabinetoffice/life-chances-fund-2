@@ -1,0 +1,11 @@
+<!--_______________________________________________________________________________________________________________________
+	Name:			COF_GrantViewOverride.page
+	Description:	LCF Full Award Grant detail view override for Partner Users
+					
+	Date         Version Author      		Summary of Changes 
+	___________  _______ _________________	________________________________________________________________________________
+	Apr 2018     1.0     Michael Witchalls	Initial Release 
+________________________________________________________________________________________________________________________ -->  
+<apex:page standardController="LCF_Grant__c" extensions="COF_GrantManagementViewController" 
+	action="{!BLANKVALUE(viewAction.url, URLFOR($Action.LCF_Grant__c.View, LCF_Grant__c.Id, null, true))}">
+</apex:page>

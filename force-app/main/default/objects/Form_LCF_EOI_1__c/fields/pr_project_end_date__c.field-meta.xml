@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>pr_project_end_date__c</fullName>
+    <description>For example, 24/01/2019</description>
+    <externalId>false</externalId>
+    <inlineHelpText>When would you like your project to finish?</inlineHelpText>
+    <label>PR - Project End Date</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

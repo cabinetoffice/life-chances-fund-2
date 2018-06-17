@@ -6,14 +6,9 @@
         <label>Application__c</label>
     </customValue>
     <customValue>
-        <fullName>Form_LCF_Commissioner_1__c</fullName>
+        <fullName>Form_LCF_EOI_1__c</fullName>
         <default>false</default>
-        <label>Form_LCF_Commissioner_1__c</label>
-    </customValue>
-    <customValue>
-        <fullName>Form_LCF_Disengagement_1__c</fullName>
-        <default>false</default>
-        <label>Form_LCF_Disengagement_1__c</label>
+        <label>Form_LCF_EOI_1__c</label>
     </customValue>
     <customValue>
         <fullName>Form_LCF_Full_App_1__c</fullName>
@@ -26,14 +21,24 @@
         <label>Form_LCF_Outcome_1__c</label>
     </customValue>
     <customValue>
+        <fullName>Form_LCF_Commissioner_1__c</fullName>
+        <default>false</default>
+        <label>Form_LCF_Commissioner_1__c</label>
+    </customValue>
+    <customValue>
+        <fullName>Form_LCF_Previous_App_1__c</fullName>
+        <default>false</default>
+        <label>Form_LCF_Previous_App_1__c</label>
+    </customValue>
+    <customValue>
         <fullName>Form_LCF_Setup_1__c</fullName>
         <default>false</default>
         <label>Form_LCF_Setup_1__c</label>
     </customValue>
     <customValue>
-        <fullName>Form_LCF_Setup_Commissioner_1__c</fullName>
+        <fullName>Form_LCF_Disengagement_1__c</fullName>
         <default>false</default>
-        <label>Form_LCF_Setup_Commissioner_1__c</label>
+        <label>Form_LCF_Disengagement_1__c</label>
     </customValue>
     <customValue>
         <fullName>Form_LCF_Setup_Investor_1__c</fullName>
@@ -41,14 +46,85 @@
         <label>Form_LCF_Setup_Investor_1__c</label>
     </customValue>
     <customValue>
-        <fullName>Form_LCF_Setup_Outcome_1__c</fullName>
+        <fullName>Form_LCF_Outcome_Payment_1__c</fullName>
         <default>false</default>
-        <label>Form_LCF_Setup_Outcome_1__c</label>
+        <label>Form_LCF_Outcome_Payment_1__c</label>
     </customValue>
     <customValue>
-        <fullName>Form_LCF_Setup_Stakeholder_1__c</fullName>
+        <fullName>LCF_Grant__c</fullName>
         <default>false</default>
-        <label>Form_LCF_Setup_Stakeholder_1__c</label>
+        <label>LCF_Grant__c</label>
+    </customValue>
+    <customValue>
+        <fullName>Form_LCF_Grant_Baseline_1__c</fullName>
+        <default>false</default>
+        <label>Form_LCF_Grant_Baseline_1__c</label>
+    </customValue>
+    <customValue>
+        <fullName>Form_LCF_Grant_Profile_1__c</fullName>
+        <default>false</default>
+        <label>Form_LCF_Grant_Profile_1__c</label>
+    </customValue>
+    <customValue>
+        <fullName>Form_LCF_Grant_Outcome_1__c</fullName>
+        <default>false</default>
+        <label>Form_LCF_Grant_Outcome_1__c</label>
+    </customValue>
+    <customValue>
+        <fullName>Form_LCF_Grant_Annual_Block_1__c</fullName>
+        <default>false</default>
+        <label>Form_LCF_Grant_Annual_Block_1__c</label>
+    </customValue>
+    <customValue>
+        <fullName>Form_LCF_Grant_End_1__c</fullName>
+        <default>false</default>
+        <label>Form_LCF_Grant_End_1__c</label>
+    </customValue>
+    <customValue>
+        <fullName>Form_LCF_Grant_Investor_1</fullName>
+        <default>false</default>
+        <label>Form_LCF_Grant_Investor_1</label>
+    </customValue>
+    <customValue>
+        <fullName>Form_LCF_Grant_Term_1</fullName>
+        <default>false</default>
+        <label>Form_LCF_Grant_Term_1</label>
+    </customValue>
+    <customValue>
+        <fullName>Form_LCF_Grant_Achievement_1__c</fullName>
+        <default>false</default>
+        <label>Form_LCF_Grant_Achievement_1__c</label>
+    </customValue>
+    <customValue>
+        <fullName>Form_LCF_Outcome_Achievement_1__c</fullName>
+        <default>false</default>
+        <label>Form_LCF_Outcome_Achievement_1__c</label>
+    </customValue>
+    <customValue>
+        <fullName>Form_LCF_Payment_Trigger_1__c</fullName>
+        <default>false</default>
+        <label>Form_LCF_Payment_Trigger_1__c</label>
+    </customValue>
+    <customValue>
+        <fullName>Form_LCF_Outcome_Metric__c</fullName>
+        <default>false</default>
+        <label>Form_LCF_Outcome_Metric__c</label>
+    </customValue>
+    <customValue>
+        <fullName>Form_LCF_Grant_Payment_Profile_1__c</fullName>
+        <default>false</default>
+        <label>Form_LCF_Grant_Payment_Profile_1__c</label>
+    </customValue>
+    <customValue>
+        <fullName>Form_LCF_Grant_Payment_History_1__c</fullName>
+        <default>false</default>
+        <label>Form_LCF_Grant_Payment_History_1__c</label>
+    </customValue>
+    <customValue>
+        <fullName>Form_LCF_Grant_Annual_1__c</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Form_LCF_Grant_Annual_1__c</label>
     </customValue>
     <description>Object names of SIB Forms</description>
     <masterLabel>SIB Object Name</masterLabel>

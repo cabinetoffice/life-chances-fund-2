@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>rs_service_developments__c</fullName>
+    <description>Show how you have worked with your service users and other service providers (if any) to ensure effective intervention delivery. This could include evidence of research done with users or an engagement plan showing users? involvement in intervention design.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Please outline what you have done/will do to develop your service to ensure it best supports service users?</inlineHelpText>
+    <label>RS - Service Developments</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>10</visibleLines>
+</CustomField>

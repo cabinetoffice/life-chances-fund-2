@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Project_Region__c</fullName>
+    <description>Project Region copied from EOI/Full Application forms</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Project Region copied from EOI/Full Application forms</inlineHelpText>
+    <label>Project Region</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Organisation_Region</valueSetName>
+    </valueSet>
+    <visibleLines>10</visibleLines>
+</CustomField>

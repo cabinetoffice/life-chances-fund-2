@@ -1,0 +1,91 @@
+{
+	"id": "lcf_grant_sib_costs_1",
+	"target_object": "Form_LCF_Grant_Annual_Block_1__c",
+	"parent_relationship": "lcf_grant__r",
+	"pages": [
+		{
+			"id": "1",
+			"questions": [
+				{ "target_field": "sc_anticipated_service_delivery_costs__c" },
+				{ "target_field": "sc_actual_service_delivery_costs__c" }
+			],
+			"routes": [
+				{ "target_page": "2" }
+			]		
+		},
+		{
+			"id": "2",
+			"questions": [
+				{ "target_field": "sc_evaluation_and_learning_costs__c" }
+			],
+			"routes": [
+				{ "target_page": "3" }
+			]		
+		},
+		{
+			"id": "3",
+			"questions": [
+				{ "target_field": "sc_anticipated_performance_mgmt_cost__c" },
+				{ "target_field": "sc_actual_performance_mgmt_cost__c" }
+			],
+			"routes": [
+				{ "target_page": "4" }
+			]		
+		},
+		{
+			"id": "4",
+			"questions": [
+				{ "target_field": "sc_actual_social_investment_cost__c" },
+				{ "target_field": "sc_anticipated_return_on_social_invest__c" },
+				{ "target_field": "sc_lcf_grant_money_multiple__c" }
+			],
+			"routes": [
+				{ "target_page": "5" }
+			]		
+		},
+		{
+			"id": "5",
+			"questions": [
+				{ "target_field": "sc_revised_payment_profile_required__c" }
+			],
+			"routes": [
+				{ 
+					"target_page": "6", 
+					"constraints": [
+						{ "field": "sc_revised_payment_profile_required__c", "operator": "equals", "value": "Yes" }
+					] 
+				},
+				{ "target_page": "7" }
+			]		
+		},		
+		{
+			"id": "6",
+			"files": {
+				"target_field": "sc_payment_profile_files__c"
+			},
+			"routes": [
+				{ "target_page": "7" }
+			]		
+		},
+		{
+			"id": "7",
+			"questions": [
+				{ "target_field": "sc_funds_flow_revised__c" }
+			],
+			"routes": [
+				{ 
+					"target_page": "8", 
+					"constraints": [
+						{ "field": "sc_funds_flow_revised__c", "operator": "equals", "value": "Yes" }
+					] 
+				}
+			]
+		},		
+		{
+			"id": "8",
+			"files": {
+				"target_field": "sc_funds_flow_files__c"
+			}	
+		}
+	]
+}

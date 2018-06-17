@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Children&#39;s services</fullName>
+        <default>false</default>
+        <label>Children&#39;s services</label>
+    </customValue>
+    <customValue>
+        <fullName>Drug and alcohol dependency</fullName>
+        <default>false</default>
+        <label>Drug and alcohol dependency</label>
+    </customValue>
+    <customValue>
+        <fullName>Young people</fullName>
+        <default>false</default>
+        <label>Young people</label>
+    </customValue>
+    <customValue>
+        <fullName>Healthy lives</fullName>
+        <default>false</default>
+        <label>Healthy lives</label>
+    </customValue>
+    <customValue>
+        <fullName>Older people&#39;s services</fullName>
+        <default>false</default>
+        <label>Older people&#39;s services</label>
+    </customValue>
+    <customValue>
+        <fullName>Early years</fullName>
+        <default>false</default>
+        <label>Early years</label>
+    </customValue>
+    <customValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </customValue>
+    <masterLabel>Themes</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

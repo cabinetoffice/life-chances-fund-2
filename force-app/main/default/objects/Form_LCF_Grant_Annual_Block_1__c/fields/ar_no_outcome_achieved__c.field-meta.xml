@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ar_no_outcome_achieved__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Over the past year, how many participants engaged in the program did not achieve a payable outcome?</inlineHelpText>
+    <label>AR - No Outcome Achieved</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

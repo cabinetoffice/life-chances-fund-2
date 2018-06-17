@@ -6,7 +6,6 @@
     <externalId>false</externalId>
     <label>Account</label>
     <referenceTo>Account</referenceTo>
-    <relationshipLabel>Application</relationshipLabel>
     <relationshipName>Application</relationshipName>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>

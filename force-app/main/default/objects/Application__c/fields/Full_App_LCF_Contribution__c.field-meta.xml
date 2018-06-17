@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Full_App_LCF_Contribution__c</fullName>
+    <description>Full Application Maximum LCF Contribution</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Full Application Maximum LCF Contribution</inlineHelpText>
+    <label>Full App LCF Contribution</label>
+    <summarizedField>Form_LCF_Full_App_1__c.ov_max_requested_funds__c</summarizedField>
+    <summaryForeignKey>Form_LCF_Full_App_1__c.application__c</summaryForeignKey>
+    <summaryOperation>max</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

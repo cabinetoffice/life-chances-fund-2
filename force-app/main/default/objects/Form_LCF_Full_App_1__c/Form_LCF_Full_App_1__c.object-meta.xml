@@ -38,7 +38,9 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <type>Default</type>
+        <content>COF_FullAppViewOverride</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
@@ -49,19 +51,38 @@
     <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
-    <enableReports>false</enableReports>
+    <enableReports>true</enableReports>
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>ReadWrite</externalSharingModel>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
     <label>Form LCF Full Application 1.0</label>
     <nameField>
         <displayFormat>FAP-{00000}</displayFormat>
         <label>Form ID</label>
         <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>Form LCF Full Application 1.0</pluralLabel>
-    <searchLayouts/>
-    <sharingModel>ReadWrite</sharingModel>
+    <pluralLabel>Form LCF Full Application</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>application__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Theme__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Application_Contact__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Commissioner_Organisation__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ov_project_name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Project_Value__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ov_services_start_date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ov_services_end_date__c</customTabListAdditionalFields>
+        <searchResultsAdditionalFields>application__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Theme__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Application_Contact__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Commissioner_Organisation__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ov_project_name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Project_Value__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ov_services_start_date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ov_services_end_date__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>

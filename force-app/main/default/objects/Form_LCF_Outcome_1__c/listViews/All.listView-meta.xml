@@ -2,8 +2,16 @@
 <ListView xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>All</fullName>
     <columns>NAME</columns>
-    <columns>application__c</columns>
+    <columns>primary__c</columns>
+    <columns>RECORDTYPE</columns>
+    <columns>eoi__c</columns>
     <columns>full_application__c</columns>
+    <columns>ou_description__c</columns>
+    <columns>ou_baseline__c</columns>
+    <columns>ou_measure__c</columns>
+    <columns>ou_payment__c</columns>
+    <columns>ou_social_impact__c</columns>
+    <columns>ou_timescale__c</columns>
     <filterScope>Everything</filterScope>
     <label>All</label>
 </ListView>

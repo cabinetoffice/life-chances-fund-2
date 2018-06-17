@@ -10,10 +10,22 @@ public class COF_Form {
 	public String reference_Id {get;set;}
 	public String title {get;set;}
 	public String short_title {get;set;}
+	public String title_append_text {get;set;}
+	public String title_append_field {get;set;}
 	public String target_object {get;set;}
+	public String users_able_to_edit {get;set;}
 	public String application_status_field {get;set;}
+	public String block_status_field {get;set;}
+	public String approval_status_field {get;set;}
+	public String issue_status_field {get;set;}
+	public String period_title_field {get;set;}
+	public String reviewer_field {get;set;}
+	public String history_required {get;set;}
+	public String history_fields {get;set;}
+	public String history_headers {get;set;}
+	public List<COF_QuestionSet.COF_Question> questions {get;set;}
 	public List<COF_Section> sections {get;set;} 
-	public Boolean readonlyMode {get; set;}
+	public Boolean readonlyMode {get;set;}
 	
 	public COF_Form() {
 		this.readonlyMode = false;

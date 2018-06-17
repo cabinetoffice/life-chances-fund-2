@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cs_step_up_period_start__c</fullName>
+    <description>Normally must be within six months of delivery starting.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Start of step up period before you start full delivery</inlineHelpText>
+    <label>CS - Step Up Period Start</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

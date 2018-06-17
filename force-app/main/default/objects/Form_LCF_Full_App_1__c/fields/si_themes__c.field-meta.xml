@@ -10,44 +10,7 @@
     <type>MultiselectPicklist</type>
     <valueSet>
         <restricted>true</restricted>
-        <valueSetDefinition>
-            <sorted>false</sorted>
-            <value>
-                <fullName>Children's services</fullName>
-                <default>false</default>
-                <label>Children's services</label>
-            </value>
-            <value>
-                <fullName>Drug and alcohol dependency</fullName>
-                <default>false</default>
-                <label>Drug and alcohol dependency</label>
-            </value>
-            <value>
-                <fullName>Young people</fullName>
-                <default>false</default>
-                <label>Young people</label>
-            </value>
-            <value>
-                <fullName>Healthy lives</fullName>
-                <default>false</default>
-                <label>Healthy lives</label>
-            </value>
-            <value>
-                <fullName>Older people's services</fullName>
-                <default>false</default>
-                <label>Older people's services</label>
-            </value>
-            <value>
-                <fullName>Early years</fullName>
-                <default>false</default>
-                <label>Early years</label>
-            </value>
-            <value>
-                <fullName>Other</fullName>
-                <default>false</default>
-                <label>Other</label>
-            </value>
-        </valueSetDefinition>
+        <valueSetName>Themes</valueSetName>
     </valueSet>
     <visibleLines>4</visibleLines>
 </CustomField>

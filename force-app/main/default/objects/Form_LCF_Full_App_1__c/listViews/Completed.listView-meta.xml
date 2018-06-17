@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Completed</fullName>
+    <columns>NAME</columns>
+    <columns>application__c</columns>
+    <columns>Theme__c</columns>
+    <columns>Status__c</columns>
+    <columns>Application_Contact__c</columns>
+    <columns>Commissioner_Organisation__c</columns>
+    <columns>ov_project_name__c</columns>
+    <columns>Project_Value__c</columns>
+    <columns>ov_services_start_date__c</columns>
+    <columns>ov_services_end_date__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Form_Complete__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Completed</label>
+</ListView>

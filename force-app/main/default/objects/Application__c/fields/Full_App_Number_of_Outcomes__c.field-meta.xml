@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Full_App_Number_of_Outcomes__c</fullName>
+    <description>Count of full application outcomes for this application</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Count of full application outcomes for this application</inlineHelpText>
+    <label>Full App Number of Outcomes</label>
+    <summaryFilterItems>
+        <field>Form_LCF_Outcome_1__c.RecordTypeId</field>
+        <operation>equals</operation>
+        <value>Full Application</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Form_LCF_Outcome_1__c.application__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

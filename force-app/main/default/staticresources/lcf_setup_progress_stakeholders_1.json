@@ -1,63 +1,69 @@
 {
 	"id": "lcf_setup_progress_stakeholders_1",
-	"target_object": "Form_LCF_Setup_Stakeholder_1__c",
+	"target_object": "Form_LCF_Commissioner_1__c",
 	"target_field": "st_organisation_name__c",
 	"status_field": "pr_section_status__c",
+	"primary_field": "primary__c",
+	"child_count_field": "pr_number_of_stakeholders__c",
+	"primary_count_field": "pr_primary_stakeholder_count__c",
 	"short_title": "Stakeholder",
 	"parent_relationship": "full_award_setup__r",
 	"pages": [
 		{
 			"id": "1",
+			"title_id": "Stakeholder Organisation",
 			"questions": [
-				{ "target_field": "st_organisation_name__c" }
+				{ "target_field": "st_organisation_name__c" },
+				{ "target_field": "st_organisation_type__c" },
+				{ "target_field": "primary__c" }
 			],
 			"routes": [
-				{ "target_page": "2" }
+				{ 
+					"target_page": "2",
+					"constraints": [
+						{ "field": "st_organisation_type__c", "operator": "equals", "value": "Other" }
+					]
+				},
+				{ "target_page": "3" }
 			]
 		},
 		{
 			"id": "2",
 			"questions": [
-				{ "target_field": "st_organisation_type__c" }
+				{ "target_field": "st_organisation_other_type__c" }
 			],
 			"routes": [
-				{ 
-					"target_page": "3",
-					"constraints": [
-						{ "field": "st_organisation_type__c", "operator": "equals", "value": "Other" }
-					]
-				},
-				{ "target_page": "4" }
+				{ "target_page": "3" }
 			]
 		},
 		{
 			"id": "3",
 			"questions": [
-				{ "target_field": "st_organisation_other_type__c" }
+				{ "target_field": "st_organisation_sector__c" }
 			],
 			"routes": [
-				{ "target_page": "4" }
+				{ 
+					"target_page": "4",
+					"constraints": [
+						{ "field": "st_organisation_sector__c", "operator": "equals", "value": "Other" }
+					]
+				},
+				{ "target_page": "5" }
 			]
 		},
 		{
 			"id": "4",
 			"questions": [
-				{ "target_field": "st_organisation_sector__c" }
+				{ "target_field": "st_organisation_other_sector__c" }
 			],
 			"routes": [
-				{ 
-					"target_page": "5",
-					"constraints": [
-						{ "field": "st_organisation_sector__c", "operator": "equals", "value": "Other" }
-					]
-				},
-				{ "target_page": "6" }
+				{ "target_page": "5" }
 			]
 		},
 		{
 			"id": "5",
 			"questions": [
-				{ "target_field": "st_organisation_other_sector__c" }
+				{ "target_field": "st_organisation_region__c" }
 			],
 			"routes": [
 				{ "target_page": "6" }
@@ -78,15 +84,17 @@
 				{ "target_field": "st_engagement_detail__c" }
 			],
 			"routes": [
-				{ "target_page": "9" }
+				{ "target_page": "8" }
 			]
 		},
 		{
-			"id": "9",
+			"id": "8",
 			"title_id": "Lead Contact Details",
 			"questions": [
-				{ "target_field": "st_lead_contact_name__c" },
-				{ "target_field": "st_lead_contact_daytime_phone__c" },
+				{ "target_field": "st_lead_contact_first_name__c" },
+				{ "target_field": "st_lead_contact_last_name__c" },
+				{ "target_field": "st_lead_contact_job_title__c" },
+				{ "target_field": "st_lead_contact_phone__c" },
 				{ "target_field": "st_lead_contact_mobile__c" },
 				{ "target_field": "st_lead_contact_email__c" }
 			]

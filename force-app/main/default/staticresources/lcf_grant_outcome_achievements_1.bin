@@ -1,0 +1,22 @@
+{
+	"id": "lcf_grant_outcome_achievements_1",
+	"target_object": "Form_LCF_Outcome_Achievement_1__c",
+	"target_field": "oa_outcome__c",
+	"status_field": "oa_section_status__c",
+	"short_title": "Outcome Achievement",
+	"parent_relationship": "grant_achievement__r",
+	"pages": [
+		{
+			"id": "1",
+			"questions": [
+				{ 
+					"target_field": "oa_outcome__c",
+					"is_display": "true" 
+				}, 
+				{ "target_field": "oa_period_target__c" },
+				{ "target_field": "oa_period_achievement__c" },
+				{ "target_field": "oa_period_outcome_payments__c" }				
+			]
+		}
+	]
+}

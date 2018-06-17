@@ -49,7 +49,7 @@
     <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
-    <enableReports>false</enableReports>
+    <enableReports>true</enableReports>
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
@@ -60,7 +60,7 @@
         <label>Investor ID</label>
         <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>Form LCF Setup Investor 1.0</pluralLabel>
+    <pluralLabel>Form LCF Setup Investors</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
     <visibility>Public</visibility>

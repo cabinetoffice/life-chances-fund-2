@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>bb_other_national_savings__c</fullName>
+    <description>Page Title:Savings and costs avoided attributable to central government and other national commissioners</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Savings</inlineHelpText>
+    <label>BB - Other National Savings</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

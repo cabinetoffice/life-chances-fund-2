@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>bb_number_of_outcomes__c</fullName>
+    <description>Count of outcomes for this baseline block</description>
+    <externalId>false</externalId>
+    <formula>lcf_grant__r.Number_of_Outcomes__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Count of outcomes for this baseline block</inlineHelpText>
+    <label>BB - Number of Outcomes</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,91 @@
+<!--_______________________________________________________________________________________________________________________
+    Name:        COF_EOIDataConversion.page
+    Description: Custom button to enable "Retrieve Field Metadata" action
+                    
+    Date         Version Author              Summary of Changes 
+    ___________  _______ __________________  ______________________________________________________________________________
+    Apr 2018     1.0     Michael Witchalls   Initial Release 
+___________________________________________________________________________________________________________________________ -->    
+<apex:page controller="COF_EOIDataConversionController" title="Convert EOI Data" >
+<apex:slds /> 
+<style type="text/css">
+    .show-div {
+        display:block;
+    }
+    .hide-div {
+        display:none;
+    }
+</style>
+<script type="text/javascript">           
+    function showMessage() {
+    	console.log("got here");
+    	var el = document.getElementById("working-message");
+    	if (el) el.className = "show-div";
+    }           
+    function showMessage2() {
+     	var el = document.getElementById("working-message2");
+    	if (el) el.className = "show-div";
+    }           
+    function showMessage3() {
+    	var el = document.getElementById("working-message3");
+    	if (el) el.className = "show-div";
+    }           
+    function showMessage4() {
+    	var el = document.getElementById("working-message4");
+    	if (el) el.className = "show-div";
+    }           
+</script>
+
+<!-- <div class="slds-grid slds-grid--align-center"> -->
+<apex:form id="theForm">
+ 
+     <!-- BOXED AREA -->
+    <fieldset class="slds-box slds-container--medium slds-container--center slds-theme--shade">
+    
+    <!-- PAGE HEADER -->
+    <div class="slds-page-header slds-theme--alert-texture" role="banner">  
+        <div class="slds-grid"> 
+            <div class="slds-col">  
+                <div class="slds-media">
+                    <div class="slds-media__figure">
+                        <span class="slds-icon_container slds-icon-standard-product-item-transaction">
+                            <svg class="slds-icon slds-icon_medium" aria-hidden="true">
+                                <use href="{!URLFOR($Asset.SLDS, 'assets/icons/standard-sprite/svg/symbols.svg#product_item_transaction')}"></use>
+                            </svg>
+                        </span>
+                    </div>          
+                    <div class="slds-media__body">
+                        <p class="slds-text-heading--label">Life Chances Fund</p>
+                        <h1 class="slds-text-heading--medium">EOI Data Conversion</h1>
+                    </div>          
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <apex:outputPanel id="buttons1" styleClass="slds-grid slds-grid--align-center"> 
+        <apex:outputPanel rendered="{!showEOIButton}">
+            <apex:commandButton action="{!createEOIData}" value="Convert EOI Data" styleClass="slds-button slds-button--brand" onclick="showMessage()"/>
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{!showOtherButtons}">
+            <apex:commandButton action="{!createCommissioners}" value="Convert Commissioners" styleClass="slds-button slds-button--brand" onclick="showMessage2()"/>
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{!showOtherButtons}">
+            <apex:commandButton action="{!createOutcomes}" value="Convert Outcomes" styleClass="slds-button slds-button--brand" onclick="showMessage3()"/>
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{!showOtherButtons}">
+            <apex:commandButton action="{!createPreviousApps}" value="Convert Previous Applications" styleClass="slds-button slds-button--brand" onclick="showMessage4()"/>
+        </apex:outputPanel>
+    </apex:outputPanel>
+    
+    <p class="hide-div" id="working-message">Converting EOI data ...</p>
+    <p class="hide-div" id="working-message2">Converting Commissioners ...</p>
+    <p class="hide-div" id="working-message3">Converting Outcomes ...</p>
+    <p class="hide-div" id="working-message4">Converting Previous Applications ...</p>
+      
+    <p>&nbsp;</p><apex:pageMessages id="messages"/><p>&nbsp;</p> 
+    
+    </fieldset>
+    
+</apex:form>
+</apex:page>

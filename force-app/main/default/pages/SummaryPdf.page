@@ -1,0 +1,137 @@
+<apex:page controller="SummaryController" standardStylesheets="false" showHeader="false" renderAs="pdf">
+
+    <apex:composition template="Layout">
+        <apex:define name="title">
+            <title>{!section.short_title} Summary</title>
+        </apex:define>
+        <apex:define name="styles">
+            <apex:stylesheet value="{!URLFOR($Resource.pdfstyles)}" />
+        </apex:define>
+        <apex:define name="breadcrumbs">
+        </apex:define>
+        <apex:define name="mainFullWidth">
+            
+			<apex:outputText rendered="{!NOT(ISBLANK(grant))}">
+	            <h1 class="heading-xlarge">
+	                <span class="heading-secondary">{!application['Name']}/{!grant['Name']}: {!application['Theme__c']}
+	                	<span style="float:right">{!application['Contact__r.Name']}</span></span>
+	                {!form.title}
+	            </h1>
+	        </apex:outputText>
+			<apex:outputText rendered="{!ISBLANK(grant)}">
+	            <h1 class="heading-xlarge">
+	                <span class="heading-secondary">{!application['Name']}: {!application['Theme__c']}
+	                	<span style="float:right">{!application['Contact__r.Name']}</span></span>
+	                {!form.title}
+	            </h1>
+			</apex:outputText> 
+            <h1 class="heading-large">{!section.title}       
+			<apex:outputText rendered="{!form.period_title_field!=null}">
+				<br/><span class="heading-secondary">{!targetObject[form.period_title_field]}</span>
+			</apex:outputText>
+			</h1>
+
+            <apex:repeat value="{!validPages}" var="validPage">
+            	<apex:outputText rendered="{!AND(validPage.title!=null)}">
+            		<h1 class="heading-large">{!validPage.title}</h1>
+            	</apex:outputText>       
+            
+	            <table class="sections">
+	                <tbody class="summary">
+                        <apex:repeat value="{!validPage.fields}" var="field">
+				            <apex:outputText rendered="{!field.isValid}">
+							<tr>
+                                <th class="question" valign="top">{!field.label}</th>
+                                <td valign="top">
+                                	<apex:outputField value="{!targetObject[field.identifier]}" rendered="{!field.isPercent==false}"/>
+                                	<apex:outputText value="{0,number,##.#%}" rendered="{!field.isPercent==true}">
+                                		<apex:param value="{!targetObject[field.identifier]/100}"/>
+                                	</apex:outputText>
+                                </td> 
+                            </tr>
+                            </apex:outputText>
+                        </apex:repeat>
+	                </tbody>
+	            </table>
+	            <table class="sections">
+	                <tbody class="summary">
+                     	<apex:outputText rendered="{!validPage.filesField!=null}">
+                            <tr>
+                                <th class="question" valign="top">{!validPage.filesField.label}</th> 
+                                <td valign="top"><apex:outputField value="{!targetObject[validPage.filesField.identifier]}"/></td>
+                            </tr>
+                        </apex:outputText>
+                    </tbody>
+                </table>
+                
+				<apex:outputText rendered="{!validPage.children != null}">		            
+                    <apex:repeat value="{!validPage.children.childRecs}" var="obj">
+		                <apex:repeat value="{!validPage.children.childPages}" var="pg">
+							<apex:outputText rendered="{!pg.title != null}">
+								<h1 class="heading-medium">{!pg.title}</h1>    
+							</apex:outputText>
+	            			        
+	 			            <table class="sections">
+			                	<tbody class="summary">
+	                                <apex:repeat value="{!pg.fields}" var="field">
+										<tr>
+	                                        <th class="question" valign="top">{!field.label}</th>
+	                                        <td valign="top"><apex:outputField value="{!obj[field.identifier]}"/></td>
+										</tr>
+	                                </apex:repeat>
+								</tbody>
+							</table>
+						</apex:repeat>
+	                    <table><tr><td style="border-bottom:2px solid black"></td></tr></table>
+					</apex:repeat>
+		            <table class="sections">
+	                	<tbody class="summary">
+                    	<apex:outputText rendered="{!validPage.children.total_field2!=null}">
+	                        <tr>
+	                            <th class="question" valign="top">TOTAL {!validPage.children.field_head2}</th>
+	                            <td valign="top"><apex:outputField value="{!targetObject[validPage.children.total_field2]}"/></td>
+	                        </tr>
+						</apex:outputText>
+						<apex:outputText rendered="{!validPage.children.total_field3!=null}">
+	                         <tr>
+	                             <th class="question" valign="top">TOTAL {!validPage.children.field_head3}</th>
+	                             <td valign="top"><apex:outputField value="{!targetObject[validPage.children.total_field3]}"/></td>
+	                         </tr>
+	                    </apex:outputText>
+	                     <apex:outputText rendered="{!validPage.children.total_field4!=null}">
+	                         <tr>
+	                             <th class="question" valign="top">TOTAL {!validPage.children.field_head4}</th>
+	                             <td valign="top"><apex:outputField value="{!targetObject[validPage.children.total_field4]}"/></td>
+	                         </tr>
+	                    </apex:outputText>
+	                     <apex:outputText rendered="{!validPage.children.total_field5!=null}">
+	                         <tr>
+	                             <th class="question" valign="top">TOTAL {!validPage.children.field_head5}</th>
+	                             <td valign="top"><apex:outputField value="{!targetObject[validPage.children.total_field5]}"/></td>
+	                         </tr>
+	                    </apex:outputText>
+	                     <apex:outputText rendered="{!validPage.children.total_field6!=null}">
+	                         <tr>
+	                             <th class="question" valign="top">TOTAL {!validPage.children.field_head6}</th>
+	                             <td valign="top"><apex:outputField value="{!targetObject[validPage.children.total_field6]}"/></td>
+	                         </tr>
+	                    </apex:outputText>
+						</tbody>
+					</table>
+				</apex:outputText> 
+            </apex:repeat>
+			
+			<br/>
+            <table class="sections"> 
+                <tbody class="summary">
+                    <tr><td style="border:none"></td></tr>
+                    <tr>
+                        <th class="question" valign="top">Section Status</th>
+                        <td><span class="status">{!targetObject[section.status_field]}</span></td>
+                     </tr>
+                </tbody>
+            </table>  
+
+        </apex:define>
+    </apex:composition>
+</apex:page>

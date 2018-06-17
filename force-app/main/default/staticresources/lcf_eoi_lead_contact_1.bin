@@ -1,0 +1,43 @@
+{
+	"id": "lcf_eoi_lead_contact_1",
+	"target_object": "Form_LCF_EOI_1__c",
+	"parent_relationship": "application__r",
+	"pages": [
+		{
+			"id": "1",
+			"title_id": "Lead Contact Name",
+			"guidance_id": "Lead Contact Guidance",
+			"questions": [
+				{ "target_field": "lc_first_name__c" },
+				{ "target_field": "lc_last_name__c" }
+			],
+			"routes": [
+				{ "target_page": "2" }
+			]
+		},
+		{
+			"id": "2",
+			"questions": [
+				{ "target_field": "lc_position__c" }
+			],
+			"routes": [
+				{ "target_page": "3" }
+			]
+		},
+		{
+			"id": "3",
+			"questions": [
+				{ "target_field": "lc_email__c" }
+			],
+			"routes": [
+				{ "target_page": "4" }
+			]
+		},
+		{
+			"id": "4",
+			"questions": [
+				{ "target_field": "lc_phone_number__c" }
+			]		
+		}
+	]
+}

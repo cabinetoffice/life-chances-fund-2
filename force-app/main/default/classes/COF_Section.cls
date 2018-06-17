@@ -11,9 +11,12 @@ public class COF_Section {
 	public String short_title {get;set;}
 	public String summary {get;set;}
 	public String status_field {get; set;}
+	public String include_checkbox {get; set;}
+	public String declaration {get;set;}
 	public String page_status_field {get; set;}
 	public Boolean questionsComplete {get; set;}
 	public COF_QuestionSet questionSet;
+	public List<COF_Page> validPages {get; set;}
 	
 	public COF_Section() {
 		this.questionsComplete = false;

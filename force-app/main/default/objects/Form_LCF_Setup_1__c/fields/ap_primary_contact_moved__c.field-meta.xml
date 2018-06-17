@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ap_primary_contact_moved__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Has the primary contact moved in the previous three years?</inlineHelpText>
+    <label>AP - Primary Contact Moved</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Yes_No</valueSetName>
+    </valueSet>
+</CustomField>

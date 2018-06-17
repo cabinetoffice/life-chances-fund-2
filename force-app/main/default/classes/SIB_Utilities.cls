@@ -21,23 +21,43 @@ public class SIB_Utilities {
 	*/
 	public static SIB_Field_Metadata__c getFieldMetadata(String objectName, String fieldName) {
 		String fieldKey = objectName+'.'+fieldName;
-		if(fieldMetadataCache.size() == 0 && !Test.isRunningTest()) {
-			fieldMetadataCache = new Map<String, SIB_Field_Metadata__c>();
-			for (List<SIB_Field_Metadata__c> fdList: [
-				SELECT 
-					Name, Field_Key__c, Description__c, Help_Text__c, Relationship_Name__c,
-					Rich_Text__c, Recommended_Word_Limit__c, Warning_Text__c, Warning_Value__c, Page_Title__c 
-				FROM 
-					SIB_Field_Metadata__c
-			]) {
-				for (SIB_Field_Metadata__c fm: fdList) {
-					fieldMetadataCache.put(fm.Field_Key__c, fm);
-				} 
-			}
+		if (fieldMetadataCache.size() == 0 && !Test.isRunningTest()) {
+			SIB_Utilities.getFieldMetadataCache();
 		}
 		return fieldMetadataCache.get(fieldKey);
 	}
 
+	public static Map<Double, List<SIB_Field_Metadata__c>> getRelatedObjectMetadata(String objectName) {
+		Map<Double, List<SIB_Field_Metadata__c>> returnMap = new Map<Double, List<SIB_Field_Metadata__c>>();
+		if (fieldMetadataCache.size() == 0 && !Test.isRunningTest()) {
+			SIB_Utilities.getFieldMetadataCache();
+		}
+		for (SIB_Field_Metadata__c md: fieldMetadataCache.values()) {
+			if (md.Related_Object_Name__c != null & md.Related_Object_Record_No__c != null) {
+				List<SIB_Field_Metadata__c> fieldList = returnMap.get(md.Related_Object_Record_No__c);
+				if (fieldList == null) fieldList = new List<SIB_Field_Metadata__c>();
+				fieldList.add(md);
+				returnMap.put(md.Related_Object_Record_No__c, fieldList);
+			}
+		}
+		return returnMap;		
+	}
+	
+	private static void getFieldMetadataCache() {
+		fieldMetadataCache = new Map<String, SIB_Field_Metadata__c>();
+		for (List<SIB_Field_Metadata__c> fdList: [
+			SELECT 
+				Name, Object_Name__c, Field_Name__c, Field_Key__c, Description__c, Help_Text__c, Relationship_Name__c,
+				Rich_Text__c, Recommended_Word_Limit__c, Warning_Text__c, Warning_Value__c, Page_Title__c,
+				Related_Object_Name__c, Related_Object_Record_Type__c, Related_Object_Record_No__c, Related_Object_Field_Name__c 
+			FROM 
+				SIB_Field_Metadata__c
+		]) {
+			for (SIB_Field_Metadata__c fm: fdList) {
+				fieldMetadataCache.put(fm.Field_Key__c, fm);
+			} 
+		}		
+	}
 	/*
 		Utility method to extract rich text for LCF sections.
 		LCF section text is stored in the SIB Section Text object and accessed via title_id, guidance_id, warning_id etc

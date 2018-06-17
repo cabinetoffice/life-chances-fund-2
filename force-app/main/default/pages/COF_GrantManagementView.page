@@ -1,0 +1,10 @@
+<!--_______________________________________________________________________________________________________________________
+	Name:			COF_GrantManagementView.page
+	Description:	Provides access to Grant Management form
+					
+	Date         Version Author      		Summary of Changes 
+	___________  _______ _________________	________________________________________________________________________________
+	Apr 2018     1.0     Michael Witchalls	Initial Release 
+________________________________________________________________________________________________________________________ -->  
+<apex:page standardController="LCF_Grant__c" extensions="COF_GrantManagementViewController" action="{!viewForm}">
+</apex:page>

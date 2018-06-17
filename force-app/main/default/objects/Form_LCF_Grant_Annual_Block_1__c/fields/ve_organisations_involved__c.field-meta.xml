@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ve_organisations_involved__c</fullName>
+    <description>If there are no VCSE organisations involved, please put ‘0’.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>How many VCSE organisations are currently involved in delivering services within your SIB?</inlineHelpText>
+    <label>VE - Organisations Involved</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

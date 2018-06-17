@@ -1,0 +1,27 @@
+{
+	"id": "lcf_setup_outcome_payments_1",
+	"target_object": "Form_LCF_Outcome_Payment_1__c",
+	"target_field": "op_financial_year__c",
+	"status_field": "tm_section_status__c",
+	"short_title": "Payment",
+	"parent_relationship": "full_award_setup__r",
+	"pages": [
+		{
+			"id": "1",
+			"questions": [
+				{ "target_field": "op_financial_year__c" }
+			],
+			"routes": [
+				{ "target_page": "2" }
+			]
+		},
+		{
+			"id": "2",
+			"questions": [
+				{ "target_field": "op_commissioner_savings__c" },
+				{ "target_field": "op_commissioner_payments__c" },
+				{ "target_field": "op_lcf_outcome_payments__c" }
+			]
+		}
+	]
+}

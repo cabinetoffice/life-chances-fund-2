@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EOIDates</fullName>
+    <columns>Application__c</columns>
+    <columns>Answer_Key__c</columns>
+    <columns>Data_Conversion_Form__c</columns>
+    <columns>Data_Conversion_Form_Section__c</columns>
+    <columns>EOI_Status__c</columns>
+    <columns>NAME</columns>
+    <columns>Application_Question__c</columns>
+    <columns>Question__c</columns>
+    <columns>Short_Text_Answer__c</columns>
+    <columns>Text_Answer__c</columns>
+    <columns>Radio_Answer__c</columns>
+    <columns>Percent_Answer__c</columns>
+    <columns>Checkboxes_Answer__c</columns>
+    <columns>Email_Answer__c</columns>
+    <columns>Application_Question_Template__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Data_Conversion_Form__c</field>
+        <operation>equals</operation>
+        <value>Expression of Interest</value>
+    </filters>
+    <label>EOI Dates</label>
+</ListView>

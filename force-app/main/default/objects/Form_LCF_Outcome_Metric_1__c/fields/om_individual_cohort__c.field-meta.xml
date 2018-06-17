@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>om_individual_cohort__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Is the outcome metric measured at individual or at cohort level?</inlineHelpText>
+    <label>OM - Indvidual/Cohort</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Individual_Cohort</valueSetName>
+    </valueSet>
+</CustomField>

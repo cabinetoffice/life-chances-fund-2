@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sc_anticipated_performance_mgmt_cost__c</fullName>
+    <description>Including outcome data analysis, contract management, SIB management, SIB governance, SPV costs, SIB board meetings, SIB oversight of provider performance.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>What was the anticipated cost of SIB performance management over the past year?</inlineHelpText>
+    <label>SC - Anticipated Performance Mgmt Cost</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

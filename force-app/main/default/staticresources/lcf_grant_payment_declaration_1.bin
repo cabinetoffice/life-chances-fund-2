@@ -1,0 +1,16 @@
+{
+	"id": "lcf_grant_payment_declaration_1",
+	"target_object": "Form_LCF_Grant_Achievement_1__c",
+	"parent_relationship": "lcf_grant__r",
+	"pages": [
+		{
+			"id": "1",
+			"questions": [
+				{ "target_field": "de_name__c" },
+				{ "target_field": "de_role__c" },
+				{ "target_field": "de_date__c" },
+				{ "target_field": "de_declaration__c" }
+			]
+		}
+	]
+}

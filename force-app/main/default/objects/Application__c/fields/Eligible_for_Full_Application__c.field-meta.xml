@@ -4,9 +4,9 @@
     <externalId>false</externalId>
     <formula>IF(
 AND(
- Dev_Form_External_Status__c == 'Successful',
- EOI_External_Status__c == 'Successful',
- Identity_Check_External_Status__c == 'Successful'
+ Dev_Form_External_Status__c == &#39;Successful&#39;,
+ EOI_External_Status__c == &#39;Successful&#39;,
+ Identity_Check_External_Status__c == &#39;Successful&#39;
 ), TRUE, FALSE
 )</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>

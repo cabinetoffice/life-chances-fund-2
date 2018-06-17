@@ -35,7 +35,7 @@ private class SummaryControllerTest {
 		Form_LCF_Commissioner_1__c c = new Form_LCF_Commissioner_1__c(
 			application__c = a.Id,
 			full_application__c = f.Id,
-			co_organisation_name__c = 'Test Organisation'
+			st_organisation_name__c = 'Test Organisation'
 		);
 		insert c;
 	}    

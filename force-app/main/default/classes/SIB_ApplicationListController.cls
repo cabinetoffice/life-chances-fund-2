@@ -3,11 +3,13 @@ public with sharing class SIB_ApplicationListController {
 		M.Witchalls Jan 2018: Divert to new Applications page if eligible for Full Application
 	*/
 	private Boolean eligible = true;
+	private Boolean eligibleForGrant = false;
 	private ID contactId;
 	
 	public SIB_ApplicationListController() {
-		User u = [SELECT ContactId, Eligible_for_Full_Application__c FROM User WHERE Id = :UserInfo.getUserId()];
+		User u = [SELECT ContactId, Eligible_for_Full_Application__c, Eligible_for_Full_Award_Setup__c, Eligible_for_NEW_EOI_Form__c, Eligible_for_LCF_Grant__c FROM User WHERE Id = :UserInfo.getUserId()];
 		eligible = u.Eligible_for_Full_Application__c;
+		eligibleForGrant = u.Eligible_for_LCF_Grant__c;
 		contactId = u.ContactId;
 	}
 	
@@ -16,6 +18,8 @@ public with sharing class SIB_ApplicationListController {
     	PageReference nextPage = SIB_Utilities.checkLoggedInStatus();
     	if (nextPage == Page.SIB_Login || !eligible) {
     		return nextPage;
+    	} else if (eligibleForGrant) {
+    		return Page.LCFGrants;
     	} else {
     		return Page.Applications;
     	}

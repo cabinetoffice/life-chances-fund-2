@@ -23,6 +23,10 @@
                 <behavior>Required</behavior>
                 <field>Application_Form_Section__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Form__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns/>
         <style>TwoColumnsTopToBottom</style>
@@ -59,7 +63,6 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>Application_Question__c</fields>
-        <fields>Form_Section__c</fields>
         <fields>Question__c</fields>
         <fields>Application__c</fields>
         <relatedList>Application_Answer__c.Application_Question_Template__c</relatedList>

@@ -1,0 +1,16 @@
+{
+	"id": "lcf_grant_investors_1",
+	"target_object": "Form_LCF_Grant_Investor_1__c",
+	"target_field": "in_investor_name__c",
+	"status_field": "bb_section_status__c",
+	"short_title": "Investor",
+	"parent_relationship": "grant_baseline__r",
+	"pages": [
+		{
+			"id": "1",
+			"questions": [
+				{ "target_field": "in_investor_name__c" }
+			]
+		}
+	]
+}

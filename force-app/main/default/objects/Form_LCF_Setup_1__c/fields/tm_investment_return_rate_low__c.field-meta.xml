@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>tm_investment_return_rate_low__c</fullName>
     <externalId>false</externalId>
-    <inlineHelpText>Low</inlineHelpText>
+    <inlineHelpText>Lower</inlineHelpText>
     <label>TM - Investment Return Rate Low</label>
     <precision>18</precision>
     <required>false</required>

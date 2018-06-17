@@ -1,0 +1,26 @@
+{
+	"id": "lcf_grant_payment_history_1",
+	"target_object": "Form_LCF_Grant_Payment_History_1__c",
+	"target_field": "ph_financial_year__c",
+	"status_field": "eg_section_status__c",
+	"short_title": "Payment History",
+	"parent_relationship": "lcf_grant_annual_block__r",
+	"pages": [
+		{
+			"id": "1",
+			"questions": [
+				{ "target_field": "ph_financial_year__c" }
+			],
+			"routes": [
+				{ "target_page": "2" }
+			]
+		},
+		{
+			"id": "2",
+			"questions": [
+				{ "target_field": "ph_actual_lcf_funding__c" },
+				{ "target_field": "ph_actual_commissioner_funding__c" }
+			]
+		}
+	]
+}

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>cs_project_end_date__c</fullName>
-    <description>For example, 31 3 2018</description>
     <externalId>false</externalId>
     <inlineHelpText>What is your current project end date when the SIB will complete its work with LCF Funds?</inlineHelpText>
     <label>CS - Project End Date</label>

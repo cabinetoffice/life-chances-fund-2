@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>oa_number_of_outcome_achievements__c</fullName>
+    <description>Count of outcome achievement records</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Count of outcome achievement records</inlineHelpText>
+    <label>OA - Number of Outcome Achievements</label>
+    <summaryForeignKey>Form_LCF_Outcome_Achievement_1__c.grant_achievement__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

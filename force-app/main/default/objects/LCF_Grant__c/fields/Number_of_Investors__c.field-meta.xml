@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Number_of_Investors__c</fullName>
+    <description>Number of Investors</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Number of Investors</inlineHelpText>
+    <label>Number of Investors</label>
+    <summaryForeignKey>Form_LCF_Grant_Investor_1__c.lcf_grant__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

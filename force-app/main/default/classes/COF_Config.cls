@@ -9,9 +9,15 @@ public class COF_Config {
 	private static final Map<String, String> configResourceMap = new Map<String, String>{
 		'lcf_full_app_1'=>'lcf_full_app_config_1',
 		'lcf_setup_1'=>'lcf_setup_config_1',
+		'lcf_eoi_1'=>'lcf_eoi_config_1',
+		'lcf_grant_1'=>'lcf_grant_config_1',
+		'lcf_grant_baseline_1'=>'lcf_grant_config_1',
+		'lcf_grant_achievement_1'=>'lcf_grant_config_1',
+		'lcf_grant_payment_profile_1'=>'lcf_grant_config_1',
+		'lcf_grant_annual_monitor_1'=>'lcf_grant_config_1',
 		'lcf_test'=>'configtest'
 	};
-	private static String resourceName;
+	private static String resourceName; 
 
 	public List<COF_Form> forms {get;set;}
 
@@ -57,6 +63,10 @@ public class COF_Config {
 '			"short_title": "Full application",'+
 '			"target_object": "Form_LCF_Full_App_1__c",'+ 
 '			"application_status_field": "Full_Application_Status__c",'+
+'			"questions": ['+
+'				{ "target_field": "ov_project_name__c" },'+
+'				{ "target_field": "ov_project_summary__c" }'+
+'			],'+
 '			"sections": ['+
 '				{'+
 '					"id": "lcf_full_app_overview_1",'+
@@ -64,6 +74,29 @@ public class COF_Config {
 '					"summary": "This section asks for you to provide the key details of your project.",'+
 '					"target_object": "Form_LCF_Full_App_1__c",'+
 '					"status_field": "ov_section_status__c"'+
+'				}'+
+'			]'+
+'		},'+
+'		{'+
+'			"id": "lcf_grant_achievement_1",'+
+'			"title": "Outcome achievement and payment",'+
+'			"short_title": "Outcome achievement",'+
+'			"target_object": "Form_LCF_Grant_Achievement_1__c",'+
+'			"users_able_to_edit": "Project users + Admin users",'+
+'			"block_status_field": "ab_block_status__c",'+
+'			"approval_status_field": "ab_approval_status__c",'+
+'			"period_title_field": "ab_claim_period__c",'+
+'			"reviewer_field": "reviewer__c",'+
+'			"questions": ['+
+'				{ "target_field": "ab_claim_period_start__c" },'+
+'				{ "target_field": "ab_claim_period_end__c" }'+
+'			],'+
+'			"sections": ['+
+'				{'+
+'					"id": "lcf_grant_user_referral_1",'+
+'					"title": "Service user referrals",'+
+'					"short_title": "Referrals",'+
+'					"status_field": "ur_section_status__c"'+
 '				}'+
 '			]'+
 '		}'+

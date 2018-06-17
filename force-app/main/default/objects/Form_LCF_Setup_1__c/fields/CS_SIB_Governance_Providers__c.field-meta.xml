@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CS_SIB_Governance_Providers__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>What have you done to check the financial resilience of your intervention provider(s)?</inlineHelpText>
+    <label>CS - SIB Governance Providers</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>10</visibleLines>
+</CustomField>

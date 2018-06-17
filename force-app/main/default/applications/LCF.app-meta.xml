@@ -6,23 +6,29 @@
     </brand>
     <description>Life Chances Fund</description>
     <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <label>LCF</label>
     <navType>Standard</navType>
     <tabs>standard-home</tabs>
     <tabs>standard-OtherUserProfile</tabs>
     <tabs>standard-Account</tabs>
     <tabs>standard-Contact</tabs>
+    <tabs>Project__c</tabs>
     <tabs>Application__c</tabs>
-    <tabs>Form_LCF_Full_App_1__c</tabs>
-    <tabs>Form_LCF_Setup_1__c</tabs>
+    <tabs>LCF_Grant__c</tabs>
+    <tabs>SIB_Field_Metadata__c</tabs>
     <tabs>SIB_Information__c</tabs>
     <tabs>SIB_Section_Text__c</tabs>
-    <tabs>Retrieve_Field_Metadata</tabs>
-    <tabs>SIB_Field_Metadata__c</tabs>
     <tabs>standard-report</tabs>
     <tabs>standard-Dashboard</tabs>
     <tabs>standard-File</tabs>
     <tabs>standard-CollaborationGroup</tabs>
+    <tabs>Form_LCF_EOI_1__c</tabs>
+    <tabs>Form_LCF_Full_App_1__c</tabs>
+    <tabs>Form_LCF_Setup_1__c</tabs>
+    <tabs>Form_LCF_Grant_Achievement_1__c</tabs>
+    <tabs>Form_LCF_Grant_Annual_Block_1__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>LCF_UtilityBar</utilityBar>
 </CustomApplication>

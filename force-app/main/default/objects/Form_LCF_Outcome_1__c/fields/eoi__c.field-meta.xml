@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>eoi__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Form LCF EOI 1.0</label>
+    <referenceTo>Form_LCF_EOI_1__c</referenceTo>
+    <relationshipLabel>Form LCF Outcome 1.0</relationshipLabel>
+    <relationshipName>eoi_outcomes</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

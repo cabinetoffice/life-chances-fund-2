@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ve_management_roles__c</fullName>
+    <description>If there are no individuals occupying roles, please put ‘0’.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>How many individuals representing VCSE organisations currently occupy SIB management roles?</inlineHelpText>
+    <label>VE - Management Roles</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

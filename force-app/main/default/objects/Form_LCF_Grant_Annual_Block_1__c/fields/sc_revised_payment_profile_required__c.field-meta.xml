@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sc_revised_payment_profile_required__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>In light of the information given in this form do your consider you need to revise your payment profile?</inlineHelpText>
+    <label>SC - Revised Payment Profile Required?</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Yes_No</valueSetName>
+    </valueSet>
+</CustomField>

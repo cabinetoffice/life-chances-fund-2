@@ -1,0 +1,70 @@
+{
+	"id": "lcf_eoi_commissioners_1",
+	"target_object": "Form_LCF_EOI_1__c",
+	"parent_relationship": "application__r",
+	"pages": [
+		{
+			"id": "1",
+			"title_id": "Commissioners",
+			"children": {
+				"target_object": "Form_LCF_Commissioner_1__c",
+				"target_field": "st_organisation_name__c",
+				"target_field2": "st_lead_contact_full_name__c",
+				"child_relationship": "eoi_commissioners__r",
+				"parent_field": "eoi__c",
+				"title": "Commissioners",
+				"section": "lcf_eoi_commissioners_child_1",
+				"add_label": "+ Add another commissioner",
+				"primary_label": "+ Add primary commissioner",
+				"primary_field": "primary__c",
+				"child_count_field": "co_number_of_commissioners__c",
+				"primary_count_field": "co_primary_commissioner_count__c",
+				"record_type": "EOI"
+			},
+			"routes": [
+				{ "target_page": "2" }
+			]
+		},
+		{
+			"id": "2",
+			"title_id": "Interventions Cost",
+			"questions": [
+				{ "target_field": "co_intervention_cost_lead_commissioner__c" },
+				{ "target_field": "co_intervention_cost_other_commissioners__c" }
+			],
+			"routes": [
+				{ "target_page": "3" }
+			]
+		},
+		{
+			"id": "3",
+			"title_id": "Interventions Savings",
+			"questions": [
+				{ "target_field": "co_intervention_saves_lead_commissioner__c" },
+				{ "target_field": "co_intervention_saves_other_commissioner__c" },
+				{ "target_field": "co_intervention_saves_government__c" }
+			],
+			"routes": [
+				{ "target_page": "4" }
+			]
+		},
+		{
+			"id": "4",
+			"questions": [
+				{ "target_field": "co_expected_request_from_lcf__c" }
+			],
+			"routes": [
+				{ "target_page": "5" }
+			]
+		},
+		{
+			"id": "5",
+			"questions": [
+				{ "target_field": "co_expected_percent_from_lcf__c" }
+			]
+		}
+	]
+}
+
+
+

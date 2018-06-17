@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>or_surplus_for_year__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Surplus or deficit for the year</inlineHelpText>
+    <label>OR - Surplus for Year</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

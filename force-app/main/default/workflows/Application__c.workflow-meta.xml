@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <alerts>
-        <fullName>Application_Submitted</fullName>
-        <description>Application Submitted</description>
+        <fullName>EOI_Application_Submitted</fullName>
+        <description>EOI Application Submitted</description>
         <protected>false</protected>
         <recipients>
             <field>Contact_Email__c</field>
@@ -10,7 +10,28 @@
         </recipients>
         <senderAddress>lifechancesfund@biglotteryfund.org.uk</senderAddress>
         <senderType>OrgWideEmailAddress</senderType>
-        <template>Community_Templates/Application_Submitted</template>
+        <template>Community_Templates/EOI_Application_Submitted</template>
+    </alerts>
+    <alerts>
+        <fullName>EOI_Unsuccessful_Application_Email_Alert</fullName>
+        <description>EOI Unsuccessful Application Email Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>lifechancesfund@biglotteryfund.org.uk</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Community_Templates/EOI_Application_Rejected</template>
+    </alerts>
+    <alerts>
+        <fullName>Office_alert_when_EOI_application_submitted</fullName>
+        <ccEmails>lifechancesfund@biglotteryfund.org.uk</ccEmails>
+        <description>Office alert when EOI application submitted</description>
+        <protected>false</protected>
+        <senderAddress>lifechancesfund@biglotteryfund.org.uk</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Community_Templates/Office_alert_when_EOI_application_submitted</template>
     </alerts>
     <alerts>
         <fullName>Office_alert_when_Full_Application_submitted</fullName>
@@ -20,6 +41,39 @@
         <senderAddress>lifechancesfund@biglotteryfund.org.uk</senderAddress>
         <senderType>OrgWideEmailAddress</senderType>
         <template>Community_Templates/Office_alert_when_Full_Application_application_submitted</template>
+    </alerts>
+    <alerts>
+        <fullName>Office_alert_when_Full_Award_Setup_submitted</fullName>
+        <ccEmails>lifechancesfund@biglotteryfund.org.uk</ccEmails>
+        <description>Office alert when Full Award Set-up submitted</description>
+        <protected>false</protected>
+        <senderAddress>lifechancesfund@biglotteryfund.org.uk</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Community_Templates/Office_alert_when_Full_Award_Setup_form_submitted</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_Development_Grant_Submitted_Email</fullName>
+        <description>Send Development Grant Submitted Email</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>lifechancesfund@biglotteryfund.org.uk</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Community_Templates/Development_Grant_Submitted</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_Financial_Health_And_Fraud_Prevention_Submitted_Email</fullName>
+        <description>Send Financial Health And Fraud Prevention Submitted Email</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>lifechancesfund@biglotteryfund.org.uk</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Community_Templates/Financial_health_and_fraud_prevention_Submitted</template>
     </alerts>
     <alerts>
         <fullName>Send_Full_Application_Submitted_Email</fullName>
@@ -34,18 +88,6 @@
         <template>Community_Templates/Full_Application_Submitted</template>
     </alerts>
     <alerts>
-        <fullName>Send_Full_Application_Successful_Email</fullName>
-        <description>Send Full Application Successful Email</description>
-        <protected>false</protected>
-        <recipients>
-            <field>Contact_Email__c</field>
-            <type>email</type>
-        </recipients>
-        <senderAddress>lifechancesfund@biglotteryfund.org.uk</senderAddress>
-        <senderType>OrgWideEmailAddress</senderType>
-        <template>Community_Templates/Full_Application_Approved</template>
-    </alerts>
-    <alerts>
         <fullName>Send_Full_Application_Unsuccessful_Email</fullName>
         <description>Send Full Application Unsuccessful Email</description>
         <protected>false</protected>
@@ -56,6 +98,18 @@
         <senderAddress>lifechancesfund@biglotteryfund.org.uk</senderAddress>
         <senderType>OrgWideEmailAddress</senderType>
         <template>Community_Templates/Full_Application_Rejected</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_Full_Award_Setup_Submitted_Email</fullName>
+        <description>Send Full Award Setup Submitted Email</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>lifechancesfund@biglotteryfund.org.uk</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Community_Templates/Full_Award_Setup_Form_Submitted</template>
     </alerts>
     <alerts>
         <fullName>Successful_Application_Email_Alert</fullName>
@@ -92,6 +146,24 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Application_Stage_Full_Application</fullName>
+        <field>Application_Stage__c</field>
+        <literalValue>Full Application</literalValue>
+        <name>Application Stage Full Application</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Application_Stage_Live_Project</fullName>
+        <field>Application_Stage__c</field>
+        <literalValue>Live Project</literalValue>
+        <name>Application Stage Live Project</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Submitted_Application_Field_Update</fullName>
         <field>Is_Submitted__c</field>
         <literalValue>1</literalValue>
@@ -112,18 +184,50 @@
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
-        <fullName>Confirmation of Application</fullName>
+        <fullName>EOI Application Submitted</fullName>
         <actions>
-            <name>Application_Submitted</name>
+            <name>EOI_Application_Submitted</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Submitted_Application_Field_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Application__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Submitted</value>
+        </criteriaItems>
+        <description>Send an email to applicant when their EOI form is successfully submitted</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>EOI Application Successful</fullName>
+        <actions>
+            <name>Successful_Application_Email_Alert</name>
             <type>Alert</type>
         </actions>
         <active>false</active>
         <criteriaItems>
             <field>Application__c.Status__c</field>
             <operation>equals</operation>
-            <value>Submitted</value>
+            <value>Successful</value>
         </criteriaItems>
-        <description>Send an email to applicant when their form is successfully submitted</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>EOI Unsuccessful Application</fullName>
+        <actions>
+            <name>EOI_Unsuccessful_Application_Email_Alert</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Application__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Unsuccessful</value>
+        </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -131,6 +235,10 @@
         <actions>
             <name>Send_Full_Application_Submitted_Email</name>
             <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Application_Stage_Full_Application</name>
+            <type>FieldUpdate</type>
         </actions>
         <active>true</active>
         <criteriaItems>
@@ -143,10 +251,6 @@
     </rules>
     <rules>
         <fullName>Full Application Successful</fullName>
-        <actions>
-            <name>Send_Full_Application_Successful_Email</name>
-            <type>Alert</type>
-        </actions>
         <active>true</active>
         <criteriaItems>
             <field>Application__c.Full_Application_Status__c</field>
@@ -170,6 +274,21 @@
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
+        <fullName>Office alert when EOI application submitted</fullName>
+        <actions>
+            <name>Office_alert_when_EOI_application_submitted</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Application__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Submitted</value>
+        </criteriaItems>
+        <description>Sends an email to lifechancesfund@biglotteryfund.org.uk when an EOI application is submitted.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
         <fullName>Office alert when Full Application submitted</fullName>
         <actions>
             <name>Office_alert_when_Full_Application_submitted</name>
@@ -182,6 +301,40 @@
             <value>Submitted</value>
         </criteriaItems>
         <description>Sends an email to lifechancesfund@biglotteryfund.org.uk when a Full Application is submitted</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Office alert when Full Award Set-up submitted</fullName>
+        <actions>
+            <name>Office_alert_when_Full_Award_Setup_submitted</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Application__c.Full_Award_Setup_Status__c</field>
+            <operation>equals</operation>
+            <value>Submitted</value>
+        </criteriaItems>
+        <description>Sends an email to lifechancesfund@biglotteryfund.org.uk when a Full Award Set-up form is submitted</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Setup Form Submitted</fullName>
+        <actions>
+            <name>Send_Full_Award_Setup_Submitted_Email</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Application_Stage_Live_Project</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Application__c.Full_Award_Setup_Status__c</field>
+            <operation>equals</operation>
+            <value>Submitted</value>
+        </criteriaItems>
+        <description>Send an email to applicant when their setup form is successfully submitted</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>

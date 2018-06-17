@@ -12,9 +12,9 @@
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
-                <fullName>Local commissioner</fullName>
+                <fullName>Commissioner</fullName>
                 <default>false</default>
-                <label>Local commissioner</label>
+                <label>Commissioner</label>
             </value>
             <value>
                 <fullName>Service provider</fullName>

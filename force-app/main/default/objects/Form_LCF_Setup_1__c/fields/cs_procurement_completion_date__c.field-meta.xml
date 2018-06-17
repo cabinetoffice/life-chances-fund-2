@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>cs_procurement_completion_date__c</fullName>
-    <description>For example, 31 3 2018</description>
+    <description>You should normally have procured your lead provider before you submit this form to LCF.</description>
     <externalId>false</externalId>
     <inlineHelpText>When do you expect to complete procurement of the delivery agents?</inlineHelpText>
     <label>CS - Procurement Completion Date</label>

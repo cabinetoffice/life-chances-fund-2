@@ -1,0 +1,10 @@
+<!--_______________________________________________________________________________________________________________________
+	Name:			COF_SetupFormView.page
+	Description:	Provides access to LCF Setup form
+					
+	Date         Version Author      		Summary of Changes 
+	___________  _______ _________________	________________________________________________________________________________
+	Apr 2018     1.0     Michael Witchalls	Initial Release 
+________________________________________________________________________________________________________________________ -->  
+<apex:page standardController="Form_LCF_Setup_1__c" extensions="COF_SetupViewOverrideController" action="{!viewForm}">
+</apex:page>

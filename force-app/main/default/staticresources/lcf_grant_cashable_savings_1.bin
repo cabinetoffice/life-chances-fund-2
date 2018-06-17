@@ -1,0 +1,71 @@
+{
+	"id": "lcf_grant_cashable_savings_1",
+	"target_object": "Form_LCF_Grant_Annual_Block_1__c",
+	"parent_relationship": "lcf_grant__r",
+	"pages": [
+		{
+			"id": "1",
+			"title_id": "Commissioner Savings",
+			"guidance_id": "Commissioner Savings Guidance",
+			"questions": [
+				{ "target_field": "cs_cashable_savings_commissioners__c" },
+				{ "target_field": "cs_costs_avoided_commissioners__c" },
+				{ "target_field": "cs_how_calculated_commissioners__c" }
+			],
+			"routes": [
+				{ "target_page": "2" }
+			]		
+		},
+		{
+			"id": "2",
+			"questions": [
+				{ "target_field": "cs_any_local_community_savings__c" },
+				{ 
+					"target_field": "cs_cashable_savings_local__c", 
+					"constraints": [
+						{ "field": "cs_any_local_community_savings__c", "operator": "equals", "value": "Yes" }
+					] 
+				},	
+				{ 
+					"target_field": "cs_costs_avoided_local__c", 
+					"constraints": [
+						{ "field": "cs_any_local_community_savings__c", "operator": "equals", "value": "Yes" }
+					] 
+				},	
+				{ 
+					"target_field": "cs_how_calculated_local__c", 
+					"constraints": [
+						{ "field": "cs_any_local_community_savings__c", "operator": "equals", "value": "Yes" }
+					] 
+				}	
+			],
+			"routes": [
+				{ "target_page": "3" }
+			]				
+		},
+		{
+			"id": "3",
+			"questions": [
+				{ "target_field": "cs_any_central_government_savings__c" },
+				{ 
+					"target_field": "cs_cashable_savings_national__c", 
+					"constraints": [
+						{ "field": "cs_any_central_government_savings__c", "operator": "equals", "value": "Yes" }
+					] 
+				},	
+				{ 
+					"target_field": "cs_costs_avoided_national__c", 
+					"constraints": [
+						{ "field": "cs_any_central_government_savings__c", "operator": "equals", "value": "Yes" }
+					] 
+				},	
+				{ 
+					"target_field": "cs_how_calculated_national__c", 
+					"constraints": [
+						{ "field": "cs_any_central_government_savings__c", "operator": "equals", "value": "Yes" }
+					] 
+				}	
+			]
+		}
+	]
+}

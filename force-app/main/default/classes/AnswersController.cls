@@ -14,8 +14,12 @@ public class AnswersController extends COF_PageController {
 	private static final Map<String, String> layoutMap = new Map<String, String>{
 		'lcf_full_app_1'=>'Form_LCF_Full_App_1__c-Form LCF Full Application 1%2E0 Layout',
 		'lcf_setup_1'=>'Form_LCF_Setup_1__c-Form LCF Full Award Setup 1%2E0 Layout',
+		'lcf_eoi_1'=>'Form_LCF_EOI_1__c-Form LCF EOI 1%2E0 Layout',
 		'lcf_test'=>'Form_LCF_Full_App_1__c-Form LCF Full Application 1%2E0 Layout'
 	};
+	private static final String PRIMARYFIELDID = 'primary__c';
+	private Map<String, Set<String>> childFieldSetMap = new Map<String, Set<String>>();
+	private Map<String,String> childQueryMap = new Map<String, String>();
 
 	public COF_Form form {get;set;} 
 	public List<COF_Field> fields {get;set;}
@@ -52,6 +56,9 @@ public class AnswersController extends COF_PageController {
 				if (section.customLabel == true && section.label != 'Custom Links' && section.label != 'Test Section') {
 					PageSection newSection = new PageSection(section.label, this.form.sections);
 					newSection.fields = new List<COF_Field>();
+					newSection.fieldSets = new List<PageSectionFieldSet>();
+					PageSectionFieldSet newFieldSet = new PageSectionFieldSet();
+					newFieldSet.fields = new List<COF_Field>();
 					
 					// Loop through the columns - our layouts are configured with a single column
 					for (Metadata.LayoutColumn layoutColumn : section.layoutColumns) {
@@ -61,13 +68,20 @@ public class AnswersController extends COF_PageController {
 								if (layoutItem.field != null) {
 									// Create a field to represent this layout item
 									COF_Field newField = new COF_Field(layoutItem.field, form.target_object);
+									if (newField.pageTitle != null) {
+										newSection.fieldSets.add(newFieldSet);
+										newFieldSet = new PageSectionFieldSet();
+										newFieldset.title = newField.pageTitle;
+										newFieldSet.fields = new List<COF_Field>();
+									}
 									this.fields.add(newField);
 									newSection.fields.add(newField);
+									newFieldSet.fields.add(newField);
 								}
-							}
+							} 
 						}
 					}
-					
+					newSection.fieldSets.add(newFieldSet);
 					this.sections.add(newSection);
 				}
 			}
@@ -79,6 +93,7 @@ public class AnswersController extends COF_PageController {
     
     public class PageSection {
         public String name {get; set;}
+        public List<PageSectionFieldSet> fieldSets {get; set;}
         public List<COF_Field> fields {get; set;}
         public Boolean hasChildren {get; set;}
         public List<COF_QuestionSet.COF_Children> children {get;set;}
@@ -99,6 +114,11 @@ public class AnswersController extends COF_PageController {
 		}
         
     }
+    
+    public class PageSectionFieldSet {
+    	public String title {get; set;} 
+    	public List<COF_Field> fields {get; set;}
+    }
 
     /**
      * Fetches the target object
@@ -115,7 +135,7 @@ public class AnswersController extends COF_PageController {
 			COF_QuestionSet questionSet = fs.getQuestionSet();
 			for (COF_Page page: questionSet.pages) {
 				if (page.children != null) {
-            		requiredFieldIdentifiers.add(this.childQuery(page));
+            		this.childQuery(page);
             		for (PageSection section: this.sections) {
             			if (section.formSection != null && fs.id == section.formSection.id) {
 							section.hasChildren = true;
@@ -127,14 +147,34 @@ public class AnswersController extends COF_PageController {
 				}
 			} 
 		}
+		
+		// Add the child field identifiers
+		//for (String childObject: childQueryMap.keySet()) {
+		//	requiredFieldIdentifiers.add(childQueryMap.get(childObject));
+		//}
+		
         // Fetch the target object
         List<String> requiredFieldIdentifiersArray = new List<String>(requiredFieldIdentifiers);
-        this.targetObject = Query.object(form.target_object, requiredFieldIdentifiersArray, 'where ' +  'Application__r.Name = \'' + this.getApplicationIdentifierParam() + '\'');
+        this.targetObject = Query.object(form.target_object, requiredFieldIdentifiersArray, 'WHERE ' +  'Application__r.Name = \'' + this.getApplicationIdentifierParam() + '\'');
+        
+        for (PageSection section: this.sections) {
+        	for (COF_QuestionSet.COF_Children children: section.children) {
+        		children.childRecs = new List<SObject>();
+        		//for (SObject obj: this.targetObject.getSObjects(children.child_relationship)) {
+        		String childQuery = childQueryMap.get(children.target_object);
+        		for (SObject obj: Database.query(childQuery)) {
+        			children.childRecs.add(obj);
+        		}
+        	}
+        }
     }
     
     // M.Witchalls Jan 2018: construct child query 
-    public String childQuery(COF_Page page) {    	
-    	List<String> fieldIdentifiers = new List<String>();
+    public void childQuery(COF_Page page) {    	
+    	
+    	Set<String> fieldIdentifiers = childFieldSetMap.get(page.children.target_object);
+    	if (fieldIdentifiers == null) fieldIdentifiers = new Set<String>{'Id','CreatedDate'};
+    	
     	system.debug('###page.children.section: '+page.children.section);
 		COF_QuestionSet childQuestionSet = COF_QuestionSet.load(page.children.section);
 		page.children.childPages = childQuestionSet.pages;
@@ -149,9 +189,21 @@ public class AnswersController extends COF_PageController {
 	            }
 	        }
         }
-        String fieldsList = Query.fieldListString(fieldIdentifiers);
         
-    	return '(SELECT ' + fieldslist + ' FROM ' + page.children.child_relationship + ' ORDER BY CreatedDate ASC)';
-    }
+        childFieldSetMap.put(page.children.target_object, fieldIdentifiers);
+        
+        String fieldsList = Query.fieldListString(new List<String>(fieldIdentifiers));
+        String queryString = 'SELECT Name,' + fieldslist + ' FROM ' + page.children.target_object + 
+        	' WHERE ' + page.children.parent_relationship + '.Application__r.Name = \'' + this.getApplicationIdentifierParam() + '\'';
+        if (page.children.target_filter != null) {
+        	queryString += ' AND '+page.children.target_filter;
+        }   
+        if (fieldIdentifiers.contains(PRIMARYFIELDID)) {
+			queryString += ' ORDER BY '+ PRIMARYFIELDID + ' DESC, CreatedDate ASC';       	
+        } else {
+			queryString += ' ORDER BY CreatedDate ASC';
+        }
+        childQueryMap.put(page.children.target_object, queryString);
 
+    }
 }

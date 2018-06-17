@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Archive_Date__c</fullName>
+    <description>Date when block was archived to history</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Date when block was archived to history</inlineHelpText>
+    <label>Archive Date</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

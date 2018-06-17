@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>bb_delivery_cost__c</fullName>
+    <description>Page Title:Delivery costs (including management of delivery and collection of data)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Cost</inlineHelpText>
+    <label>BB - Delivery Cost</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

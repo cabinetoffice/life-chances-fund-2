@@ -1,0 +1,13 @@
+{
+	"id": "lcf_eoi_research_1",
+	"target_object": "Form_LCF_EOI_1__c",
+	"parent_relationship": "application__r",
+	"pages": [
+		{
+			"id": "1",
+			"questions": [
+				{ "target_field": "rs_service_developments__c" }
+			]
+		}
+	]
+}

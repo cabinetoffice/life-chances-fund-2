@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ar_service_users_changed__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Over the past year, has the service user population you draw the cohort from changed?</inlineHelpText>
+    <label>AR - Service Users Changed</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Yes_No</valueSetName>
+    </valueSet>
+</CustomField>

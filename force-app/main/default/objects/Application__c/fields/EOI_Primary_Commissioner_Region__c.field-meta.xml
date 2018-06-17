@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EOI_Primary_Commissioner_Region__c</fullName>
+    <description>Region of EOI Primary Commissioner</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Region of EOI Primary Commissioner</inlineHelpText>
+    <label>EOI Primary Commissioner Region</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Organisation_Region</valueSetName>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

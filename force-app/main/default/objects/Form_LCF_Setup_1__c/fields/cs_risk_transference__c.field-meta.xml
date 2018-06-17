@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>cs_risk_transference__c</fullName>
-    <description>Tell us how you will ensure your project supports transference of risk from commissioners and providers to other stakeholders. What plans do you have in place to manage any residual risk (including reputational risk) and to help ensure that return to stakeholders is proportionate to the risk borne by each them?</description>
+    <description>Tell us how you will ensure your project supports risk being transferred from commissioners and providers to other stakeholders. What plans do you have in place to manage any residual risk (including reputational risk) and to help ensure that return to stakeholders is proportionate to the risk borne by each them?</description>
     <externalId>false</externalId>
     <inlineHelpText>Risk Transference</inlineHelpText>
     <label>CS - Risk Transference</label>

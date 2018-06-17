@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>ov_number_of_commissioners__c</fullName>
-    <description>Count of commissioners for this full application form</description>
+    <description>Count of commissioners for this application</description>
     <externalId>false</externalId>
-    <inlineHelpText>Count of commissioners for this full application form</inlineHelpText>
+    <formula>application__r.Full_App_Number_of_Commissioners__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Count of commissioners for this application</inlineHelpText>
     <label>OV - Number of Commissioners</label>
-    <summaryForeignKey>Form_LCF_Commissioner_1__c.full_application__c</summaryForeignKey>
-    <summaryOperation>count</summaryOperation>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
     <trackTrending>false</trackTrending>
-    <type>Summary</type>
+    <type>Number</type>
+    <unique>false</unique>
 </CustomField>

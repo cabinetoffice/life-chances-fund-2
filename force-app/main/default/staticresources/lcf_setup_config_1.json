@@ -25,10 +25,17 @@
 				},
 				{
 					"id": "lcf_setup_outcomes_1",
-					"title": "Outcomes and financials",
+					"title": "Outcomes",
 					"short_title": "Outcomes",
 					"target_object": "Form_LCF_Setup_1__c",
 					"status_field": "so_section_status__c"
+				},
+				{
+					"id": "lcf_setup_financials_1",
+					"title": "Financials",
+					"short_title": "Financials",
+					"target_object": "Form_LCF_Setup_1__c",
+					"status_field": "sf_section_status__c"
 				},
 				{
 					"id": "lcf_setup_terms_1",
@@ -49,7 +56,8 @@
 					"title": "Declaration",
 					"short_title": "Declaration",
 					"target_object": "Form_LCF_Setup_1__c",
-					"status_field": "sd_section_status__c"
+					"status_field": "sd_section_status__c",
+					"declaration": "true"
 				}
 			]
 		}

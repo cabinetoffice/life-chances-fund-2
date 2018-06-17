@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>tp_number_of_trigger_payments__c</fullName>
+    <description>Count of trigger payment records</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Count of trigger payment records</inlineHelpText>
+    <label>TP - Number of Trigger Payments</label>
+    <summaryForeignKey>Form_LCF_Trigger_Payment_1__c.grant_achievement__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

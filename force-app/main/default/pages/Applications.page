@@ -1,3 +1,12 @@
+<!--_______________________________________________________________________________________________________________________
+	Name:			Applications.page
+	Description:	Access to Applications
+					
+	Date         Version Author      		Summary of Changes 
+	___________  _______ _________________	________________________________________________________________________________
+	2017		 1.0   	 Cabinet Office		Initial Release 
+	Apr 2018     1.0     Michael Witchalls	Grant Management version 
+________________________________________________________________________________________________________________________ -->  
 <apex:page controller="ApplicationsController" standardStylesheets="false" showHeader="false" docType="html-5.0" action="{!checkLoggedInStatus}">
 	<apex:composition template="Layout">
 		<apex:define name="title">
@@ -5,11 +14,11 @@
 		</apex:define>
 		<apex:define name="breadcrumbs">
 		</apex:define>
-		<apex:define name="main">
+		<apex:define name="mainFullWidth">
 			
 			<div class="grid-row">
-				<div class="column-full">
-					<h1 class="heading-xlarge">Start a new application</h1>
+				<div class="column-two-thirds">
+					<h1 class="heading-xlarge">Applications</h1>
 					<p class="lede">
 					  The Life Chances Fund (LCF) is an £80 million top-up fund, whose objective is to help those people in society who face the most significant barriers to leading happy and productive lives.
 					</p>
@@ -24,9 +33,41 @@
 					</ul>
 					<p>If you need assistance with this online form, you can email <a href="mailto:lifechancesfund@biglotteryfund.org.uk">lifechancesfund@biglotteryfund.org.uk</a> or call 03454 102030 (Text relay: 18001 plus 0345 4 10 20 30 for those with a hearing or speech impairment). </p>
                 </div>
+                <div class="column-third">
+                	<br/>
+					<aside class="govuk-related-items" role="complementary">
+        				<h2 class="heading-medium" id="subsection-title">Navigation Links</h2>
+       					<nav role="navigation" aria-labelledby="subsection-title">
+						<ul class="font-small">
+							<apex:outputText rendered="{!customerUser==false}">
+					            <li>
+					            <apex:outputLink value="/officeusers">
+								    Home
+								</apex:outputLink>
+								</li>
+							</apex:outputText>
+							<apex:outputText rendered="{!AND(OR(customerUser==false,eligibleForGrant==true),ISBLANK(idString))}">
+					            <li>
+					            <apex:outputLink value="{!$Page.LCFGrants}">
+								    Grant Management
+								</apex:outputLink>
+								</li>
+							</apex:outputText>
+							<apex:outputText rendered="{!AND(OR(customerUser==false,eligibleForGrant==true),NOT(ISBLANK(idString)))}">
+					            <li>
+					            <apex:outputLink value="{!$Page.LCFGrants}">
+								    Grant Management
+							    	<apex:param name="id" value="{!idString}"/>				    
+								</apex:outputLink>
+								</li>
+							</apex:outputText>
+						</ul>
+				        </nav>
+      				</aside>                
+      			</div>
             </div>
             <div class="grid-row">
-				<div class="column-full">
+				<div class="column-two-thirds">
                 	<h2 class="heading-large">Your applications</h2>
                 	<table class="applications">
 						<thead>
@@ -45,11 +86,30 @@
 									<td class="form-identifier">Financial health and fraud prevention</td>
 									<td class="numeric"><span class="status">SUCCESSFUL</span></td>
 								</tr>
-								<tr>
-									<th scope="row" class="app-identifier">&nbsp;</th>
-									<td class="form-identifier">Expression of interest</td>
-									<td class="numeric"><span class="status">SUCCESSFUL</span></td>
-								</tr>
+								<apex:outputPanel rendered="{!eligibleForNewEOI==false}">
+									<tr>
+										<th scope="row" class="app-identifier">&nbsp;</th>
+										<td class="form-identifier">Expression of interest</td>
+										<td class="numeric"><span class="status">
+										{!IF(ISBLANK(application['Status__c']),'DRAFT',UPPER(application['Status__c']))}
+										</span></td>
+									</tr>
+								</apex:outputPanel>
+								<apex:outputPanel rendered="{!eligibleForNewEOI==true}">
+									<tr>
+										<th scope="row" class="app-identifier">&nbsp;</th>
+										<td class="form-identifier">
+											<apex:outputLink value="{!$Page.Sections}">
+											    Expression of interest
+											    <apex:param name="form" value="lcf_eoi_1"/>
+											    <apex:param name="app" value="{!application['Name']}"/>
+											</apex:outputLink>
+										</td>
+										<td class="numeric"><span class="status">
+										{!IF(ISBLANK(application['Status__c']),'DRAFT',UPPER(application['Status__c']))}
+										</span></td>
+									</tr>
+								</apex:outputPanel>
 								<tr>
 									<th scope="row" class="app-identifier">&nbsp;</th>
 									<td class="form-identifier">Development grant</td>
@@ -83,6 +143,7 @@
 									</span></td>
 								</apex:outputPanel> 
 								</tr>
+								<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
 							</apex:repeat>
 						</tbody>
 					</table>

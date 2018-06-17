@@ -22,6 +22,11 @@
                 <label>Full Application</label>
             </value>
             <value>
+                <fullName>Full Award Setup</fullName>
+                <default>false</default>
+                <label>Full Award Setup</label>
+            </value>
+            <value>
                 <fullName>Live Project</fullName>
                 <default>false</default>
                 <label>Live Project</label>

@@ -1,0 +1,33 @@
+{
+	"id": "lcf_eoi_prev_apps_child_1",
+	"target_object": "Form_LCF_Previous_App_1__c",
+	"target_field": "pa_project_name__c",
+	"status_field": "pa_section_status__c",
+	"child_count_field": "pa_number_of_previous_applications__c",
+	"primary_field": "primary__c",
+	"short_title": "Previous Apps",
+	"parent_relationship": "eoi__r",
+	"pages": [
+		{
+			"id": "1",
+			"questions": [
+				{ "target_field": "pa_project_name__c" },
+				{ "target_field": "pa_successful__c" }
+			],
+			"routes": [
+				{ 
+					"target_page": "2",
+					"constraints": [
+						{ "field": "pa_successful__c", "operator": "equals", "value": "No" }
+					]
+				}
+			]
+		},
+		{
+			"id": "2",
+			"questions": [
+				{ "target_field": "pa_reasons_not_successful__c" }
+			]
+		}
+	]
+}

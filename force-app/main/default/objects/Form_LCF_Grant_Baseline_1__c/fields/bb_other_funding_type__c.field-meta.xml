@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>bb_other_funding_type__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Funding type</inlineHelpText>
+    <label>BB - Other Funding Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Fixed rate loans</fullName>
+                <default>false</default>
+                <label>Fixed rate loans</label>
+            </value>
+            <value>
+                <fullName>Grants</fullName>
+                <default>false</default>
+                <label>Grants</label>
+            </value>
+            <value>
+                <fullName>Block grant</fullName>
+                <default>false</default>
+                <label>Block grant</label>
+            </value>
+            <value>
+                <fullName>Fee for service</fullName>
+                <default>false</default>
+                <label>Fee for service</label>
+            </value>
+            <value>
+                <fullName>Payment by results</fullName>
+                <default>false</default>
+                <label>Payment by results</label>
+            </value>
+            <value>
+                <fullName>Other (please specify)</fullName>
+                <default>false</default>
+                <label>Other (please specify)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>6</visibleLines>
+</CustomField>

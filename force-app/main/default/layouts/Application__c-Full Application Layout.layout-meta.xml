@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customButtons>Edit_Application_Central_User</customButtons>
+    <customButtons>Assign_Reviewer</customButtons>
+    <customButtons>Grant_Management</customButtons>
     <excludeButtons>Clone</excludeButtons>
     <excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
@@ -31,8 +32,35 @@
                 <field>Organisation_Name__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Project_Name__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Project_Region__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Project_Value__c</field>
+            </layoutItems>
+            <layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Eligible_for_Full_Application__c</field>
+                <field>Full_App_Number_of_Commissioners__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Full_App_Primary_Commissioner_Count__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Full_App_Number_of_Outcomes__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Full_App_Primary_Outcome_Count__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -48,6 +76,49 @@
                 <behavior>Edit</behavior>
                 <field>Application_Stage__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Eligible_for_Full_Application__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Eligible_for_NEW_EOI_Form__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Applicant_Organisation_Name__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Applicant_Organisation_Type__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Applicant_Organisation_Sector__c</field>
+            </layoutItems>
+            <layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Setup_Number_of_Stakeholders__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Setup_Number_of_Commissioners__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Setup_Primary_Stakeholder_Count__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Setup_Number_of_Outcomes__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Setup_Primary_Outcome_Count__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -57,6 +128,10 @@
         <editHeading>true</editHeading>
         <label>Form Status</label>
         <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Status__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Full_Application_Status__c</field>
@@ -73,10 +148,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>EOI_External_Status__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
                 <field>Dev_Form_External_Status__c</field>
             </layoutItems>
         </layoutColumns>
@@ -90,17 +161,21 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>CreatedById</field>
+                <field>RecordTypeId</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Theme__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>LastModifiedById</field>
+                <field>CreatedById</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>RecordTypeId</field>
+                <field>LastModifiedById</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -117,45 +192,64 @@
     </layoutSections>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Status__c</fields>
+        <fields>Contact__c</fields>
+        <fields>Theme__c</fields>
+        <fields>Project_Value__c</fields>
+        <fields>Applicant_Organisation_Name__c</fields>
+        <fields>Applicant_Organisation_Type__c</fields>
+        <relatedList>LCF_Grant__c.Application__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>pr_project_name__c</fields>
+        <fields>pr_project_start_date__c</fields>
+        <fields>co_primary_commissioner__c</fields>
+        <relatedList>Form_LCF_EOI_1__c.application__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>ov_project_name__c</fields>
+        <fields>Form_Complete__c</fields>
+        <fields>Status__c</fields>
+        <fields>fn_proposed_sib_service_spend__c</fields>
         <relatedList>Form_LCF_Full_App_1__c.application__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>Form_LCF_Commissioner_1__c.application__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>Form_LCF_Outcome_1__c.application__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <relatedList>RelatedContentNoteList</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <relatedList>RelatedFileList</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
+        <fields>ap_project_name__c</fields>
+        <fields>ap_original_project_name__c</fields>
+        <fields>ap_lead_applicant_organisation__c</fields>
+        <fields>sf_outcome_contribution_request__c</fields>
         <relatedList>Form_LCF_Setup_1__c.application__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>Form_LCF_Setup_Stakeholder_1__c.application__c</relatedList>
+        <fields>st_organisation_name__c</fields>
+        <fields>RECORDTYPE</fields>
+        <fields>primary__c</fields>
+        <fields>st_lead_contact_first_name__c</fields>
+        <fields>st_lead_contact_last_name__c</fields>
+        <fields>st_lead_contact_job_title__c</fields>
+        <relatedList>Form_LCF_Commissioner_1__c.application__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>Form_LCF_Setup_Outcome_1__c.application__c</relatedList>
+        <fields>RECORDTYPE</fields>
+        <fields>primary__c</fields>
+        <fields>ou_description__c</fields>
+        <fields>ou_baseline__c</fields>
+        <fields>ou_social_impact__c</fields>
+        <fields>ou_timescale__c</fields>
+        <fields>ou_payment__c</fields>
+        <relatedList>Form_LCF_Outcome_1__c.application__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>Form_LCF_Disengagement_1__c.application__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>Form_LCF_Setup_Commissioner_1__c.application__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>Form_LCF_Setup_Investor_1__c.application__c</relatedList>
+        <fields>pa_project_name__c</fields>
+        <fields>pa_successful__c</fields>
+        <fields>pa_reasons_not_successful__c</fields>
+        <relatedList>Form_LCF_Previous_App_1__c.application__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
@@ -163,7 +257,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h0E000000Htn3</masterLabel>
+        <masterLabel>00h0Y000004fWzY</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

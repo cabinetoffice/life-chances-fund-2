@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EOI</fullName>
+    <active>true</active>
+    <description>Expression of Interest Commissioner Record Type</description>
+    <label>EOI</label>
+    <picklistValues>
+        <picklist>st_engagement_level__c</picklist>
+        <values>
+            <fullName>In-principle or informal interest</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Post in-principle%2C undertaking due diligence</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Procured or confirmed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Selecting or procuring</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>st_organisation_region__c</picklist>
+        <values>
+            <fullName>East Midlands</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>East of England</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>England wide</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>London</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>North East</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>North West</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>South East</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>South West</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>West Midlands</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yorkshire and the Humber</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>st_organisation_sector__c</picklist>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Private sector</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Public sector</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Social enterprise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Voluntary and community sector</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>st_organisation_type__c</picklist>
+        <values>
+            <fullName>Commissioner</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+</RecordType>

@@ -1,0 +1,32 @@
+{
+	"id": "lcf_end_of_grant_1",
+	"target_object": "Form_LCF_Grant_Annual_Block_1__c",
+	"parent_relationship": "lcf_grant__r",
+	"pages": [
+		{
+			"id": "1",
+			"title_id": "Payment History",
+			"guidance_id": "Payment History Guidance",
+			"warning_id": "Payment Rounding Warning",
+			"children": {
+				"target_object": "Form_LCF_Grant_Payment_History_1__c",
+				"target_field": "ph_financial_year__c",
+				"field_width": "20%",
+				"target_field2": "ph_actual_lcf_funding__c",
+				"target_field3": "ph_actual_commissioner_funding__c",
+				"field_width2": "30%",
+				"field_width3": "30%",
+				"total_field2": "eg_total_actual_lcf_funding__c",
+				"total_field3": "eg_total_commissioner_funding__c",
+				"field_head2": "Actual LCF Funding",
+				"field_head3": "Actual Commissioner Funding",
+				"child_relationship": "payment_history__r",
+				"parent_field": "lcf_grant_annual_block__c",
+				"title": "Payment History",
+				"section": "lcf_grant_payment_history_1",
+				"add_label": "+ Add another financial year",
+				"child_count_field": "eg_payment_history_count__c" 
+			}
+		}
+	]
+}

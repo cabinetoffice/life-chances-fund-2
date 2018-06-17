@@ -21,7 +21,7 @@
 		{
 			"id": "2",
 			"questions": [
-				{ "target_field": "or_name__c" }
+				{ "target_field": "ov_applicant_organisation_name__c" }
 			],
 			"routes": [
 				{ "target_page": "3" }
@@ -35,19 +35,10 @@
 				{ "target_field": "or_postcode__c" }
 			],
 			"routes": [
-				{ "target_page": "4" }
-			]
-		},
-		{
-			"id": "4",
-			"questions": [
-				{ "target_field": "or_public__c" }
-			],
-			"routes": [
 				{ 
 					"target_page": "11",
 					"constraints": [
-						{ "field": "or_public__c", "operator": "equals", "value": "Yes" }
+						{ "field": "ov_organisation_sector__c", "operator": "equals", "value": "Public" }
 					]
 				},
 				{ "target_page": "5" }
@@ -178,7 +169,7 @@
 				{ "target_field": "or_legal_contact_position__c" },
 				{ "target_field": "or_legal_contact_daytime_phone__c" },
 				{ "target_field": "or_legal_contact_mobile__c" },
-				{ "target_field": "or_legal_contact_work_email__c" }
+				{ "target_field": "or_legal_contact_work_email__c" } 
 			]
 		}
 	]

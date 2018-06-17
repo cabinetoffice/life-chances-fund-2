@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cs_how_calculated_commissioners__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Please describe how you calculated these figures</inlineHelpText>
+    <label>CS - How Calculated - Commissioners</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+</CustomField>

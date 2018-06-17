@@ -43,13 +43,13 @@
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Life Chances Fund - Full Application - Outcome - 1.0</description>
+    <description>Life Chances Fund - Outcome - 1.0</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
-    <enableReports>false</enableReports>
+    <enableReports>true</enableReports>
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
@@ -60,7 +60,7 @@
         <label>Outcome ID</label>
         <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>Form LCF Outcome 1.0</pluralLabel>
+    <pluralLabel>Form LCF Outcomes</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
     <visibility>Public</visibility>

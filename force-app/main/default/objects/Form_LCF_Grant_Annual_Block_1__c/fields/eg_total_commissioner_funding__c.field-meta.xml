@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>eg_total_commissioner_funding__c</fullName>
+    <description>Total of end of grant actual commissioner outcomes funding</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Total of end of grant actual commissioner outcomes funding</inlineHelpText>
+    <label>EG - Total Commissioner Funding</label>
+    <summarizedField>Form_LCF_Grant_Payment_History_1__c.ph_actual_commissioner_funding__c</summarizedField>
+    <summaryForeignKey>Form_LCF_Grant_Payment_History_1__c.lcf_grant_annual_block__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

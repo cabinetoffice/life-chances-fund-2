@@ -1,0 +1,85 @@
+<!--_______________________________________________________________________________________________________________________
+	Name:			LCFGrantBlockSubmitted.page
+	Description:	Confirmation of the submission or the issue of a grant block
+					
+	Date         Version Author      		Summary of Changes 
+	___________  _______ _________________	________________________________________________________________________________
+	May 2018     1.0     Michael Witchalls	Initial Release
+________________________________________________________________________________________________________________________ -->  
+<apex:page controller="COF_GrantBlockSubmittedController" standardStylesheets="false" showHeader="false" docType="html-5.0" action="{!checkLoggedInStatus}">
+    <apex:composition template="Layout">
+        <apex:define name="title">
+            <title>Confirmation</title> 
+        </apex:define>
+         <apex:define name="breadcrumbs">
+            <div class="breadcrumbs">
+                <ol> 
+                	<li>
+	                    <apex:outputLink value="{!$Page.LCFGrants}">
+	                    Grant Management
+	                    <apex:param name="id" value="{!grant['Application__c']}"/>
+	                    </apex:outputLink>
+	                </li>
+                                    
+	                <apex:outputText >
+                    	<li aria-current="page">{!form.title}</li>
+                    </apex:outputText>
+                    
+ 					<apex:outputText rendered="{!NOT(ISBLANK(periodTitle))}">
+	                    <li aria-current="page">{!periodTitle}</li>
+					</apex:outputText> 
+                </ol>
+            </div>
+        </apex:define>
+        <apex:define name="main">
+            <a href="#" onclick="window.history.go(-1); return false;" class="link-back">Back</a>
+            
+            <h1 class="heading-xlarge" style="margin-bottom:30px !important">
+                <span class="heading-secondary">{!application['Name']}/{!grant['Name']}&nbsp;&nbsp;&nbsp;{!application['Theme__c']}</span>
+                {!form.title}
+            </h1>
+            
+            <div class="govuk-box-highlight">
+            <apex:outputText rendered="{!form.issue_status_field != null}">
+                <h1 class="heading-xlarge">
+                    {!form.title} issued
+                </h1>
+                <p class="font-large">
+                    Your reference number is <br/>
+                    <strong class="bold">{!grant['Name']}</strong>
+                </p>
+            </apex:outputText>
+            <apex:outputText rendered="{!form.approval_status_field != null}">
+                <h1 class="heading-xlarge">
+                    {!form.title} submitted
+                </h1>
+                <p class="font-large">
+                    Your reference number is <br/>
+                    <strong class="bold">{!grant['Name']}:{!targetObject['Name']}</strong>
+                </p>
+            </apex:outputText>
+            </div>
+            
+            <br/>
+            <apex:outputText rendered="{!form.issue_status_field != null}"> 
+            <p>
+                The {!formTitle} form has been issued and a confirmation email has been sent to the project contact ({!grant['Contact__r.Name']}).
+            </p>
+            </apex:outputText>
+            <apex:outputText rendered="{!form.approval_status_field != null}">
+            <p>
+                The {!formTitle} form has been submitted for approval for {!periodTitle}. We have sent you a confirmation email.
+            </p>
+            </apex:outputText>        
+            <br/>
+            <br/>
+            <apex:form >
+                <apex:outputLink styleClass="button" value="{!$Page.LCFGrants}">
+                    Back to grant page
+                     <apex:param name="id" value="{!grant['Application__c']}"/>
+                </apex:outputLink>
+            </apex:form>
+            <br/>           
+        </apex:define>
+    </apex:composition>
+</apex:page>

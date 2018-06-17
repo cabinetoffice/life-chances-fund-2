@@ -6,7 +6,7 @@
         <apex:define name="breadcrumbs">
             <div class="breadcrumbs">
                 <ol>
-                    <li><apex:outputLink value="{!$Page.Applications}">Applications</apex:outputLink></li>
+                    <li><apex:outputLink value="{!IF(partnerUser,URLFOR($Action.Application__c.List,$ObjectType.Application__c),$Page.Applications)}">Applications</apex:outputLink></li>
                     <li aria-current="page">{!form.title}</li>
                 </ol>
             </div>
@@ -65,11 +65,15 @@
                     <br />
                     <apex:form >
 				        <div id="last-page-div" class="hide-div">
-                        	<apex:commandLink value="View all answers" action="{!viewAll}"/ >&nbsp;&nbsp;
-				            <a href="javascript:gotoLastPage();">Continue from last entry</a><br/>
+                       		<apex:commandLink value="View all answers" action="{!viewAll}"/ >&nbsp;&nbsp;&nbsp;&nbsp;
+                       		<apex:commandLink value="Print all answers (pdf)" action="{!viewAllPdf}"/ >&nbsp;&nbsp;&nbsp;&nbsp;
+               				<apex:outputText rendered="{!NOT(targetObject['Form_Complete__c'])}">
+				            	<a href="javascript:gotoLastPage();">Continue from last entry</a><br/>
+				            </apex:outputText>
 				        </div> 
 				        <div id="no-last-page-div" class="show-div">
-                       		<apex:commandLink value="View all answers" action="{!viewAll}"/ >&nbsp;&nbsp;
+                       		<apex:commandLink value="View all answers" action="{!viewAll}"/ >&nbsp;&nbsp;&nbsp;&nbsp;
+                       		<apex:commandLink value="Print all answers (pdf)" action="{!viewAllPdf}"/ >&nbsp;&nbsp;&nbsp;&nbsp;
 				        </div>
                     </apex:form>
                 </div>

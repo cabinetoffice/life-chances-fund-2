@@ -1,0 +1,36 @@
+{
+	"id": "lcf_eoi_prev_apps_1",
+	"target_object": "Form_LCF_EOI_1__c",
+	"parent_relationship": "application__r",
+	"pages": [
+		{
+			"id": "1",
+			"questions": [
+				{ "target_field": "pa_previous_applications__c" }
+			],
+			"routes": [
+				{
+					"target_page": 2,
+					"constraints": [
+						{ "field": "pa_previous_applications__c", "operator": "equals", "value": "Yes" }
+					]
+				}
+			]
+		},
+		{
+			"id": "2",
+			"title_id": "Previous Applications",
+			"children": {
+				"target_object": "Form_LCF_Previous_App_1__c",
+				"target_field": "pa_project_name__c",
+				"child_relationship": "eoi_previous_applications__r",
+				"parent_field": "eoi__c",
+				"title": "Previous Applications",
+				"section": "lcf_eoi_prev_apps_child_1",
+				"add_label": "+ Add another",
+				"child_count_field": "pa_number_of_previous_applications__c"
+			}
+		}
+	]
+}
+

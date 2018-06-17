@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sc_anticipated_return_on_social_invest__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>What is the anticipated rate of return on social investment based on current performance?</inlineHelpText>
+    <label>SC - Anticipated Return on Social Invest</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

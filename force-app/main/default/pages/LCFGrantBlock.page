@@ -1,0 +1,348 @@
+<!--_______________________________________________________________________________________________________________________
+	Name:			LCFGrantBlock.page
+	Description:	Access to LCF Grant Blocks and Grant Block Sections
+					
+	Date         Version Author      		Summary of Changes 
+	___________  _______ _________________	________________________________________________________________________________
+	May 2018     1.0     Michael Witchalls	Initial Release
+________________________________________________________________________________________________________________________ -->  
+<apex:page controller="LCFGrantBlockController" standardStylesheets="false" showHeader="false" docType="html-5.0" action="{!initialAction}">
+
+    <apex:composition template="Layout">
+		<apex:define name="title">
+		    <title>{!form.short_title}</title>
+		</apex:define>
+        <apex:define name="breadcrumbs">
+            <div class="breadcrumbs">
+                <ol>
+                	<li>
+	                    <apex:outputLink value="{!$Page.LCFGrants}">
+	                    Grant Management
+	                    <apex:param name="id" value="{!grant['Application__c']}"/>
+	                    </apex:outputLink>
+	                </li>
+	                
+	                <apex:outputText rendered="{!NOT(ISBLANK(section))}">
+	                    <li>
+	                        <apex:outputLink value="{!$Page.LCFGrantBlock}">
+	                            {!form.title}
+	                            <apex:param name="form" value="{!form.id}"/>
+								<apex:param name="grant" value="{!grant['Name']}"/>
+	                        </apex:outputLink>
+	                    </li>
+	                    <apex:outputText rendered="{!section.title<>form.title}">
+	                    <li aria-current="page">{!section.title}</li>
+	                    </apex:outputText>
+                    </apex:outputText> 
+                                    
+	                <apex:outputText rendered="{!ISBLANK(section)}">
+                    	<li aria-current="page">{!form.title}</li>
+                    </apex:outputText>
+                    
+ 					<apex:outputText rendered="{!NOT(ISBLANK(periodTitle))}">
+	                    <li aria-current="page">{!periodTitle}</li>
+					</apex:outputText> 
+                    
+ 					<apex:outputText rendered="{!form.issue_status_field != null}">
+	                    <li aria-current="page">{!targetObject[form.issue_status_field]}</li>
+					</apex:outputText> 
+                    
+ 					<apex:outputText rendered="{!readOnlyMode}">
+	                    <li aria-current="page">Read only</li>
+					</apex:outputText> 
+                </ol>
+            </div>
+        </apex:define>
+        <apex:define name="main">
+            <a href="#" onclick="window.history.go(-1); return false;" class="link-back">Back</a>
+            
+            <apex:outputPanel rendered="{!NOT(ISBLANK(section))}">
+	            <h1 class="heading-xlarge" style="margin-bottom:30px !important">
+	                <span class="heading-secondary">{!application['Name']}/{!grant['Name']}&nbsp;&nbsp;&nbsp;{!application['Theme__c']}</span>
+	                {!section.title}
+	            </h1>
+	        </apex:outputPanel> 
+
+			<apex:outputPanel rendered="{!ISBLANK(section)}">
+	            <h1 class="heading-xlarge" style="margin-bottom:30px !important">
+	                <span class="heading-secondary">{!application['Name']}/{!grant['Name']}&nbsp;&nbsp;&nbsp;{!application['Theme__c']}</span>
+	                {!form.title}
+	            </h1>
+			</apex:outputPanel>
+                    
+            <apex:outputPanel rendered="{!sectionText!=null}">
+                <div class="cofRichText"> 
+                    <apex:outputField value="{!sectionText.Text__c}"/>
+                </div><br/>
+            </apex:outputPanel>   
+                    
+      		<apex:outputPanel rendered="{!AND(section!=null,section.declaration!='true',questionsTitle!=null)}">
+      			<br/>
+	            <h1 class="heading-large" style="margin-top:20px">
+	                {!questionsTitle}
+	            </h1> 
+           </apex:outputPanel>
+			
+            <apex:form id="theForm">
+            <apex:actionFunction name="showHideStuff" action="{!showHideStuff}" rerender="theForm">
+            	<apex:param name="fieldId" value=""/>
+            </apex:actionFunction>
+            
+			<div class="site-wrapper">
+			<apex:pageBlock id="errorPanel">
+                <apex:outputPanel rendered="{!errorsFound==true}">
+					<div class="error-summary" role="alert" tabindex="-1">
+					
+					    <h2 class="heading-medium error-summary-heading" style="padding: 18px 5px 0 18px">
+					        <apex:messages ></apex:messages>
+					    </h2>
+					
+					</div>
+				</apex:outputPanel>
+			</apex:pageBlock>
+			</div>
+			
+			<apex:pageBlock rendered="{!AND(section!=null,section.declaration!='true',form.questions!=null)}">				
+				<apex:repeat value="{!fields}" var="field">
+					<div class="form-group" id="sp-text-group">
+						<legend>
+							<apex:outputText rendered="{!field.isCheckBox != true}">
+								<h1 class="heading-medium">{!field.label}</h1>
+							</apex:outputText>
+                       		<apex:outputPanel rendered="{!NOT(ISBLANK(field.guidance))}">
+								<p>{!field.guidance}</p>
+							</apex:outputPanel>
+							<apex:outputPanel styleClass="cofRichText" rendered="{!NOT(ISBLANK(field.fieldMetadata.Rich_Text__c))}">
+								<p>
+									<apex:outputField value="{!field.fieldMetadata.Rich_Text__c}"/>
+								</p>
+							</apex:outputPanel>
+						</legend>
+
+						<apex:pageBlock rendered="{!field.isTextField}">       
+							<apex:pageBlock rendered="{!field.isCurrency == true}">
+								£&nbsp;<apex:inputText value="{!field.value}" styleClass="form-control" disabled="{!readOnlyMode}" style="width:25%"/>
+							</apex:pageBlock>
+							<apex:pageBlock rendered="{!field.isNumber == true}">
+								<apex:inputText value="{!field.value}" styleClass="form-control" disabled="{!readOnlyMode}" style="width:25%"/>                                    	
+							</apex:pageBlock>
+							<apex:pageBlock rendered="{!field.isPercent == true}">
+								%&nbsp;<apex:inputText value="{!field.value}" styleClass="form-control" disabled="{!readOnlyMode}" style="width:25%"/>
+							</apex:pageBlock>
+							<apex:pageBlock rendered="{!field.isRatio == true}">
+								1:&nbsp;<apex:inputText value="{!field.ratioPart}" styleClass="form-control" disabled="{!readOnlyMode}" html-type="number" html-pattern="[0-9]*" html-min="1" html-max="100" style="width:25%"/>
+							</apex:pageBlock>
+							<apex:pageBlock rendered="{!field.isEmailField == true}">
+								<apex:inputText value="{!targetObject[field.identifier]}" styleClass="form-control" disabled="{!readOnlyMode}" />
+							</apex:pageBlock>
+							<apex:pageBlock rendered="{!AND(field.isNumber == false,field.isCurrency == false,field.isPercent == false,field.isRatio == false,field.isEmailField == false)}">
+                              	<apex:outputPanel rendered="{!AND(readOnlyMode,field.isTextArea == true)}">
+                              		<apex:inputTextarea value="{!targetObject[field.identifier]}" styleClass="form-control" style="width:100%" rows="10" disabled="true"/>
+                              	</apex:outputPanel>
+                              	<apex:outputPanel rendered="{!AND(readOnlyMode,field.isTextArea == false)}">
+                              		<apex:inputText value="{!targetObject[field.identifier]}" styleClass="form-control" disabled="true"/>
+                              	</apex:outputPanel>
+                              	<apex:outputPanel rendered="{!AND(readOnlyMode == false,field.isTextArea == true)}">
+                              		<apex:inputField value="{!targetObject[field.identifier]}" styleClass="form-control" style="width:100%"/>
+                              	</apex:outputPanel>
+                              	<apex:outputPanel rendered="{!AND(readOnlyMode == false,field.isTextArea == false)}">
+                              		<apex:inputField value="{!targetObject[field.identifier]}" styleClass="form-control" />
+                              	</apex:outputPanel>
+							</apex:pageBlock>
+
+							<apex:pageBlock rendered="{!field.recommendedWordLimit != null}">
+								<p><span class="form-hint">Recommended word limit: {!field.recommendedWordLimit}</span></p>
+							</apex:pageBlock> 
+
+						</apex:pageBlock>
+
+                        <apex:pageBlock rendered="{!field.isCheckBox}"> 
+                            <div class="multiple-choice">
+                                <apex:inputCheckbox value="{!targetObject[field.identifier]}" onchange="showHideStuff('{!field.identifier}')" disabled="{!readOnlyMode}"/>
+                                <label for="waste-type-1">{!field.label}</label>
+                            </div>
+                        </apex:pageBlock>
+
+						<apex:pageBlock rendered="{!field.isSelectField}">
+							<div class="needs-style">
+                                <ol style="list-style-type:none">
+                                <apex:repeat value="{!field.optionList}" var="opt"> 
+								<li>
+									<div class="multiple-choice">
+									    <apex:inputCheckbox value="{!opt.selected}" disabled="{!readOnlyMode}"/>
+									    <label for="waste-type-1">{!opt.value}</label>
+									</div>
+									<div>&nbsp;</div>
+								</li> 
+                                </apex:repeat>
+                                </ol>
+							</div>
+						</apex:pageBlock>
+
+						<apex:pageBlock rendered="{!field.isRadioField}">
+							<div class="coform-radios">
+							    <apex:selectRadio value="{!targetObject[field.identifier]}" layout="pageDirection">
+							        <apex:selectOptions value="{!field.values}"></apex:selectOptions>
+							    </apex:selectRadio>
+							</div> 
+						</apex:pageBlock>
+
+						<apex:pageBlock rendered="{!field.isDateField}">
+							<div class="form-date">
+                                  <div class="form-group form-group-day">
+                                      <label class="form-label" for="dob-day">Day</label>
+                                      <apex:inputText value="{!field.dateDay}" styleClass="form-control" disabled="{!readOnlyMode}" html-type="number" html-pattern="[0-9]*" html-min="0" html-max="31" />
+                                  </div>
+                                  <div class="form-group form-group-month">
+                                      <label class="form-label" for="dob-month">Month</label>
+                                      <apex:inputText value="{!field.dateMonth}" styleClass="form-control" disabled="{!readOnlyMode}" html-type="number" html-pattern="[0-9]*" html-min="0" html-max="12" />
+                                  </div>
+                                  <div class="form-group form-group-year">
+                                    <label class="form-label" for="dob-year">Year</label>
+                                    <apex:inputText value="{!field.dateYear}" styleClass="form-control" disabled="{!readOnlyMode}" html-type="number" html-pattern="[0-9]*" html-min="0" html-max="2050" />
+                                  </div> 
+							</div>
+						</apex:pageBlock>
+					</div>
+				</apex:repeat>
+				<p>&nbsp;</p>
+			</apex:pageBlock>
+				
+			<apex:pageBlock id="warning">
+				<apex:outputPanel rendered="{!showWarning}">
+                    <div class="notice">
+						<i class="icon icon-important" style="background-image: url({!URLFOR($Resource.images, 'icon-important.png')})"/>
+						<strong class="bold-small">{!endWarningText}</strong>
+					</div>
+					<p>&nbsp;</p>
+				</apex:outputPanel>
+			</apex:pageBlock>
+
+            <apex:pageBlock rendered="{!NOT(ISBLANK(section))}">
+                <apex:commandButton value="{!buttonLabel}" action="{!start}" styleClass="button" />
+                <br /><br />
+                <apex:commandLink value="Check your answers" action="{!summaryPage}"/>&nbsp;&nbsp;&nbsp;&nbsp;
+                <apex:commandLink value="Print answers (pdf)" action="{!summaryPdf}" />&nbsp;&nbsp;&nbsp;&nbsp;
+  				<apex:outputText rendered="{!NOT(targetObject['Form_Complete__c'])}">
+	            	<a href="javascript:gotoLastPage();">Continue from last entry</a><br/>
+	            </apex:outputText>
+	        </apex:pageBlock>
+	        
+	        </apex:form>
+
+			<apex:outputPanel rendered="{!AND(NOT(noCreate),ISBLANK(section))}">
+            <div class="grid-row">
+                <div class="column-full">
+                	<apex:outputText rendered="{!readonlyMode==false}">
+                    <p>Complete the sections below.</p>
+                    </apex:outputText>
+
+                    <table class="sections">
+                        <thead>
+                            <tr>
+                                <th scope="col">Section</th>
+                                <th class="numeric" scope="col">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <apex:variable value="{!1}" var="count"/>
+                            <apex:repeat value="{!form.sections}" var="section">
+                                <tr>
+                                <!-- <apex:outputPanel rendered="{!formStatus=='DRAFT'}"> -->
+                                    <th scope="row" class="section-identifier">
+                                        <apex:outputLink value="{!$Page.LCFGrantBlock}" rendered="{!NOT(ISBLANK(recordIdentifierParam))}">
+                                            {!count}. {!section.title}
+                                            <apex:param name="form" value="{!form.id}"/>
+                                            <apex:param name="section" value="{!section.id}"/>
+                                            <apex:param name="grant" value="{!grant['Name']}"/>
+                                            <apex:param name="id" value="{!recordIdentifierParam}"/>
+                                        </apex:outputLink>
+                                        <apex:outputLink value="{!$Page.LCFGrantBlock}" rendered="{!ISBLANK(recordIdentifierParam)}">
+                                            {!count}. {!section.title}
+                                            <apex:param name="form" value="{!form.id}"/>
+                                            <apex:param name="section" value="{!section.id}"/>
+                                            <apex:param name="grant" value="{!grant['Name']}"/>
+                                        </apex:outputLink>
+                                    </th>
+                                    <td class="numeric"><span class="status">{!targetObject[section.status_field]}</span></td>                                  
+                                </tr>
+                                <apex:variable value="{!count + 1}" var="count"/>
+                            </apex:repeat>
+                            <tr><td style="border:none"></td></tr> 
+                            <tr>
+                                <th scope="row" class="section-identifier" style="border:none">
+                                    Form status
+                                </th>
+                                <th class="numeric" style="border:none"><span class="status">{!formStatus}</span></th>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="section-identifier" style="border:none">
+                                    {!IF(NOT(ISBLANK(form.approval_status_field)),'Approval status','Issue status')}
+                                </th>
+                                <th class="numeric" style="border:none"><span class="status">{!IF(NOT(ISBLANK(form.approval_status_field)),approvalStatus,issueStatus)}</span></th>
+                            </tr>
+                        </tbody>
+                    </table> 
+                    <br />
+                    <apex:form >
+				        <div id="last-page-div" class="hide-div">
+                      		<apex:commandLink value="View all answers" action="{!viewAll}"/ >&nbsp;&nbsp;&nbsp;&nbsp;
+                       		<apex:commandLink value="Print all answers (pdf)" action="{!viewAllPdf}"/ >&nbsp;&nbsp;&nbsp;&nbsp;
+               				<apex:outputText rendered="{!NOT(targetObject['Form_Complete__c'])}">
+				            	<a href="javascript:gotoLastPage();">Continue from last entry</a><br/>
+				            </apex:outputText>
+				        </div> 
+				        <div id="no-last-page-div" class="show-div">
+                       		<apex:commandLink value="View all answers" action="{!viewAll}"/ >&nbsp;&nbsp;&nbsp;&nbsp;
+                       		<apex:commandLink value="Print all answers (pdf)" action="{!viewAllPdf}"/ >&nbsp;&nbsp;&nbsp;&nbsp;
+ 				        </div>
+						<apex:outputPanel rendered="{!AND(customerUser==false,formStatus!='HISTORY',issueStatus=='ISSUED',form.history_required=='true')}">
+							<br/> 
+							<apex:commandButton styleClass="button" value="Archive this form to history (in order to start a new form)" action="{!archiveBlock}" onclick="if(!confirm('Are you sure?')) return false;" />
+						</apex:outputPanel>
+						<apex:outputPanel rendered="{!AND(customerUser==true,formStatus!='HISTORY',approvalStatus=='APPROVED',form.history_required=='true')}">
+							<br/> 
+							<apex:commandButton styleClass="button" value="Archive this form to history (in order to start a new form)" action="{!archiveBlock}" onclick="if(!confirm('Are you sure?')) return false;" />
+						</apex:outputPanel>
+                    </apex:form>
+                </div>
+            </div> 
+            <br />
+            </apex:outputPanel>
+
+			<apex:outputPanel rendered="{!AND(NOT(noCreate),ISBLANK(section),readonlyMode==false)}">
+            <div class="grid-row">
+                <div class="column-full">
+                
+                <apex:form id="submitForm">
+                <apex:outputPanel rendered="{!NOT(targetObject['Form_Complete__c'])}">
+                    <div class="notice">
+                      <i class="icon icon-important" style="background-image: url({!URLFOR($Resource.images, 'icon-important.png')})">
+                        <span class="visually-hidden">Warning</span>
+                      </i>
+                      <apex:outputText rendered="{!form.approval_status_field!=null}">
+	                      <strong class="bold-small">
+	                        You must complete all sections before submitting the form.
+	                      </strong>
+                      </apex:outputText>
+                      <apex:outputText rendered="{!form.issue_status_field!=null}">
+	                      <strong class="bold-small">
+	                        You must complete all sections before issuing the form.
+	                      </strong>
+                      </apex:outputText>
+                    </div>
+
+                    <br />                  
+                    <apex:commandButton value="{!submitLabel}" action="{!submit}" styleClass="button" disabled="true" html-aria-disabled="true" />
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!AND(targetObject['Form_Complete__c'],formStatus=='IN PROGRESS')}">
+                    <apex:commandButton value="{!submitLabel}"  action="{!submit}" styleClass="button"/>
+                </apex:outputPanel>
+                </apex:form>
+
+                </div>
+            </div>
+           </apex:outputPanel>
+        </apex:define>
+    </apex:composition>
+</apex:page>

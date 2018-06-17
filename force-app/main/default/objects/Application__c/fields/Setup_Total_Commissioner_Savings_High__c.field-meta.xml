@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Setup_Total_Commissioner_Savings_High__c</fullName>
+    <description>Full Award Setup total commissioner savings (high scenario)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Full Award Setup total commissioner savings (high scenario)</inlineHelpText>
+    <label>Setup Total Commissioner Savings (High)</label>
+    <summarizedField>Form_LCF_Commissioner_1__c.st_savings_high__c</summarizedField>
+    <summaryFilterItems>
+        <field>Form_LCF_Commissioner_1__c.st_organisation_type__c</field>
+        <operation>equals</operation>
+        <value>Commissioner</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Form_LCF_Commissioner_1__c.RecordTypeId</field>
+        <operation>equals</operation>
+        <value>Setup</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Form_LCF_Commissioner_1__c.application__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>cs_commissioner_signoff_date__c</fullName>
-    <description>For example, 31 3 2018</description>
+    <description>You should have sign off from lead commissioner finance director before you submit this form and be able to put your business case to your lead commissioner within two months of submitting this form to LCF.</description>
     <externalId>false</externalId>
     <inlineHelpText>When do you expect to get sign off from commissioners?</inlineHelpText>
     <label>CS - Commissioner Signoff Date</label>

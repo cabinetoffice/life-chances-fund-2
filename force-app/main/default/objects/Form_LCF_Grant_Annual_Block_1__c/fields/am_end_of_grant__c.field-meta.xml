@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>am_end_of_grant__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Additional information will be required if this is the final year of the grant</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Please tick here if this is the final year of the grant</inlineHelpText>
+    <label>End of Grant Block Required</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -2,10 +2,18 @@
 <ListView xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>All</fullName>
     <columns>Application__c</columns>
+    <columns>Answer_Key__c</columns>
+    <columns>Data_Conversion_Form__c</columns>
+    <columns>Data_Conversion_Form_Section__c</columns>
     <columns>NAME</columns>
     <columns>Application_Question__c</columns>
-    <columns>Application_Question_Template__c</columns>
-    <columns>LAST_UPDATE</columns>
+    <columns>Question__c</columns>
+    <columns>Short_Text_Answer__c</columns>
+    <columns>Text_Answer__c</columns>
+    <columns>Radio_Answer__c</columns>
+    <columns>Percent_Answer__c</columns>
+    <columns>Multi_Picklist_Answers__c</columns>
+    <columns>Email_Answer__c</columns>
     <filterScope>Everything</filterScope>
     <label>All</label>
 </ListView>

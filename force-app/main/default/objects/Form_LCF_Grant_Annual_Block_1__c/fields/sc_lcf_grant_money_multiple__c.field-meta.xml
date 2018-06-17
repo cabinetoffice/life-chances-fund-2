@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sc_lcf_grant_money_multiple__c</fullName>
+    <defaultValue>"1:XXX"</defaultValue>
+    <description>This should be a ratio of initial investment capital raised to payment to investors, including investment capital and investment costs.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>What is the anticipated end of LCF grant money multiple based on current performance?</inlineHelpText>
+    <label>SC - LCF Grant Money Multiple</label>
+    <length>8</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

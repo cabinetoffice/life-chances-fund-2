@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Setup_Number_of_Stakeholders__c</fullName>
+    <description>Number of Full Award Setup Stakeholders</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Number of Full Award Setup Stakeholders</inlineHelpText>
+    <label>Setup Number of Stakeholders</label>
+    <summaryFilterItems>
+        <field>Form_LCF_Commissioner_1__c.RecordTypeId</field>
+        <operation>equals</operation>
+        <value>Setup</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Form_LCF_Commissioner_1__c.application__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

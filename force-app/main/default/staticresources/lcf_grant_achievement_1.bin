@@ -1,0 +1,38 @@
+{
+	"id": "lcf_grant_achievement_1",
+	"target_object": "Form_LCF_Grant_Achievement_1__c",
+	"parent_relationship": "lcf_grant__r",
+	"pages": [
+		{
+			"id": "1",
+			"title_id": "Outcome Achievements",
+			"guidance_id": "Outcome Achievements Guidance",
+			"children": {
+				"target_object": "Form_LCF_Outcome_Achievement_1__c",
+				"target_field": "oa_outcome__c",
+				"field_width": "50%",
+				"target_field2": "oa_period_target__c",
+				"target_field3": "oa_period_achievement__c",
+				"target_field4": "oa_period_outcome_payments__c",
+				"field_width2": "15%",
+				"field_width3": "15%",
+				"field_width4": "20%",
+				"total_field2": "oa_total_period_target__c",
+				"total_field3": "oa_total_period_achievement__c",
+				"total_field4": "oa_total_period_outcome_payments__c",
+				"field_head2": "Target",
+				"field_head3": "Achievement",
+				"field_head4": "Outcome payments",
+				"child_relationship": "outcome_achievements__r",
+				"parent_field": "grant_achievement__c",
+				"child_parent_object": "Form_LCF_Grant_Outcome_1__c",
+				"child_parent_field": "grant_outcome__c",
+				"child_parent_primary": "primary__c",
+				"title": "Outcome achievements",
+				"section": "lcf_grant_outcome_achievements_1",
+				"child_count_field": "oa_number_of_outcome_achievements__c",
+				"remove_reqd": "false" 
+			}
+		}
+	]
+}

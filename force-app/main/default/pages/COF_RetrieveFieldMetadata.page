@@ -8,6 +8,21 @@
 ___________________________________________________________________________________________________________________________ -->    
 <apex:page standardcontroller="SIB_Field_Metadata__c" extensions="COF_FieldMetadataController" title="Retrieve Field Metadata" >
 <apex:slds /> 
+<style type="text/css">
+    .show-div {
+        display:block;
+    }
+    .hide-div {
+        display:none;
+    }
+</style>
+<script type="text/javascript">           
+    function showMessage() {
+    	console.log("got here");
+    	var el = document.getElementById("working-message");
+    	if (el) el.className = "show-div";
+    }           
+</script>
 
 <!-- <div class="slds-grid slds-grid--align-center"> -->
 <apex:form id="theForm">
@@ -38,12 +53,14 @@ ________________________________________________________________________________
     
     <apex:outputPanel id="buttons1" styleClass="slds-grid slds-grid--align-center"> 
         <apex:outputPanel rendered="{!showButton}">
-            <apex:commandButton action="{!retrieveMetadata}" value="Retrieve Metadata" styleClass="slds-button slds-button--brand"/>
+            <apex:commandButton action="{!retrieveMetadata}" value="Retrieve Metadata" styleClass="slds-button slds-button--brand" onclick="showMessage()"/>
         </apex:outputPanel>
         <apex:outputPanel >
             <apex:commandButton action="{!viewMetadata}" value="View Metadata" styleClass="slds-button slds-button--neutral"/>
         </apex:outputPanel> 
     </apex:outputPanel>
+    
+    <p class="hide-div" id="working-message">Retrieving metadata ...</p>
    
     <p>&nbsp;</p><apex:pageMessages id="messages"/><p>&nbsp;</p> 
     

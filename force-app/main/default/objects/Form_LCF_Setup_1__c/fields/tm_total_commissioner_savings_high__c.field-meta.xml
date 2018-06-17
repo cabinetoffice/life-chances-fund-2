@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>tm_total_commissioner_savings_high__c</fullName>
+    <externalId>false</externalId>
+    <formula>application__r.Setup_Total_Commissioner_Savings_High__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Total commissioner savings (High)</inlineHelpText>
+    <label>TM - Total Commisioner Savings (High)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

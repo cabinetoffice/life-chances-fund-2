@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Eligible_for_LCF_Grant__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Determines whether the user can access the LCF Grants page</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Determines whether the user can access the LCF Grants page</inlineHelpText>
+    <label>Eligible for LCF Grant</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

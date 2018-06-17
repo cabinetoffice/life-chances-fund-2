@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>pr_project_summary__c</fullName>
+    <description>Briefly outline your project, including the outcomes it will deliver, the target service users, and how the project fits with the chosen policy theme and relevant context. If known, outline your proposed intervention and the service provider who will deliver the service.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Please provide a summary of your project and how it fits with the priorities for the Life Chances Fund.</inlineHelpText>
+    <label>PR - Project Summary</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>10</visibleLines>
+</CustomField>

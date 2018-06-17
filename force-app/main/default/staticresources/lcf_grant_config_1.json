@@ -1,0 +1,155 @@
+{
+	"forms": [
+		{
+			"id": "lcf_grant_baseline_1",
+			"reference_id": "lcf_setup_1",
+			"title": "Offer letter baseline form",
+			"short_title": "Offer letter baseline",
+			"target_object": "Form_LCF_Grant_Baseline_1__c",
+			"users_able_to_edit": "Funding Officers + Admin users",
+			"block_status_field": "bb_block_status__c",
+			"issue_status_field": "bb_issue_status__c",
+			"sections": [
+				{
+					"id": "lcf_grant_baseline_1",
+					"title": "Offer letter baseline form",
+					"short_title": "Baseline",
+					"target_object": "Form_LCF_Grant_Baseline_1__c",
+					"status_field": "bb_section_status__c"
+				} 
+			]
+		},
+		{
+			"id": "lcf_grant_achievement_1",
+			"title": "Outcome achievement and payment claim",
+			"short_title": "Outcome achievement",
+			"target_object": "Form_LCF_Grant_Achievement_1__c",
+			"users_able_to_edit": "Project users + Admin users",
+			"block_status_field": "ab_block_status__c",
+			"approval_status_field": "ab_approval_status__c",
+			"period_title_field": "ab_claim_period__c",
+			"reviewer_field": "reviewer__c",
+			"questions": [
+				{ "target_field": "ab_claim_period_start__c" },
+				{ "target_field": "ab_claim_period_end__c" }
+			],
+			"history_required": "true",
+			"history_fields": "Project_Name__c,ab_claim_period_start__c,ab_claim_period_end__c",
+			"history_headers": "Project,Claim Period Start,Claim Period End",
+			"sections": [
+				{
+					"id": "lcf_grant_user_referral_1",
+					"title": "Service user referrals",
+					"short_title": "Referrals",
+					"status_field": "ur_section_status__c"
+				}, 
+				{
+					"id": "lcf_grant_achievement_1",
+					"title": "Outcome targets and achievements",
+					"short_title": "Outcomes",
+					"status_field": "oa_section_status__c"
+				},
+				{
+					"id": "lcf_grant_payment_1",
+					"title": "Outcome payment",
+					"short_title": "Achievement",
+					"status_field": "op_section_status__c"
+				}, 
+				{
+					"id": "lcf_grant_payment_declaration_1",
+					"title": "Payment declaration and authorisation",
+					"short_title": "Declaration",
+					"status_field": "de_section_status__c",
+					"declaration": "true"
+				} 
+			]
+		},
+		{
+			"id": "lcf_grant_payment_profile_1",
+			"title": "Payment profile",
+			"short_title": "Payment profile",
+			"title_append_text": " to ",
+			"title_append_field": "Archive_Date__c",
+			"target_object": "Form_LCF_Grant_Payment_Profile_1__c",
+			"users_able_to_edit": "Funding Officers + Admin users",
+			"block_status_field": "pp_block_status__c",
+			"issue_status_field": "pp_issue_status__c",
+			"history_required": "true",
+			"history_fields": "Project_Name__c,Archive_Date__c,pp_payment_claim_schedule__c",
+			"history_headers": "Project,Archive date,Payment basis",
+			"sections": [
+				{
+					"id": "lcf_grant_payment_profile_1",
+					"title": "Payment profile",
+					"short_title": "Payment profile",
+					"target_object": "Form_LCF_Grant_Payment_Profile_1__c",
+					"status_field": "pp_section_status__c"
+				} 
+			]
+		},
+		{
+			"id": "lcf_grant_annual_monitor_1",
+			"title": "Annual monitoring form",
+			"short_title": "Annual monitoring",
+			"target_object": "Form_LCF_Grant_Annual_Block_1__c",
+			"users_able_to_edit": "Project users + Admin users",
+			"block_status_field": "am_block_status__c",
+			"approval_status_field": "am_approval_status__c",
+			"period_title_field": "am_year_end_string__c",
+			"reviewer_field": "reviewer__c",
+			"questions": [
+				{ "target_field": "am_year_end__c" },
+				{ "target_field": "am_end_of_grant__c" }
+			],
+			"history_required": "true",
+			"history_fields": "Project_Name__c,am_year_end__c",
+			"history_headers": "Project,Financial Year End",
+			"sections": [
+				{
+					"id": "lcf_grant_annual_referral_1",
+					"title": "Referrals",
+					"short_title": "Referrals",
+					"status_field": "ar_section_status__c"
+				}, 
+				{
+					"id": "lcf_grant_vcse_engagement_1",
+					"title": "VCSE engagement",
+					"short_title": "Engagement",
+					"status_field": "ve_section_status__c"
+				},
+				{
+					"id": "lcf_grant_cashable_savings_1",
+					"title": "Cashable savings",
+					"short_title": "Savings",
+					"status_field": "cs_section_status__c"
+				}, 
+				{
+					"id": "lcf_grant_sib_funding_1",
+					"title": "Funding the SIB",
+					"short_title": "SIB Funding",
+					"status_field": "sf_section_status__c"
+				}, 
+				{
+					"id": "lcf_grant_sib_costs_1",
+					"title": "SIB costs",
+					"short_title": "SIB Costs",
+					"status_field": "sc_section_status__c"
+				}, 
+				{
+					"id": "lcf_end_of_grant_1",
+					"title": "End of grant",
+					"short_title": "End of Grant",
+					"status_field": "eg_section_status__c",
+					"include_checkbox": "am_end_of_grant__c"
+				}, 
+				{
+					"id": "lcf_grant_annual_declaration_1",
+					"title": "Declaration",
+					"short_title": "Declaration",
+					"status_field": "de_section_status__c",
+					"declaration": "true"
+				}  
+			]
+		}
+	]
+}

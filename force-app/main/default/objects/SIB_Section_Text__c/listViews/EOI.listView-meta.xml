@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EOI</fullName>
+    <columns>NAME</columns>
+    <columns>SIB_Reference__c</columns>
+    <columns>Object_Name__c</columns>
+    <columns>Text__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Object_Name__c</field>
+        <operation>equals</operation>
+        <value>Form_LCF_EOI_1__c</value>
+    </filters>
+    <label>EOI</label>
+</ListView>

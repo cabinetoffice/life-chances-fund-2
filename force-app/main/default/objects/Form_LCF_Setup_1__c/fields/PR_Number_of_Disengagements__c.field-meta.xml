@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>PR_Number_of_Disengagements__c</fullName>
+    <fullName>pr_number_of_disengagements__c</fullName>
     <description>Count of commissioner disengagements for this full award setup form</description>
     <externalId>false</externalId>
     <inlineHelpText>Count of commissioner disengagements for this full award setup form</inlineHelpText>

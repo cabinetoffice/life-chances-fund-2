@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Sent to office when a Full Award Set-up form is submitted</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Cabinet_Office_Letterhead</letterhead>
+    <name>Office alert when Full Award Set-up Form submitted</name>
+    <style>freeForm</style>
+    <subject>Full Application submitted {!Application__c.Name}</subject>
+    <textOnly>A full award set-up form has been submitted for the Life Chances Fund. The application ID is {!Application__c.Name}.
+
+Regards
+Centre for Social Impact Bonds</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

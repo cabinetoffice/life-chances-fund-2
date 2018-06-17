@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>bb_commissioner_savings__c</fullName>
+    <description>Page Title:Savings and costs avoided attributable to local commissioners funding the SIB</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Savings</inlineHelpText>
+    <label>BB - Commissioner Savings</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

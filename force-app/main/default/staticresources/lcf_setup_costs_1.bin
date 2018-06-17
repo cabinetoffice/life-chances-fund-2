@@ -7,6 +7,9 @@
 			"id": "1",
 			"title_id": "Social Investment Cost",
 			"guidance_id": "Social Investment Cost Guidance",
+			"questions": [
+				{ "target_field": "cs_maximum_investment_need__c" }
+			],
 			"routes": [
 				{ "target_page": "2" }
 			]
@@ -23,65 +26,143 @@
 		{
 			"id": "3",
 			"questions": [
-				{ "target_field": "cs_maximum_investment_need__c" }
-			],
-			"routes": [
-				{ "target_page": "5" }
-			]
-		},
-		{
-			"id": "5",
-			"questions": [
 				{ "target_field": "cs_investment_raised_so_far__c" }
 			],
 			"routes": [
-				{ "target_page": "9" }
-			]
-		},
-		{
-			"id": "9",
-			"questions": [
-				{ "target_field": "cs_more_than_one_investor__c" }
-			],
-			"routes": [
-				{ 
-					"target_page": "10",
-					"constraints": [
-						{ "field": "cs_more_than_one_investor__c", "operator": "equals", "value": "Yes" }
-					]
-				},
-				{ "target_page": "11" }
+				{ "target_page": "4" }
 			]
 		},		
 		{
-			"id": "10",
+			"id": "4",
 			"title_id": "Amounts by Investor",
 			"children": {
 				"target_object": "Form_LCF_Setup_Investor_1__c",
 				"target_field": "in_investor_name__c",
+				"field_width": "50%",
 				"target_field2": "in_amount__c",
+				"field_width2": "20%",
+				"total_field2": "cs_total_investment__c",
 				"parent_field": "full_award_setup__c",
 				"title": "Investors",
 				"section": "lcf_setup_terms_investors_1",
 				"add_label": "+ Add an investor"
 			},
 			"routes": [
-				{ "target_page": "11" }
+				{ 
+					"target_page": "5",
+					"constraints": [
+						{ "field": "cs_investment_needed__c", "operator": "greater", "value": "0" }
+					]
+				},
+				{ "target_page": "6" }
+			]
+		},
+		{
+			"id": "5",
+			"title_id": "Balance of Investment",
+			"guidance_id": "Balance of Investment Guidance",
+			"questions": [
+				{ "target_field": "cs_balance_of_investment__c" },
+				{ "target_field": "cs_balance_of_investment_contingency__c" }
+			],
+			"routes": [
+				{ "target_page": "6" }
+			]
+		},
+		{
+			"id": "6",
+			"questions": [
+				{ "target_field": "cs_other_funding_required__c" }
+			],
+			"routes": [
+				{ 
+					"target_page": "7",
+					"constraints": [
+						{ "field": "cs_other_funding_required__c", "operator": "contains", "value": "Fixed rate loans" }
+					]
+				},
+				{ 
+					"target_page": "9",
+					"constraints": [
+						{ "field": "cs_other_funding_required__c", "operator": "contains", "value": "Third party grant funding" }
+					]
+				},
+				{ 
+					"target_page": "11",
+					"constraints": [
+						{ "field": "cs_other_funding_required__c", "operator": "contains", "value": "Service fee/other commissioner funding" }
+					]
+				},
+				{ "target_page": "13" }
+			]
+		},
+		{
+			"id": "7",
+			"title_id": "Fixed Rate Loan Details",
+			"questions": [
+				{ "target_field": "cs_fixed_rate_loan_amount__c" },
+				{ "target_field": "cs_fixed_rate_loan_secured__c" },
+				{ "target_field": "cs_fixed_rate_source_known__c" },
+				{ 
+					"target_field": "cs_fixed_rate_fund_source__c", 
+					"constraints": [
+						{ "field": "cs_fixed_rate_source_known__c", "operator": "equals", "value": "Yes" }
+					]
+				}
+			],
+			"routes": [
+				{ 
+					"target_page": "9",
+					"constraints": [
+						{ "field": "cs_other_funding_required__c", "operator": "contains", "value": "Third party grant funding" }
+					]
+				},
+				{ 
+					"target_page": "11",
+					"constraints": [
+						{ "field": "cs_other_funding_required__c", "operator": "contains", "value": "Service fee/other commissioner funding" }
+					]
+				},
+				{ "target_page": "13" }
+			]
+		},
+		{
+			"id": "9",
+			"title_id": "Third Party Funding",
+			"questions": [
+				{ "target_field": "cs_third_party_funding_amount__c" },
+				{ "target_field": "cs_third_party_funding_secured__c" },
+				{ "target_field": "cs_third_party_source_known__c" },
+				{ 
+					"target_field": "cs_third_party_fund_source__c", 
+					"constraints": [
+						{ "field": "cs_third_party_source_known__c", "operator": "equals", "value": "Yes" }
+					]
+				}
+			],
+			"routes": [
+				{ 
+					"target_page": "11",
+					"constraints": [
+						{ "field": "cs_other_funding_required__c", "operator": "contains", "value": "Service fee/other commissioner funding" }
+					]
+				},
+				{ "target_page": "13" }
 			]
 		},
 		{
 			"id": "11",
+			"title_id": "Funds from Commissioners",
 			"questions": [
-				{ "target_field": "cs_project_admin_fees__c" }
-			],
-			"routes": [
-				{ "target_page": "12" }
-			]
-		},
-		{
-			"id": "12",
-			"questions": [
-				{ "target_field": "cs_interest_to_investors__c" }
+				{ "target_field": "cs_funds_from_commissioners_amount__c" },
+				{ "target_field": "cs_funds_from_commissioners_secured__c" },
+				{ "target_field": "cs_commissioner_funding_source_known__c" },
+				{ 
+					"target_field": "cs_commissioner_funding_source__c", 
+					"constraints": [
+						{ "field": "cs_commissioner_funding_source_known__c", "operator": "equals", "value": "Yes" }
+					]
+				}
 			],
 			"routes": [
 				{ "target_page": "13" }
@@ -90,7 +171,7 @@
 		{
 			"id": "13",
 			"questions": [
-				{ "target_field": "cs_investor_return_rate__c" }
+				{ "target_field": "cs_good_value__c" }
 			],
 			"routes": [
 				{ "target_page": "14" }
@@ -98,26 +179,33 @@
 		},
 		{
 			"id": "14",
+			"title_id": "Outcome Signoff",
+			"guidance_id": "Outcome Signoff Guidance",
+			"warning_id": "Outcome Signoff Warning",
 			"questions": [
-				{ "target_field": "cs_all_investment_raised__c" }
+				{ "target_field": "cs_outcome_signoff__c" }
 			],
 			"routes": [
 				{ 
 					"target_page": "15",
 					"constraints": [
-						{ "field": "cs_all_investment_raised__c", "operator": "equals", "value": "No" }
+						{ "field": "cs_outcome_signoff__c", "operator": "equals", "value": "Yes" }
 					]
 				},
 				{ "target_page": "16" }
 			]
-		},		
+		},
 		{
-			"id": "15",
-			"title_id": "Balance of Investment",
-			"guidance_id": "Balance of Investment Guidance",
+			"id": "15",			
+			"title_id": "Outcome Signoff Person",
+			"guidance_id": "Outcome Signoff Person Guidance",
 			"questions": [
-				{ "target_field": "cs_balance_of_investment__c" },
-				{ "target_field": "cs_balance_of_investment_contingency__c" }
+				{ "target_field": "cs_outcome_signoff_name__c" },
+				{ "target_field": "cs_outcome_signoff_role__c" },
+				{ "target_field": "cs_outcome_signoff_organisation__c" },
+				{ "target_field": "cs_outcome_signoff_email__c" },
+				{ "target_field": "cs_outcome_signoff_phone__c" },
+				{ "target_field": "cs_outcome_signoff_mobile__c" }
 			],
 			"routes": [
 				{ "target_page": "16" }
@@ -125,224 +213,124 @@
 		},
 		{
 			"id": "16",
-			"questions": [
-				{ "target_field": "cs_other_funding_required__c" }
-			],
+			"title_id": "Final Approval and Signoff",
+			"guidance_id": "Final Approval and Signoff Guidance",
 			"routes": [
-				{ 
-					"target_page": "17",
-					"constraints": [
-						{ "field": "cs_other_funding_required__c", "operator": "contains", "value": "Fixed rate loans" }
-					]
-				},
-				{ 
-					"target_page": "19",
-					"constraints": [
-						{ "field": "cs_other_funding_required__c", "operator": "contains", "value": "Third party grant funding" }
-					]
-				},
-				{ 
-					"target_page": "21",
-					"constraints": [
-						{ "field": "cs_other_funding_required__c", "operator": "contains", "value": "Service fee/other commissioner funding" }
-					]
-				},
-				{ "target_page": "23" }
+				{ "target_page": "17" }
 			]
 		},
 		{
 			"id": "17",
-			"title_id": "Fixed Rate Loan Details",
 			"questions": [
-				{ "target_field": "cs_fixed_rate_loan_amount__c" },
-				{ "target_field": "cs_fixed_rate_loan_secured__c" },
-				{ "target_field": "cs_fixed_rate_source_known__c" }
+				{ "target_field": "cs_lead_commissioner_approval__c" },
+				{ 
+					"target_field": "cs_lead_commissioner_approval_date__c", 
+					"constraints": [
+						{ "field": "cs_lead_commissioner_approval__c", "operator": "equals", "value": "No" }
+					]
+				}
 			],
 			"routes": [
-				{ 
-					"target_page": "18",
-					"constraints": [
-						{ "field": "cs_fixed_rate_source_known__c", "operator": "equals", "value": "Yes" }
-					]
-				},
-				{ 
-					"target_page": "19",
-					"constraints": [
-						{ "field": "cs_other_funding_required__c", "operator": "contains", "value": "Third party grant funding" }
-					]
-				},
-				{ 
-					"target_page": "21",
-					"constraints": [
-						{ "field": "cs_other_funding_required__c", "operator": "contains", "value": "Service fee/other commissioner funding" }
-					]
-				},
-				{ "target_page": "23" }
-			]
-		},
-		{
-			"id": "18",
-			"questions": [
-				{ "target_field": "cs_fixed_rate_fund_source__c" }
-			],
-			"routes": [
-				{ 
-					"target_page": "19",
-					"constraints": [
-						{ "field": "cs_other_funding_required__c", "operator": "contains", "value": "Third party grant funding" }
-					]
-				},
-				{ 
-					"target_page": "21",
-					"constraints": [
-						{ "field": "cs_other_funding_required__c", "operator": "contains", "value": "Service fee/other commissioner funding" }
-					]
-				},
-				{ "target_page": "23" }
-			]
-		},
-		{
-			"id": "19",
-			"title_id": "Third Party Funding",
-			"questions": [
-				{ "target_field": "cs_third_party_funding_amount__c" },
-				{ "target_field": "cs_third_party_funding_secured__c" },
-				{ "target_field": "cs_third_party_source_known__c" }
-			],
-			"routes": [
-				{ 
-					"target_page": "20",
-					"constraints": [
-						{ "field": "cs_third_party_source_known__c", "operator": "equals", "value": "Yes" }
-					]
-				},
-				{ 
-					"target_page": "21",
-					"constraints": [
-						{ "field": "cs_other_funding_required__c", "operator": "contains", "value": "Service fee/other commissioner funding" }
-					]
-				},
-				{ "target_page": "23" }
-			]
-		},
-		{
-			"id": "20",
-			"questions": [
-				{ "target_field": "cs_third_party_fund_source__c" }
-			],
-			"routes": [
-				{ 
-					"target_page": "21",
-					"constraints": [
-						{ "field": "cs_other_funding_required__c", "operator": "contains", "value": "Service fee/other commissioner funding" }
-					]
-				},
-				{ "target_page": "23" }
-			]
-		},
-		{
-			"id": "21",
-			"title_id": "Funds from Commissioners",
-			"questions": [
-				{ "target_field": "cs_funds_from_commissioners_amount__c" },
-				{ "target_field": "cs_funds_from_commissioners_secured__c" },
-				{ "target_field": "cs_commissioner_funding_source_known__c" }
-			],
-			"routes": [
-				{ 
-					"target_page": "22",
-					"constraints": [
-						{ "field": "cs_commissioner_funding_source_known__c", "operator": "equals", "value": "Yes" }
-					]
-				},
-				{ "target_page": "23" }
-			]
-		},
-		{
-			"id": "22",
-			"questions": [
-				{ "target_field": "cs_commissioner_funding_source__c" }
-			],
-			"routes": [
-				{ "target_page": "23" }
+				{ "target_page": "18" }
 			]
 		},		
 		{
-			"id": "23",
+			"id": "18",
 			"questions": [
-				{ "target_field": "cs_good_value__c" }
+				{ "target_field": "cs_all_commissioner_approval__c" },
+				{ 
+					"target_field": "cs_all_commissioner_approval_date__c", 
+					"constraints": [
+						{ "field": "cs_all_commissioner_approval__c", "operator": "equals", "value": "No" }
+					]
+				}
+			],
+			"routes": [
+				{ "target_page": "20" }
+			]
+		},		
+		{
+			"id": "20",
+			"questions": [
+				{ "target_field": "cs_lead_investor_approval__c" },
+				{ 
+					"target_field": "cs_lead_investor_approval_date__c",
+					"constraints": [
+						{ "field": "cs_lead_investor_approval__c", "operator": "equals", "value": "No" }
+					]
+				}
+			],
+			"routes": [
+				{ "target_page": "22" }
+			]
+		},		
+		{
+			"id": "22",
+			"questions": [
+				{ "target_field": "cs_all_provider_approval__c" },
+				{ 
+					"target_field": "cs_all_provider_approval_date__c",
+					"constraints": [
+						{ "field": "cs_all_provider_approval__c", "operator": "equals", "value": "No" }
+					]
+				}
 			],
 			"routes": [
 				{ "target_page": "24" }
 			]
-		},
+		},		
 		{
 			"id": "24",
-			"title_id": "Outcome Signoff Person",
 			"questions": [
-				{ "target_field": "cs_outcome_signoff_name__c" },
-				{ "target_field": "cs_outcome_signoff_role__c" },
-				{ "target_field": "cs_outcome_signoff_organisation__c" }
-			],
-			"routes": [
-				{ "target_page": "25" }
-			]
-		},
-		{
-			"id": "25",
-			"title_id": "Outcome Signoff Details",
-			"questions": [
-				{ "target_field": "cs_outcome_signoff_email__c" },
-				{ "target_field": "cs_outcome_signoff_phone__c" },
-				{ "target_field": "cs_outcome_signoff_mobile__c" }
+				{ "target_field": "cs_commissioner_commitment__c" },
+				{ 
+					"target_field": "cs_commissioner_commitment_date__c",
+					"constraints": [
+						{ "field": "cs_commissioner_commitment__c", "operator": "equals", "value": "No" }
+					]
+				}
 			],
 			"routes": [
 				{ "target_page": "26" }
 			]
-		},
-		{
-			"id": "26",
-			"questions": [
-				{ "target_field": "cs_lead_commissioner_approval__c" }
-			],
-			"routes": [
-				{ 
-					"target_page": "27",
-					"constraints": [
-						{ "field": "cs_lead_commissioner_approval__c", "operator": "equals", "value": "No" }
-					]
-				},
-				{ "target_page": "28" }
-			]
 		},		
 		{
-			"id": "27",
+			"id": "26",
+			"title_id": "SIB Data",
 			"questions": [
-				{ "target_field": "cs_lead_commissioner_approval_date__c" }
+				{ "target_field": "cs_sib_data_management__c" }
 			],
+			"routes": [
+				{ "target_page": "27" } 
+			]
+		},
+		{
+			"id": "27",
+			"title_id": "SIB Structure and Governance",
+			"guidance_id": "SIB Structure and Governance Guidance",
+			"files": {
+				"target_field": "cs_sib_governance_files__c"
+			},
 			"routes": [
 				{ "target_page": "28" }
 			]
 		},
 		{
 			"id": "28",
+			"title_id": "SIB Governance Arrangements",
+			"guidance_id": "SIB Governance Arrangements Guidance",
 			"questions": [
-				{ "target_field": "cs_all_commissioner_approval__c"	}
+				{ "target_field": "cs_sib_governance_board__c" },
+				{ "target_field": "cs_sib_governance_leadership__c" }
 			],
 			"routes": [
-				{ 
-					"target_page": "29",
-					"constraints": [
-						{ "field": "cs_all_commissioner_approval__c", "operator": "equals", "value": "No" }
-					]
-				},
-				{ "target_page": "30" }
+				{ "target_page": "29" }
 			]
-		},		
+		},
 		{
 			"id": "29",
 			"questions": [
-				{ "target_field": "cs_all_commissioner_approval_date__c" }
+				{ "target_field": "cs_sib_governance_support__c" }
 			],
 			"routes": [
 				{ "target_page": "30" }
@@ -351,22 +339,16 @@
 		{
 			"id": "30",
 			"questions": [
-				{ "target_field": "cs_lead_investor_approval__c"	}
+				{ "target_field": "cs_sib_governance_resilience__c" }
 			],
 			"routes": [
-				{ 
-					"target_page": "31",
-					"constraints": [
-						{ "field": "cs_lead_investor_approval__c", "operator": "equals", "value": "No" }
-					]
-				},
-				{ "target_page": "32" }
+				{ "target_page": "31" }
 			]
-		},		
+		},
 		{
 			"id": "31",
 			"questions": [
-				{ "target_field": "cs_lead_investor_approval_date__c" }
+				{ "target_field": "cs_sib_governance_stakeholders__c" }
 			],
 			"routes": [
 				{ "target_page": "32" }
@@ -375,32 +357,17 @@
 		{
 			"id": "32",
 			"questions": [
-				{ "target_field": "cs_all_provider_approval__c"	}
+				{ "target_field": "cs_sib_governance_providers__c" }
 			],
 			"routes": [
-				{ 
-					"target_page": "33",
-					"constraints": [
-						{ "field": "cs_all_provider_approval__c", "operator": "equals", "value": "No" }
-					]
-				},
 				{ "target_page": "34" }
 			]
 		},		
 		{
-			"id": "33",
-			"questions": [
-				{ "target_field": "cs_all_provider_approval_date__c" }
-			],
-			"routes": [
-				{ "target_page": "34" }
-			]
-		},
-		{
 			"id": "34",
-			"title_id": "SIB Data",
+			"title_id": "Project Risk Levels",
 			"questions": [
-				{ "target_field": "cs_sib_data_management__c" }
+				{ "target_field": "cs_risk_management__c" }
 			],
 			"routes": [
 				{ "target_page": "35" }
@@ -408,9 +375,18 @@
 		},
 		{
 			"id": "35",
-			"title_id": "SIB Structure and Governance",
 			"questions": [
-				{ "target_field": "cs_sib_governance__c" }
+				{ "target_field": "cs_risk_transference__c" }
+			],
+			"routes": [
+				{ "target_page": "36" }
+			]
+		},
+		{
+			"id": "36",
+			"title_id": "SIB Evaluation Aim",
+			"questions": [
+				{ "target_field": "cs_sib_evaluation_aim__c" }
 			],
 			"routes": [
 				{ "target_page": "37" }
@@ -418,9 +394,8 @@
 		},
 		{
 			"id": "37",
-			"title_id": "Project Risk Levels",
 			"questions": [
-				{ "target_field": "cs_risk_management__c" }
+				{ "target_field": "cs_evaluation_comparators__c" }
 			],
 			"routes": [
 				{ "target_page": "38" }
@@ -429,7 +404,7 @@
 		{
 			"id": "38",
 			"questions": [
-				{ "target_field": "cs_risk_transference__c" }
+				{ "target_field": "cs_evaluation_indicators__c" }
 			],
 			"routes": [
 				{ "target_page": "39" }
@@ -437,9 +412,8 @@
 		},
 		{
 			"id": "39",
-			"title_id": "SIB Evaluation Aim",
 			"questions": [
-				{ "target_field": "cs_sib_evaluation_aim__c" }
+				{ "target_field": "cs_evaluation_resourcing__c" }
 			],
 			"routes": [
 				{ "target_page": "40" }
@@ -448,7 +422,7 @@
 		{
 			"id": "40",
 			"questions": [
-				{ "target_field": "cs_evaluation_comparators__c" }
+				{ "target_field": "cs_due_diligence_date__c" }
 			],
 			"routes": [
 				{ "target_page": "41" }
@@ -457,7 +431,7 @@
 		{
 			"id": "41",
 			"questions": [
-				{ "target_field": "cs_evaluation_indicators__c" }
+				{ "target_field": "cs_commissioner_signoff_date__c" }
 			],
 			"routes": [
 				{ "target_page": "42" }
@@ -466,7 +440,7 @@
 		{
 			"id": "42",
 			"questions": [
-				{ "target_field": "cs_evaluation_resourcing__c" }
+				{ "target_field": "cs_procurement_completion_date__c" }
 			],
 			"routes": [
 				{ "target_page": "43" }
@@ -475,7 +449,7 @@
 		{
 			"id": "43",
 			"questions": [
-				{ "target_field": "cs_due_diligence_date__c" }
+				{ "target_field": "cs_management_completion_date__c" }
 			],
 			"routes": [
 				{ "target_page": "44" }
@@ -484,7 +458,7 @@
 		{
 			"id": "44",
 			"questions": [
-				{ "target_field": "cs_commissioner_signoff_date__c" }
+				{ "target_field": "cs_sib_launch_date__c" }
 			],
 			"routes": [
 				{ "target_page": "45" }
@@ -493,43 +467,40 @@
 		{
 			"id": "45",
 			"questions": [
-				{ "target_field": "cs_procurement_completion_date__c" }
+				{ "target_field": "cs_service_delivery_date__c" } 
 			],
 			"routes": [
-				{ "target_page": "46" }
+				{ "target_page": "46" } 
 			]
 		},
 		{
 			"id": "46",
 			"questions": [
-				{ "target_field": "cs_management_completion_date__c" }
-			],
-			"routes": [
-				{ "target_page": "47" }
-			]
-		},
-		{
-			"id": "47",
-			"questions": [
-				{ "target_field": "cs_sib_launch_date__c" }
+				{ "target_field": "cs_step_up_period__c" },
+				{ 
+					"target_field": "cs_step_up_period_start__c", 
+					"constraints": [
+						{ "field": "cs_step_up_period__c", "operator": "equals", "value": "Yes" }
+					]
+				}
 			],
 			"routes": [
 				{ "target_page": "48" }
 			]
-		},
+		},		
 		{
 			"id": "48",
 			"questions": [
-				{ "target_field": "cs_service_delivery_date__c" }
+				{ "target_field": "cs_final_claim_date__c" }
 			],
 			"routes": [
 				{ "target_page": "49" }
 			]
-		},
+		}, 
 		{
 			"id": "49",
 			"questions": [
-				{ "target_field": "cs_final_claim_date__c" }
+				{ "target_field": "cs_project_end_date__c" }
 			],
 			"routes": [
 				{ "target_page": "50" }
@@ -537,32 +508,24 @@
 		},
 		{
 			"id": "50",
-			"questions": [
-				{ "target_field": "cs_project_end_date__c" }
-			],
-			"routes": [
-				{ "target_page": "51" }
-			]
-		},
-		{
-			"id": "51",
 			"title_id": "Project Specific Terms",
 			"questions": [
-				{ "target_field": "cs_project_specific_terms__c" }
-			],
-			"routes": [
+				{ "target_field": "cs_project_specific_terms__c" },
 				{ 
-					"target_page": "52",
+					"target_field": "cs_project_specific_terms_compliance__c", 
 					"constraints": [
 						{ "field": "cs_project_specific_terms__c", "operator": "equals", "value": "Yes" }
 					]
 				}
+			],
+			"routes": [
+				{ "target_page": "52" }
 			]
 		},		
 		{
 			"id": "52",
 			"questions": [
-				{ "target_field": "cs_project_specific_terms_compliance__c" }
+				{ "target_field": "cs_successful_outcome_description__c" }
 			]
 		}
 	]

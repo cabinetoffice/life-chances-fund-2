@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>pr_stakeholder_confirmation_files__c</fullName>
     <externalId>false</externalId>
-    <inlineHelpText>Confirmation of Commissioner Engagement: File Uploads</inlineHelpText>
+    <inlineHelpText>Confirmation of commissioner engagement: file uploads</inlineHelpText>
     <label>PR - Stakeholder Confirmation Files</label>
     <precision>18</precision>
     <required>false</required>

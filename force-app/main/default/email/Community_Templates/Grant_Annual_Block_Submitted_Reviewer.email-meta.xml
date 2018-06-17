@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Sent to reviewer when a grant annual monitor form is submitted</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Cabinet_Office_Letterhead</letterhead>
+    <name>Grant Annual Block Submitted: Reviewer</name>
+    <style>freeForm</style>
+    <subject>Annual monitoring form submitted for Grant {!Form_LCF_Grant_Achievement_1__c.lcf_grant__c}</subject>
+    <textOnly>A grant annual monitoring form has been submitted for approval by {!Form_LCF_Grant_Annual_Block_1__c.OwnerFullName},
+
+Reference: {!Form_LCF_Grant_Annual_Block_1__c.lcf_grant__c}:{!Form_LCF_Grant_Annual_Block_1__c.Name}
+
+Regards,
+Centre for Social Impact Bonds</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

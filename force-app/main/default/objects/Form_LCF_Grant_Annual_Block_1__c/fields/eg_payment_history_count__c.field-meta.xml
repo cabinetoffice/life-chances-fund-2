@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>eg_payment_history_count__c</fullName>
+    <description>Count of end of grant payment history records</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Count of end of grant payment history records</inlineHelpText>
+    <label>EG - Payment History Count</label>
+    <summaryForeignKey>Form_LCF_Grant_Payment_History_1__c.lcf_grant_annual_block__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

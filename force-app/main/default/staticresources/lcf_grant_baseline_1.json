@@ -1,0 +1,309 @@
+{
+	"id": "lcf_grant_baseline_1",
+	"target_object": "Form_LCF_Grant_Baseline_1__c",
+	"copy_object": "Form_LCF_Setup_1__c",
+	"parent_relationship": "lcf_grant__r",
+	"pages": [
+		{
+			"id": "1",
+			"questions": [
+				{ "target_field": "bb_final_lcf_offer__c" }
+			],
+			"routes": [
+				{ "target_page": "2" }
+			]
+		},
+		{
+			"id": "2",
+			"questions": [
+				{ "target_field": "bb_lcf_outcome_percent__c" }
+			],
+			"routes": [
+				{ "target_page": "3" }
+			]
+		},
+		{
+			"id": "3",
+			"copy_guidance": "Copy from set-up form",
+			"questions": [
+				{ 
+					"target_field": "bb_sib_launch_date__c",
+					"copy_from_field": "cs_sib_launch_date__c"
+				},
+				{ 
+					"target_field": "bb_sib_end_date__c",
+					"copy_from_field": "cs_project_end_date__c"
+				}
+			],
+			"routes": [
+				{ "target_page": "4" }
+			]
+		},
+		{
+			"id": "4",
+			"copy_guidance": "Copy from set-up form",
+			"questions": [
+				{ "target_field": "bb_max_service_users__c" },
+				{ 
+					"target_field": "bb_max_engagement_users__c",
+					"copy_from_field": "tm_users_to_engage_high__c"
+				},
+				{ 
+					"target_field": "bb_max_outcome_users__c",
+					"copy_from_field": "tm_users_to_achieve_high__c"
+				}
+			],
+			"routes": [
+				{ "target_page": "5" }
+			]
+		},
+		{
+			"id": "5",
+			"copy_guidance": "Copy from set-up form",
+			"questions": [
+				{ 
+					"target_field": "bb_commissioner_outcome_payments__c",
+					"copy_from_field": "tm_commissioner_payments_high__c"
+				}
+			],
+			"routes": [
+				{ "target_page": "6" }
+			]
+		},
+		{
+			"id": "6",
+			"title_id": "Outcomes",
+			"children": {
+				"target_object": "Form_LCF_Grant_Outcome_1__c",
+				"target_field": "ou_description__c",
+				"field_width": "60%",
+				"target_field2": "ou_individual_cohort__c",
+				"field_width2": "20%",
+				"child_relationship": "grant_outcomes__r",
+				"parent_field": "grant_baseline__c",
+				"title": "Outcomes",
+				"section": "lcf_grant_outcomes_1",
+				"child_count_field": "bb_number_of_outcomes__c",
+				"copy_label": "+ Copy outcomes from set-up form",
+				"add_label": "+ Add another outcome measure",
+				"primary_label": "+ Add primary outcome measure",
+				"grandchildren_page": "2",
+				"grandchildren_title": "Metrics"
+			},
+			"routes": [
+				{ "target_page": "8" }
+			]
+		},
+		{
+			"id": "8",
+			"title_id": "Payment Triggers",
+			"children": {
+				"target_object": "Form_LCF_Payment_Trigger_1__c",
+				"target_field": "pt_description__c",
+				"child_relationship": "payment_triggers__r",
+				"parent_field": "grant_baseline__c",
+				"title": "Triggers",
+				"section": "lcf_grant_triggers_1",
+				"child_count_field": "bb_number_of_payment_triggers__c",
+				"add_label": "+ Add another payment trigger"
+			},
+			"routes": [
+				{ "target_page": "10" }
+			]
+		},
+		{
+			"id": "10",
+			"questions": [
+				{ "target_field": "bb_commissioner_savings__c" },
+				{ "target_field": "bb_commissioner_costs_avoided__c" }
+			],
+			"routes": [
+				{ "target_page": "11" }
+			]
+		},
+		{
+			"id": "11",
+			"questions": [
+				{ "target_field": "bb_other_local_savings__c" },
+				{ "target_field": "bb_other_local_costs_avoided__c" }
+			],
+			"routes": [
+				{ "target_page": "12" }
+			]
+		},
+		{
+			"id": "12",
+			"questions": [
+				{ "target_field": "bb_other_national_savings__c" },
+				{ "target_field": "bb_other_national_costs_avoided__c" }
+			],
+			"routes": [
+				{ "target_page": "13" }
+			]
+		},
+		{
+			"id": "13",
+			"copy_guidance": "Copy from set-up form",
+			"questions": [
+				{ 
+					"target_field": "bb_start_up_investment__c",
+					"copy_from_field": "cs_investment_raised_so_far__c"
+				}
+			],
+			"routes": [
+				{ "target_page": "14" }
+			]
+		},
+		{
+			"id": "14",
+			"title_id": "Investors",
+			"children": {
+				"target_object": "Form_LCF_Grant_Investor_1__c",
+				"target_field": "in_investor_name__c",
+				"child_relationship": "grant_investors__r",
+				"parent_field": "grant_baseline__c",
+				"title": "Investors",
+				"section": "lcf_grant_investors_1",
+				"child_count_field": "bb_number_of_investors__c",
+				"copy_label": "+ Copy investors from set-up form",
+				"add_label": "+ Add another investor"
+			},
+			"routes": [
+				{ "target_page": "15" }
+			]
+		},
+		{
+			"id": "15",
+			"copy_guidance": "Copy from set-up form",
+			"questions": [
+				{ 
+					"target_field": "bb_return_on_investment__c",
+					"copy_from_field": "tm_investment_return_rate_high__c"					
+				}
+			],
+			"routes": [
+				{ "target_page": "16" }
+			]
+		},
+		{
+			"id": "16",
+			"copy_guidance": "Copy from set-up form",
+			"questions": [
+				{ 	
+					"target_field": "bb_investment_money_multiple__c", 
+					"copy_from_field": "tm_capital_ratio_high__c"					
+				}
+			],
+			"routes": [
+				{ "target_page": "17" }
+			]
+		},
+		{
+			"id": "17",
+			"title_id": "Investment Cost",
+			"guidance_id": "Investment Cost Guidance",
+			"copy_guidance": "Copy from set-up form",
+			"questions": [
+				{ 
+					"target_field": "bb_investment_cost__c",
+					"copy_from_field": "tm_total_investment_cost__c"
+				},
+				{ 
+					"target_field": "bb_investment_cost_percent__c",
+					"copy_from_field": "tm_total_investment_cost_percent__c"
+				}
+			],
+			"routes": [
+				{ "target_page": "18" }
+			]
+		},
+		{
+			"id": "18",
+			"copy_guidance": "Copy from set-up form",
+			"questions": [
+				{ 
+					"target_field": "bb_management_cost__c",
+					"copy_from_field": "tm_operating_management_costs_high__c"	 
+				},
+				{ 
+					"target_field": "bb_management_cost_percent__c",
+					"copy_from_field": "tm_sib_management_cost_percent__c"
+				}
+			],
+			"routes": [
+				{ "target_page": "19" }
+			]
+		},
+		{
+			"id": "19",
+			"copy_guidance": "Copy from set-up form",
+			"questions": [
+				{ 
+					"target_field": "bb_evaluation_and_learning_cost__c",
+					"copy_from_field": "tm_evaluation_and_learning_costs_high__c"	  
+				},
+				{ 
+					"target_field": "bb_evaluation_and_learning_cost_percent__c",
+					"copy_from_field": "tm_evaluation_and_learning_cost_percent__c"	  					
+				}
+			],
+			"routes": [
+				{ "target_page": "20" }
+			]
+		},
+		{
+			"id": "20",
+			"title_id": "Delivery Cost",
+			"guidance_id": "Delivery Cost Guidance",
+			"copy_guidance": "Copy from set-up form",
+			"questions": [
+				{ 
+					"target_field": "bb_delivery_cost__c",
+					"copy_from_field": "tm_operating_costs_high__c"	  
+				},
+				{ 
+					"target_field": "bb_delivery_cost_percent__c",
+					"copy_from_field": "tm_sib_delivery_cost_percent__c"	  
+				}
+			],
+			"routes": [
+				{ "target_page": "21" }
+			]
+		},
+		{
+			"id": "21",
+			"copy_guidance": "Copy from set-up form",
+			"questions": [
+				{ 
+					"target_field": "bb_other_funding__c",
+					"copy_from_field": "cs_total_other_funding__c"
+				},
+				{ "target_field": "bb_other_funding_type__c" },
+				{ 
+					"target_field": "bb_other_funding_details__c", 
+					"constraints": [
+						{ "field": "bb_other_funding_type__c", "operator": "contains", "value": "Other" }
+					]
+				}
+			],
+			"routes": [
+				{ "target_page": "22" }
+			]
+		},
+		{
+			"id": "22",
+			"title_id": "Terms",
+			"children": {
+				"target_object": "Form_LCF_Grant_Term_1__c",
+				"target_field": "gt_description__c",
+				"child_relationship": "grant_terms__r",
+				"parent_field": "grant_baseline__c",
+				"title": "Additional Terms",
+				"section": "lcf_grant_terms_1",
+				"child_count_field": "bb_number_of_terms__c",
+				"add_label": "+ Add another term",
+				"optional": "true"
+			}
+		}
+	]
+}

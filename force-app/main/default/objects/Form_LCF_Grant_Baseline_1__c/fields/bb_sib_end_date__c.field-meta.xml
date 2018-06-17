@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>bb_sib_end_date__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>End date of Life Chances Fund grant or project (whichever is later)</inlineHelpText>
+    <label>BB - SIB End Date</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

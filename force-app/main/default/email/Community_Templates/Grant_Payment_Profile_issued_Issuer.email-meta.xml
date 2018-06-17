@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Sent to the creator when an LCF Grant Payment Profile is issued</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Cabinet_Office_Letterhead</letterhead>
+    <name>Grant Payment Profile issued: Issuer</name>
+    <style>freeForm</style>
+    <subject>LCF Grant Management: a new payment profile has been issued</subject>
+    <textOnly>Hi {!Form_LCF_Grant_Payment_Profile_1__c.CreatedBy},
+
+You have successfully issued a Life Chances Fund payment profile, reference {!Form_LCF_Payment_Profile_1__c.lcf_grant__c}
+
+Kind Regards,
+Centre for Social Impact Bonds</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

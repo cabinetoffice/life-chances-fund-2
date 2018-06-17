@@ -1,0 +1,16 @@
+{
+	"id": "lcf_full_app_test_1",
+	"target_object": "Form_LCF_Full_App_1__c",
+	"parent_relationship": "application__r",
+	"pages": [
+		{
+			"id": "1",
+			"title": "Please attach a copy of your latest accounts",
+			"guidance": "Please attach file(s) of your latest accounts. If you have been running for less than 15 months, please attach your projected accounts.",
+			"files": {
+				"target_field": "ts_files_loaded__c",
+				"maximum_file_size": "25MB"
+			}
+		}
+	]
+}

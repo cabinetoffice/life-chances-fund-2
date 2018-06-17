@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cs_commissioner_commitment_date__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>When will the commissioner make a firm budgetary commitment?</inlineHelpText>
+    <label>CS - Commissioner Commitment Date</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

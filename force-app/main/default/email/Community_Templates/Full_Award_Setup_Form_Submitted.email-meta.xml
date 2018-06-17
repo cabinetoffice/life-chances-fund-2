@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Sent when a full award setup form is submitted</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Cabinet_Office_Letterhead</letterhead>
+    <name>Full Award Set-up Form Submitted</name>
+    <style>freeForm</style>
+    <subject>Your Full Application has been submitted</subject>
+    <textOnly>Hi {!Application__c.Contact_First_Name__c},
+
+You have successfully submitted your full award set-up form. Your application ID is {!Application__c.Name}.
+
+If you have any further queries, please get back to us at lifechancesfund@biglotteryfund.gov.uk with the application ID.
+
+Kind Regards,
+Centre for Social Impact Bonds</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

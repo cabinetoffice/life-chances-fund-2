@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>England_wide_region_excludes_all_others</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+INCLUDES(ov_project_region__c, &#39;England wide&#39;),
+OR(
+INCLUDES(ov_project_region__c, &#39;London&#39;),
+INCLUDES(ov_project_region__c, &#39;South East&#39;),
+INCLUDES(ov_project_region__c, &#39;South West&#39;),
+INCLUDES(ov_project_region__c, &#39;East of England&#39;),
+INCLUDES(ov_project_region__c, &#39;East Midlands&#39;),
+INCLUDES(ov_project_region__c, &#39;West Midlands&#39;),
+INCLUDES(ov_project_region__c, &#39;Yorkshire and the Humber&#39;),
+INCLUDES(ov_project_region__c, &#39;North West&#39;),
+INCLUDES(ov_project_region__c, &#39;North East&#39;)
+)
+)</errorConditionFormula>
+    <errorMessage>There is an error on this page.  The &#39;England wide&#39; region cannot be combined with other regions.</errorMessage>
+</ValidationRule>

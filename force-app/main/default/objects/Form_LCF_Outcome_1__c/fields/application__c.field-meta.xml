@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>application__c</fullName>
-    <deleteConstraint>SetNull</deleteConstraint>
     <externalId>false</externalId>
     <label>Application</label>
     <referenceTo>Application__c</referenceTo>
-    <relationshipLabel>Form LCF Outcome 1.0</relationshipLabel>
-    <relationshipName>full_application_outcomes</relationshipName>
-    <required>false</required>
+    <relationshipLabel>Form LCF Outcomes</relationshipLabel>
+    <relationshipName>app_outcomes</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
     <trackTrending>false</trackTrending>
-    <type>Lookup</type>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
 </CustomField>

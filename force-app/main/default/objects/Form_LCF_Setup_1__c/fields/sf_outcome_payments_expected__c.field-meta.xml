@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sf_outcome_payments_expected__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>What are the total outcomes payments for your project, inclusive of the LCF contribution?</inlineHelpText>
+    <label>SF - Outcome Payments Expected</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

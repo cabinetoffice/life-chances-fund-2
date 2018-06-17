@@ -1,0 +1,150 @@
+{
+	"id": "lcf_setup_financials_1",
+	"target_object": "Form_LCF_Setup_1__c",
+	"parent_relationship": "application__r",
+	"pages": [
+		{
+			"id": "1",
+			"questions": [
+				{ 
+					"target_field": "sf_financials_changed__c"
+				}
+			],
+			"routes": [
+				{ 
+					"target_page": "2",
+					"constraints": [
+						{ "field": "sf_financials_changed__c", "operator": "equals", "value": "Yes" }
+					]
+				},
+				{ "target_page": "3" }
+			]
+		},
+		{
+			"id": "2",
+			"questions": [
+				{ "target_field": "sf_cashable_savings_expected__c"	},
+				{ "target_field": "sf_cashable_benefits_expected__c" }
+			],
+			"routes": [
+				{ "target_page": "4" }
+			]
+		},
+		{
+			"id": "3",
+			"questions": [
+				{ 
+					"target_field": "sf_cashable_savings_expected__c",
+					"application_field": "full_app_commissioner_savings__c" 
+				},
+				{ 
+					"target_field": "sf_cashable_benefits_expected__c",
+					"application_field": "full_app_commissioner_benefits__c"  
+				}
+			],
+			"routes": [
+				{ "target_page": "5" }
+			]
+		},
+		{
+			"id": "4",
+			"title_id": "Other Parties Title",
+			"guidance_id": "Other Parties Guidance",
+			"questions": [
+				{ "target_field": "sf_cashable_savings_other_parties__c" },
+				{ "target_field": "sf_cashable_benefits_other_parties__c" }
+			],
+			"routes": [
+				{ "target_page": "6" }
+			]
+		},
+		{
+			"id": "5",
+			"title_id": "Other Parties Title",
+			"guidance_id": "Other Parties Guidance",
+			"questions": [
+				{ 
+					"target_field": "sf_cashable_savings_other_parties__c",
+					"application_field": "full_app_other_party_savings__c"   
+				},
+				{ 
+					"target_field": "sf_cashable_benefits_other_parties__c",
+					"application_field": "full_app_other_party_benefits__c"  
+				}
+			],
+			"routes": [
+				{ "target_page": "7" }
+			]
+		},
+		{
+			"id": "6",
+			"questions": [
+				{ "target_field": "sf_outcome_payments_expected__c"	},
+				{ "target_field": "sf_outcome_contribution_request__c" }
+			],
+			"routes": [
+				{ "target_page": "8" }
+			]
+		},
+		{
+			"id": "7",
+			"questions": [
+				{ 
+					"target_field": "sf_outcome_payments_expected__c",
+					"application_field": "full_app_outcome_payments__c"  	
+				},
+				{ 
+					"target_field": "sf_outcome_contribution_request__c",
+					"application_field": "full_app_LCF_contribution__c"   
+				}
+			],
+			"routes": [
+				{ "target_page": "8" }
+			]
+		},
+		{
+			"id": "8",
+			"questions": [
+				{ "target_field": "sf_lcf_contribution_request_changed__c" }
+			],
+			"routes": [
+				{ 
+					"target_page": "9",
+					"constraints": [
+						{ "field": "sf_lcf_contribution_request_changed__c", "operator": "equals", "value": "Yes" }
+					]
+				},
+				{ "target_page": "10" }
+			]
+		},
+		{
+			"id": "9",
+			"questions": [
+				{ "target_field": "sf_lcf_contribution_change_reasons__c" }
+			],
+			"routes": [
+				{ "target_page": "10" }
+			]
+		},
+		{
+			"id": "10",
+			"questions": [
+				{ "target_field": "sf_central_government_interventions__c" }
+			],
+			"routes": [
+				{ 
+					"target_page": "11",
+					"constraints": [
+						{ "field": "sf_central_government_interventions__c", "operator": "equals", "value": "Yes" }
+					]
+				}
+			]
+		},
+		{
+			"id": "11",
+			"questions": [
+				{ "target_field": "sf_central_government_services__c" }
+			]
+		}
+	]
+}

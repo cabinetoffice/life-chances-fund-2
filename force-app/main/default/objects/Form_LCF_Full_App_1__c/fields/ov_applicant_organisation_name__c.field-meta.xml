@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>ov_applicant_organisation_name__c</fullName>
     <externalId>false</externalId>
-    <inlineHelpText>What is the legal name of the lead applicant's organisation?</inlineHelpText>
+    <inlineHelpText>What is the legal name of the lead applicant&#39;s organisation?</inlineHelpText>
     <label>OV - Applicant Organisation Name</label>
     <length>255</length>
     <required>false</required>

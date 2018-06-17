@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>st_organisation_region__c</fullName>
+    <description>Please select either &#39;England wide&#39; or one or more regions of England</description>
+    <externalId>false</externalId>
+    <inlineHelpText>What region is the organisation in?</inlineHelpText>
+    <label>ST - Organisation Region</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Organisation_Region</valueSetName>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

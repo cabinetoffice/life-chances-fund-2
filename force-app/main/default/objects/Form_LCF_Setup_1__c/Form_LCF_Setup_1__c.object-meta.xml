@@ -38,7 +38,9 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <type>Default</type>
+        <content>COF_SetupViewOverride</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
@@ -53,7 +55,7 @@
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>ReadWrite</externalSharingModel>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
     <label>Form LCF Full Award Setup 1.0</label>
     <nameField>
         <displayFormat>STP-{00000}</displayFormat>
@@ -61,7 +63,16 @@
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Form LCF Full Award Setup 1.0</pluralLabel>
-    <searchLayouts/>
-    <sharingModel>ReadWrite</sharingModel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>application__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Application_Contact__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ap_project_name__c</customTabListAdditionalFields>
+        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>application__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Application_Contact__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ap_project_name__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>

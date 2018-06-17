@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ou_number_of_metrics__c</fullName>
+    <description>Number of metrics for this outcome</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Number of metrics for this outcome</inlineHelpText>
+    <label>OU - Number of Metrics</label>
+    <summaryForeignKey>Form_LCF_Outcome_Metric_1__c.grant_outcome__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

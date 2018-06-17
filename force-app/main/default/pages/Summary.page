@@ -7,97 +7,192 @@
         <apex:define name="breadcrumbs">
             <div class="breadcrumbs">
                 <ol>
-                    <li><apex:outputLink value="{!$Page.Applications}">Applications</apex:outputLink></li>
-                    <li>
-                        <apex:outputLink value="{!$Page.Sections}">
-                            {!form.title}
-                            <apex:param name="form" value="{!form.id}"/>
-                            <apex:param name="app" value="{!application['Name']}"/>
-                        </apex:outputLink>
-                    </li>
-                    <li aria-current="page">{!section.title}</li>
+					<apex:outputText rendered="{!NOT(ISBLANK(grant))}">
+	                    <li>
+		                    <apex:outputLink value="{!$Page.LCFGrants}">
+		                    Grant Management
+		                    <apex:param name="id" value="{!grant['Application__c']}"/>
+		                    </apex:outputLink>
+	                    </li>
+	                    <li>
+	                        <apex:outputLink value="{!$Page.LCFGrantBlock}">
+	                            {!form.title}
+	                            <apex:param name="form" value="{!form.id}"/>
+	                            <apex:param name="grant" value="{!grant['Name']}"/>
+	                        </apex:outputLink>
+	                    </li>
+					</apex:outputText> 
+					<apex:outputText rendered="{!ISBLANK(grant)}"> 
+	                    <li>
+		                    <apex:outputLink value="{!IF(partnerUser,URLFOR($Action.Application__c.List,$ObjectType.Application__c),$Page.Applications)}">
+		                    Applications
+		                    </apex:outputLink>
+	                    </li>
+	                    <li>
+	                        <apex:outputLink value="{!$Page.Sections}">
+	                            {!form.title}
+	                            <apex:param name="form" value="{!form.id}"/>
+	                            <apex:param name="app" value="{!application['Name']}"/>
+	                        </apex:outputLink>
+	                    </li>
+                    </apex:outputText>
+                    <li aria-current="page">{!title}</li>
                 </ol>
             </div>
         </apex:define>
         <apex:define name="mainFullWidth">
 
             <a href="#" onclick="window.history.go(-1); return false;" class="link-back">Back</a>
-            <h1 class="heading-xlarge" style="margin-bottom:30px !important">
-                <span class="heading-secondary">{!section.title}</span>
-                Check your answers
-            </h1>
+			<apex:outputText rendered="{!NOT(ISBLANK(grant))}">
+	            <h1 class="heading-xlarge" style="margin-bottom:30px !important">
+					<span class="heading-secondary">{!application['Name']}/{!grant['Name']}: {!section.title}
+					<apex:outputText rendered="{!form.period_title_field!=null}">
+						<br/><br/>{!targetObject[form.period_title_field]}
+					</apex:outputText>					
+					</span>
+	                Check your answers
+	            </h1>
+	        </apex:outputText>
+			<apex:outputText rendered="{!ISBLANK(grant)}">
+	            <h1 class="heading-xlarge" style="margin-bottom:30px !important">
+					<span class="heading-secondary">{!application['Name']}: {!section.title}</span>
+	                Check your answers
+	            </h1>
+			</apex:outputText> 
 
             <table class="sections">
                 <tbody class="summary">
                     <apex:repeat value="{!validPages}" var="validPage">
                         <apex:pageBlock rendered="{!AND(validPage.title != null, validPage.children == null)}">
                             <tr>
-                                <th class="question" colspan="3" valign="top">{!validPage.title}</th>
+                                <th class="heading-large" colspan="3" valign="top">{!validPage.title}</th>
                             </tr>
                         </apex:pageBlock>
                         <apex:pageBlock rendered="{!AND(validPage.title != null, validPage.children != null)}">
                             <tr>
                                 <th class="question" colspan="3" valign="top">
-                                    <br/>
-                                    {!validPage.title}
-                                    <br/>
-                                    <apex:outputLink value="{!$Page.Questions}">
-                                        Change
+                                    <h1 class="heading-large">{!validPage.title}</h1>
+									<apex:outputLink value="{!$Page.Questions}">
+							            <apex:outputText rendered="{!readOnlyMode==false}">Change</apex:outputText>
+							            <apex:outputText rendered="{!readOnlyMode==true}">View</apex:outputText>
                                         <apex:param name="page" value="{!validPage.id}"/>
                                         <apex:param name="form" value="{!form.id}"/>
                                         <apex:param name="section" value="{!section.id}"/>
-                                        <apex:param name="app" value="{!application['Name']}"/>
+                                        <apex:param name="app" value="{!appName}"/>
+										<apex:param name="grant" value="{!grantName}"/>
+										<apex:param name="title" value="{!title}"/>
+                                        <apex:param name="returnPage" value="Summary"/>
                                     </apex:outputLink>
                                 </th>
                             </tr>
                         </apex:pageBlock>
                         <apex:repeat value="{!validPage.fields}" var="field">
+                      		<apex:outputPanel rendered="{!field.isValid}">
                             <tr>
-                                <th class="question" valign="top">{!field.label}</th>
-                                <td valign="top"><apex:outputField value="{!targetObject[field.identifier]}"/></td>
+                                <th class="question" valign="top">{!field.label}</th> 
+                                <td valign="top">
+                                	<apex:outputField value="{!targetObject[field.identifier]}" rendered="{!field.isPercent==false}"/>
+                                	<apex:outputText value="{0,number,##.#%}" rendered="{!field.isPercent==true}">
+                                		<apex:param value="{!targetObject[field.identifier]/100}"/>
+                                	</apex:outputText>
+                                </td>
                                 <td class="numeric" valign="top">
                                     <apex:outputLink value="{!$Page.Questions}">
-                                        Change
+							            <apex:outputText rendered="{!readOnlyMode==false}">Change</apex:outputText>
+							            <apex:outputText rendered="{!readOnlyMode==true}">View</apex:outputText>
                                         <apex:param name="page" value="{!validPage.id}"/>
                                         <apex:param name="form" value="{!form.id}"/>
                                         <apex:param name="section" value="{!section.id}"/>
-                                        <apex:param name="app" value="{!application['Name']}"/>
+                                        <apex:param name="app" value="{!appName}"/>
+										<apex:param name="grant" value="{!grantName}"/>
+ 										<apex:param name="title" value="{!title}"/>
+                                        <apex:param name="returnPage" value="Summary"/>
                                     </apex:outputLink>
                                 </td> 
                             </tr>
+                            </apex:outputPanel>
                         </apex:repeat>
-                        <apex:pageBlock rendered="{!validPage.filesField != null}">
-							<tr>
-							    <th class="question" valign="top">{!validPage.filesField.label}</th>
-							    <td valign="top"><apex:outputField value="{!targetObject[validPage.filesField.identifier]}"/></td>
-							    <td class="numeric" valign="top">
-							        <apex:outputLink value="{!$Page.Questions}">
-							            Change
-							            <apex:param name="page" value="{!validPage.id}"/>
-							            <apex:param name="form" value="{!form.id}"/>
-							            <apex:param name="section" value="{!section.id}"/>
-							            <apex:param name="app" value="{!application['Name']}"/>
-							        </apex:outputLink>
-							    </td> 
-							</tr>
-                        </apex:pageBlock>
-                        <apex:repeat value="{!targetObject[validPage.children.child_relationship]}" var="obj">
+                      	<apex:outputPanel rendered="{!validPage.filesField!=null}">
+                            <tr>
+                                <th class="question" valign="top">{!validPage.filesField.label}</th> 
+                                <td valign="top"><apex:outputField value="{!targetObject[validPage.filesField.identifier]}"/></td>
+                                <td class="numeric" valign="top">
+                                    <apex:outputLink value="{!$Page.Questions}">
+							            <apex:outputText rendered="{!readOnlyMode==false}">Change</apex:outputText>
+							            <apex:outputText rendered="{!readOnlyMode==true}">View</apex:outputText>
+                                        <apex:param name="page" value="{!validPage.id}"/>
+                                        <apex:param name="form" value="{!form.id}"/>
+                                        <apex:param name="section" value="{!section.id}"/>
+                                        <apex:param name="app" value="{!appName}"/>
+										<apex:param name="grant" value="{!grantName}"/>
+ 										<apex:param name="title" value="{!title}"/>
+                                        <apex:param name="returnPage" value="Summary"/>
+                                    </apex:outputLink>
+                                </td> 
+                            </tr>
+                        </apex:outputPanel>
+                        <apex:repeat value="{!validPage.children.childRecs}" var="obj">
                             <apex:repeat value="{!validPage.children.childPages}" var="pg">
-								<apex:pageBlock rendered="{!pg.title != null}">
+								<apex:pageBlock rendered="{!AND(pg.title != null,NOT(CONTAINS(pg.title,'{{index}}')))}">
 								    <tr>
-								        <th class="question" colspan="3" valign="top">{!pg.title}</th>
+                                		<th class="heading-medium" colspan="3" valign="top">{!pg.title}</th>
 								    </tr>
 								</apex:pageBlock>
                                 <apex:repeat value="{!pg.fields}" var="field">
                                     <tr>
                                         <th class="question" valign="top">{!field.label}</th>
                                         <td valign="top"><apex:outputField value="{!obj[field.identifier]}"/></td>
+                                	<apex:outputText value="{0,number,##.#%}" rendered="{!field.isPercent==true}">
+                                		<apex:param value="{!targetObject[field.identifier]/100}"/>
+                                	</apex:outputText>
                                         <td class="numeric" valign="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                                     </tr>
                                 </apex:repeat>
+                      			<apex:outputPanel rendered="{!pg.displayField!=null}">
+                                    <tr>
+                                        <th class="question" valign="top">{!pg.displayField.label}</th>
+                                        <td valign="top"><apex:outputField value="{!obj[pg.displayField.identifier]}"/></td>
+                                        <td class="numeric" valign="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    </tr>
+                      			</apex:outputPanel>
                             </apex:repeat>
-                            <tr><td style="border:none"></td></tr>
+                            <tr><td style="border-top:3px solid black" colspan="3"></td></tr>
                         </apex:repeat>
+                        <apex:outputPanel rendered="{!validPage.children.total_field2!=null}">
+                             <tr>
+                                 <th class="question" valign="top">TOTAL {!validPage.children.field_head2}</th>
+                                 <td valign="top"><apex:outputField value="{!targetObject[validPage.children.total_field2]}"/></td>
+                                 <td class="numeric" valign="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                             </tr>
+                        </apex:outputPanel>
+                         <apex:outputPanel rendered="{!validPage.children.total_field3!=null}">
+                             <tr>
+                                 <th class="question" valign="top">TOTAL {!validPage.children.field_head3}</th>
+                                 <td valign="top"><apex:outputField value="{!targetObject[validPage.children.total_field3]}"/></td>
+                                 <td class="numeric" valign="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                             </tr>
+                        </apex:outputPanel>
+                         <apex:outputPanel rendered="{!validPage.children.total_field4!=null}">
+                             <tr>
+                                 <th class="question" valign="top">TOTAL {!validPage.children.field_head4}</th>
+                                 <td valign="top"><apex:outputField value="{!targetObject[validPage.children.total_field4]}"/></td>
+                                 <td class="numeric" valign="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                             </tr>
+                        </apex:outputPanel>
+                         <apex:outputPanel rendered="{!validPage.children.total_field5!=null}">
+                             <tr>
+                                 <th class="question" valign="top">TOTAL {!validPage.children.field_head5}</th>
+                                 <td valign="top"><apex:outputField value="{!targetObject[validPage.children.total_field5]}"/></td>
+                                 <td class="numeric" valign="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                             </tr>
+                        </apex:outputPanel>
+                         <apex:outputPanel rendered="{!validPage.children.total_field6!=null}">
+                             <tr>
+                                 <th class="question" valign="top">TOTAL {!validPage.children.field_head6}</th>
+                                 <td valign="top"><apex:outputField value="{!targetObject[validPage.children.total_field6]}"/></td>
+                                 <td class="numeric" valign="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                             </tr>
+                        </apex:outputPanel>
                     </apex:repeat>
                 </tbody>
             </table>
@@ -113,7 +208,7 @@
             <br /><br />
 
 
-            <apex:form >
+            <apex:form rendered="{!NOT(readOnlyMode)}" >
                 <apex:outputPanel rendered="{!NOT(section.questionsComplete)}">
                     <div class="notice">
                       <i class="icon icon-important" style="background-image: url({!URLFOR($Resource.images, 'icon-important.png')})">
@@ -129,7 +224,7 @@
                     <apex:commandButton value="Mark section as complete and continue" styleClass="button" disabled="true" html-aria-disabled="true" />
                 </apex:outputPanel>
                 <apex:outputPanel rendered="{!section.questionsComplete}">
-                    <apex:outputPanel rendered="{!targetObject[section.status_field]=='INCOMPLETE'}">
+                    <apex:outputPanel rendered="{!targetObject[section.status_field]!='COMPLETE'}">
                         <apex:commandButton rendered="{!section.questionsComplete}" value="Mark section as complete and continue" action="{!complete}" styleClass="button"/>
                         <br /><br />
                         <apex:commandLink value="Save and come back later" action="{!saveExit}" />

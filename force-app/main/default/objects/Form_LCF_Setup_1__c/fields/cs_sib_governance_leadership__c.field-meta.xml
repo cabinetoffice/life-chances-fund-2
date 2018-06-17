@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cs_sib_governance_leadership__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>How will you ensure your SIB has strong leadership, an outcomes focus, shared understanding between stakeholders and good data?</inlineHelpText>
+    <label>CS - SIB Governance Leadership</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>10</visibleLines>
+</CustomField>

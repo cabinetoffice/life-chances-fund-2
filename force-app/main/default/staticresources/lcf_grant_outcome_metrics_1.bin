@@ -1,0 +1,18 @@
+{
+	"id": "lcf_grant_outcome_metrics_1",
+	"target_object": "Form_LCF_Outcome_Metric_1__c",
+	"target_field": "om_description__c",
+	"child_count_field": "ou_number_of_metrics__c",
+	"short_title": "Metric",
+	"parent_relationship": "grant_outcome__r",
+	"status_relationship": "grant_baseline__r",
+	"pages": [
+		{
+			"id": "1",
+			"questions": [
+				{ "target_field": "om_description__c" },
+				{ "target_field": "om_individual_cohort__c" }
+			]
+		}
+	]
+}

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customButtons>Assign_Reviewer</customButtons>
+    <customButtons>Grant_Management</customButtons>
     <excludeButtons>Clone</excludeButtons>
     <excludeButtons>Edit</excludeButtons>
     <excludeButtons>Share</excludeButtons>
@@ -15,10 +17,6 @@
                 <field>Name</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>Application_Window_Template__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Contact__c</field>
             </layoutItems>
@@ -32,36 +30,120 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Identity_Check_Status__c</field>
+                <field>Project_Name__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Development_Form_Status__c</field>
+                <field>Project_Region__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Status__c</field>
+                <field>Project_Value__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Full_Application_Status__c</field>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Full_App_Number_of_Commissioners__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Full_App_Primary_Commissioner_Count__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Full_App_Number_of_Outcomes__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Full_App_Primary_Outcome_Count__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>OwnerId</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Reviewer__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Application_Stage__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Eligible_for_Full_Application__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Eligible_for_NEW_EOI_Form__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Applicant_Organisation_Name__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Applicant_Organisation_Type__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Applicant_Organisation_Sector__c</field>
+            </layoutItems>
+            <layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Setup_Number_of_Stakeholders__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Setup_Number_of_Commissioners__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Setup_Primary_Stakeholder_Count__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Setup_Number_of_Outcomes__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Setup_Primary_Outcome_Count__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
+        <label>Form Status</label>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Identity_Check_Status__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Development_Form_Status__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Status__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Full_Application_Status__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Full_Award_Setup_Status__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <layoutColumns/>
+        <style>TwoColumnsLeftToRight</style>
     </layoutSections>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -71,10 +153,18 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>CreatedById</field>
+                <field>RecordTypeId</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Theme__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>CreatedById</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>LastModifiedById</field>
@@ -94,53 +184,26 @@
     </layoutSections>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Application_Question__c</fields>
-        <fields>Question__c</fields>
-        <fields>Response__c</fields>
-        <fields>Text_Answer__c</fields>
-        <relatedList>Application_Answer__c.Application__c</relatedList>
+        <fields>pr_project_name__c</fields>
+        <fields>pr_project_start_date__c</fields>
+        <fields>co_primary_commissioner__c</fields>
+        <relatedList>Form_LCF_EOI_1__c.application__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>First_Name__c</fields>
-        <fields>Last_Name__c</fields>
-        <fields>Email__c</fields>
-        <fields>Phone_Number__c</fields>
-        <fields>Organisation_Name__c</fields>
-        <fields>Organisation_Region__c</fields>
-        <relatedList>Application_Commissioner__c.Application__c</relatedList>
+        <fields>ov_project_name__c</fields>
+        <fields>Form_Complete__c</fields>
+        <fields>Status__c</fields>
+        <fields>fn_proposed_sib_service_spend__c</fields>
+        <relatedList>Form_LCF_Full_App_1__c.application__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Measure__c</fields>
-        <fields>Outcome_summary__c</fields>
-        <relatedList>Outcome__c.Application__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>Was_It_Successful__c</fields>
-        <fields>Not_Successful_Reasons__c</fields>
-        <relatedList>Previous_Application__c.Application__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <relatedList>RelatedContentNoteList</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <relatedList>RelatedNoteList</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>Description__c</fields>
-        <fields>Baseline__c</fields>
-        <fields>Payment__c</fields>
-        <fields>LAST_UPDATE</fields>
-        <relatedList>Outcome_Payment_Trigger__c.Application__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>IsPrimary__c</fields>
-        <fields>Outcome_Summary__c</fields>
-        <relatedList>Primary_Outcome__c.Application__c</relatedList>
+        <fields>ap_project_name__c</fields>
+        <fields>ap_original_project_name__c</fields>
+        <fields>ap_lead_applicant_organisation__c</fields>
+        <fields>sf_outcome_contribution_request__c</fields>
+        <relatedList>Form_LCF_Setup_1__c.application__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>

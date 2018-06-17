@@ -1,0 +1,17 @@
+{
+	"id": "lcf_grant_triggers_1",
+	"target_object": "Form_LCF_Payment_Trigger_1__c",
+	"target_field": "pt_description__c",
+	"child_count_field": "bb_number_of_payment_triggers__c",
+	"status_field": "bb_section_status__c",
+	"short_title": "Trigger",
+	"parent_relationship": "grant_baseline__r",
+	"pages": [
+		{
+			"id": "1",
+			"questions": [
+				{ "target_field": "pt_description__c" }
+			]
+		}
+	]
+}

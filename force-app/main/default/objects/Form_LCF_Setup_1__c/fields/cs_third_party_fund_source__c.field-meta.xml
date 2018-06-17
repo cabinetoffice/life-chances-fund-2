@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>cs_third_party_fund_source__c</fullName>
     <externalId>false</externalId>
-    <inlineHelpText>Who will source the third party grand funding?</inlineHelpText>
+    <inlineHelpText>Who will source the third party grant funding?</inlineHelpText>
     <label>CS - Third Party Fund Source</label>
     <length>255</length>
     <required>false</required>

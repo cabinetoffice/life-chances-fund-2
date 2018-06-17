@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Sent to submitter when an Outcomes Achievement and Payment Claim is submitted</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Cabinet_Office_Letterhead</letterhead>
+    <name>Outcomes Achievement Submitted</name>
+    <style>freeForm</style>
+    <subject>Outcomes Achievement and Payment Claim Form submitted for Grant {!Form_LCF_Grant_Achievement_1__c.lcf_grant__c}</subject>
+    <textOnly>Hi {!Form_LCF_Grant_Achievement_1__c.OwnerFullName},
+
+You have successfully submitted an outcomes achievement and payment claim form, reference {!Form_LCF_Grant_Achievement_1__c.lcf_grant__c}:{!Form_LCF_Grant_Achievement_1__c.Name}.
+
+Your funding office will be in touch to review the form with you..
+
+If you have any further queries, please get back to us at lifechancesfund@biglotteryfund.org.uk with the above reference.
+
+Kind Regards,
+Centre for Social Impact Bonds</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

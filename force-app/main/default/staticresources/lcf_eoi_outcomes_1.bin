@@ -1,0 +1,35 @@
+{
+	"id": "lcf_eoi_outcomes_1",
+	"target_object": "Form_LCF_EOI_1__c",
+	"short_title": "Outcomes",
+	"parent_relationship": "application__r",
+	"pages": [
+		{
+			"id": "1",
+			"title_id": "Outcomes", 
+			"children": {
+				"target_object": "Form_LCF_Outcome_1__c",
+				"target_field": "ou_description__c",
+				"parent_field": "eoi__c",
+				"title": "Outcomes",
+				"section": "lcf_eoi_outcomes_child_1",
+				"add_label": "+ Add another outcome",
+				"primary_label": "+ Add primary outcome",
+				"primary_field": "primary__c",
+				"child_count_field": "ou_number_of_outcomes__c",
+				"primary_count_field": "ou_primary_outcome_count__c",
+				"record_type": "EOI"
+			},
+			"routes": [
+				{ "target_page": "2" }
+			]
+		},
+		{
+			"id": "2",
+			"questions": [
+				{ "target_field": "ou_intervention_description__c" }
+			]
+		}
+	]
+}
+

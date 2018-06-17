@@ -43,6 +43,7 @@
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
+    <description>Life Chances Fund Application master object</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableChangeDataCapture>false</enableChangeDataCapture>
@@ -54,16 +55,29 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
-    <label>Application</label>
+    <label>LCF Application</label>
     <nameField>
         <displayFormat>APP-{00000}</displayFormat>
         <label>Application ID</label>
         <trackFeedHistory>false</trackFeedHistory>
         <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>Applications</pluralLabel>
+    <pluralLabel>LCF Applications</pluralLabel>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
-    <searchLayouts/>
+    <searchLayouts>
+        <customTabListAdditionalFields>Theme__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Application_Stage__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Full_Application_Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Contact__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Organisation_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CREATED_DATE</customTabListAdditionalFields>
+        <searchResultsAdditionalFields>Theme__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Application_Stage__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Full_Application_Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Contact__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Organisation_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CREATED_DATE</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>

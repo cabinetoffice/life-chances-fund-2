@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Sent when an LCF Grant Outcomes Achievement and Payment Claim is approved</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Cabinet_Office_Letterhead</letterhead>
+    <name>Outcomes Achievement Approved</name>
+    <style>freeForm</style>
+    <subject>Your Outcomes Achievement and Payment Claim Form has been approved</subject>
+    <textOnly>Hi {!Form_LCF_Grant_Achievement_1__c.OwnerFullName},
+
+Your outcomes achievement and payment claim form, reference {!Form_LCF_Grant_Achievement_1__c.lcf_grant__c}:{!Form_LCF_Grant_Achievement_1__c.Name}, has been approved.
+
+If you have any further queries, please get back to us at lifechancesfund@biglotteryfund.org.uk with the above reference.
+
+Kind Regards,
+Centre for Social Impact Bonds</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

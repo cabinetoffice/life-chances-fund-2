@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>cs_good_value__c</fullName>
-    <description>Tell us how your SIB will provide good value for money to commissioners and service providers in particular; and to other stakeholders, including local communities, investors and the Life Chances Fund</description>
+    <description>Tell us how your SIB will provide good value for money to commissioners and service providers in particular; and to other stakeholders, including local communities, investors and the Life Chances Fund. If there is a rationale for you exceeding LCF benchmarks on SIB costs, for differentiated returns for different stakeholders and/or reasons why you can sustain commissioner commitment despite savings being lower that outcomes payments, then set them down in this section (i.e.: the model is primarily for research or community support purposes:</description>
     <externalId>false</externalId>
     <inlineHelpText>How do you know your SIB will provide good value for money?</inlineHelpText>
     <label>CS - Good Value for Money</label>

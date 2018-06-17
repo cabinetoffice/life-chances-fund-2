@@ -43,24 +43,24 @@
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Life Chances Fund - Full Application - Commissioner - 1.0</description>
+    <description>Life Chances Fund - Stakeholder/Commissioner - 1.0</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
-    <enableReports>false</enableReports>
+    <enableReports>true</enableReports>
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ControlledByParent</externalSharingModel>
-    <label>Form LCF Commissioner 1.0</label>
+    <label>Form LCF Stakeholder 1.0</label>
     <nameField>
         <displayFormat>COM-{00000}</displayFormat>
-        <label>Commissioner ID</label>
+        <label>Stakeholder ID</label>
         <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>Form LCF Commissioner 1.0</pluralLabel>
+    <pluralLabel>Form LCF Stakeholders</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
     <visibility>Public</visibility>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>op_commissioner_savings__c</fullName>
+    <description>Normally, only include savings/benefits made by commissioners who are making outcome payments to fund your proposal. However, if your ONLY savings and costs avoided are from other sources, then please include these.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Commissioner cashable savings and benefits from costs avoided</inlineHelpText>
+    <label>OP - Commissioner Savings</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

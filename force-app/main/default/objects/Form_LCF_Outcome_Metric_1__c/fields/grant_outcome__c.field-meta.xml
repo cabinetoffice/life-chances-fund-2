@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>grant_outcome__c</fullName>
+    <externalId>false</externalId>
+    <label>Form LCF Grant Outcome 1.0</label>
+    <referenceTo>Form_LCF_Grant_Outcome_1__c</referenceTo>
+    <relationshipLabel>Form LCF Outcome Metrics</relationshipLabel>
+    <relationshipName>outcome_metrics</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

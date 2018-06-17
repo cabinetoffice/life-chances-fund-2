@@ -1,4 +1,4 @@
-<apex:page controller="StartController" standardStylesheets="false" showHeader="false" docType="html-5.0" action="{!checkLoggedInAndApplicationStatus}">
+<apex:page controller="StartController" standardStylesheets="false" showHeader="false" docType="html-5.0" action="{!checkLoggedInStatus}">
 
     <apex:composition template="Layout">
 		<apex:define name="title">
@@ -7,7 +7,7 @@
         <apex:define name="breadcrumbs">
             <div class="breadcrumbs">
                 <ol>
-                    <li><apex:outputLink value="{!$Page.Applications}">Applications</apex:outputLink></li>
+                    <li><apex:outputLink value="{!IF(partnerUser,URLFOR($Action.Application__c.List,$ObjectType.Application__c),$Page.Applications)}">Applications</apex:outputLink></li>
                     <li>
                         <apex:outputLink value="{!$Page.Sections}">
                             {!form.title}
@@ -22,7 +22,7 @@
         <apex:define name="main">
             <a href="#" onclick="window.history.go(-1); return false;" class="link-back">Back</a>
             <h1 class="heading-xlarge" style="margin-bottom:30px !important">
-                <span class="heading-secondary">{!application['Theme__c']}</span>
+                <span class="heading-secondary">{!application['Name']}: {!application['Theme__c']}</span>
                 {!section.title}
             </h1>
                     
@@ -36,7 +36,8 @@
             <apex:form >
                 <apex:commandButton value="{!buttonLabel}" action="{!start}" styleClass="button" />
                 <br /><br />
-                <apex:commandLink value="Check your answers" action="{!summaryPage}" />
+                <apex:commandLink value="Check your answers" action="{!summaryPage}"/>&nbsp;&nbsp;&nbsp;&nbsp;
+                <apex:commandLink value="Print answers (pdf)" action="{!summaryPdf}" />
             </apex:form>
         </apex:define>
     </apex:composition>

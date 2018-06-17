@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cs_sib_governance_support__c</fullName>
+    <description>e.g. select a management agent or engage investor or other advice to cover this</description>
+    <externalId>false</externalId>
+    <inlineHelpText>How do you plan to secure specialist support?</inlineHelpText>
+    <label>CS - SIB Governance Support</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>10</visibleLines>
+</CustomField>

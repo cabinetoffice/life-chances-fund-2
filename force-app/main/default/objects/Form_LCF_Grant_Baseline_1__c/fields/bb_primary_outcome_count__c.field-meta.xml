@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>bb_primary_outcome_count__c</fullName>
+    <description>Count of primary outcomes (should be 1)</description>
+    <externalId>false</externalId>
+    <formula>lcf_grant__r.Primary_Outcome_Count__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Count of primary outcomes (should be 1)</inlineHelpText>
+    <label>BB - Primary Outcome Count</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ap_lead_applicant_the_same__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Is this the same as at the in-principle stage?</inlineHelpText>
+    <label>AP - Lead Applicant the same</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Yes_No</valueSetName>
+    </valueSet>
+</CustomField>

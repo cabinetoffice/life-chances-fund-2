@@ -4,6 +4,48 @@
     <active>true</active>
     <label>Full Application</label>
     <picklistValues>
+        <picklist>Applicant_Organisation_Sector__c</picklist>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Private sector</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Public sector</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Social enterprise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Voluntary and community sector</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Applicant_Organisation_Type__c</picklist>
+        <values>
+            <fullName>Commissioner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Intermediary</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Service provider</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
         <picklist>Application_Stage__c</picklist>
         <values>
             <fullName>Full Application</fullName>
@@ -19,6 +61,92 @@
         <values>
             <fullName>Successful</fullName>
             <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>EOI_Primary_Commissioner_Region__c</picklist>
+        <values>
+            <fullName>East Midlands</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>East of England</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>England wide</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>London</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>North East</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>North West</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>South East</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>South West</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>West Midlands</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yorkshire and the Humber</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Full_App_Primary_Commissioner_Region__c</picklist>
+        <values>
+            <fullName>East Midlands</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>East of England</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>England wide</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>London</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>North East</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>North West</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>South East</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>South West</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>West Midlands</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yorkshire and the Humber</fullName>
+            <default>false</default>
         </values>
     </picklistValues>
     <picklistValues>
@@ -83,10 +211,116 @@
         </values>
     </picklistValues>
     <picklistValues>
+        <picklist>Project_Region__c</picklist>
+        <values>
+            <fullName>East Midlands</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>East of England</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>England wide</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>London</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>North East</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>North West</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>South East</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>South West</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>West Midlands</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yorkshire and the Humber</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Setup_Primary_Stakeholder_Region__c</picklist>
+        <values>
+            <fullName>East Midlands</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>East of England</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>England wide</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>London</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>North East</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>North West</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>South East</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>South West</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>West Midlands</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yorkshire and the Humber</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
         <picklist>Status__c</picklist>
+        <values>
+            <fullName>Draft</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ready for Approval</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Submitted</fullName>
+            <default>false</default>
+        </values>
         <values>
             <fullName>Successful</fullName>
             <default>true</default>
+        </values>
+        <values>
+            <fullName>Under review %28In progress%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unsuccessful</fullName>
+            <default>false</default>
         </values>
     </picklistValues>
     <picklistValues>

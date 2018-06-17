@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>tm_operating_costs_high__c</fullName>
-    <description>Page Title:Operating Costs</description>
+    <description>Page Title:Estimated operating costs to deliver the SIB</description>
     <externalId>false</externalId>
     <inlineHelpText>High</inlineHelpText>
     <label>TM - Operating Costs High</label>
     <precision>18</precision>
     <required>false</required>
-    <scale>2</scale>
+    <scale>0</scale>
     <trackTrending>false</trackTrending>
     <type>Currency</type>
 </CustomField>

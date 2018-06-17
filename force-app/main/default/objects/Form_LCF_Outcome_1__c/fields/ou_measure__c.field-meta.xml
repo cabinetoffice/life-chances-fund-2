@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ou_measure__c</fullName>
+    <description>Outline the proposed metrics you will use to measure the effectiveness of the project (e.g. a specific data set that will enable you to count the number of outcomes successfully delivered)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>How will the outcome be measured?</inlineHelpText>
+    <label>OU - Measure</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

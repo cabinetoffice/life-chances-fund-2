@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Eligible_for_NEW_EOI_Form__c</fullName>
+    <externalId>false</externalId>
+    <formula>$User.Eligible_for_NEW_EOI_Form__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Eligible for NEW EOI Form</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

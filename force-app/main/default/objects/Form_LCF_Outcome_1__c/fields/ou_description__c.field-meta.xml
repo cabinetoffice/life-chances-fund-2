@@ -5,8 +5,7 @@
     <externalId>false</externalId>
     <inlineHelpText>Briefly describe the outcome</inlineHelpText>
     <label>OU - Description</label>
-    <length>32768</length>
+    <required>false</required>
     <trackTrending>false</trackTrending>
-    <type>LongTextArea</type>
-    <visibleLines>4</visibleLines>
+    <type>TextArea</type>
 </CustomField>

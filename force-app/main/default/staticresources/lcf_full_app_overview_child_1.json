@@ -1,15 +1,22 @@
 {
 	"id": "lcf_full_app_overview_child_1",
 	"target_object": "Form_LCF_Commissioner_1__c",
-	"target_field": "co_organisation_name__c",
+	"target_field": "st_organisation_name__c",
 	"status_field": "ov_section_status__c",
+	"child_count_field": "ov_number_of_commissioners__c",
+	"primary_count_field": "ov_primary_commissioner_count__c",
+	"primary_field": "primary__c",
 	"short_title": "Commissioner",
 	"parent_relationship": "full_application__r",
 	"pages": [
 		{
 			"id": "1",
+			"title_id": "Commissioner Organisation",
 			"questions": [
-				{ "target_field": "co_organisation_name__c" }
+				{ "target_field": "st_organisation_name__c" },
+				{ "target_field": "st_lead_contact_first_name__c" },
+				{ "target_field": "st_lead_contact_last_name__c" },
+				{ "target_field": "primary__c" }
 			],
 			"routes": [
 				{ "target_page": "2" }
@@ -18,10 +25,18 @@
 		{
 			"id": "2",
 			"questions": [
-				{ "target_field": "co_lead_contact_name__c" },
-				{ "target_field": "co_job_title__c" },
-				{ "target_field": "co_email__c" },
-				{ "target_field": "co_contact_number__c" }
+				{ "target_field": "st_lead_contact_job_title__c" },
+				{ "target_field": "st_lead_contact_email__c" },
+				{ "target_field": "st_lead_contact_phone__c" }
+			],
+			"routes": [
+				{ "target_page": "3" }
+			]
+		},
+		{
+			"id": "3",
+			"questions": [
+				{ "target_field": "st_organisation_region__c" }
 			]
 		}
 	]
